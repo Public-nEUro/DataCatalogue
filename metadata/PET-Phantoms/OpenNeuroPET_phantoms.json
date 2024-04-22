@@ -1,11 +1,11 @@
 {
-    "title": "OpenNeuroPET Phantoms",
+   "type": "dataset",
+   "title": "OpenNeuroPET Phantoms",
     "description": "The PET Brain phantoms dataset is curated by OpenNeuroPET. This repository contains source data from PET scanners that need to be converted to nifti format, preferably following BIDS. An issue with ecat and DICOM data is that many tags are not mandatory and many values are not standardized making it difficult to harmonize the outputs of conversion, in particular side car json files. Here we collected many phantoms from different sites and scanners allowing to check the different header tags and values. This also allows validated conversion tools. Such test is performed via the code folder where one use the PET2BIDS library to do the conversion (which depends on dcm2niix for DICOM). Feel free to add to this with your own tool and submit the request to update the dataset.",
     "dataset_id": "datalad_hash_to_use",
     "dataset_version": "V1",
     "doi": "xxxx",
     "url": "xxxx",
-    "type": "object",
     "keywords": ["Positron Emission Tomography", "PET", "Brain", "Source files", "ecat7","DICOM","Phantom","Conversion","PET2BIDS","dcm2niix"],
     "license": {
       "name": "CC BY 4.0",
