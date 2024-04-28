@@ -18,6 +18,10 @@ The content of this root directory includes everything necessary to serve the st
 
 The `artwork` and `assets` directories contain images and web assets (such as JavaScript and CSS files) respectively that support the rendering of the HTML components in `index.html`. The `config.json` file contains customizable configuration options supplied to `datalad-catalog`.
 
+## PublicnEUro metadata
+
+The `metadata` diretory is used to render information online. It can also be used directly to populate or query via searching json files.  
+
 ## Serving the content
 
 Since this site is self-contained and static, no further build processes, server-side implementations, or access to content delivery networks (CDNs) are necessary in order to serve the content. All that is needed is a simple HTTP server.
