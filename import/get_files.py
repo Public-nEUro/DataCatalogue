@@ -25,12 +25,12 @@ def get_file_info(path, savelist):
 
     # Process directories
     for directory in dirs:
-      full_path = os.path.join(root, directory)
+      full_path = os.path.join(root, os.path.normpath(directory))
       # Only include directories within 'source'
       if root.endswith("sourcedata"):
         size = sum(os.path.getsize(os.path.join(dirpath, filename)) 
           for dirpath, _, filenames in os.walk(full_path) for filename in filenames)
-        dirname = os.path.join("sourcedata", directory)
+        dirname = os.path.join("sourcedata", os.path.normpath(directory))
         file_info.append({"path": dirname, "contentbytesize": size})
         
     # Process files
@@ -39,7 +39,7 @@ def get_file_info(path, savelist):
       # Include files with ".json" or ".nii[.gz]" extensions
       if file.endswith(('.json', '.nii', '.nii.gz')):
         size = os.path.getsize(full_path)
-        filename = os.path.join(os.path.relpath(full_path, path), file)
+        filename = os.path.relpath(full_path, path)
         file_info.append({"path": filename, "contentbytesize": size})
     
   if savelist == 1:
