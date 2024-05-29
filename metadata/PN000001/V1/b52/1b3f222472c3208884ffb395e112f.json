@@ -1,0 +1,1 @@
+{"type": "directory", "dataset_id": "PN000001", "dataset_version": "V1", "children": [{"type": "directory", "name": "pet", "path": "sub-PhilipsIngenuityPETCTAmsterdamUMC/pet", "dataset_id": "PN000001", "dataset_version": "V1"}], "path": "sub-PhilipsIngenuityPETCTAmsterdamUMC", "name": "sub-PhilipsIngenuityPETCTAmsterdamUMC"}
