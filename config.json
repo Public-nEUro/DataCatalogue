@@ -9,7 +9,7 @@
         "github": "https://github.com/Public-nEUro/"
     },
     "dataset_options": {
-        "include_datalad": true,
+        "include_datalad": false,
         "include_github": false,
         "include_gitlab": false,
         "include_gin": false,
