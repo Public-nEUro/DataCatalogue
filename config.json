@@ -1,1 +1,52 @@
-{"catalog_name": "publicneuro-catalogue", "logo_path": "", "link_color": "#fba304", "link_hover_color": "#af7714", "social_links": {"about": null, "documentation": "https://publicneuro.eu/", "github": "https://github.com/Public-nEUro/"}, "dataset_options": {"include_metadata_export": true}, "property_sources": {"dataset": {"dataset_id": {}, "dataset_version": {}, "type": {}, "children": {"rule": "merge", "source": "any"}, "name": {}, "short_name": {}, "description": {}, "doi": {}, "url": {"rule": "merge", "source": "any"}, "authors": {"rule": "merge", "source": "any"}, "keywords": {"rule": "merge", "source": "any"}, "license": {}, "funding": {"rule": "merge", "source": "any"}, "publications": {"rule": "merge", "source": "any"}, "subdatasets": {"rule": "merge", "source": "any"}, "additional_display": {"rule": "merge", "source": "any"}, "top_display": {"rule": "merge", "source": "any"}}}}
+{
+    "catalog_name": "publicneuro-catalogue",
+    "catalog_url": "https://publicneuro-catalogue.netlify.app/",
+    "link_color": "#fba304",
+    "link_hover_color": "#af7714",
+    "social_links": {
+        "about": null,
+        "documentation": "https://publicneuro.eu/",
+        "github": "https://github.com/Public-nEUro/"
+    },
+    "dataset_options": {
+        "include_datalad": true,
+        "include_github": false,
+        "include_gitlab": false,
+        "include_gin": false,
+        "include_binder": false,
+        "include_cite": true,
+        "include_metadata_export": true,
+        "include_access_request": true
+    },
+    "property_sources": {
+        "dataset": {
+            "authors": {
+                "rule": "merge",
+                "source": [
+                    "metalad_studyminimeta"
+                ]
+            },
+            "description": {
+                "rule": "priority",
+                "source": [
+                    "metalad_studyminimeta",
+                    "bids_dataset"
+                ]
+            },
+            "keywords": {
+                "rule": "merge",
+                "source": "any"
+            },
+            "additional_display": {
+                "rule": "merge",
+                "source": []
+            },
+            "top_display": {
+                "rule": "merge",
+                "source": []
+            }
+        },
+        "file": {
+        }
+    }   
+}
