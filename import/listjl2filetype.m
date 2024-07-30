@@ -8,12 +8,19 @@ function listjl2filetype(datasetjl,listjl,source_name,agent_name)
 % listjl name of the file_list.jsonl
 % source_name and agent_name are used to reference the source element
 %      e.g. source_name = 'OpenNeuro_PET'; agent_name = 'Cyril Pernet';
+%
+% usage: listjl2filetype('mydataset_info.jsonl','mygenerated_file_list.jsonl', 'OpenNeuro_PET','Cyril Pernet')
 
 % 1 - get datasetjl
 if ~exist(datasetjl,'file')
     error('dataset.json file %g not found',datasetjl)
 end
 dataset_info = jsondecode(fileread(datasetjl));
+if ~isfield(dataset_info,'metadata_sources')
+    dataset_info.metadata_sources.sources.source_name    = source_name;
+    dataset_info.metadata_sources.sources.source_version = dataset_info.dataset_version;
+    dataset_info.metadata_sources.sources.agent_name     = agent_name;
+end
 local_jsonwrite([erase(dataset_info.name," ") '.jsonl'],dataset_info)
 
 % 2 - get listjl
@@ -25,14 +32,33 @@ for f=1:size(files_info,1)
     item.dataset_id       = dataset_info.dataset_id;
     item.dataset_version  = dataset_info.dataset_version;
     item.path             = cell2mat(extractBetween(files_info{f},'"path": "','",'));
-    item.path(strfind(item.path,'\\'))=[];
-    item.path(strfind(item.path,'//'))=[];
+    %item.path(strfind(item.path,'\\'))=[];
+    %item.path(strfind(item.path,'//'))=[];
     item.contentbytesize  = str2double(cell2mat(extractBetween(files_info{f},'"contentbytesize":','}')));
     item.metadata_sources.sources.source_name    = source_name;
     item.metadata_sources.sources.source_version = dataset_info.dataset_version;
     item.metadata_sources.sources.agent_name     = agent_name;
     local_jsonwrite([erase(dataset_info.name," ") '.jsonl'],item)
 end
+
+% fix known issues
+% metadata_sources are  missing square brackets
+lines = readlines([erase(dataset_info.name," ") '.jsonl']);
+for l=1:size(lines,1)
+    if lines(l,:) == ""
+        lines(l,:) = [];
+    else
+        part1 = char(extractBefore(lines(l,:),'"metadata_sources":{"sources":'));
+        part2 = char(['"metadata_sources":{"sources":' '[']); % add the square bracket;
+        part3 = char(extractAfter(lines(l,:),'"metadata_sources":{"sources":'));
+        part3 = [part3(1:end-3) '}]}}']; % rebuild ending adding square bracket
+        lines(l,:) = [part1 part2 part3];
+    end
+end
+delete([erase(dataset_info.name," ") '.jsonl']);
+fid = fopen([erase(dataset_info.name," ") '.jsonl'], 'wt');
+fprintf(fid, '%s\n', lines);
+fclose(fid);
 
 function varargout = local_jsonwrite(varargin)
 
@@ -188,6 +214,9 @@ function S = jsonwrite_char(json)
 %json = strrep(json,'\','\\');
 json = strrep(json,'"','\"');
 %json = strrep(json,'/','\/');
+json = strrep(json,'\','/');  % added to ensure forward slash 
+json = strrep(json,'\\','/'); % added to ensure forward slash 
+json = strrep(json,'//','/'); % added to ensure forward slash 
 json = strrep(json,sprintf('\b'),'\b');
 json = strrep(json,sprintf('\f'),'\f');
 json = strrep(json,sprintf('\n'),'\n');
