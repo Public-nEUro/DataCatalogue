@@ -43,7 +43,7 @@ def get_file_info(path, savelist):
         file_info.append({"path": filename, "contentbytesize": size})
     
   if savelist == 1:
-    destination_path = os.path.join(path, "file_list.jsonl")
+    destination_path = os.path.join(os.getcwd(), "file_list.jsonl")
     with open(destination_path, "w") as f:
       for item in file_info:
         json.dump(item, f)
