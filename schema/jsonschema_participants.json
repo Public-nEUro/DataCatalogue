@@ -1,0 +1,46 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "participants",
+    "description": "Gives information about participiants (.e.g from a research study, survey, etc) in the dataset",
+    "type": "object",
+    "properties": {
+        "dataset_id": {
+            "description": "The parent dataset ID",
+            "title": "Dataset ID",
+            "type": "string"
+        },
+        "total_number": {
+            "description": "The total number of participants in the dataset",
+            "title": "Total number",
+            "type": "number"
+        },
+        "number_of_healthy": {
+            "description": "The number of healthy participants in the dataset",
+            "title": "Number of healthy participants",
+            "type": "number"
+        },
+        "number_of_patients": {
+            "description": "The number of patients in the dataset",
+            "title": "Number of patients",
+            "type": [
+                "number",
+                "array"
+            ]
+        },
+        "number_of_biological_males": {
+            "description": "The number of biological",
+            "title": "Number of biological males",
+            "type": "number"
+        },
+        "number_of_biological_females": {
+            "description": "The number of biological",
+            "title": "Number of biologicalfemales",
+            "type": "number"
+        }
+    },
+    "required": [
+        "type",
+        "dataset_id",
+        "total_number"
+    ]
+}
