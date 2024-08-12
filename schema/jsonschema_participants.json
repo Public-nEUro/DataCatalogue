@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "participants",
-    "description": "Gives information about participiants (.e.g from a research study, survey, etc) in the dataset",
+    "description": "Gives information about participiants (e.g from a research study, survey, etc) in the dataset",
     "type": "object",
     "properties": {
         "dataset_id": {
@@ -13,6 +13,11 @@
             "description": "The total number of participants in the dataset",
             "title": "Total number",
             "type": "number"
+        },
+        "age_range": {
+            "description": "the lowest and highest age of the participants in the dataset",
+            "title": "Age range",
+            "type": "array"
         },
         "number_of_healthy": {
             "description": "The number of healthy participants in the dataset",
@@ -34,13 +39,14 @@
         },
         "number_of_biological_females": {
             "description": "The number of biological",
-            "title": "Number of biologicalfemales",
+            "title": "Number of biological females",
             "type": "number"
         }
     },
     "required": [
         "type",
         "dataset_id",
-        "total_number"
+        "total_number",
+        "age_range"
     ]
 }
