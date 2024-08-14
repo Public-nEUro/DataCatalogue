@@ -41,9 +41,10 @@
         }
     },
     "required": [
-        "type",
-        "total_number",
-        "age_range"
+        "bids_version",
+        "bids_datasettype",
+        "bids_datatypes",
+        "Ontologies"
     ]
 }
 
