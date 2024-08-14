@@ -1,0 +1,50 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "publicneurometa",
+    "description": "list a series of metadata used in PublicnEUro",
+    "type": "object",
+    "properties": {
+        "bids_version": {
+            "description": "which bids version is used for the dataset",
+            "title": "BIDS version",
+            "type": "string"
+        },
+        "bids_datasettype": {
+            "description": "what dataset type is used for the dataset (raw or derivative)",
+            "title": "BIDS dataset type",
+            "type": "string"
+        },
+        "bids_datatypes": {
+            "description": "list the type of data in the dataset",
+            "title": "BIDS dataset type",
+            "type": ["string","array"]
+        },
+        "Ontologies": {
+            "description": "List a series of ontologies used in the dataset",
+            "title": "Ontologies",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "description": "Name of the ontologie used like eg SNOMED ID",
+                        "title": "Type",
+                        "type": "string"
+                        },
+                    "identifier": {
+                    "description": "The value(s) maching the type",
+                    "title": "Identifier",
+                    "type": ["string","array"]
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "type",
+        "total_number",
+        "age_range"
+    ]
+}
+
+"bids_version": "v1.9.0", "bids_datasettype": "derivative", "bids_datatypes": ["anat","func"], "Ontologies": [{"NCBI Species Taxonomy": "homo sapiens"},{"SNOMED ID": "102512003"},{"SNOMED label": "Healthy adult"},{"Cognitive Atlas concept": "movement"},{"Cognitive Atlas task": "motor fMRI task paradigm"}],
