@@ -5,78 +5,99 @@ Created on Tue Jul 30 15:02:24 2024
 @author: cpernet
 """
 
-import json
 import os
+import json
+import re
 
-def local_jsonwrite(filename, json_data):
+def listjl2filetype(datasetjl, listjl, source_name, agent_name):
+    # 1 - Get datasetjl
+    if not os.path.exists(datasetjl):
+        raise FileNotFoundError(f'dataset.json file {datasetjl} not found')
 
-    # Add indentation for readability (optional)
-    indent = ""  # You can customize the indentation level here
+    with open(datasetjl, 'r') as f:
+        dataset_info = json.loads(f.read())
 
-    # Serialize the JSON data
-    json_string = json.dumps(json_data, indent=indent, separators=(",", ": "))
-
-    # Check if the file exists
-    if not os.path.exists(filename):
-        with open(filename, "w") as f:
-            f.write(json_string)
-    else:
-        with open(filename, "a") as f:
-            f.write(json_string)
-            f.write("\n")  # Add a newline after each entry
-
-def listjl2filetype(dataset_jl, list_jl, source_name, agent_name):
-    """
-    Reads a list.jsonl file and creates individual JSON files for each data item.
-
-    This function mimics the behavior of the MATLAB function `listjl2filetype`.
-
-    Args:
-        dataset_jl (str): Path to the dataset.jsonl file.
-        list_jl (str): Path to the list.jsonl file containing file information.
-        source_name (str): Name of the data source.
-        agent_name (str): Name of the agent who generated the data.
-    """
-
-    # Check if the dataset.jsonl file exists
-    if not os.path.exists(dataset_jl):
-        raise FileNotFoundError(f"Dataset file {dataset_jl} not found")
-
-    # Read the dataset.jsonl file
-    with open(dataset_jl, "r") as f:
-        dataset_info = json.load(f)
-
-    # Add metadata source information if it's missing
-    if "metadata_sources" not in dataset_info:
-        dataset_info["metadata_sources"] = {
-            "sources": {"source_name": source_name, "source_version": dataset_info["dataset_version"], "agent_name": agent_name}
+    # Add metadata sources if not already present
+    if 'metadata_sources' not in dataset_info:
+        dataset_info['metadata_sources'] = {
+            'sources': {
+                'source_name': source_name,
+                'source_version': dataset_info.get('dataset_version', ''),
+                'agent_name': agent_name
+            }
         }
 
-    # Write the updated dataset information to a temporary file
-    temp_dataset_file = f"{os.path.splitext(dataset_jl)[0]}.jsonl"
-    local_jsonwrite(temp_dataset_file, dataset_info)
+    local_jsonwrite(f"{dataset_info['name'].replace(' ', '')}.jsonl", dataset_info)
 
-    # Read the list.jsonl file
-    with open(list_jl, "r") as f:
-        file_infos = [json.loads(line) for line in f]
+    # 2 - Get listjl
+    with open(listjl, 'r') as f:
+        files_info = f.readlines()
 
-    # Process each file information and write individual JSON files
-    for file_info in file_infos:
-        item = {
-            "type": "file",
-            "dataset_id": dataset_info["dataset_id"],
-            "dataset_version": dataset_info["dataset_version"],
-            "path": file_info["path"].replace("\\", "/").replace("//", "/"),  # Fix path separators
-            "contentbytesize": int(file_info["contentbytesize"]),
-            "metadata_sources": {
-                "sources": {
-                    "source_name": source_name,
-                    "source_version": dataset_info["dataset_version"],
-                    "agent_name": agent_name,
+    # Edit items and append
+    for file_info in files_info:
+        file_info_dict = json.loads(file_info.strip())
+
+        # Assuming file_info is a dictionary with keys 'path' and 'contentbytesize'
+        if 'path' in file_info_dict and 'contentbytesize' in file_info_dict:
+            item = {
+                'type': 'file',
+                'dataset_id': dataset_info['dataset_id'],
+                'dataset_version': dataset_info['dataset_version'],
+                'path': file_info_dict['path'].replace("\\", "/"),  # Replace backslashes with forward slashes
+                'contentbytesize': float(file_info_dict['contentbytesize']),
+                'metadata_sources': {
+                    'sources': {
+                        'source_name': source_name,
+                        'source_version': dataset_info['dataset_version'],
+                        'agent_name': agent_name
+                    }
                 }
-            },
-        }
+            }
+            local_jsonwrite(f"{dataset_info['name'].replace(' ', '')}.jsonl", item)
+        else:
+            print(f"Pattern not found in the following file info: {file_info}")
 
-        # Write the item information to a separate JSON file
-        item_filename = f"{os.path.splitext(dataset_jl)[0]}.jsonl"
-        local_jsonwrite(item_filename, item)
+    # Fix known issues
+    fix_metadata_sources(f"{dataset_info['name'].replace(' ', '')}.jsonl")
+
+def fix_metadata_sources(filename):
+    lines = []
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+
+    updated_lines = []
+    for line in lines:
+        if line.strip() == "":
+            continue
+        
+        if '"metadata_sources":{"sources":' not in line:
+            updated_lines.append(line)
+            continue
+
+        parts = re.split(r'"metadata_sources":\{"sources":', line)
+        if len(parts) < 2:
+            updated_lines.append(line)
+            continue
+        
+        part1 = parts[0]
+        part2 = '"metadata_sources":{"sources":['  # Add the square bracket
+        part3 = parts[1]
+        part3 = part3.rstrip('}').rstrip() + '}]}}'  # Rebuild ending adding square bracket
+        updated_lines.append(part1 + part2 + part3)
+
+    os.remove(filename)
+    with open(filename, 'w') as f:
+        f.writelines(updated_lines)
+
+def local_jsonwrite(filename, json_obj):
+    json_str = json.dumps(json_obj, ensure_ascii=False)
+    # Fix double slashes and other unwanted stuff
+    json_str = re.sub(r'\\\\', '/', json_str)  # Ensure forward slashes
+    json_str = re.sub(r'//', '/', json_str)    # Ensure forward slashes
+
+    mode = 'a' if os.path.exists(filename) else 'w'
+    with open(filename, mode) as f:
+        f.write(json_str + '\n')
+
+# Example usage:
+# listjl2filetype('OpenNeuroPETPhantoms_datasetonly.jsonl', 'file_list.jsonl', 'OpenNeuro_PET', 'Cyril Pernet')
