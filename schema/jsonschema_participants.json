@@ -45,7 +45,6 @@
     },
     "required": [
         "type",
-        "dataset_id",
         "total_number",
         "age_range"
     ]
