@@ -39,11 +39,11 @@
             },
             "additional_display": {
                 "rule": "merge",
-                "source": []
+                "source": "any"
             },
             "top_display": {
                 "rule": "merge",
-                "source": []
+                "source": "any"
             }
         },
         "file": {
