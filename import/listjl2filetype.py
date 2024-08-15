@@ -2,7 +2,7 @@
 """
 Created on Tue Jul 30 15:02:24 2024
 
-@author: cpernet
+@author: Cyril Pernet & Martin Norgaard
 """
 
 import os
