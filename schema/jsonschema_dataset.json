@@ -77,7 +77,7 @@
         "name": {
           "description": "The license name",
           "title": "Name",
-          "type": "string"
+          "type": ["array", "string"],
         },
         "url": {
           "description": "A URL where a description of the license can be viewed",
