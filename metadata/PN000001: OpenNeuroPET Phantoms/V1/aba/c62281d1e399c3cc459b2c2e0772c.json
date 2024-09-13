@@ -1,0 +1,1 @@
+{"type": "directory", "dataset_id": "PN000001: OpenNeuroPET Phantoms", "dataset_version": "V1", "children": [{"type": "directory", "name": "pet", "path": "sub-GeneralElectricSignaNIMH/pet", "dataset_id": "PN000001: OpenNeuroPET Phantoms", "dataset_version": "V1"}], "path": "sub-GeneralElectricSignaNIMH", "name": "sub-GeneralElectricSignaNIMH"}

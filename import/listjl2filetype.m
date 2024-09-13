@@ -21,13 +21,21 @@ if ~isfield(dataset_info,'metadata_sources')
     dataset_info.metadata_sources.sources.source_version = dataset_info.dataset_version;
     dataset_info.metadata_sources.sources.agent_name     = agent_name;
 end
-local_jsonwrite([erase(dataset_info.name," ") '.jsonl'],dataset_info)
+if exist([erase(dataset_info.name," ") '.jsonl'],"file")
+    delete([erase(dataset_info.name," ") '.jsonl']);
+end
+local_jsonwrite([erase(dataset_info.name," ") '.jsonl'],dataset_info);
 
 % 2 - get listjl
 files_info = importdata(listjl);
 
 % edit items and append
-for f=1:size(files_info,1)
+% silly trick to be on the next line
+% local_jsonwrite([erase(dataset_info.name," ") '.jsonl'],'');
+% now write over
+N = size(files_info,1);
+for f=1:N
+    fprintf('processing file info %g/%g\n',f,N);
     item.type             = "file";
     item.dataset_id       = dataset_info.dataset_id;
     item.dataset_version  = dataset_info.dataset_version;
@@ -38,7 +46,7 @@ for f=1:size(files_info,1)
     item.metadata_sources.sources.source_name    = source_name;
     item.metadata_sources.sources.source_version = dataset_info.dataset_version;
     item.metadata_sources.sources.agent_name     = agent_name;
-    local_jsonwrite([erase(dataset_info.name," ") '.jsonl'],item)
+    local_jsonwrite([erase(dataset_info.name," ") '.jsonl'],item);
 end
 
 % fix known issues
@@ -60,7 +68,7 @@ fid = fopen([erase(dataset_info.name," ") '.jsonl'], 'wt');
 fprintf(fid, '%s\n', lines);
 fclose(fid);
 
-function varargout = local_jsonwrite(varargin)
+function S = local_jsonwrite(varargin)
 
 % Serialize a JSON (JavaScript Object Notation) structure
 % local version - fix double // strip down unwanted stuff
