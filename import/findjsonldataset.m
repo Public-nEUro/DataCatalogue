@@ -10,10 +10,17 @@ if strcmp(foldername,'metadata')
     dataset_file = struct;
     datasetname  = dir(folder); % 1st level
     for ds = 3:size(datasetname,1)
-        version = dir(fullfile(datasetname(ds).folder,datasetname(ds).name)); % 2nd level
-        for v = 3:size(version)
-            field = [datasetname(ds).name(1:8) '_' version(v).name];
-            dataset_file.(strrep(field,' ','')) = fetchset(fullfile(version(v).folder,version(v).name));
+        if datasetname(ds).isdir && strncmp(datasetname(ds).name,'PN',2)
+            version = dir(fullfile(datasetname(ds).folder,datasetname(ds).name)); % 2nd level
+            for v = 3:size(version)
+                if version(v).isdir
+                    field = [datasetname(ds).name '_' version(v).name];
+                    field = strrep(field,' ',''); % no space
+                    field = strrep(field,'-',''); % no minus
+                    field = strrep(field,':',''); % no :
+                    dataset_file.(field) = fetchset(fullfile(version(v).folder,version(v).name));
+                end
+            end
         end
     end
 else
@@ -30,7 +37,7 @@ for f= 3:size(allfolders,1)
         out = jsondecode(fileread(fullfile(sub(s).folder,sub(s).name)));
         if strcmpi(out.type,"dataset")
             dataset_file = fullfile(sub(s).folder,sub(s).name);
-            fprintf('dataset file found %s/n',dataset_file)
+            fprintf('dataset file found %s\n',dataset_file)
         end
     end
 end
