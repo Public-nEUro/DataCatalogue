@@ -37,7 +37,7 @@ def get_file_info(path, savelist):
     for file in files:
       full_path = os.path.join(root, file)
       # Include files with ".json" or ".nii[.gz]" or "zip" (from source) extensions
-      if file.endswith(('.json', '.nii', '.nii.gz','.zip')):
+      if file.endswith(('.json', '.edf', '.vhdr', '.vmrk', '.eeg', '.set', '.fdt', '.bdf', '.nii', '.nii.gz','.zip','.tsv','tsv.gz')):
         size = os.path.getsize(full_path)
         filename = os.path.relpath(full_path, path)
         file_info.append({"path": filename, "contentbytesize": size})
