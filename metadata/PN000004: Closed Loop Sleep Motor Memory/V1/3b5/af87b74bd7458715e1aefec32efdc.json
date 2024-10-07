@@ -1,0 +1,191 @@
+{
+    "type": "dataset",
+    "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+    "dataset_version": "V1",
+    "children": [],
+    "metadata_sources": {
+        "sources": [
+            {
+                "source_name": "CNRS",
+                "source_version": "1",
+                "agent_name": "Gaelle LEROUX"
+            }
+        ]
+    },
+    "name": "Closed Loop Sleep Motor Memory",
+    "description": "Unraveling the Neurophysiological Correlates of Phase-Specific Enhancement of Motor Memory Consolidation via Slow-Wave Closed-Loop Targeted Memory Reactivation",
+    "keywords": [
+        "sleep",
+        "motor learning"
+    ],
+    "license": {
+        "name": "Data User Agreement"
+    },
+    "authors": [
+        {
+            "givenName": "Judith",
+            "familyName": "Nicolas",
+            "identifiers": [
+                {
+                    "type": "ORCID",
+                    "identifier": "https://orcid.org/0000-0002-7142-1449"
+                }
+            ]
+        },
+        {
+            "givenName": "Gaëlle",
+            "familyName": " Leroux",
+            "identifiers": [
+                {
+                    "type": "ORCID",
+                    "identifier": "https://orcid.org/0000-0003-2729-4945"
+                }
+            ]
+        }
+    ],
+    "funding": [
+        {
+            "name": "Belgian Research Foundation Flanders",
+            "identifier": "G0D7918N"
+        },
+        {
+            "name": "Belgian Research Foundation Flanders",
+            "identifier": "G099516N"
+        },
+        {
+            "name": "Belgian Research Foundation Flanders",
+            "identifier": "G0B1419N"
+        },
+        {
+            "name": "Belgian Research Foundation Flanders",
+            "identifier": "524218N"
+        },
+        {
+            "name": "Fond de Recherche en sant\u00e9 du Qu\u00e9bec en sciences naturelles",
+            "identifier": "RRQNT-2018-264146"
+        },
+        {
+            "name": "Healthy Brain for Healthy Lives Discovery Grant Program from the Canada First Research Excellence Fund"
+        },
+        {
+            "name": "Excellence of Science",
+            "identifier": "30446199"
+        },
+        {
+            "name": "European Union's Horizon 2020 research and innovation program under the Marie Sk\u0142odowska-Curie grant agreement",
+            "identifier": "887955"
+        },
+        {
+            "name": "European Union's Horizon 2020 research and innovation program under the Marie Sk\u0142odowska-Curie grant agreement",
+            "identifier": "703490"
+        }
+    ],
+    "publications": [
+        {
+            "type": "academic publication",
+            "title": "Neurophysiological Correlates of Phase-Specific Enhancement of Motor Memory Consolidation via Slow-Wave Closed-Loop Targeted Memory Reactivation",
+            "datePublished": "20/01/2024",
+            "doi": "https://doi.org/10.1101/2024.01.16.575884",
+            "authors": [
+                {
+                    "givenName": "Judith",
+                    "familyName": "Nicolas"
+                },
+                {
+                    "givenName": "Brad R.",
+                    "familyName": " King"
+                },
+                {
+                    "givenName": "David",
+                    "familyName": " Levesque"
+                },
+                {
+                    "givenName": "Latifa",
+                    "familyName": " Lazzouni"
+                },
+                {
+                    "givenName": "Ga\u00eblle",
+                    "familyName": " Leroux"
+                },
+                {
+                    "givenName": "David",
+                    "familyName": " Wang"
+                },
+                {
+                    "givenName": "Nir",
+                    "familyName": " Grossman"
+                },
+                {
+                    "givenName": "Stephan P.",
+                    "familyName": " Swinnen"
+                },
+                {
+                    "givenName": "Julien",
+                    "familyName": " Doyon"
+                },
+                {
+                    "givenName": "Julie",
+                    "familyName": " Carrier"
+                },
+                {
+                    "givenName": "Genevi\u00e8ve",
+                    "familyName": " Albouy"
+                }
+            ]
+        }
+    ],
+    "access_request_contact": {
+        "givenName": "PublicnEuro",
+        "familyName": "NRU",
+        "email": "publicneuro@nru.dk"
+    },
+    "additional_display": [
+        {
+            "name": "Dataset Metadata",
+            "content": {
+                "bids_version": [
+                    "v1.9.0"
+                ],
+                "bids_datasettype": [
+                    "raw"
+                ],
+                "bids_datatypes": [
+                    "anat",
+                    "func",
+                    "eeg"
+                ],
+                "NCBI Species Taxonomy": [
+                    "homo sapiens"
+                ],
+                "Cognitive Atlas concept": [
+                    "motor sequence learning"
+                ],
+                "Cognitive Atlas task": [
+                    "serial reaction time task",
+                    "rest eyes open",
+                    "Pittsburgh Sleep Quality Index"
+                ]
+            }
+        },
+        {
+            "name": "Participants",
+            "content": {
+                "total_number": [
+                    "31"
+                ],
+                "age_range": [
+                    "[18, 30]"
+                ],
+                "number_of_healthy": [
+                    "31"
+                ],
+                "number_of_biological_males": [
+                    "16"
+                ],
+                "number_of_biological_females": [
+                    "15"
+                ]
+            }
+        }
+    ]
+}
