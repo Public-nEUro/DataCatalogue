@@ -1,1 +1,519 @@
-{"type": "dataset", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1", "children": [{"type": "file", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1", "path": "task-SRTTtesting_events.json", "contentbytesize": 3468.0, "metadata_sources": {"sources": [{"source_name": "PublinEUro", "source_version": "V1", "agent_name": "Cyril Pernet"}]}, "name": "task-SRTTtesting_events.json"}, {"type": "file", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1", "path": "task-SRTTtraining_events.json", "contentbytesize": 3470.0, "metadata_sources": {"sources": [{"source_name": "PublinEUro", "source_version": "V1", "agent_name": "Cyril Pernet"}]}, "name": "task-SRTTtraining_events.json"}, {"type": "file", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1", "path": "dataset_description.json", "contentbytesize": 2266.0, "metadata_sources": {"sources": [{"source_name": "PublinEUro", "source_version": "V1", "agent_name": "Cyril Pernet"}]}, "name": "dataset_description.json"}, {"type": "file", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1", "path": "participants.json", "contentbytesize": 480.0, "metadata_sources": {"sources": [{"source_name": "PublinEUro", "source_version": "V1", "agent_name": "Cyril Pernet"}]}, "name": "participants.json"}, {"type": "directory", "name": "sub-23", "path": "sub-23", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-28", "path": "sub-28", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-03", "path": "sub-03", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-08", "path": "sub-08", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-27", "path": "sub-27", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-02", "path": "sub-02", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-07", "path": "sub-07", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-13", "path": "sub-13", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-01", "path": "sub-01", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-06", "path": "sub-06", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-12", "path": "sub-12", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-17", "path": "sub-17", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-05", "path": "sub-05", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-11", "path": "sub-11", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-16", "path": "sub-16", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-22", "path": "sub-22", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-04", "path": "sub-04", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-09", "path": "sub-09", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-10", "path": "sub-10", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-15", "path": "sub-15", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-21", "path": "sub-21", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-26", "path": "sub-26", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-14", "path": "sub-14", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-19", "path": "sub-19", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "phenotype", "path": "phenotype", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-20", "path": "sub-20", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-25", "path": "sub-25", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-31", "path": "sub-31", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-18", "path": "sub-18", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-24", "path": "sub-24", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-29", "path": "sub-29", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "directory", "name": "sub-30", "path": "sub-30", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}, {"type": "file", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1", "path": "participants.tsv", "contentbytesize": 534.0, "metadata_sources": {"sources": [{"source_name": "PublinEUro", "source_version": "V1", "agent_name": "Cyril Pernet"}]}, "name": "participants.tsv"}, {"type": "directory", "name": "extra_data", "path": "extra_data", "dataset_id": "PN000004: Closed Loop Sleep Motor Memory", "dataset_version": "V1"}], "metadata_sources": {"sources": [{"source_name": "CNRS", "source_version": "1", "agent_name": "Gaelle LEROUX"}], "key_source_map": {"keywords": ["CNRS"], "additional_display": ["CNRS"]}}, "name": "Closed Loop Sleep Motor Memory", "description": "Unraveling the Neurophysiological Correlates of Phase-Specific Enhancement of Motor Memory Consolidation via Slow-Wave Closed-Loop Targeted Memory Reactivation", "keywords": ["motor learning", "sleep"], "license": {"name": "Data User Agreement"}, "authors": [{"givenName": "Judith", "familyName": "Nicolas", "identifiers": [{"type": "ORCID", "identifier": "https://orcid.org/0000-0002-7142-1449"}]}, {"givenName": "Ga\u00eblle", "familyName": " Leroux", "identifiers": [{"type": "ORCID", "identifier": "https://orcid.org/0000-0003-2729-4945"}]}], "funding": [{"name": "Belgian Research Foundation Flanders", "identifier": "G0D7918N"}, {"name": "Belgian Research Foundation Flanders", "identifier": "G099516N"}, {"name": "Belgian Research Foundation Flanders", "identifier": "G0B1419N"}, {"name": "Belgian Research Foundation Flanders", "identifier": "524218N"}, {"name": "Fond de Recherche en sant\u00e9 du Qu\u00e9bec en sciences naturelles", "identifier": "RRQNT-2018-264146"}, {"name": "Healthy Brain for Healthy Lives Discovery Grant Program from the Canada First Research Excellence Fund"}, {"name": "Excellence of Science", "identifier": "30446199"}, {"name": "European Union's Horizon 2020 research and innovation program under the Marie Sk\u0142odowska-Curie grant agreement", "identifier": "887955"}, {"name": "European Union's Horizon 2020 research and innovation program under the Marie Sk\u0142odowska-Curie grant agreement", "identifier": "703490"}], "publications": [{"type": "academic publication", "title": "Neurophysiological Correlates of Phase-Specific Enhancement of Motor Memory Consolidation via Slow-Wave Closed-Loop Targeted Memory Reactivation", "datePublished": "20/01/2024", "doi": "https://doi.org/10.1101/2024.01.16.575884", "authors": [{"givenName": "Judith", "familyName": "Nicolas"}, {"givenName": "Brad R.", "familyName": " King"}, {"givenName": "David", "familyName": " Levesque"}, {"givenName": "Latifa", "familyName": " Lazzouni"}, {"givenName": "Ga\u00eblle", "familyName": " Leroux"}, {"givenName": "David", "familyName": " Wang"}, {"givenName": "Nir", "familyName": " Grossman"}, {"givenName": "Stephan P.", "familyName": " Swinnen"}, {"givenName": "Julien", "familyName": " Doyon"}, {"givenName": "Julie", "familyName": " Carrier"}, {"givenName": "Genevi\u00e8ve", "familyName": " Albouy"}]}], "access_request_contact": {"givenName": "PublicnEuro", "familyName": "NRU", "email": "publicneuro@nru.dk"}, "additional_display": [{"name": "Dataset Metadata", "content": {"bids_version": ["v1.9.0"], "bids_datasettype": ["raw"], "bids_datatypes": ["anat", "func", "eeg"], "NCBI Species Taxonomy": ["homo sapiens"], "Cognitive Atlas concept": ["motor sequence learning"], "Cognitive Atlas task": ["serial reaction time task", "rest eyes open", "Pittsburgh Sleep Quality Index"]}}, {"name": "Participants", "content": {"total_number": ["31"], "age_range": ["[18, 30]"], "number_of_healthy": ["31"], "number_of_biological_males": ["16"], "number_of_biological_females": ["15"]}}]}
+{
+    "type": "dataset",
+    "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+    "dataset_version": "V1",
+    "children": [
+        {
+            "type": "file",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1",
+            "path": "dataset_description.json",
+            "contentbytesize": 2266.0,
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "PublinEUro",
+                        "source_version": "V1",
+                        "agent_name": "Cyril Pernet"
+                    }
+                ]
+            },
+            "name": "dataset_description.json"
+        },
+        {
+            "type": "file",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1",
+            "path": "participants.json",
+            "contentbytesize": 480.0,
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "PublinEUro",
+                        "source_version": "V1",
+                        "agent_name": "Cyril Pernet"
+                    }
+                ]
+            },
+            "name": "participants.json"
+        },
+        {
+            "type": "file",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1",
+            "path": "participants.tsv",
+            "contentbytesize": 534.0,
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "PublinEUro",
+                        "source_version": "V1",
+                        "agent_name": "Cyril Pernet"
+                    }
+                ]
+            },
+            "name": "participants.tsv"
+        },
+        {
+            "type": "file",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1",
+            "path": "task-SRTTtesting_events.json",
+            "contentbytesize": 3468.0,
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "PublinEUro",
+                        "source_version": "V1",
+                        "agent_name": "Cyril Pernet"
+                    }
+                ]
+            },
+            "name": "task-SRTTtesting_events.json"
+        },
+        {
+            "type": "file",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1",
+            "path": "task-SRTTtraining_events.json",
+            "contentbytesize": 3470.0,
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "PublinEUro",
+                        "source_version": "V1",
+                        "agent_name": "Cyril Pernet"
+                    }
+                ]
+            },
+            "name": "task-SRTTtraining_events.json"
+        },
+        {
+            "type": "directory",
+            "name": "phenotype",
+            "path": "phenotype",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-01",
+            "path": "sub-01",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-02",
+            "path": "sub-02",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-03",
+            "path": "sub-03",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-04",
+            "path": "sub-04",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-05",
+            "path": "sub-05",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-06",
+            "path": "sub-06",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-07",
+            "path": "sub-07",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-08",
+            "path": "sub-08",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-09",
+            "path": "sub-09",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-10",
+            "path": "sub-10",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-11",
+            "path": "sub-11",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-12",
+            "path": "sub-12",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-13",
+            "path": "sub-13",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-14",
+            "path": "sub-14",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-15",
+            "path": "sub-15",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-16",
+            "path": "sub-16",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-17",
+            "path": "sub-17",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-18",
+            "path": "sub-18",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-19",
+            "path": "sub-19",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-20",
+            "path": "sub-20",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-21",
+            "path": "sub-21",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-22",
+            "path": "sub-22",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-23",
+            "path": "sub-23",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-24",
+            "path": "sub-24",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-25",
+            "path": "sub-25",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-26",
+            "path": "sub-26",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-27",
+            "path": "sub-27",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-28",
+            "path": "sub-28",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-29",
+            "path": "sub-29",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-30",
+            "path": "sub-30",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-31",
+            "path": "sub-31",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "extra_data",
+            "path": "extra_data",
+            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        }
+    ],
+    "metadata_sources": {
+        "sources": [
+            {
+                "source_name": "CNRS",
+                "source_version": "1",
+                "agent_name": "Gaelle LEROUX"
+            }
+        ],
+        "key_source_map": {
+            "keywords": [
+                "CNRS"
+            ],
+            "additional_display": [
+                "CNRS"
+            ]
+        }
+    },
+    "name": "Multimodal investigation of motor memory sleep-dependent consolidation using closed-loop acoustic stimulation",
+    "description": "task-related fMRI during movement sequence learning (MSL) and low-density EEG acquisition during sleep with closed-loop acoustic stimulation",
+    "keywords": [
+        "Motor learning",
+        "Memory consolidation",
+        "Sleep",
+        "Slow oscillations",
+        "Closed-loop acoustic stimulation"
+    ],
+    "license": {
+        "name": "Data User Agreement"
+    },
+    "authors": [
+        {
+            "givenName": "Judith",
+            "familyName": "Nicolas",
+            "identifiers": [
+                {
+                    "type": "ORCID",
+                    "identifier": "https://orcid.org/0000-0002-7142-1449"
+                }
+            ]
+        },
+        {
+            "givenName": "Ga\u00eblle",
+            "familyName": " Leroux",
+            "identifiers": [
+                {
+                    "type": "ORCID",
+                    "identifier": "https://orcid.org/0000-0003-2729-4945"
+                }
+            ]
+        }
+    ],
+    "funding": [
+        {
+            "name": "Belgian Research Foundation Flanders",
+            "identifier": "G0D7918N"
+        },
+        {
+            "name": "Belgian Research Foundation Flanders",
+            "identifier": "G099516N"
+        },
+        {
+            "name": "Belgian Research Foundation Flanders",
+            "identifier": "G0B1419N"
+        },
+        {
+            "name": "Belgian Research Foundation Flanders",
+            "identifier": "524218N"
+        },
+        {
+            "name": "Fond de Recherche en sant\u00e9 du Qu\u00e9bec en sciences naturelles",
+            "identifier": "RRQNT-2018-264146"
+        },
+        {
+            "name": "Healthy Brain for Healthy Lives Discovery Grant Program from the Canada First Research Excellence Fund"
+        },
+        {
+            "name": "Excellence of Science",
+            "identifier": "30446199"
+        },
+        {
+            "name": "European Union's Horizon 2020 research and innovation program under the Marie Sk\u0142odowska-Curie grant agreement",
+            "identifier": "887955"
+        },
+        {
+            "name": "European Union's Horizon 2020 research and innovation program under the Marie Sk\u0142odowska-Curie grant agreement",
+            "identifier": "703490"
+        }
+    ],
+    "publications": [
+        {
+            "type": "academic publication",
+            "title": "Neurophysiological Correlates of Phase-Specific Enhancement of Motor Memory Consolidation via Slow-Wave Closed-Loop Targeted Memory Reactivation",
+            "datePublished": "20/01/2024",
+            "doi": "https://doi.org/10.1101/2024.01.16.575884",
+            "authors": [
+                {
+                    "givenName": "Judith",
+                    "familyName": "Nicolas"
+                },
+                {
+                    "givenName": "Brad R.",
+                    "familyName": " King"
+                },
+                {
+                    "givenName": "David",
+                    "familyName": " Levesque"
+                },
+                {
+                    "givenName": "Latifa",
+                    "familyName": " Lazzouni"
+                },
+                {
+                    "givenName": "Ga\u00eblle",
+                    "familyName": " Leroux"
+                },
+                {
+                    "givenName": "David",
+                    "familyName": " Wang"
+                },
+                {
+                    "givenName": "Nir",
+                    "familyName": " Grossman"
+                },
+                {
+                    "givenName": "Stephan P.",
+                    "familyName": " Swinnen"
+                },
+                {
+                    "givenName": "Julien",
+                    "familyName": " Doyon"
+                },
+                {
+                    "givenName": "Julie",
+                    "familyName": " Carrier"
+                },
+                {
+                    "givenName": "Genevi\u00e8ve",
+                    "familyName": " Albouy"
+                }
+            ]
+        }
+    ],
+    "access_request_contact": {
+        "givenName": "PublicnEuro",
+        "familyName": "NRU",
+        "email": "publicneuro@nru.dk"
+    },
+    "additional_display": [
+        {
+            "name": "Dataset Metadata",
+            "content": {
+                "bids_version": [
+                    "v1.9.0"
+                ],
+                "bids_datasettype": [
+                    "raw"
+                ],
+                "bids_datatypes": [
+                    "anat",
+                    "func",
+                    "eeg"
+                ],
+                "NCBI Species Taxonomy": [
+                    "homo sapiens"
+                ],
+                "Cognitive Atlas concept": [
+                    "motor sequence learning"
+                ],
+                "Cognitive Atlas task": [
+                    "serial reaction time task",
+                    "rest eyes open",
+                    "Pittsburgh Sleep Quality Index"
+                ]
+            }
+        },
+        {
+            "name": "Participants",
+            "content": {
+                "total_number": [
+                    "31"
+                ],
+                "age_range": [
+                    "[18, 30]"
+                ],
+                "number_of_healthy": [
+                    "31"
+                ],
+                "number_of_biological_males": [
+                    "16"
+                ],
+                "number_of_biological_females": [
+                    "15"
+                ]
+            }
+        }
+    ]
+}
