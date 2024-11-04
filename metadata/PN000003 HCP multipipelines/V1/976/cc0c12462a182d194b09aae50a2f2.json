@@ -5,146 +5,146 @@
     "children": [
         {
             "type": "dataset",
-            "name": "PN000003: fsl-5-0-0",
-            "dataset_id": "PN000003: fsl-5-0-0",
+            "name": "PN000003 fsl-5-0-0",
+            "dataset_id": "PN000003 fsl-5-0-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-5-0-1",
-            "dataset_id": "PN000003: fsl-5-0-1",
+            "name": "PN000003 fsl-5-0-1",
+            "dataset_id": "PN000003 fsl-5-0-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-5-6-0",
-            "dataset_id": "PN000003: fsl-5-6-0",
+            "name": "PN000003 fsl-5-6-0",
+            "dataset_id": "PN000003 fsl-5-6-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-5-6-1",
-            "dataset_id": "PN000003: fsl-5-6-1",
+            "name": "PN000003 fsl-5-6-1",
+            "dataset_id": "PN000003 fsl-5-6-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-5-24-0",
-            "dataset_id": "PN000003: fsl-5-24-0",
+            "name": "PN000003 fsl-5-24-0",
+            "dataset_id": "PN000003 fsl-5-24-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-5-24-1",
-            "dataset_id": "PN000003: fsl-5-24-1",
+            "name": "PN000003 fsl-5-24-1",
+            "dataset_id": "PN000003 fsl-5-24-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-8-0-0",
-            "dataset_id": "PN000003: fsl-8-0-0",
+            "name": "PN000003 fsl-8-0-0",
+            "dataset_id": "PN000003 fsl-8-0-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-8-0-1",
-            "dataset_id": "PN000003: fsl-8-0-1",
+            "name": "PN000003 fsl-8-0-1",
+            "dataset_id": "PN000003 fsl-8-0-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-8-6-0",
-            "dataset_id": "PN000003: fsl-8-6-0",
+            "name": "PN000003 fsl-8-6-0",
+            "dataset_id": "PN000003 fsl-8-6-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-8-6-1",
-            "dataset_id": "PN000003: fsl-8-6-1",
+            "name": "PN000003 fsl-8-6-1",
+            "dataset_id": "PN000003 fsl-8-6-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-8-24-0",
-            "dataset_id": "PN000003: fsl-8-24-0",
+            "name": "PN000003 fsl-8-24-0",
+            "dataset_id": "PN000003 fsl-8-24-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: fsl-8-24-1",
-            "dataset_id": "PN000003: fsl-8-24-1",
+            "name": "PN000003 fsl-8-24-1",
+            "dataset_id": "PN000003 fsl-8-24-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-5-0-0",
-            "dataset_id": "PN000003: spm-5-0-0",
+            "name": "PN000003 spm-5-0-0",
+            "dataset_id": "PN000003 spm-5-0-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-5-0-1",
-            "dataset_id": "PN000003: spm-5-0-1",
+            "name": "PN000003 spm-5-0-1",
+            "dataset_id": "PN000003 spm-5-0-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-5-6-0",
-            "dataset_id": "PN000003: spm-5-6-0",
+            "name": "PN000003 spm-5-6-0",
+            "dataset_id": "PN000003 spm-5-6-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-5-6-1",
-            "dataset_id": "PN000003: spm-5-6-1",
+            "name": "PN000003 spm-5-6-1",
+            "dataset_id": "PN000003 spm-5-6-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-5-24-0",
-            "dataset_id": "PN000003: spm-5-24-0",
+            "name": "PN000003 spm-5-24-0",
+            "dataset_id": "PN000003 spm-5-24-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-5-24-1",
-            "dataset_id": "PN000003: spm-5-24-1",
+            "name": "PN000003 spm-5-24-1",
+            "dataset_id": "PN000003 spm-5-24-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-8-0-0",
-            "dataset_id": "PN000003: spm-8-0-0",
+            "name": "PN000003 spm-8-0-0",
+            "dataset_id": "PN000003 spm-8-0-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-8-0-1",
-            "dataset_id": "PN000003: spm-8-0-1",
+            "name": "PN000003 spm-8-0-1",
+            "dataset_id": "PN000003 spm-8-0-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-8-6-0",
-            "dataset_id": "PN000003: spm-8-6-0",
+            "name": "PN000003 spm-8-6-0",
+            "dataset_id": "PN000003 spm-8-6-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-8-6-1",
-            "dataset_id": "PN000003: spm-8-6-1",
+            "name": "PN000003 spm-8-6-1",
+            "dataset_id": "PN000003 spm-8-6-1",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-8-24-0",
-            "dataset_id": "PN000003: spm-8-24-0",
+            "name": "PN000003 spm-8-24-0",
+            "dataset_id": "PN000003 spm-8-24-0",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
-            "name": "PN000003: spm-8-24-1",
-            "dataset_id": "PN000003: spm-8-24-1",
+            "name": "PN000003 spm-8-24-1",
+            "dataset_id": "PN000003 spm-8-24-1",
             "dataset_version": "V1"
         }
     ],
@@ -190,7 +190,7 @@
         "motor task"
     ],
     "license": {
-        "name": "Data User Agreement - World Wide Access"
+        "name": "Data User Agreement"
     },
     "authors": [
         {
@@ -308,205 +308,205 @@
             "name": "DUA terms",
             "content": {
                 "Restrictions": [
-                    "Institutions outside EU and adequate countries must also agree/sign EU standard contractual clauses"
+                    "Institution of users from non EU or adequate countries must be able to sign standard contractual clauses"
                 ],
                 "Terms": [
                     "By accepting this agreement, including obligations stated in the WU-Minn HCP Data Use Terms in Annex, I become the data controller (as defined under the GDPR) of the Data that I have access to, and am responsible that I access these Data under the following terms: (1) I will comply with all relevant rules and regulations imposed by my institution and my government. Rules established in this agreement thus take place in addition to existing general data protection regulations that are applicable in my country. (2) I will not attempt to establish or retrieve the identity of the study participants. I will not link these Data to any other database in a way that could provide identifying information. I shall not request the pseudonymisation key that would link these Data to an individual’s personal information, nor will I accept any additional information about individual participants under this Data User Agreement. (3) I will not redistribute these Data or share access to these Data with others, unless they have independently applied and been granted access to these Data, i.e., signed this Data User Agreement. This includes individuals in my institution. (4). When sharing secondary or derivative data (e.g. group statistical maps or templates), I will only do so if they are on a group level, and cannot be deduced information from individual participants. (5) I will reference the specific source of the accessed Data when publicly presenting any results or algorithms that benefited from their use: (a) Papers, book chapters, books, posters, oral presentations, and all other presentations of results derived from the Data should acknowledge the origin of the Data as follows: 'Data were provided in part by the Human Connectome Project, WU-Minn Consortium (Principal Investigators: David Van Essen and Kamil Ugurbil; 1U54MH091657) funded by the 16 NIH Institutes and Centers that support the NIH Blueprint for Neuroscience Research; and by the McDonnell Center for Systems Neuroscience at Washington University”, and by Inria Centre at Rennes University, more specifically by the “Empenn” Research Team of Inria, France.' (b) Authors of publications or presentations using the Data should cite relevant publications describing the methods developed and used by the HCP and the “Empenn” Research Team of Inria to acquire and process the Data. The specific publications that are appropriate to cite in any given study will depend on what the Data were used and for what purposes. When applicable, a list of publications will be included in the collection. Concerning methods developed and used by the HCP, if needed, an annotated and appropriately up-to-date list of publications that may warrant consideration is available at http: //www.humanconnectome.org/about/acknowledgehcp.html. (c) Neither Inria or the Washington University - University of Minnesota Consortium of the Human Connectome Project, nor the researchers that provide this Data will be liable for any results and/or derived data. They shall not be included as an author of publications or presentations without consent. (6) By accepting this agreement, I also accept to abide to the WU-Minn HCP Data Use Terms stated in Annex, when applicable. (7) Failure to abide by these guidelines will result in termination of my privileges to access these Data."
-                ]             
+                ]
             }
         }
     ],
     "subdatasets": [
         {
-            "dataset_id": "PN000003: fsl-5-0-0",
+            "dataset_id": "PN000003 fsl-5-0-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-5-0-0",
+            "dataset_path": "PN000003 fsl-5-0-0",
             "dirs_from_path": [
-                "PN000003: fsl-5-0-0"
+                "PN000003 fsl-5-0-0"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-5-0-1",
+            "dataset_id": "PN000003 fsl-5-0-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-5-0-1",
+            "dataset_path": "PN000003 fsl-5-0-1",
             "dirs_from_path": [
-                "PN000003: fsl-5-0-1"
+                "PN000003 fsl-5-0-1"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-5-6-0",
+            "dataset_id": "PN000003 fsl-5-6-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-5-6-0",
+            "dataset_path": "PN000003 fsl-5-6-0",
             "dirs_from_path": [
-                "PN000003: fsl-5-6-0"
+                "PN000003 fsl-5-6-0"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-5-6-1",
+            "dataset_id": "PN000003 fsl-5-6-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-5-6-1",
+            "dataset_path": "PN000003 fsl-5-6-1",
             "dirs_from_path": [
-                "PN000003: fsl-5-6-1"
+                "PN000003 fsl-5-6-1"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-5-24-0",
+            "dataset_id": "PN000003 fsl-5-24-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-5-24-0",
+            "dataset_path": "PN000003 fsl-5-24-0",
             "dirs_from_path": [
-                "PN000003: fsl-5-24-0"
+                "PN000003 fsl-5-24-0"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-5-24-1",
+            "dataset_id": "PN000003 fsl-5-24-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-5-24-1",
+            "dataset_path": "PN000003 fsl-5-24-1",
             "dirs_from_path": [
-                "PN000003: fsl-5-24-1"
+                "PN000003 fsl-5-24-1"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-8-0-0",
+            "dataset_id": "PN000003 fsl-8-0-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-8-0-0",
+            "dataset_path": "PN000003 fsl-8-0-0",
             "dirs_from_path": [
-                "PN000003: fsl-8-0-0"
+                "PN000003 fsl-8-0-0"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-8-0-1",
+            "dataset_id": "PN000003 fsl-8-0-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-8-0-1",
+            "dataset_path": "PN000003 fsl-8-0-1",
             "dirs_from_path": [
-                "PN000003: fsl-8-0-1"
+                "PN000003 fsl-8-0-1"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-8-6-0",
+            "dataset_id": "PN000003 fsl-8-6-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-8-6-0",
+            "dataset_path": "PN000003 fsl-8-6-0",
             "dirs_from_path": [
-                "PN000003: fsl-8-6-0"
+                "PN000003 fsl-8-6-0"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-8-6-1",
+            "dataset_id": "PN000003 fsl-8-6-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-8-6-1",
+            "dataset_path": "PN000003 fsl-8-6-1",
             "dirs_from_path": [
-                "PN000003: fsl-8-6-1"
+                "PN000003 fsl-8-6-1"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-8-24-0",
+            "dataset_id": "PN000003 fsl-8-24-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-8-24-0",
+            "dataset_path": "PN000003 fsl-8-24-0",
             "dirs_from_path": [
-                "PN000003: fsl-8-24-0"
+                "PN000003 fsl-8-24-0"
             ]
         },
         {
-            "dataset_id": "PN000003: fsl-8-24-1",
+            "dataset_id": "PN000003 fsl-8-24-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: fsl-8-24-1",
+            "dataset_path": "PN000003 fsl-8-24-1",
             "dirs_from_path": [
-                "PN000003: fsl-8-24-1"
+                "PN000003 fsl-8-24-1"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-5-0-0",
+            "dataset_id": "PN000003 spm-5-0-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-5-0-0",
+            "dataset_path": "PN000003 spm-5-0-0",
             "dirs_from_path": [
-                "PN000003: spm-5-0-0"
+                "PN000003 spm-5-0-0"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-5-0-1",
+            "dataset_id": "PN000003 spm-5-0-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-5-0-1",
+            "dataset_path": "PN000003 spm-5-0-1",
             "dirs_from_path": [
-                "PN000003: spm-5-0-1"
+                "PN000003 spm-5-0-1"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-5-6-0",
+            "dataset_id": "PN000003 spm-5-6-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-5-6-0",
+            "dataset_path": "PN000003 spm-5-6-0",
             "dirs_from_path": [
-                "PN000003: spm-5-6-0"
+                "PN000003 spm-5-6-0"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-5-6-1",
+            "dataset_id": "PN000003 spm-5-6-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-5-6-1",
+            "dataset_path": "PN000003 spm-5-6-1",
             "dirs_from_path": [
-                "PN000003: spm-5-6-1"
+                "PN000003 spm-5-6-1"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-5-24-0",
+            "dataset_id": "PN000003 spm-5-24-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-5-24-0",
+            "dataset_path": "PN000003 spm-5-24-0",
             "dirs_from_path": [
-                "PN000003: spm-5-24-0"
+                "PN000003 spm-5-24-0"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-5-24-1",
+            "dataset_id": "PN000003 spm-5-24-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-5-24-1",
+            "dataset_path": "PN000003 spm-5-24-1",
             "dirs_from_path": [
-                "PN000003: spm-5-24-1"
+                "PN000003 spm-5-24-1"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-8-0-0",
+            "dataset_id": "PN000003 spm-8-0-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-8-0-0",
+            "dataset_path": "PN000003 spm-8-0-0",
             "dirs_from_path": [
-                "PN000003: spm-8-0-0"
+                "PN000003 spm-8-0-0"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-8-0-1",
+            "dataset_id": "PN000003 spm-8-0-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-8-0-1",
+            "dataset_path": "PN000003 spm-8-0-1",
             "dirs_from_path": [
-                "PN000003: spm-8-0-1"
+                "PN000003 spm-8-0-1"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-8-6-0",
+            "dataset_id": "PN000003 spm-8-6-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-8-6-0",
+            "dataset_path": "PN000003 spm-8-6-0",
             "dirs_from_path": [
-                "PN000003: spm-8-6-0"
+                "PN000003 spm-8-6-0"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-8-6-1",
+            "dataset_id": "PN000003 spm-8-6-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-8-6-1",
+            "dataset_path": "PN000003 spm-8-6-1",
             "dirs_from_path": [
-                "PN000003: spm-8-6-1"
+                "PN000003 spm-8-6-1"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-8-24-0",
+            "dataset_id": "PN000003 spm-8-24-0",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-8-24-0",
+            "dataset_path": "PN000003 spm-8-24-0",
             "dirs_from_path": [
-                "PN000003: spm-8-24-0"
+                "PN000003 spm-8-24-0"
             ]
         },
         {
-            "dataset_id": "PN000003: spm-8-24-1",
+            "dataset_id": "PN000003 spm-8-24-1",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: spm-8-24-1",
+            "dataset_path": "PN000003 spm-8-24-1",
             "dirs_from_path": [
-                "PN000003: spm-8-24-1"
+                "PN000003 spm-8-24-1"
             ]
         }
     ]

@@ -6,13 +6,13 @@
         {
             "type": "dataset",
             "name": "PN000001: OpenNeuroPET Phantoms (source to nii)",
-            "dataset_id": "PN000001: OpenNeuroPET Phantoms",
+            "dataset_id": "PN000001 OpenNeuroPET Phantoms",
             "dataset_version": "V1"
         },
         {
             "type": "dataset",
             "name": "PN000002: Aggression Project",
-            "dataset_id": "PN000002: Aggression Project",
+            "dataset_id": "PN000002 Aggression Project",
             "dataset_version": "V1"
         },
         {
@@ -24,7 +24,7 @@
         {
             "type": "dataset",
             "name": "PN000004: Multimodal investigation of motor memory sleep-dependent consolidation using closed-loop acoustic stimulation",
-            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_id": "PN000004 Closed Loop Sleep Motor Memory",
             "dataset_version": "V1"
         }
     ],
