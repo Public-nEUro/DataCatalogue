@@ -26,6 +26,12 @@
             "name": "PN000004: Multimodal investigation of motor memory sleep-dependent consolidation using closed-loop acoustic stimulation",
             "dataset_id": "PN000004 Closed Loop Sleep Motor Memory",
             "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PNC00001: UCB-J consortium",
+            "dataset_id": "PNC00001 UCB-J consortium",
+            "dataset_version": "V1"
         }
     ],
     "metadata_sources": {
@@ -81,35 +87,43 @@
     "Last updated": "13/09/2024",
     "subdatasets": [
         {
-            "dataset_id": "PN000001: OpenNeuroPET Phantoms",
+            "dataset_id": "PN000001 OpenNeuroPET Phantoms",
             "dataset_version": "V1",
-            "dataset_path": "PN000001: OpenNeuroPET Phantoms",
+            "dataset_path": "PN000001 OpenNeuroPET Phantoms",
             "dirs_from_path": [
-                "PN000001: OpenNeuroPET Phantoms"
+                "PN000001 OpenNeuroPET Phantoms"
             ]
         },
         {
-            "dataset_id": "PN000002: Aggression Project",
+            "dataset_id": "PN000002 Aggression Project",
             "dataset_version": "V1",
-            "dataset_path": "PN000002: Aggression Project",
+            "dataset_path": "PN000002 Aggression Project",
             "dirs_from_path": [
-                "PN000002: Aggression Project"
+                "PN000002 Aggression Project"
             ]
         },
         {
-            "dataset_id": "PN000003: HCP multipipelines",
+            "dataset_id": "PN000003 HCP multipipelines",
             "dataset_version": "V1",
-            "dataset_path": "PN000003: HCP multipipelines",
+            "dataset_path": "PN000003 HCP multipipelines",
             "dirs_from_path": [
-                "PN000003: HCP multipipelines"
+                "PN000003 HCP multipipelines"
             ]
         },
         {
-            "dataset_id": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_id": "PN000004 Closed Loop Sleep Motor Memory",
             "dataset_version": "V1",
-            "dataset_path": "PN000004: Closed Loop Sleep Motor Memory",
+            "dataset_path": "PN000004 Closed Loop Sleep Motor Memory",
             "dirs_from_path": [
-                "PN000004: Closed Loop Sleep Motor Memory"
+                "PN000004 Closed Loop Sleep Motor Memory"
+            ]
+        },
+        {
+            "dataset_id": "PNC00001 UCB-J consortium",
+            "dataset_version": "V1",
+            "dataset_path": "PN000004 UCB-J consortium",
+            "dirs_from_path": [
+                "PN000004 UCB-J consortium"
             ]
         }
     ]
