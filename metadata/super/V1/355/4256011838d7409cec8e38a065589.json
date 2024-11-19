@@ -17,7 +17,7 @@
         },
         {
             "type": "dataset",
-            "name": "PN000003: Human Connectom Project multipipelines analysis",
+            "name": "PN000003: Human Connectome Project multipipelines analysis",
             "dataset_id": "PN000003 HCP multipipelines",
             "dataset_version": "V1"
         },
@@ -63,8 +63,8 @@
             }
         ]
     },
-    "name": "Public nEUro",
-    "description": "Public nEUro is a public repository for brain imaging (MRI, PET, EEG, MEG, etc..) dataset. The notion of public must be understood as metadata are open and publicly availbale (here and elsewhere) but data access is controlled. This is necessary as brain imaging data are seen as personnal and within EU and many other countries, such data are procted by law. Note there are also a few open data available.",
+    "name": "PublicnEUro",
+    "description": "Public nEUro is a public repository for brain imaging (MRI, PET, EEG, MEG, etc..) dataset. The notion of public must be understood as metadata are open and publicly available (here and elsewhere) but data access is controlled. This is necessary as brain imaging data are seen as personal and within EU and many other countries, such data are protected by law. Note there are also a few open data available. Please https://publicneuro.eu/catalogue.html are the repository catalogue page (which currently redirected you until we change our server)",
     "keywords": [
         "GDPR",
         "Brain",
