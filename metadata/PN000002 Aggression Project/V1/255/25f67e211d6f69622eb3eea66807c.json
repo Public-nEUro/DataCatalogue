@@ -603,11 +603,7 @@
             ]
         }
     ],
-    "access_request_contact": {
-        "givenName": "PublicnEuro",
-        "familyName": "NRU",
-        "email": "publicneuro@nru.dk"
-    },
+    "download_url": "/manage/request-access/PN000002",
     "additional_display": [
         {
             "name": "Dataset Metadata",
