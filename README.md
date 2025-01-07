@@ -1,4 +1,4 @@
-## The Catalog: https://publicneuro-catalogue.netlify.app/dataset/
+## The Catalog: https://datacatalog.publicneuro.eu/dataset/super/V1
 
 This is a browsable data catalog for the [PublicnEUro](https://publicneuro.eu/) repository. It is generated from metadata using [`datalad-catalog`](https://github.com/datalad/datalad-catalog/). It is a self-contained and static [VueJS](https://vuejs.org/)-based site that can be viewed in any modern internet browser.
 
