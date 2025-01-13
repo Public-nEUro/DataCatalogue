@@ -26,15 +26,28 @@ The `artwork` and `assets` directories contain images and web assets (such as Ja
 
 This branch has been stripped from all but the Aggression data in the import folder: `import/data_import/Aggression`. The PublicnEUro ID is PN000002. The folder has the excel file from the user to create the parent (dataset) metadata information, and the `file_list.jsonl` file, that lists all the files present on the server.
 
-### Creating a dataset
+### Creating a study information (metadata from user)
 
 ```bash
 cd ../import/data_import/Aggression
 ```
 
-*Create the dataset study metadata jsonl*
-The file `import/study_template.jsonl` shows the key-values used to create this information. Here, create the new jsonl from `import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx`
+*Create the Aggression.jsonl*
+The file `import/study_template.jsonl` shows the key-values used to create this information. Here, create the new jsonl from `import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx`. An important key-value here is `"type": "dataset"` informing this is the metadata level.
 
+It then possible to check that the new file is valid:  
+```bash
+cd ../root_folder
+```
+```python
+python3 -m venv my_catalog_env
+source my_catalog_env/bin/activate
+pip install datalad-catalog
+datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/Aggression.jsonl
+```
+*Add file information (childrens)*
+
+In the repository, the file `import/data_import/Aggression/file_list.jsonl` lists all the file existing on drive. We now merge that information with the study metdata. All those files will have key-value 
 
 ```python
 python3
