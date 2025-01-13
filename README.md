@@ -29,8 +29,13 @@ This branch has been stripped from all but the Aggression data in the import fol
 ### Creating a dataset
 
 ```bash
-cd ../import/data_import/
+cd ../import/data_import/Aggression
 ```
+
+*Create the dataset study metadata jsonl*
+The file `import/study_template.jsonl` shows the key-values used to create this information. Here, create the new jsonl from `import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx`
+
+
 ```python
 python3
 from get_files import get_file_info as gf
