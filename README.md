@@ -67,13 +67,14 @@ cd ../root_folder
 python3 -m venv my_catalog_env
 source my_catalog_env/bin/activate
 datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
-datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Datasetfolder/the_new_file.jsonl
+datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
 ```
-Assuming all went well, one can check the render in a browser doing:  
+Assuming all went well, the `metadata/PN000002 Aggression` folder has been created. One can check the render in a browser doing:  
 
 ```python
 datalad catalog-serve --catalog DataCatalogue/
 ```
+and check the adress http://localhost:8000/
 
 ### Re-recreating the catalogue
 
