@@ -33,7 +33,7 @@ cd ../import/data_import/Aggression
 ```
 
 *Create the Aggression.jsonl*
-The file `import/study_template.jsonl` shows the key-values used to create this information. Here, create the new jsonl from `import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx`. An important key-value here is `"type": "dataset"` informing this is the metadata level.
+The file `import/study_template.jsonl` shows the key-values used to create this information. Here, create the new jsonl from `import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx`. An important key-value here is `"type": "dataset"`, which informs datalad that this is the metadata level.
 
 It then possible to check that the new file is valid:  
 ```bash
@@ -44,22 +44,35 @@ python3 -m venv my_catalog_env
 source my_catalog_env/bin/activate
 pip install datalad-catalog
 datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/Aggression.jsonl
+deactivate
 ```
 *Add file information (childrens)*
 
-In the repository, the file `import/data_import/Aggression/file_list.jsonl` lists all the file existing on drive. We now merge that information with the study metdata. All those files will have key-value 
+In the repository, the file `import/data_import/Aggression/file_list.jsonl` lists all the file existing on drive. We now merge that information with the study metdata. All those files will have key-value `"type": "file"` which informs datalad this is a child of the dataset.
 
 ```python
-python3
-from get_files import get_file_info as gf
+cd DataCatalogue/import/
 from listjl2filetype import listjl2filetype as l2f
-l2f('PN000002 Aggression Project.jsonl', 'file_list.jsonl', 'PublicnEuro', 'agent_name') # agent_name is the admin person dealing with the dataset
+import os
+os.chdir('data_import/Aggression')
+l2f('Aggression.jsonl', 'file_list.jsonl', 'PublicnEuro', 'test_agent') 
 exit()
+```
+A new file based on the datset name value has been created - which should be `AggressionProject.jsonl`. Again this can be tested, and if valid, imported.
+
+```bash
+cd ../root_folder
+```
+```python
 python3 -m venv my_catalog_env
 source my_catalog_env/bin/activate
-pip install datalad-catalog
-datalad catalog-validate --metadata DataCatalogue/import/data_import/Datasetfolder/the_new_file.jsonl
+datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
 datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Datasetfolder/the_new_file.jsonl
+```
+Assuming all went well, one can check the render in a browser doing:  
+
+```python
+datalad catalog-serve --catalog DataCatalogue/
 ```
 
 ### Re-recreating the catalogue
