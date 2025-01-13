@@ -69,21 +69,23 @@ source my_catalog_env/bin/activate
 datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
 datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
 ```
-Assuming all went well, the `metadata/PN000002 Aggression` folder has been created. One can check the render in a browser doing:  
+Assuming all went well, the `metadata/PN000002 Aggression` folder has been created. 
+
+### Creating the catalogue
+
+One can check the render of our data in a browser doing:  
 
 ```python
 datalad catalog-serve --catalog DataCatalogue/
 ```
 and check the adress http://localhost:8000/
 
-### Creating the catalogue
-
-Oops, it's all empty -- that because everything is a dataset! so we need to update the superdataset, that is the one that include them all.  
+Oops, it's all empty -- that because everything is a dataset! so we need to update the superdataset, that is the one that includes them all.  
 
 Edit the file `/import/data_import/catalogue_info.jsonl` adding under `metadata_sources` the following:  
 `"subdatasets": [{"dataset_id": "PN000002 Aggression Project", "dataset_version": "V1", "dataset_path": "PN000002 Aggression Project"}]`.  
 
-Then, as before, add it to the data catalogue (datalad catalog-add --catalog DataCatalogue  ... ). Now try try again to visualize.
+Then, as before, add it to the data catalogue (datalad catalog-add --catalog DataCatalogue  ... ). Now try again to visualize, it's all there in the browser.
 
 
 
