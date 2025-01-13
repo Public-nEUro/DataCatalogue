@@ -1,8 +1,12 @@
-## The Catalog: https://datacatalog.publicneuro.eu/dataset/super/V1
+# This branch
 
-This is a browsable data catalog for the [PublicnEUro](https://publicneuro.eu/) repository. It is generated from metadata using [`datalad-catalog`](https://github.com/datalad/datalad-catalog/). It is a self-contained and static [VueJS](https://vuejs.org/)-based site that can be viewed in any modern internet browser.
+The goal of this branch is to learn how our catalogue is set-up and allow some testing.
 
-## Content
+## DataLad Catalog
+
+We rely on [datalad-catalog](https://github.com/datalad/datalad-catalog/) to populate the metatada and render them on the web. The `index.html` is a self-contained and static [VueJS](https://vuejs.org/)-based site that pulls to datasets from the json files located under `/metadata`.
+
+### Content
 
 The content of this root directory includes everything necessary to serve the static site:
 
@@ -18,30 +22,31 @@ The content of this root directory includes everything necessary to serve the st
 
 The `artwork` and `assets` directories contain images and web assets (such as JavaScript and CSS files) respectively that support the rendering of the HTML components in `index.html`. The `config.json` file contains customizable configuration options supplied to `datalad-catalog`.
 
-## PublicnEUro metadata
+## Testing ground
 
-The `metadata` diretory is used to render information online. It can also be used directly to populate or query via searching json files.  
+This branch has been stripped from all but the Aggression data in the import folder: `import/data_import/Aggression`. The PublicnEUro ID is PN000002. The folder has the excel file from the user to create the parent (dataset) metadata information, and the `file_list.jsonl` file, that lists all the files present on the server.
 
-## Serving the content
-
-Since this site is self-contained and static, no further build processes, server-side implementations, or access to content delivery networks (CDNs) are necessary in order to serve the content. All that is needed is a simple HTTP server.
-
-This can be achieved locally, for example using Python:
+### Creating a dataset
 
 ```bash
-cd path/to/catalog/directory
-python3 -m http.server
+cd ../import/data_import/
+```
+```python
+python3
+from get_files import get_file_info as gf
+from listjl2filetype import listjl2filetype as l2f
+l2f('PN000002 Aggression Project.jsonl', 'file_list.jsonl', 'PublicnEuro', 'agent_name') # agent_name is the admin person dealing with the dataset
+exit()
+python3 -m venv my_catalog_env
+source my_catalog_env/bin/activate
+pip install datalad-catalog
+datalad catalog-validate --metadata DataCatalogue/import/data_import/Datasetfolder/the_new_file.jsonl
+datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Datasetfolder/the_new_file.jsonl
 ```
 
-The content can also be hosted and served online. A straightforward and free way to achieve this is via GitHub and [GitHub Pages](https://pages.github.com/). After publishing this content as a GitHub repository, you can activate GitHub Pages in the repository's settings. See detailed instructions [here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site).
+### Re-recreating the catalogue
 
-## Maintaining content
 
-Metadata entries can be updated, added to, and removed from the catalog in a decentralized and collaborative manner. Please refer to the [`datalad-catalog` documentation](http://docs.datalad.org/projects/catalog/en/latest/?badge=latest) for detailed instructions.
 
-## Feedback, issues and contributions
 
-Please log any feedback or problems you encounter with regards to the functioning of the catalog as an [issue](https://github.com/datalad/datalad-catalog/issues/new) on the `datalad-catalog` repository. For missing or unexpected metadata content, please contact the maintainer of this catalog.
-
-Contributions to this open source project are welcome! Please refer to the [contributor guidelines](http://docs.datalad.org/projects/catalog/en/latest/contributing.html) for more information.
 
