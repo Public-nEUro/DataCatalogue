@@ -76,9 +76,10 @@ datalad catalog-serve --catalog DataCatalogue/
 ```
 and check the adress http://localhost:8000/
 
-### Re-recreating the catalogue
+### Creating the catalogue
 
-
+Oops, it's all empty -- that because everything is a dataset! so we need to update the superdataset, that is the one that include them all.
+Edit the file `/import/data_import/catalogue_info.jsonl` adding `"subdatasets": [{"dataset_id": "PN000002 Aggression Project", "dataset_version": "V1", "dataset_path": "PN000002 Aggression Project"}]`. Then, as before, add it to the data catalogue (datalad catalog-add --catalog DataCatalogue  ... ). No try try again to visualize.
 
 
 
