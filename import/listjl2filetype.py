@@ -53,6 +53,11 @@ def listjl2filetype(datasetjl, listjl, source_name, agent_name):
                     }
                 }
             }
+            
+            # these two lines was added recently 
+            for k, v in item['metadata_sources'].items():
+                item['metadata_sources'][k] = [v]
+            
             local_jsonwrite(f"{dataset_info['name'].replace(' ', '')}.jsonl", item)
         else:
             print(f"Pattern not found in the following file info: {file_info}")
@@ -101,3 +106,11 @@ def local_jsonwrite(filename, json_obj):
 
 # Example usage:
 # listjl2filetype('OpenNeuroPETPhantoms_datasetonly.jsonl', 'file_list.jsonl', 'OpenNeuro_PET', 'Cyril Pernet')
+if __name__ == '__main__':
+    datasetjl = "/import/data_import/Aggression/Aggression.jsonl"   
+    listjl = "/import/data_import/Aggression/file_list.jsonl"
+    source_name = 'PublicnEuro'
+    agent_name = 'test_agent'
+    listjl2filetype(datasetjl, listjl, source_name, agent_name)
+ 
+
