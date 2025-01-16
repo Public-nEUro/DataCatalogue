@@ -71,6 +71,16 @@ datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data
 ```
 Assuming all went well, the `metadata/PN000002 Aggression` folder has been created. 
 
+
+### xlsx to json
+The purpose of this file is you convert a xlsx file to json file. You can follow the instruction as below. The file will output the json file to the same directory as xlsx file.
+```python
+from xlsx2json import xlsx2json as x2j
+import os
+os.chdir('data_import/Aggression')
+x2j("PublicnEUro_record_Aggression.xlsx")
+```
+
 ### Creating the catalogue
 
 One can check the render of our data in a browser doing:  
