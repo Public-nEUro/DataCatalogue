@@ -35,17 +35,14 @@ cd ../import/data_import/Aggression
 *Create the Aggression.jsonl*
 The file `import/study_template.jsonl` shows the key-values used to create this information. Here, create the new jsonl from `import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx` using `xlsx2json.py`.
 
-An important key-value here is `"type": "dataset"`, which informs datalad that this is the metadata level.
-
 ```python
 from xlsx2json import xlsx2json as x2j
 import os
 os.chdir('data_import/Aggression')
 x2j("PublicnEUro_record_Aggression.xlsx")
 ```
+An important key-value in the created jsonl is `"type": "dataset"`, which informs datalad that this is the metadata level. It then possible to check that the new file is valid:  
 
-
-It then possible to check that the new file is valid:  
 ```bash
 cd ../root_folder
 ```
