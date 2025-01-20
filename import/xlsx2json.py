@@ -1,3 +1,5 @@
+! pip install openpyxl --quiet
+
 import pandas as pd
 import json, re
 
