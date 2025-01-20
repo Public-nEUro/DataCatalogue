@@ -89,7 +89,7 @@ def xlsx2jsonl(input_file):
     funding_ = funding
     publication_ = publication
     metadata_sources = {"metadata_sources": {"sources": [ {"source_name": "Neurobiology Research Unit", "source_version": "1", "agent_name": "Cyril Pernet"}, {"source_name": "Neurobiology Research Unit", "source_version": "1", "agent_name": "Cheng-Teng Ip"}, {"source_name": "Neurobiology Research Unit", "source_version": "1", "agent_name": "Patrick Fisher"}]}}
-    additional_display = [participants, metadata]
+    additional_display = [metadata, participants]
     
     key_list=["type","name","description","dataset_id","dataset_version","keywords","license","authors","funding","publications","metadata_sources","additional_display"]
     val_list=[type_, name  , description , dataset_id , dataset_version , keywords , license , authors_, funding_, publication_ , metadata_sources , additional_display ]
