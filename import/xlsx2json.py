@@ -1,5 +1,14 @@
-! pip install openpyxl --quiet
+import subprocess
+import sys
 
+def install_openpyxl():
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "openpyxl", "--quiet"])
+
+# Install openpyxl
+install_openpyxl()
+
+# Now you can import and use openpyxl
+import openpyxl
 import pandas as pd
 import json, re
 
