@@ -37,7 +37,7 @@ The file `import/study_template.jsonl` shows the key-values used to create this 
 
 ```python
 python3
-from xlsx2json import xlsx2json as x2j
+from xlsx2jsonl import xlsx2json as x2j
 import os
 os.chdir('data_import/Aggression')
 x2j("PublicnEUro_record_Aggression.xlsx")
