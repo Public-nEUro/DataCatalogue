@@ -72,7 +72,6 @@ A new file based on the datset name value has been created - which should be `Ag
 cd ../root_folder
 ```
 ```python
-python3 -m venv my_catalog_env
 source my_catalog_env/bin/activate
 datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
 datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
