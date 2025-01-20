@@ -29,7 +29,7 @@ This branch has been stripped from all but the Aggression data in the import fol
 ### Creating a study information (metadata from user)
 
 ```bash
-cd ../import/data_import/Aggression
+cd ../import
 ```
 
 *Create the Aggression.jsonl*
