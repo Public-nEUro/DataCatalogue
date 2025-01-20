@@ -12,7 +12,7 @@ import openpyxl
 import pandas as pd
 import json, re
 
-def xlsx2json(input_file):
+def xlsx2jsonl(input_file):
 
     #input_file = 'PublicnEUro_record_Aggression.xlsx'
     excel_data = pd.read_excel(input_file, sheet_name=None, engine='openpyxl')
@@ -104,11 +104,11 @@ def xlsx2json(input_file):
     match = re.search(r'[^/\\]+(?=\.[^/\\]+$)', input_file)  
     if match:
         filename = match.group(0) 
-    with open(filename+".json", 'w') as json_file:
-        json.dump(final_dict, json_file, indent=4)
-
+    with open(filename+".jsonl", 'w') as jsonl_file:
+        jsonl_file.write(json.dumps(final_dict) + '\n')
+        
 if __name__ == '__main__':
 
-    xlsx2json(input_file)
+    xlsx2jsonl(input_file)
 
 
