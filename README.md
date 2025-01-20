@@ -33,7 +33,17 @@ cd ../import/data_import/Aggression
 ```
 
 *Create the Aggression.jsonl*
-The file `import/study_template.jsonl` shows the key-values used to create this information. Here, create the new jsonl from `import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx`. An important key-value here is `"type": "dataset"`, which informs datalad that this is the metadata level.
+The file `import/study_template.jsonl` shows the key-values used to create this information. Here, create the new jsonl from `import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx` using `xlsx2json.py`.
+
+An important key-value here is `"type": "dataset"`, which informs datalad that this is the metadata level.
+
+```python
+from xlsx2json import xlsx2json as x2j
+import os
+os.chdir('data_import/Aggression')
+x2j("PublicnEUro_record_Aggression.xlsx")
+```
+
 
 It then possible to check that the new file is valid:  
 ```bash
@@ -71,15 +81,6 @@ datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data
 ```
 Assuming all went well, the `metadata/PN000002 Aggression` folder has been created. 
 
-
-### xlsx to json
-The purpose of this file is you convert a xlsx file to json file. You can follow the instruction as below. The file will output the json file to the same directory as xlsx file.
-```python
-from xlsx2json import xlsx2json as x2j
-import os
-os.chdir('data_import/Aggression')
-x2j("PublicnEUro_record_Aggression.xlsx")
-```
 
 ### Creating the catalogue
 
