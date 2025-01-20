@@ -109,7 +109,6 @@ def xlsx2json(input_file):
 
 if __name__ == '__main__':
 
-    input_file = 'data_import/Aggression/PublicnEUro_record_Aggression.xlsx'
     xlsx2json(input_file)
 
 
