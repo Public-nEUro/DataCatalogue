@@ -36,6 +36,7 @@ cd ../import
 The file `import/study_template.jsonl` shows the key-values used to create this information. Here, create the new jsonl from `import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx` using `xlsx2json.py`.
 
 ```python
+python3
 from xlsx2json import xlsx2json as x2j
 import os
 os.chdir('data_import/Aggression')
