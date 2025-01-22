@@ -51,7 +51,7 @@ cd ../root_folder
 python3 -m venv my_catalog_env
 source my_catalog_env/bin/activate
 pip install datalad-catalog
-datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/Aggression.jsonl
+datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/PublicnEUro_record_Aggression.jsonl
 deactivate
 ```
 *Add file information (childrens)*
@@ -63,7 +63,7 @@ cd DataCatalogue/import/
 from listjl2filetype import listjl2filetype as l2f
 import os
 os.chdir('data_import/Aggression')
-l2f('Aggression.jsonl', 'file_list.jsonl', 'PublicnEuro', 'test_agent') 
+l2f('PublicnEUro_record_Aggression.jsonl', 'file_list.jsonl', 'PublicnEuro', 'test_agent') 
 exit()
 ```
 A new file based on the datset name value has been created - which should be `AggressionProject.jsonl`. Again this can be tested, and if valid, imported.
