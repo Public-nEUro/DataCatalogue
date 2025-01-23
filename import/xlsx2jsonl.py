@@ -114,6 +114,14 @@ def xlsx2jsonl(input_file):
     dataset_id = {"dataset_id": str(" ".join((metadata_aux['PN ID'], metadata_aux['title'])))}
     # ====================================================================================================
     dataset_version = {"dataset_version": None if metadata_aux['dataset version'] == None else "V"+str(metadata_aux['dataset version'])} 
+    doi = {"doi" : metadata_aux['DOI']}
+    # ===================================== DOWNLOAD URL ===================================== 
+    a = "https://datacatalog.publicneuro.eu/dataset/"
+    b = str(" ".join((metadata_aux['PN ID'], metadata_aux['title'])))
+    c = "/"
+    d = "V"+str(metadata_aux['dataset version'])
+    download_url = {"download_url": a+b+c+d}
+    # ====================================================================================================
     keywords = {"keywords": [str(item.strip()) for item in aux_dict["dataset_info"][3]['values'].split(',')]}
     license = {"license": {"name": "Data User Agreement"}}
     authors_ = authors
@@ -131,8 +139,8 @@ def xlsx2jsonl(input_file):
     # =============================================================================================
     additional_display = [metadata, participants]
     
-    key_list=["type","name","description","dataset_id","dataset_version","keywords","license","authors","funding","publications","metadata_sources","additional_display"]
-    val_list=[type_, name  , description , dataset_id , dataset_version , keywords , license , authors_, funding_, publication_ , metadata_sources , additional_display ]
+    key_list=["type","name","description","dataset_id","dataset_version","doi", "download_url","keywords","license","authors","funding","publications","metadata_sources","additional_display"]
+    val_list=[type_, name  , description , dataset_id , dataset_version , doi , download_url  , keywords , license , authors_, funding_, publication_ , metadata_sources , additional_display ]
     final_dict = dict()
     
     for k, v in zip(key_list, val_list):
@@ -140,11 +148,8 @@ def xlsx2jsonl(input_file):
             final_dict.update(v)
         else:
             final_dict[k] = v
-    a = "https://datacatalog.publicneuro.eu/dataset/"
-    b = str(" ".join((metadata_aux['PN ID'], metadata_aux['title'])))
-    c = "/"
-    d = "V"+str(metadata_aux['dataset version'])
-    print(a+b+c+d)
+
+    
     match = re.search(r'[^/\\]+(?=\.[^/\\]+$)', input_file)  
     if match:
         filename = match.group(0) 
