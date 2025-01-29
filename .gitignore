@@ -1,4 +1,6 @@
 **/__pycache__/
 metadata/*
 !metadata/super.json
-
+!import/data_import/Aggression/PublicnEUro_record_Aggression.xlsx
+!import/data_import/Aggression/file_list.jsonl
+import/data_import/Aggression/*
