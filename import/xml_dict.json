@@ -1,0 +1,101 @@
+{
+    "head": {
+        "doi_batch_id": "Neurobiology Research Unit",
+        "timestamp": "2024121700000000",
+        "depositor": {
+            "depositor_name": "PublicNeuro",
+            "email_address": "publicneuro@nru.dk"
+        },
+        "registrant": "Neurobiology Research Unit"
+    },
+    "body": {
+        "database": {
+            "database_metadata": {
+                "@attributes": {
+                    "language": "en"
+                },
+                "titles": {
+                    "title": "PublicNeuro Datasets"
+                },
+                "institution": {
+                    "institution_id": {
+                        "@attributes": {
+                            "type": "ror"
+                        },
+                        "#text": "https://ror.org/02twcfp32"
+                    },
+                    "institution_department": "Neurobiology Research Unit"
+                },
+                "doi_data": {
+                    "doi": "10.70883/XXXX",
+                    "resource": "https://www.crossref.org/xml-samples"
+                }
+            },
+            "dataset": {
+                "@attributes": {
+                    "dataset_type": "record"
+                },
+                "contributors": {
+                    "person_name": {
+                        "@attributes": {
+                            "sequence": "first",
+                            "contributor_role": "author"
+                        },
+                        "given_name": "something",
+                        "surname": "something",
+                        "affiliations": {
+                            "institution": {
+                                "institution_id": {
+                                    "@attributes": {
+                                        "type": "ror"
+                                    },
+                                    "#text": "https://ror.org/02twcfp32"
+                                },
+                                "institution_department": "something"
+                            }
+                        },
+                        "ORCID": {
+                            "@attributes": {
+                                "authenticated": "true"
+                            },
+                            "#text": "https://orcid.org/0000-0002-4011-3590"
+                        }
+                    }
+                },
+                "titles": {
+                    "title": "something"
+                },
+                "database_date": {
+                    "creation_date": {
+                        "month": "10",
+                        "day": "10",
+                        "year": "2020"
+                    }
+                },
+                "publisher_item": {
+                    "item_number": {
+                        "@attributes": {
+                            "item_number_type": "veryimportant"
+                        },
+                        "#text": "3333333"
+                    }
+                },
+                "description": {
+                    "@attributes": {
+                        "language": "en"
+                    },
+                    "#text": "something"
+                },
+                "format": {
+                    "@attributes": {
+                        "mime_type": "text/html"
+                    }
+                },
+                "doi_data": {
+                    "doi": "10.32013/NP6QoBh",
+                    "resource": "https://www.crossref.org/xml-samples"
+                }
+            }
+        }
+    }
+}
