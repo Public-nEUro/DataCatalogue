@@ -1,4 +1,6 @@
-import random, string, json
+# This script only makes sure that "xml_dict.json" and metadata has an updated doi identifier. 
+# It is a part of other functions
+import random, string, json, sys
 
 def load_(filename):
     with open(filename, 'r') as f:
@@ -27,22 +29,26 @@ def doi_pipeline(project):
     datasets[project] = suffix_doi
     save_(datasets, 'dataset_.json')
 
-    print(f"\n - Dataset has been updated!")
-    print(f" - Created full DOI: {full_doi}")
-    print(f" - Updated dataset:\n")
-    print(json.dumps(load_('dataset_.json'), indent=4))
+    print(f"\t     +++ Dataset has been updated!")
+    print(f"\t     +++ Created full DOI: {full_doi}")
+    print(f"\t     +++ Updated dataset:\n")
+    print(json.dumps(load_('dataset_.json'), indent=8))
     print()
 
 # ===========================================================>>> step 0: specify filenames to be processed in this doi pipeline
-project = "PN000002"
+if len(sys.argv) < 3:
+    print("\n\t [X] Please make sure you have provided the NP ID and metadata.jsonl as arguments while running doi_pipeline.py.\n\t     +++ PN ID e.g. PN0000Xa, PN0000Xb, etc.\n\t     +++ metadata.jsonl e.g. PublicnEUro_record_Aggression.jsonl")
+    print("\n\t [X] Usecase: python3 doi_pipeline.py PN000002 PublicnEUro_record_Aggression.jsonl")
+    sys.exit(1)
+project = str(sys.argv[1])
 
 xml_file = "xml_dict.json"
 xml_dict = load_(xml_file)
 
-metadata_file = "/data_import/Aggression/PublicnEUro_record_Aggression.jsonl"
+metadata_file = str(sys.argv[2]) #"PublicnEUro_record_Aggression.jsonl"
 dataset_info = load_(metadata_file)
 
-print(f" - Project identifier: {project}")
+print(f"\n\t [X] PN ID: {project}")
 # ===========================================================>>> step 1: update doi
 # dataset_.json is simply a file with a dictionary that holds project name as keys, and project doi as values
 """
@@ -51,7 +57,7 @@ USECASE: Given a project name:
  + 2. Update the doi in dataset_.json
 """
 if project in list(load_("dataset_.json").keys()) and load_("dataset_.json")[project].__len__() == 8:
-    print(f" - Project already exist. DOI: {load_('dataset_.json')[project]}")
+    print(f"\n\t     +++ PN ID already exist. DOI: {load_('dataset_.json')[project]}")
     updated_doi = load_("dataset_.json")
 else: 
     doi_pipeline(project) # we should call/generated doi only if it does not exist
@@ -63,19 +69,17 @@ else:
 
 if xml_dict['body']['database']['database_metadata']['doi_data']['doi'].split("/")[1].__len__() == 8:
     if xml_dict['body']['database']['database_metadata']['doi_data']['doi'].split("/")[1] == load_("dataset_.json")[project]:
-        print()
-        print(f" + \t ===> NOTE! <===")
-        print(f" - xml_dict.json has already been updated.")
+        print(f"\t     +++ xml_dict.json has already been updated.")
     if xml_dict['body']['database']['database_metadata']['doi_data']['doi'].split("/")[1] != load_("dataset_.json")[project]:
-        print()
-        print(f" + \t ===> NOTE! <===")
-        print(f" - xml_dict.json has already been updated. However DOIs are different.")
-        print(f" - xml_dict.json DOI: {xml_dict['body']['database']['database_metadata']['doi_data']['doi']}")
-        print(f" - dateset_.json DOI: {'10.70883/'+updated_doi[project]}")   
-if xml_dict['body']['database']['database_metadata']['doi_data']['doi'].split("/")[1] == "XXXX":
-    xml_dict['body']['database']['database_metadata']['doi_data']['doi'] = "10.70883/"+updated_doi[project]
-    print(f"\n - Updated DOI: {xml_dict['body']['database']['database_metadata']['doi_data']['doi']} in xml file: {xml_file}")
-save_(xml_dict, xml_file)
+        print(f"\t     [x] ===> NOTICE:")
+        print(f"\t     +++ xml_dict.json has already been updated. However DOIs are different.")
+        print(f"\t     +++ xml_dict.json DOI: {xml_dict['body']['database']['database_metadata']['doi_data']['doi']}")
+        print(f"\t     +++ dateset_.json DOI: {'10.70883/'+updated_doi[project]}") 
+        print(f"\t     +++ You can either open xml_dict.json, and edit DOI to '{'10.70883/'+updated_doi[project]}' manually, or '10.70883/XXXX' and run this file again")
+#if xml_dict['body']['database']['database_metadata']['doi_data']['doi'].split("/")[1] == "XXXX":
+#    xml_dict['body']['database']['database_metadata']['doi_data']['doi'] = "10.70883/"+updated_doi[project]
+#    print(f"\n\t [X] Updated DOI: {xml_dict['body']['database']['database_metadata']['doi_data']['doi']} in xml file: {xml_file}")
+#save_(xml_dict, xml_file)
 
 # ===========================================================>>> step 3: update DOI in dataset metadata
 """
@@ -84,18 +88,15 @@ Here we make sure if the final metadata has been updated by latest generated doi
 
 if dataset_info['doi'].split('/')[-1].__len__() == 8:    
     if dataset_info['doi'].split('/')[-1] == updated_doi[project]:
-        print()
-        print(f" + \t ===> NOTE! <===")
-        print(f" - Metadata has already been updated.")
+        print(f"\t     +++ Metadata has already been updated.")
     if dataset_info['doi'].split('/')[-1] != updated_doi[project]:
-        print()
-        print(f" + \t ===> NOTE! <===")
-        print(f" - Metadata has already been updated. However DOIs are different.")
-        print(f" - Metadata DOI: {dataset_info['doi']}")
-        print(f" - dateset_.json DOI: {'10.70883/'+updated_doi[project]}")   
-
+        print(f"\t     [x] ===> NOTICE:")
+        print(f"\t     +++ Metadata has already been updated. However DOIs are different.")
+        print(f"\t     +++ Metadata DOI: {dataset_info['doi']}")
+        print(f"\t     +++ dateset_.json DOI: {'10.70883/'+updated_doi[project]}")   
+        print(f"\t     +++ You can either open '{metadata_file}', and edit DOI to '{'10.70883/'+updated_doi[project]}' manually, or '10.70883/XXXX' and run this file again")
 if dataset_info['doi'].split('/')[-1] == "XXXX":
     dataset_info['doi'] = dataset_info['doi'][:-4]+updated_doi[project]
-    print(f"\n - Updated DOI: {dataset_info['doi']} in metadata file: {metadata_file}\n")
+    print(f"\n\t [X] Updated DOI: {dataset_info['doi']} in metadata file: {metadata_file}")
 with open(metadata_file, 'w') as jsonl_file:
     jsonl_file.write(json.dumps(dataset_info) + '\n')

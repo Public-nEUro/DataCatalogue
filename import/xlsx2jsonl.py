@@ -149,17 +149,17 @@ def xlsx2jsonl(input_file):
         else:
             final_dict[k] = v
 
-    
-    match = re.search(r'[^/\\]+(?=\.[^/\\]+$)', input_file)  
-    if match:
-        filename = match.group(0) 
-    with open(filename+".jsonl", 'w') as jsonl_file:
+
+    #match = re.search(r'[^/\\]+(?=\.[^/\\]+$)', input_file)  
+    #if match:
+    #    filename = match.group(0) 
+    with open(input_file.split(".")[0]+".jsonl", 'w') as jsonl_file:
         jsonl_file.write(json.dumps(final_dict) + '\n')
 
 if __name__ == '__main__':
 
     #input_file = 'PublicnEUro_record.xlsx'
-    input_file = "PublicnEUro_record_Aggression.xlsx"
+    input_file = "data_import/Aggression/PublicnEUro_record_Aggression.xlsx"
     xlsx2jsonl(input_file)
 
 
