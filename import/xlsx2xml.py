@@ -147,12 +147,18 @@ if __name__ == '__main__':
     PNID = str(sys.argv[1])
     #input_file = "PublicnEUro_record_Aggression.xlsx"
     metadata = aux(str(sys.argv[2])) 
-    print(metadata["doi"].split("/")[4])
+
     if metadata["doi"].split("/")[4] == "XXXX":
         subprocess.run("python3 doi_pipeline.py" + " " + PNID + " " + str(sys.argv[2]).split(".")[0] + ".jsonl", shell=True)
         with open("dataset_.json", 'r') as f:
             data = json.load(f)
         metadata["doi"] = "10.70883/"+data[metadata["id"]]
+    if metadata["doi"].split("/")[4].__len__() == 8:
+        with open("dataset_.json", 'r') as f:
+            data = json.load(f)
+        data[PNID] = metadata["doi"].split("/")[4]
+        with open('dataset_.json', 'w') as f:
+            json.dump(data, f, indent=4)
     input_xml_dict = "xml_dict.json"
     xlsx2xml(input_xml_dict, metadata, str(sys.argv[2]).split(".")[0]+".xml")
 
