@@ -66,15 +66,15 @@ os.chdir('data_import/Aggression')
 l2f('PublicnEUro_record_Aggression.jsonl', 'file_list.jsonl', 'PublicnEuro', 'test_agent') 
 exit()
 ```
-A new file based on the datset name value has been created - which should be `AggressionProject.jsonl`. Again this can be tested, and if valid, imported.
+A new file based on the datset name value has been created - which should be `PublicnEUro_record_Aggression.jsonl`. Again this can be tested, and if valid, imported.
 
 ```bash
 cd ../root_folder
 ```
 ```python
 source my_catalog_env/bin/activate
-datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
-datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
+datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/PublicnEUro_record_Aggression.jsonl
+datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Aggression/PublicnEUro_record_Aggression.jsonl
 ```
 Assuming all went well, the `metadata/PN000002 Aggression` folder has been created. 
 
