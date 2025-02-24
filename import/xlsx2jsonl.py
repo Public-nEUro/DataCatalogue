@@ -120,7 +120,7 @@ def xlsx2jsonl(input_file):
     b = str(" ".join((metadata_aux['PN ID'], metadata_aux['title'])))
     c = "/"
     d = "V"+str(metadata_aux['dataset version'])
-    download_url = {"download_url": a+b+c+d}
+    download_url = {"download_url": str(a+b+c+d).replace(" ", "%20")}
     # ====================================================================================================
     keywords = {"keywords": [str(item.strip()) for item in aux_dict["dataset_info"][3]['values'].split(',')]}
     license = {"license": {"name": "Data User Agreement"}}

@@ -1,4 +1,4 @@
-# This script only makes sure that "xml_dict.json" and metadata has an updated doi identifier. 
+# This script only makes sure that metadata has an updated doi identifier. 
 # It is a part of other functions
 import random, string, json, sys
 
@@ -42,9 +42,6 @@ if len(sys.argv) < 3:
     sys.exit(1)
 project = str(sys.argv[1])
 
-xml_file = "xml_dict.json"
-xml_dict = load_(xml_file)
-
 metadata_file = str(sys.argv[2]) #"PublicnEUro_record_Aggression.jsonl"
 dataset_info = load_(metadata_file)
 
@@ -63,25 +60,8 @@ else:
     doi_pipeline(project) # we should call/generated doi only if it does not exist
     updated_doi = load_("dataset_.json")
 
-# ===========================================================>>> step 2: update xml_dict.json
-# There is xml_dict.json file created by default input. here we only update the doi
-# This file will later be used to create xml file
 
-if xml_dict['body']['database']['database_metadata']['doi_data']['doi'].split("/")[1].__len__() == 8:
-    if xml_dict['body']['database']['database_metadata']['doi_data']['doi'].split("/")[1] == load_("dataset_.json")[project]:
-        print(f"\t     +++ xml_dict.json has already been updated.")
-    if xml_dict['body']['database']['database_metadata']['doi_data']['doi'].split("/")[1] != load_("dataset_.json")[project]:
-        print(f"\t     [x] ===> NOTICE:")
-        print(f"\t     +++ xml_dict.json has already been updated. However DOIs are different.")
-        print(f"\t     +++ xml_dict.json DOI: {xml_dict['body']['database']['database_metadata']['doi_data']['doi']}")
-        print(f"\t     +++ dateset_.json DOI: {'10.70883/'+updated_doi[project]}") 
-        print(f"\t     +++ You can either open xml_dict.json, and edit DOI to '{'10.70883/'+updated_doi[project]}' manually, or '10.70883/XXXX' and run this file again")
-#if xml_dict['body']['database']['database_metadata']['doi_data']['doi'].split("/")[1] == "XXXX":
-#    xml_dict['body']['database']['database_metadata']['doi_data']['doi'] = "10.70883/"+updated_doi[project]
-#    print(f"\n\t [X] Updated DOI: {xml_dict['body']['database']['database_metadata']['doi_data']['doi']} in xml file: {xml_file}")
-#save_(xml_dict, xml_file)
-
-# ===========================================================>>> step 3: update DOI in dataset metadata
+# ===========================================================>>> step 2: update DOI in dataset metadata
 """
 Here we make sure if the final metadata has been updated by latest generated doi. It will pass if so, otherwise it will be updated.
 """

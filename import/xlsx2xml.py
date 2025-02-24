@@ -115,8 +115,7 @@ def xlsx2xml(xml_dict, comp, out_file):
         for database_metadata in database.iter('database_metadata'):
             for titles in database_metadata.iter("titles"):
                 titles.find(".//subtitle").text = comp["subtitle"]
-            for doi_data in database_metadata.iter("doi_data"):
-                doi_data.find(".//doi").text = comp["doi"]
+            
         for dataset in database.iter('dataset'):
             for doi_data in dataset.iter("doi_data"):
                 doi_data.find(".//doi").text = comp["doi"]
@@ -148,7 +147,7 @@ if __name__ == '__main__':
     PNID = str(sys.argv[1])
     #input_file = "PublicnEUro_record_Aggression.xlsx"
     metadata = aux(str(sys.argv[2])) 
-    
+    print(metadata["doi"].split("/")[4])
     if metadata["doi"].split("/")[4] == "XXXX":
         subprocess.run("python3 doi_pipeline.py" + " " + PNID + " " + str(sys.argv[2]).split(".")[0] + ".jsonl", shell=True)
         with open("dataset_.json", 'r') as f:

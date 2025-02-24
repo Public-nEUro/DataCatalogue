@@ -17,19 +17,6 @@
                 "titles": {
                     "title": "PublicNeuro Datasets",
                     "subtitle": ""
-                },
-                "institution": {
-                    "institution_id": {
-                        "@attributes": {
-                            "type": "ror"
-                        },
-                        "#text": "https://ror.org/02twcfp32"
-                    },
-                    "institution_department": "Neurobiology Research Unit"
-                },
-                "doi_data": {
-                    "doi": "10.70883/XXXX",
-                    "resource": "https://www.crossref.org/xml-samples"
                 }
             },
             "dataset": {
