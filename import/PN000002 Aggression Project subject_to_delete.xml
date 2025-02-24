@@ -17,14 +17,6 @@
 					<title>PublicNeuro Datasets</title>
 					<subtitle>PN000002 Aggression Project</subtitle>
 				</titles>
-				<institution>
-					<institution_id type="ror">https://ror.org/02twcfp32</institution_id>
-					<institution_department>Neurobiology Research Unit</institution_department>
-				</institution>
-				<doi_data>
-					<doi>10.70883/DBZD6938</doi>
-					<resource>https://www.crossref.org/xml-samples</resource>
-				</doi_data>
 			</database_metadata>
 			<dataset dataset_type="record">
 				<contributors>
