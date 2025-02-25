@@ -73,8 +73,8 @@ cd ../root_folder
 ```
 ```python
 source my_catalog_env/bin/activate
-datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/PublicnEUro_record_Aggression.jsonl
-datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Aggression/PublicnEUro_record_Aggression.jsonl
+datalad catalog-validate --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
+datalad catalog-add --catalog DataCatalogue --metadata DataCatalogue/import/data_import/Aggression/AggressionProject.jsonl
 ```
 Assuming all went well, the `metadata/PN000002 Aggression` folder has been created. 
 
