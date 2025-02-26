@@ -20,7 +20,7 @@
 			</database_metadata>
 			<dataset dataset_type="record">
 				<contributors>
-                                        <person_name sequence="additional" contributor_role="author">
+                    <person_name sequence="additional" contributor_role="author">
 						<given_name>Søren</given_name>
 						<surname>Baarsgaard Hansen</surname>
 					</person_name>
@@ -47,6 +47,7 @@
 					<person_name sequence="additional" contributor_role="author">
 						<given_name>Maqsood</given_name>
 						<surname>Yaqub</surname>
+					</person_name>
 					<person_name sequence="additional" contributor_role="author">
 						<given_name>Cyril</given_name>
 						<surname>Pernet</surname>
