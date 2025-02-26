@@ -248,11 +248,7 @@
             "identifier": "ARED MAPPIS"
         }
     ],
-    "access_request_contact": {
-        "givenName": "PublicnEuro",
-        "familyName": "NRU",
-        "email": "publicneuro@nru.dk"
-    },
+    "doi":"https://doi.org/1070883/GTKK1541","download_url": "/manage/request-access/PN000003",
     "additional_display": [
         {
             "name": "Dataset Metadata",
