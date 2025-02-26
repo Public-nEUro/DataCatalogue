@@ -32,6 +32,12 @@
             "name": "PNC00001: UCB-J consortium",
             "dataset_id": "PNC00001 UCB-J consortium",
             "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PN000009: Markerless Prospective Motion Correction",
+            "dataset_id": "PN000009 Markerless Prospective Motion Correction",
+            "dataset_version": "V1"
         }
     ],
     "metadata_sources": {
@@ -84,7 +90,6 @@
             "identifier": "NNF20OC0063277"
         }
     ],
-    "Last updated": "13/09/2024",
     "subdatasets": [
         {
             "dataset_id": "PN000001 OpenNeuroPET Phantoms",
@@ -121,9 +126,17 @@
         {
             "dataset_id": "PNC00001 UCB-J consortium",
             "dataset_version": "V1",
-            "dataset_path": "PN000004 UCB-J consortium",
+            "dataset_path": "PNC000001 UCB-J consortium",
             "dirs_from_path": [
-                "PN000004 UCB-J consortium"
+                "PNCS000001 UCB-J consortium"
+            ]
+        },
+        {
+            "dataset_id": "PN000009 Markerless Prospective Motion Correction",
+            "dataset_version": "V1",
+            "dataset_path": "PN000009 Markerless Prospective Motion Correction",
+            "dirs_from_path": [
+                "PN000009 Markerless Prospective Motion Correction"
             ]
         }
     ]
