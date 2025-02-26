@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<doi_batch xmlns="http://www.crossref.org/schema/5.3.0" version="5.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+
+	<head>
+		<doi_batch_id>Neurobiology Research Unit</doi_batch_id>
+		<timestamp>2025022600000000</timestamp>
+		<depositor>
+			<depositor_name>PublicNeuro</depositor_name>
+			<email_address>publicneuro@nru.dk</email_address>
+		</depositor>
+		<registrant>Neurobiology Research Unit</registrant>
+	</head>
+	<body>
+		<database>
+			<database_metadata language="en">
+				<titles>
+					<title>PublicNeuro Datasets</title>
+					<subtitle>PN000003 HCP multipipelines</subtitle> 
+				</titles>
+			</database_metadata>
+			<dataset dataset_type="record">
+				<contributors>
+					<person_name sequence="additional" contributor_role="author">
+						<given_name>Elodie</given_name>
+						<surname>Germani</surname>
+					</person_name>
+					<person_name sequence="additional" contributor_role="author">
+						<given_name>Elisa</given_name>
+						<surname>Fromont</surname>
+					</person_name>
+					<person_name sequence="additional" contributor_role="author">
+						<given_name>Pierre</given_name>
+						<surname>Maurel</surname>
+					</person_name>
+					<person_name sequence="additional" contributor_role="author">
+						<given_name>Camille</given_name>
+						<surname>Maumet</surname>
+					</person_name>
+				</contributors>
+				<titles>
+				<title>HCP multipipelines</title>
+				</titles>
+				<description language="en">While variability across participants or across acquisition instruments have been extensively studied in the neuroimaging literature the root causes of analytical variability remain an open question. Here, we share the derivatives from HCP-Young Adults dataset, including the statistical maps for 24 typical fMRI pipelines on 1080 participants. We share both individual and group results - for 1,000 groups of 50 participants - over 5 motor contrasts.</description>
+				<doi_data>
+					<doi>10.70883/GTKK1541</doi>
+					<resource>https://datacatalog.publicneuro.eu/dataset/PN000003%20HCP%20multipipelines/V1</resource>
+				</doi_data>
+			</dataset>
+		</database>
+	</body>
+</doi_batch>
