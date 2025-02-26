@@ -474,7 +474,8 @@
             ]
         }
     ],
-    "doi":"https://doi.org/1070883/QXBH2876","download_url": "/manage/request-access/PN000004",
+    "doi":"https://doi.org/10.70883/QXBH2876",
+    "download_url": "/manage/request-access/PN000004",
     "additional_display": [
         {
             "name": "Dataset Metadata",
