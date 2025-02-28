@@ -24,6 +24,9 @@
                     "dataset_type": "record"
                 },
                 "contributors": {},
+                "titles": {
+                    "title": "something"
+                },
                 "description": {
                     "@attributes": {
                         "language": "en"
@@ -31,7 +34,7 @@
                     "#text": "something"
                 },
                 "doi_data": {
-                    "doi": "10.70883/XXXX",
+                    "doi": "10.32013/XXXX",
                     "resource": "https://www.crossref.org/xml-samples"
                 }
             }

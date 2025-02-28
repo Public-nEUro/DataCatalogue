@@ -1,5 +1,5 @@
 import subprocess
-subprocess.run("pip install openpyxl --quiet", shell=True)
+#subprocess.run("pip install openpyxl pandas --quiet", shell=True)
 
 import openpyxl, json, re, sys
 import pandas as pd
@@ -48,9 +48,11 @@ def aux(input_file):
 
         "authors" : authors,
         "description": description,
+        "title": metadata_aux['title'],
         "subtitle": subtitle,
         "doi": doi,
         "id": metadata_aux['PN ID'],
+        "download_url": download_url,
         "name": b
     }
 
@@ -119,7 +121,11 @@ def xlsx2xml(xml_dict, comp, out_file):
         for dataset in database.iter('dataset'):
             for doi_data in dataset.iter("doi_data"):
                 doi_data.find(".//doi").text = comp["doi"]
+            for doi_data in dataset.iter("doi_data"):
+                doi_data.find(".//resource").text = comp["download_url"]
             dataset.find('.//description').text = comp['description']
+            for titles in dataset.iter("titles"):
+                titles.find(".//title").text = comp["title"] + " Data"
             contributors_elem = dataset.find('.//contributors')
             if contributors_elem is not None:
                 for author in comp['authors']:
@@ -147,18 +153,12 @@ if __name__ == '__main__':
     PNID = str(sys.argv[1])
     #input_file = "PublicnEUro_record_Aggression.xlsx"
     metadata = aux(str(sys.argv[2])) 
-
+    
     if metadata["doi"].split("/")[4] == "XXXX":
         subprocess.run("python3 doi_pipeline.py" + " " + PNID + " " + str(sys.argv[2]).split(".")[0] + ".jsonl", shell=True)
         with open("dataset_.json", 'r') as f:
             data = json.load(f)
         metadata["doi"] = "10.70883/"+data[metadata["id"]]
-    if metadata["doi"].split("/")[4].__len__() == 8:
-        with open("dataset_.json", 'r') as f:
-            data = json.load(f)
-        data[PNID] = metadata["doi"].split("/")[4]
-        with open('dataset_.json', 'w') as f:
-            json.dump(data, f, indent=4)
     input_xml_dict = "xml_dict.json"
     xlsx2xml(input_xml_dict, metadata, str(sys.argv[2]).split(".")[0]+".xml")
 

@@ -12,7 +12,7 @@ import re
 def listjl2filetype(datasetjl, listjl, source_name, agent_name):
     # 1 - Get datasetjl
     if not os.path.exists(datasetjl):
-        raise FileNotFoundError(f'dataset.json file {datasetjl} not found')
+        raise FileNotFoundError(f'dataset.jsonl file {datasetjl} not found')
 
     with open(datasetjl, 'r') as f:
         dataset_info = json.loads(f.read())
