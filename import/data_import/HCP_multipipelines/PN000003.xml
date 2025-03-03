@@ -3,12 +3,12 @@
 
 	<head>
 		<doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-		<timestamp>2025022600000001</timestamp>
+		<timestamp>2025030300000000</timestamp>
 		<depositor>
 			<depositor_name>PublicNeuro</depositor_name>
 			<email_address>publicneuro@nru.dk</email_address>
 		</depositor>
-		<registrant>CRCN, Inria, Rennes, France</registrant>
+		<registrant>Neurobiology Research Unit, Rigshospitalet, Denmark</registrant>
 	</head>
 	<body>
 		<database>
@@ -20,7 +20,7 @@
 			</database_metadata>
 			<dataset dataset_type="record">
 				<contributors>
-					<person_name sequence="additional" contributor_role="author">
+					<person_name sequence="first" contributor_role="author">
 						<given_name>Elodie</given_name>
 						<surname>Germani</surname>
 					</person_name>

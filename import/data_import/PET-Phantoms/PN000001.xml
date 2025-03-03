@@ -3,7 +3,7 @@
 
 	<head>
 		<doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-		<timestamp>2025022600000002</timestamp>
+		<timestamp>2025030300000000</timestamp>
 		<depositor>
 			<depositor_name>PublicNeuro</depositor_name>
 			<email_address>publicneuro@nru.dk</email_address>
@@ -20,7 +20,7 @@
 			</database_metadata>
 			<dataset dataset_type="record">
 				<contributors>
-                    <person_name sequence="additional" contributor_role="author">
+                    <person_name sequence="first" contributor_role="author">
 						<given_name>Søren</given_name>
 						<surname>Baarsgaard Hansen</surname>
 					</person_name>
