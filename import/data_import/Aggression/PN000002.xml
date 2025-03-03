@@ -3,12 +3,12 @@
 
 	<head>
 		<doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-		<timestamp>2025022600000000</timestamp>
+		<timestamp>2025022600000003</timestamp>
 		<depositor>
 			<depositor_name>PublicNeuro</depositor_name>
 			<email_address>publicneuro@nru.dk</email_address>
 		</depositor>
-		<registrant>Neurobiology Research Unit</registrant>
+		<registrant>Neurobiology Research Unit, Rigshospitalet, Denmark</registrant>
 	</head>
 	<body>
 		<database>
@@ -52,7 +52,16 @@
 				<titles>
 				<title>Aggression Project Data</title>
 				</titles>
-				<description language="en">The Aggression Project aimed to determine brain mechanisms underlying aggression using 5-HT1BR PET ([11C]AZ10419369) and MRI. Participants recruited included incarcerated violent offenders and healthy controls.</description>
+				<database_date>
+					<publication_date>
+						<month>06</month>
+						<day>12</day>
+						<year>2024</year>
+					</publication_date>
+				</database_date>
+				<description language="en">
+				The Aggression Project aimed to determine brain mechanisms underlying aggression using 5-HT1BR PET ([11C]AZ10419369) and MRI. Participants recruited included incarcerated violent offenders and healthy controls.
+				</description>
 				<doi_data>
 					<doi>10.70883/DEYZ5967</doi>
 					<resource>https://datacatalog.publicneuro.eu/dataset/PN000002%20Aggression%20Project/V1</resource>
