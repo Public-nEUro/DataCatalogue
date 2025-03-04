@@ -4,6 +4,7 @@ import subprocess
 import openpyxl, json, re, sys
 import pandas as pd
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
 def aux(input_file):
 
@@ -112,7 +113,12 @@ def xlsx2xml(xml_dict, comp, out_file):
     root.append(body_element)
     tree = ET.ElementTree(root)
 
-
+    now = datetime.now()
+    timestamp = now.strftime("%Y%m%d") + "00000000"
+    
+    for head in root.iter("head"):
+        head.find(".//timestamp").text = timestamp
+    first=True    
     for database in root.iter('database'):
         for database_metadata in database.iter('database_metadata'):
             for titles in database_metadata.iter("titles"):
@@ -126,10 +132,17 @@ def xlsx2xml(xml_dict, comp, out_file):
             dataset.find('.//description').text = comp['description']
             for titles in dataset.iter("titles"):
                 titles.find(".//title").text = comp["title"] + " Data"
+            for database_date in dataset.iter("database_date"):
+                for publication_date in database_date.iter("publication_date"):
+                    publication_date.find(".//month").text = now.strftime("%m")
+                    publication_date.find(".//day").text = now.strftime("%d")
+                    publication_date.find(".//year").text = now.strftime("%Y")
             contributors_elem = dataset.find('.//contributors')
             if contributors_elem is not None:
                 for author in comp['authors']:
-                    person_name_elem = ET.Element('person_name', sequence="additional", contributor_role="author")
+                    seq= "first" if first else "additional"
+                    first=False
+                    person_name_elem = ET.Element('person_name', sequence=seq, contributor_role="author")
                     given_name_elem = ET.SubElement(person_name_elem, 'given_name')
                     given_name_elem.text = author['givenName']
                     surname_elem = ET.SubElement(person_name_elem, 'surname')
