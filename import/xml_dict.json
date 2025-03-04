@@ -6,7 +6,7 @@
             "depositor_name": "PublicNeuro",
             "email_address": "publicneuro@nru.dk"
         },
-        "registrant": "Neurobiology Research Unit"
+        "registrant": "Neurobiology Research Unit, Rigshospitalet, Denmark"
     },
     "body": {
         "database": {
@@ -26,6 +26,12 @@
                 "contributors": {},
                 "titles": {
                     "title": "something"
+                },"database_date": {
+                    "publication_date": {
+                    "month": "MONTH",
+                    "day": "DAY",
+                    "year": "YEAR"
+                    }
                 },
                 "description": {
                     "@attributes": {
