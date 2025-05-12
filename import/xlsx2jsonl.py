@@ -159,7 +159,5 @@ def xlsx2jsonl(input_file):
 if __name__ == '__main__':
 
     #input_file = 'PublicnEUro_record.xlsx'
-    input_file = "data_import/Aggression/PublicnEUro_record_Aggression.xlsx"
+    # input_file = "data_import/Aggression/PublicnEUro_record_Aggression.xlsx"
     xlsx2jsonl(input_file)
-
-
