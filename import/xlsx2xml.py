@@ -166,7 +166,7 @@ if __name__ == '__main__':
     PNID = str(sys.argv[1])
     #input_file = "PublicnEUro_record_Aggression.xlsx"
     metadata = aux(str(sys.argv[2])) 
-
+    """
     if metadata["doi"].split("/")[4] == "XXXX":
         subprocess.run("python3 doi_pipeline.py" + " " + PNID + " " + str(sys.argv[2]).split(".")[0] + ".jsonl", shell=True)
         with open("dataset_.json", 'r') as f:
@@ -175,6 +175,9 @@ if __name__ == '__main__':
     else: 
         aux = metadata["doi"]
         metadata["doi"] = aux.split("/")[-2]+"/"+aux.split("/")[-1]
+    """
+    aux = metadata["doi"]
+    metadata["doi"] = aux.split("/")[-2]+"/"+aux.split("/")[-1]
     input_xml_dict = "xml_dict.json"
     xlsx2xml(input_xml_dict, metadata, str(sys.argv[2]).split(".")[0]+".xml")
 
