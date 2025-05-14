@@ -1,6 +1,3 @@
-import subprocess
-#subprocess.run("pip install openpyxl pandas --quiet", shell=True)
-
 import openpyxl, json, re, sys
 import pandas as pd
 import xml.etree.ElementTree as ET
@@ -21,8 +18,6 @@ def aux(input_file):
             'givenName': i['# Metadata record for PublicnEUro'].split(" ")[0],
             'familyName': " ".join(i['# Metadata record for PublicnEUro'].split(" ")[1:])
         })
-
-
 
     name = aux_dict["dataset_info"][1]['values']
     description = aux_dict["dataset_info"][2]['values']
@@ -58,11 +53,23 @@ def aux(input_file):
     }
 
 
-def xlsx2xml(xml_dict, comp, out_file):
+def xlsx2xml(metadata_path, out_file=None):
 
-    with open(xml_dict, 'r') as f:
-        xml_dict = json.load(f)
-
+    try:
+        comp = aux(metadata_path)
+    except FileNotFoundError:
+        print("Metadata file not found. Check the path variable and filename.")
+    except Exception as e:
+        print(e)
+        
+    try:
+        with open("xml_dict.json", 'r') as f:
+            xml_dict = json.load(f)
+    except FileNotFoundError:
+        print("File not found. Check the path variable and filename.")
+    except Exception as e:
+        print(e) 
+    
     def dict2xml_element(tag, value):
         element = ET.Element(tag)
         if isinstance(value, dict):
@@ -153,31 +160,11 @@ def xlsx2xml(xml_dict, comp, out_file):
         match = re.match("^(?:\{.*?\})?(.*)$", el.tag)
         if match:
             el.tag = match.group(1)
-    print(f"\n\t [X] xml file has been saved in '{out_file}'")
+    
+    if not out_file:
+        out_file = "/".join(metadata_path.split("/")[:-1])+"/PublicNeuro.xml"
+    else: out_file = "/".join(metadata_path.split("/")[:-1])+"/"+out_file
+    
     tree.write(out_file, encoding="UTF-8", xml_declaration=True)
-
-
-
-if __name__ == '__main__':
-    if len(sys.argv) < 3:
-    	print("\n\t [X] Please make sure you have provided the NP ID and metadata.xlsx as arguments while running xlsx2xml.py\n\t     +++ PN ID e.g. PN0000Xa, PN0000Xb, etc.\n\t     +++ metadata.xlsx e.g. PublicnEUro_record_Aggression.xlsx")
-    	print("\n\t [X] Usecase: python3 xlsx2xml.py PN000002 PublicnEUro_record_Aggression.xlsx")
-    	sys.exit(1)
-    PNID = str(sys.argv[1])
-    #input_file = "PublicnEUro_record_Aggression.xlsx"
-    metadata = aux(str(sys.argv[2])) 
-    """
-    if metadata["doi"].split("/")[4] == "XXXX":
-        subprocess.run("python3 doi_pipeline.py" + " " + PNID + " " + str(sys.argv[2]).split(".")[0] + ".jsonl", shell=True)
-        with open("dataset_.json", 'r') as f:
-            data = json.load(f)
-        metadata["doi"] = "10.70883/"+data[metadata["id"]]
-    else: 
-        aux = metadata["doi"]
-        metadata["doi"] = aux.split("/")[-2]+"/"+aux.split("/")[-1]
-    """
-    aux = metadata["doi"]
-    metadata["doi"] = aux.split("/")[-2]+"/"+aux.split("/")[-1]
-    input_xml_dict = "xml_dict.json"
-    xlsx2xml(input_xml_dict, metadata, str(sys.argv[2]).split(".")[0]+".xml")
-
+    print(f"\n\t [X] xml file has been saved in '{out_file}'")
+    
