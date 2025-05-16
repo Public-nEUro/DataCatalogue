@@ -1,12 +1,12 @@
-import openpyxl, json, re, sys
+import openpyxl, json, re, sys, os
 import pandas as pd
 import xml.etree.ElementTree as ET
 from datetime import datetime
 
 def aux(input_file):
 
-    excel_data = pd.read_excel(input_file, sheet_name=None, engine='openpyxl')
-    
+    excel_data = pd.read_excel(os.getcwd()+"/"+input_file, sheet_name=None, engine='openpyxl')
+
     aux_dict = dict()
     for sheet_name, df in excel_data.items():
         aux_dict[sheet_name] = df.to_dict(orient='records')
@@ -61,9 +61,9 @@ def xlsx2xml(metadata_path, out_file=None):
         print("Metadata file not found. Check the path variable and filename.")
     except Exception as e:
         print(e)
-        
+       
     try:
-        with open("xml_dict.json", 'r') as f:
+        with open(os.path.dirname(os.path.abspath(__file__))+"/xml_dict.json", 'r') as f:
             xml_dict = json.load(f)
     except FileNotFoundError:
         print("File not found. Check the path variable and filename.")
@@ -162,8 +162,8 @@ def xlsx2xml(metadata_path, out_file=None):
             el.tag = match.group(1)
     
     if not out_file:
-        out_file = "/".join(metadata_path.split("/")[:-1])+"/PublicNeuro.xml"
-    else: out_file = "/".join(metadata_path.split("/")[:-1])+"/"+out_file
+        out_file = os.getcwd()+"/"+"PublicNeuro.xml"
+    else: out_file = os.getcwd()+"/"+out_file
     
     tree.write(out_file, encoding="UTF-8", xml_declaration=True)
     print(f"\n\t [X] xml file has been saved in '{out_file}'")
