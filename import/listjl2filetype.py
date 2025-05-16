@@ -12,7 +12,7 @@ import re
 def listjl2filetype(datasetjl, listjl, source_name, agent_name):
     # 1 - Get datasetjl
     if not os.path.exists(datasetjl):
-        raise FileNotFoundError(f'dataset.json file {datasetjl} not found')
+        raise FileNotFoundError(f'dataset.jsonl file {datasetjl} not found')
 
     with open(datasetjl, 'r') as f:
         dataset_info = json.loads(f.read())
@@ -53,6 +53,11 @@ def listjl2filetype(datasetjl, listjl, source_name, agent_name):
                     }
                 }
             }
+            
+            # these two lines was added recently 
+            for k, v in item['metadata_sources'].items():
+                item['metadata_sources'][k] = [v]
+            
             local_jsonwrite(f"{dataset_info['name'].replace(' ', '')}.jsonl", item)
         else:
             print(f"Pattern not found in the following file info: {file_info}")

@@ -1,5 +1,61 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<doi_batch xmlns="http://www.crossref.org/schema/5.3.0" version="5.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML"><head><doi_batch_id>Neurobiology Research Unit</doi_batch_id><timestamp>2025051500000000</timestamp><depositor><depositor_name>PublicNeuro</depositor_name><email_address>publicneuro@nru.dk</email_address></depositor><registrant>Neurobiology Research Unit, Rigshospitalet, Denmark</registrant></head><body><database><database_metadata language="en"><titles><title>PublicNeuro Datasets</title><subtitle>PN000009 Markerless Prospective Motion Correction</subtitle></titles></database_metadata><dataset dataset_type="record"><contributors><person_name sequence="first" contributor_role="author"><given_name>Kathrine</given_name><surname>Skak Madsen</surname></person_name><person_name sequence="additional" contributor_role="author"><given_name>Tim</given_name><surname>Ruschke</surname></person_name><person_name sequence="additional" contributor_role="author"><given_name>Hannah</given_name><surname>Eichhorn</surname></person_name><person_name sequence="additional" contributor_role="author"><given_name>Puk</given_name><surname>Rising</surname></person_name><person_name sequence="additional" contributor_role="author"><given_name>Melanie</given_name><surname>Ganz</surname></person_name></contributors><titles><title>Markerless Prospective Motion Correction Data</title></titles><database_date><publication_date><month>05</month><day>15</day><year>2025</year></publication_date></database_date><description language="en">Datasets with and without deliberate head movements for evaluating the performance of markerless prospective motion correction and selective reacquisition in a general clinical protocol for brain MRI  - Head motion is one of the most common sources of artefacts in brain MRI. In this study, we evaluate the performance of markerless prospective motion correction (PMC) and selective reacquisition in a complete clinical protocol for brain MRI, comparing acquisitions with and without instructed intentional head motion.
+<doi_batch xmlns="http://www.crossref.org/schema/5.3.0" version="5.3.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd"
+    xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1"
+    xmlns:fr="http://www.crossref.org/fundref.xsd"
+    xmlns:ai="http://www.crossref.org/AccessIndicators.xsd"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML">
+    <head>
+        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
+        <timestamp>2025051600000000</timestamp>
+        <depositor>
+            <depositor_name>PublicNeuro</depositor_name>
+            <email_address>publicneuro@nru.dk</email_address>
+        </depositor>
+        <registrant>Neurobiology Research Unit, Rigshospitalet, Denmark</registrant>
+    </head>
+    <body>
+        <database>
+            <database_metadata language="en">
+                <titles>
+                    <title>PublicNeuro Datasets</title>
+                    <subtitle>PN000009 Markerless Prospective Motion Correction</subtitle>
+                </titles>
+            </database_metadata>
+            <dataset dataset_type="record">
+                <contributors>
+                    <person_name sequence="first" contributor_role="author">
+                        <given_name>Kathrine</given_name>
+                        <surname>Skak Madsen</surname>
+                    </person_name>
+                    <person_name sequence="additional" contributor_role="author">
+                        <given_name>Tim</given_name>
+                        <surname>Ruschke</surname>
+                    </person_name>
+                    <person_name sequence="additional" contributor_role="author">
+                        <given_name>Hannah</given_name>
+                        <surname>Eichhorn</surname>
+                    </person_name>
+                    <person_name sequence="additional" contributor_role="author">
+                        <given_name>Puk</given_name>
+                        <surname>Rising</surname>
+                    </person_name>
+                    <person_name sequence="additional" contributor_role="author">
+                        <given_name>Melanie</given_name>
+                        <surname>Ganz</surname>
+                    </person_name>
+                </contributors>
+                <titles>
+                    <title>Markerless Prospective Motion Correction Data</title>
+                </titles>
+                <database_date>
+                    <publication_date>
+                        <month>05</month>
+                        <day>16</day>
+                        <year>2025</year>
+                    </publication_date>
+                </database_date>
+                <description language="en">Datasets with and without deliberate head movements for evaluating the performance of markerless prospective motion correction and selective reacquisition in a general clinical protocol for brain MRI  - Head motion is one of the most common sources of artefacts in brain MRI. In this study, we evaluate the performance of markerless prospective motion correction (PMC) and selective reacquisition in a complete clinical protocol for brain MRI, comparing acquisitions with and without instructed intentional head motion.
 
 MRI and head motion data were acquired between January and March 2021 from 22 healthy adults (16 females, 6 males) aged 19-36 (mean ± standard deviation: 23.5 ± 4.3) years, recruited for the Cimbi database (www.cimbi.dk). The recruitment was performed by advertisement for different research projects, with approval by the Ethics Committee of Copenhagen and Frederiksberg, Denmark (protocol number H-KF-2006-20). Written informed consent was obtained from each participant. 
 
@@ -19,4 +75,12 @@ Note that _run-01 indicates the still scans, _run-02 indicates the nodding scans
 
 Nodding motion was chosen as the primary motion pattern based on results of a previous study (https://www.frontiersin.org/articles/10.3389/fradi.2021.789632/full) , where nodding rotation was found to be significantly larger than the rotational components around the other axes for awake children. Rigid-body head motion was measured with the optical tracking system Tracoline (TracInnovations, Ballerup, Denmark).
 
-More details regarding the acquisition protocol can be seen in our preprint https://psyarxiv.com/vzh4g.</description><doi_data><doi>https://doi.org/1070883/QHMG1117</doi><resource>https://datacatalog.publicneuro.eu/dataset/PN000009%20Markerless%20Prospective%20Motion%20Correction/V1</resource></doi_data></dataset></database></body></doi_batch>
+More details regarding the acquisition protocol can be seen in our preprint https://psyarxiv.com/vzh4g.</description>
+                <doi_data>
+                    <doi>https://doi.org/1070883/QHMG1117</doi>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000009%20Markerless%20Prospective%20Motion%20Correction/V1</resource>
+                </doi_data>
+            </dataset>
+        </database>
+    </body>
+</doi_batch>
