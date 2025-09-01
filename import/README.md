@@ -43,11 +43,39 @@ python export_xlsx.py input.xlsx jsonl output.jsonl # JSONL only
 - **Features**: Funding info, publications, participants, detailed metadata
 - **Output**: Complete dataset description for catalog systems
 
-## Test Files
+## Testing
 
-All test files are designed to work from any directory and will automatically locate the necessary files and modules.
+### Master Test Suite
 
-### `test_export.py`
+The comprehensive test suite is located in `test/test_master_export_xlsx.py` and validates all functionality of the export_xlsx.py module.
+
+#### Quick Start
+
+```bash
+cd test
+python test_master_export_xlsx.py                 # Run all tests
+python test_master_export_xlsx.py --quick         # Quick tests only  
+python test_master_export_xlsx.py --verbose       # Detailed output
+```
+
+#### Test Coverage
+
+The master test suite covers:
+
+- ✅ Module import functionality
+- ✅ XML export (CrossRef format validation)
+- ✅ JSONL export (data catalog format validation)
+- ✅ Both formats export
+- ✅ CLI default behavior (both formats)
+- ✅ CLI single format options (xml/jsonl)
+- ✅ Version formatting (V1, not VV1)
+- ✅ Error handling for invalid inputs
+
+#### Test Files
+
+- `test_master_export_xlsx.py` - Comprehensive test suite
+- `test_find_catalogue.py` - Tests for catalog search functionality
+- `compare_xml_files.py` - XML comparison utilities
 
 Basic test of the XML export functionality using the example PN000011 Excel file.
 
@@ -106,10 +134,19 @@ Shows how the version formatting fix works for URL generation.
 
 ## File Structure
 
-```
+```text
 import/
 ├── export_xlsx.py                    # Main utility (XML + JSONL)
-├── test_export.py                   # Basic XML test
+├── find_catalogue_set_file.py        # Catalog dataset search utility
+├── README.md                         # Documentation
+├── test/                            # Test directory
+│   ├── test_master_export_xlsx.py   # Comprehensive test suite
+│   ├── test_find_catalogue.py       # Catalog search tests
+│   └── compare_xml_files.py         # XML comparison utilities
+└── data_import/                     # Test data
+    └── PN000011.../ 
+        └── PublicnEUro_PN000011.xlsx # Test Excel file
+```
 ├── test_function.py                 # Comprehensive XML test  
 ├── test_jsonl_export.py             # JSONL export test
 ├── test_both_formats.py             # Both formats test
