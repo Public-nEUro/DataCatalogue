@@ -60,6 +60,88 @@ def format_version(version_value):
     # If it doesn't start with V, add it
     return f"V{version_str}"
 
+def parse_keywords(keywords_value):
+    """
+    Parse keywords with improved robustness:
+    - If commas are present, split by commas
+    - Otherwise, split by spaces
+    - Trim whitespace and filter empty values
+    
+    Examples:
+    - 'word1, compound word2' -> ['word1', 'compound word2']
+    - 'word1 compound word2' -> ['word1', 'compound', 'word2']
+    """
+    if not keywords_value or pd.isna(keywords_value):
+        return []
+    
+    keywords_str = str(keywords_value).strip()
+    if not keywords_str:
+        return []
+    
+    # If commas are present, split by commas
+    if ',' in keywords_str:
+        keywords = [item.strip() for item in keywords_str.split(',') if item.strip()]
+    else:
+        # No commas, split by spaces
+        keywords = [item.strip() for item in keywords_str.split() if item.strip()]
+    
+    return keywords
+
+def parse_bids_datatypes(bids_value):
+    """
+    Parse BIDS data types with improved robustness:
+    - If commas are present, split by commas
+    - Otherwise, split by spaces
+    - Trim whitespace and filter empty values
+    
+    Examples:
+    - 'anat, func' -> ['anat', 'func']
+    - 'anat func' -> ['anat', 'func']
+    """
+    if not bids_value or pd.isna(bids_value):
+        return []
+    
+    bids_str = str(bids_value).strip()
+    if not bids_str:
+        return []
+    
+    # If commas are present, split by commas
+    if ',' in bids_str:
+        datatypes = [item.strip() for item in bids_str.split(',') if item.strip()]
+    else:
+        # No commas, split by spaces
+        datatypes = [item.strip() for item in bids_str.split() if item.strip()]
+    
+    return datatypes
+
+def parse_bids_dataset_type(dataset_type_value):
+    """
+    Parse BIDS Dataset type and ensure it's either 'raw' or 'derivatives'.
+    
+    Rules:
+    - If value contains 'raw' (case insensitive), return 'raw'
+    - If value contains 'deriv' (case insensitive), return 'derivatives' 
+    - If both or neither, default to 'raw'
+    
+    Examples:
+    - 'raw' -> 'raw'
+    - 'Raw Data' -> 'raw'
+    - 'derivatives' -> 'derivatives'
+    - 'Derived/processed' -> 'derivatives'
+    - 'unknown' -> 'raw'
+    """
+    if not dataset_type_value or pd.isna(dataset_type_value):
+        return 'raw'
+    
+    type_str = str(dataset_type_value).lower().strip()
+    
+    # Check for derivatives keywords
+    if 'deriv' in type_str or 'processed' in type_str or 'derived' in type_str:
+        return 'derivatives'
+    
+    # Default to raw (including when 'raw' is present or for any other case)
+    return 'raw'
+
 def parse_excel_metadata(input_file):
     """
     Parse Excel file to extract metadata for both XML and JSONL generation.
@@ -165,13 +247,13 @@ def parse_excel_metadata(input_file):
             return [str(item.strip()) for item in value.split(',')]
         return [str(value)]
 
-    # Create detailed metadata for JSONL
+    # Create detailed metadata for JSONL with improved BIDS parsing
     detailed_metadata = {
         "name": "Dataset Metadata",
         "content": {
             "bids_version": handle_values(metadata_aux.get('BIDS version')),
-            "bids_datasettype": handle_values(metadata_aux.get('BIDS Dataset type')), 
-            "bids_datatypes": handle_values(metadata_aux.get('BIDS data type')),
+            "bids_datasettype": parse_bids_dataset_type(metadata_aux.get('BIDS Dataset type')), 
+            "bids_datatypes": parse_bids_datatypes(metadata_aux.get('BIDS data type')),
             "NCBI Species Taxonomy": handle_values(metadata_aux.get('NCBI Species Taxonomy')),
             "Disease Ontology Name": handle_values(metadata_aux.get('Disease Ontology Name')),
             "Disease Ontology ID": handle_values(metadata_aux.get('Disease Ontology ID ')),
@@ -213,7 +295,7 @@ def parse_excel_metadata(input_file):
     url_version = format_version(version_raw)
     download_url = f"{url_base}{url_dataset}/{url_version}".replace(" ", "%20")
 
-    # Extract keywords
+    # Extract keywords with improved parsing
     keywords_raw = metadata_aux.get('dataset_info', {})
     if isinstance(keywords_raw, dict):
         keywords_value = keywords_raw.get('values', '')
@@ -224,7 +306,7 @@ def parse_excel_metadata(input_file):
             keywords_entry = aux_dict["dataset_info"][3].get('values', '')
             keywords_value = keywords_entry if not pd.isna(keywords_entry) else ''
     
-    keywords = [str(item.strip()) for item in str(keywords_value).split(',') if item.strip()] if keywords_value else []
+    keywords = parse_keywords(keywords_value)
 
     return {
         # Basic info (used by XML)

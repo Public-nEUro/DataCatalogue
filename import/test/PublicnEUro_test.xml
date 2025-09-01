@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+    <head>
+        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
+        <timestamp>2025090100000000</timestamp>
+        <depositor>
+            <depositor_name>PublicNeuro</depositor_name>
+            <email_address>publicneuro@nru.dk</email_address>
+        </depositor>
+        <registrant>Neurobiology Research Unit, Rigshospitalet, Denmark</registrant>
+    </head>
+    <body>
+        <database>
+            <database_metadata language="en">
+                <titles>
+                    <title>PublicNeuro Datasets</title>
+                    <subtitle>PN00000X my super BIDS data</subtitle>
+                </titles>
+            </database_metadata>
+            <dataset dataset_type="record">
+                <contributors/>
+                <titles>
+                    <title>my super BIDS data Data</title>
+                </titles>
+                <database_date>
+                    <publication_date>
+                        <month>09</month>
+                        <day>01</day>
+                        <year>2025</year>
+                    </publication_date>
+                </database_date>
+                <description language="en">totally fake file</description>
+                <doi_data>
+                    <doi>10.70883/XXXX</doi>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN00000X%20my%20super%20BIDS%20data/V1</resource>
+                </doi_data>
+            </dataset>
+        </database>
+    </body>
+</doi_batch>

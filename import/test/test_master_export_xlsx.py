@@ -42,23 +42,15 @@ class ExportXlsxTestSuite:
     
     def find_test_file(self):
         """Locate the test Excel file"""
-        # Look for the test Excel file
-        possible_paths = [
-            os.path.join(parent_dir, "data_import", "PN000011 Clinical Pediatric MRI with and without Motion Correction", "PublicnEUro_PN000011.xlsx"),
-            os.path.join(parent_dir, "demo", "PublicnEUro_PN000011.xlsx"),
-            os.path.join(parent_dir, "PublicnEUro_PN000011.xlsx")
-        ]
+        # Use the test Excel file in the test directory
+        test_file_path = os.path.join(script_dir, "PublicnEUro_test.xlsx")
         
-        for path in possible_paths:
-            if os.path.exists(path):
-                self.test_excel_file = path
-                break
-        
-        if not self.test_excel_file:
+        if os.path.exists(test_file_path):
+            self.test_excel_file = test_file_path
+        else:
             print("❌ CRITICAL: Test Excel file not found!")
-            print("   Searched in:")
-            for path in possible_paths:
-                print(f"   - {path}")
+            print(f"   Expected: {test_file_path}")
+            print("   Please ensure PublicnEUro_test.xlsx is in the test/ directory")
             sys.exit(1)
         
         if self.verbose:
@@ -406,6 +398,109 @@ class ExportXlsxTestSuite:
             self.log(f"✗ Error handling test failed: {e}")
             return False
     
+    def test_keyword_parsing(self):
+        """Test 9: Keyword parsing with commas and spaces"""
+        self.log("Testing keyword parsing...")
+        
+        try:
+            from export_xlsx import parse_keywords
+            
+            # Test comma-separated keywords
+            result = parse_keywords("word1, compound word2")
+            expected = ["word1", "compound word2"]
+            if result != expected:
+                self.log(f"✗ Comma parsing failed: got {result}, expected {expected}")
+                return False
+            self.log("✓ Comma-separated keywords parsed correctly")
+            
+            # Test space-separated keywords
+            result = parse_keywords("word1 compound word2")
+            expected = ["word1", "compound", "word2"]
+            if result != expected:
+                self.log(f"✗ Space parsing failed: got {result}, expected {expected}")
+                return False
+            self.log("✓ Space-separated keywords parsed correctly")
+            
+            # Test empty/None input
+            result = parse_keywords(None)
+            if result != []:
+                self.log(f"✗ None handling failed: got {result}, expected []")
+                return False
+            self.log("✓ None input handled correctly")
+            
+            # Test mixed whitespace
+            result = parse_keywords("  word1 ,  word2  , word3  ")
+            expected = ["word1", "word2", "word3"]
+            if result != expected:
+                self.log(f"✗ Whitespace handling failed: got {result}, expected {expected}")
+                return False
+            self.log("✓ Whitespace handling works correctly")
+            
+            return True
+            
+        except Exception as e:
+            self.log(f"✗ Keyword parsing test failed: {e}")
+            return False
+    
+    def test_bids_parsing(self):
+        """Test 10: BIDS field parsing"""
+        self.log("Testing BIDS field parsing...")
+        
+        try:
+            from export_xlsx import parse_bids_datatypes, parse_bids_dataset_type
+            
+            # Test BIDS datatypes parsing
+            result = parse_bids_datatypes("anat, func")
+            expected = ["anat", "func"]
+            if result != expected:
+                self.log(f"✗ BIDS datatypes comma parsing failed: got {result}, expected {expected}")
+                return False
+            self.log("✓ BIDS datatypes comma parsing works")
+            
+            result = parse_bids_datatypes("anat func")
+            expected = ["anat", "func"]
+            if result != expected:
+                self.log(f"✗ BIDS datatypes space parsing failed: got {result}, expected {expected}")
+                return False
+            self.log("✓ BIDS datatypes space parsing works")
+            
+            # Test BIDS dataset type parsing
+            result = parse_bids_dataset_type("raw")
+            if result != "raw":
+                self.log(f"✗ BIDS dataset type 'raw' failed: got {result}")
+                return False
+            self.log("✓ BIDS dataset type 'raw' works")
+            
+            result = parse_bids_dataset_type("Raw Data")
+            if result != "raw":
+                self.log(f"✗ BIDS dataset type 'Raw Data' failed: got {result}")
+                return False
+            self.log("✓ BIDS dataset type 'Raw Data' works")
+            
+            result = parse_bids_dataset_type("derivatives")
+            if result != "derivatives":
+                self.log(f"✗ BIDS dataset type 'derivatives' failed: got {result}")
+                return False
+            self.log("✓ BIDS dataset type 'derivatives' works")
+            
+            result = parse_bids_dataset_type("Derived/processed")
+            if result != "derivatives":
+                self.log(f"✗ BIDS dataset type 'Derived/processed' failed: got {result}")
+                return False
+            self.log("✓ BIDS dataset type 'Derived/processed' works")
+            
+            result = parse_bids_dataset_type("unknown")
+            if result != "raw":
+                self.log(f"✗ BIDS dataset type 'unknown' default failed: got {result}")
+                return False
+            self.log("✓ BIDS dataset type default to 'raw' works")
+            
+            return True
+            
+        except Exception as e:
+            self.log(f"✗ BIDS parsing test failed: {e}")
+            return False
+    
     def run_all_tests(self, quick=False):
         """Run all tests in the suite"""
         print("🚀 Export XLSX Master Test Suite")
@@ -420,6 +515,8 @@ class ExportXlsxTestSuite:
             ("JSONL Export", self.test_jsonl_export),
             ("Both Formats Export", self.test_both_formats),
             ("CLI Default Behavior", self.test_cli_default_behavior),
+            ("Keyword Parsing", self.test_keyword_parsing),
+            ("BIDS Parsing", self.test_bids_parsing),
         ]
         
         if not quick:
