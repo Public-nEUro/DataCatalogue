@@ -1,295 +1,185 @@
-# PublicnEUro Data Import Utilities
+# PublicnEUro Data Processing Tools
 
-This directory contains utilities for processing and managing PublicnEUro dataset metadata files.
+This directory contains three main utility modules for processing dataset metadata and files in the PublicnEUro data catalog.
 
-## Main Utilities
-
-### `export_xlsx.py`
-
-Converts Excel metadata files to XML (CrossRef format) and/or JSONL (data catalog format) with intelligent field parsing and validation.
-
-#### Python API Usage
+## Quick Start
 
 ```python
-# Import functions
-from export_xlsx import export_xlsx_to_xml, export_xlsx_to_jsonl, export_xlsx_to_both
+# 1. Convert Excel metadata to XML/JSONL
+from export_xlsx import export_xlsx_to_both
+xml_file, jsonl_file = export_xlsx_to_both('dataset.xlsx')
 
-# Export to XML only (CrossRef format)
-xml_file = export_xlsx_to_xml('input.xlsx', 'output.xml')
+# 2. Generate file catalog
+from file_metadata_utils import process_file_metadata
+catalog = process_file_metadata(jsonl_file, '/path/to/data/', 'source', 'agent')
 
-# Export to JSONL only (data catalog format)
-jsonl_file = export_xlsx_to_jsonl('input.xlsx', 'output.jsonl')
-
-# Export to both formats
-xml_file, jsonl_file = export_xlsx_to_both('input.xlsx')
+# 3. Find datasets in catalog
+from find_catalogue_set_file import find_catalogue_set_file
+results = find_catalogue_set_file("PN000011*/V1")
 ```
 
-#### Command Line Usage
+## Tools Overview
 
-```bash
-# Generate both XML and JSONL (DEFAULT BEHAVIOR)
-python export_xlsx.py input.xlsx
+### 🔧 export_xlsx.py - Excel to XML/JSONL Converter
 
-# Generate specific format only
-python export_xlsx.py input.xlsx xml              # XML only
-python export_xlsx.py input.xlsx jsonl            # JSONL only
+Converts Excel metadata files to XML (CrossRef) and JSONL (web catalog) formats.
 
-# With custom output paths
-python export_xlsx.py input.xlsx xml custom.xml
-python export_xlsx.py input.xlsx jsonl custom.jsonl
-```
+**Key Functions:**
 
-### `find_catalogue_set_file.py`
+- `export_xlsx_to_both(excel_file)` - Export to both formats (recommended)
+- `export_xlsx_to_xml(excel_file)` - Export to XML only
+- `export_xlsx_to_jsonl(excel_file)` - Export to JSONL only
 
-Searches for dataset files in the catalog directory structure. Finds JSON files containing `"type": "dataset"` within the metadata hierarchy.
+**Features:**
 
-#### Import and Usage
+- DUA extraction from Excel cells D3/B1
+- 5-category validation system
+- Empty value filtering
+- BIDS dataset support
+- Line break preservation for web display
+
+**Excel Requirements:**
+
+Your Excel file needs these sheets: `dataset_info`, `participants_info`, `DUA`, `authors`, `funding`, `publications`
+
+### 📁 file_metadata_utils.py - File Catalog Generator
+
+Creates comprehensive file listings and metadata catalogs.
+
+**Key Functions:**
+
+- `get_file_info(directory_path)` - Scan directory for files
+- `process_file_metadata(dataset_jsonl, file_source, source_name, agent_name)` - Create catalog
+
+**Features:**
+
+- BIDS-compliant file recognition
+- Excludes code directories automatically
+- Flexible input (directories, file lists, or data)
+- Metadata integration
+
+### 🔍 find_catalogue_set_file.py - Dataset Locator
+
+Finds dataset files in catalog directory structures.
+
+**Key Functions:**
+
+- `find_catalogue_set_file(pattern)` - Find datasets by pattern
+- `find_jsonl_dataset(folder)` - Find dataset files in folder
+
+**Pattern Examples:**
+
+- `"PN000011*/V1"` - Specific dataset and version
+- `"PN000001*"` - All versions of dataset
+- `"metadata/PN000003*"` - Search in metadata directory
+
+## Complete Workflow Example
 
 ```python
-# Import function
-from find_catalogue_set_file import find_catalogue_set_file as fs
+#!/usr/bin/env python3
+"""Complete dataset processing pipeline"""
 
-# Search for datasets by PN number pattern
-results = fs("PN000001*/V1")                    # Search PN000001 datasets
-results = fs("metadata/PN000011*/V1")           # With metadata prefix
-results = fs("PN000002*/V1")                    # Any PN number works
+from export_xlsx import export_xlsx_to_both
+from file_metadata_utils import process_file_metadata
+from find_catalogue_set_file import find_catalogue_set_file
 
-# Access results
-for key, info in results.items():
-    print(f"Dataset: {info['directory']}")
-    print(f"Version: {info['version']}")
-    print(f"Path: {info['relative_path']}")
-    print(f"Name: {info['metadata']['name']}")
-```
-
-#### CLI Usage
-
-```bash
-# Run with default pattern (PN000011*/V1)
-python find_catalogue_set_file.py
-
-# The function is primarily designed for Python import usage
-```
-
-#### Return Structure
-
-The function returns a dictionary with dataset information:
-
-```python
-{
-    'PN000001OpenNeuroPETPhantoms_V1': {
-        'path': 'full/path/to/dataset.json',
-        'relative_path': 'metadata/PN000001.../dataset.json',
-        'directory': 'PN000001 OpenNeuroPET Phantoms',
-        'version': 'V1',
-        'metadata': {  # Full dataset metadata
-            'type': 'dataset',
-            'name': 'OpenNeuroPET Phantoms',
-            'dataset_id': 'PN000001 OpenNeuroPET Phantoms',
-            'authors': [...],
-            # ... additional metadata
-        }
+def process_dataset(excel_file, data_directory, dataset_pattern):
+    """Process complete dataset from Excel to catalog"""
+    
+    # Step 1: Convert Excel metadata
+    xml_file, jsonl_file = export_xlsx_to_both(excel_file)
+    
+    # Step 2: Generate file catalog
+    catalog_file = process_file_metadata(
+        dataset_jsonl=jsonl_file,
+        file_list_source=data_directory,
+        source_name='Local_Processing',
+        agent_name='Pipeline'
+    )
+    
+    # Step 3: Verify in catalog
+    results = find_catalogue_set_file(dataset_pattern)
+    
+    return {
+        'xml': xml_file,
+        'jsonl': jsonl_file,
+        'catalog': catalog_file,
+        'found': list(results.keys())
     }
-}
+
+# Usage
+result = process_dataset(
+    excel_file='PN000011_metadata.xlsx',
+    data_directory='/data/PN000011/',
+    dataset_pattern='PN000011*/V1'
+)
+print(f"Processing complete: {result}")
 ```
 
-### `file_metadata_utils.py`
+## Command Line Usage
 
-Processes dataset metadata and file listings into comprehensive catalog entries. Combines file scanning functionality with dataset metadata to create complete JSONL catalogs.
+```bash
+# Export Excel to both formats
+python export_xlsx.py dataset_metadata.xlsx
 
-#### Python API
-
-```python
-# Import functions
-from file_metadata_utils import get_file_info, process_file_metadata
-
-# Method 1: Direct directory scanning
-# Automatically scans directory for BIDS-compliant files
-output_file = process_file_metadata(
-    dataset_jsonl='PublicnEUro_test.jsonl',
-    file_list_source='/path/to/dataset/directory',  # Directory to scan
-    source_name='PublicnEUro',
-    agent_name='DataProcessor'
-)
-
-# Method 2: Using pre-generated file list
-# First generate file list, then process
-file_list = get_file_info('/path/to/dataset', save_to_file=True, output_file='my_files.jsonl')
-output_file = process_file_metadata(
-    dataset_jsonl='PublicnEUro_test.jsonl', 
-    file_list_source='my_files.jsonl',  # Pre-generated JSONL file
-    source_name='PublicnEUro',
-    agent_name='DataProcessor'
-)
-
-# Method 3: Using file info array directly
-file_info = get_file_info('/path/to/dataset')  # Returns list of dicts
-output_file = process_file_metadata(
-    dataset_jsonl='PublicnEUro_test.jsonl',
-    file_list_source=file_info,  # Direct list of file info dictionaries
-    source_name='PublicnEUro', 
-    agent_name='DataProcessor'
-)
+# Run from test directory
+cd test
+python simple_test.py
 ```
 
-#### Key Features
+## File Structure Requirements
 
-- **Three Input Methods**:
-  - **Directory Path**: Automatically scans directory for BIDS files
-  - **File List JSONL**: Uses pre-generated file list from `get_file_info()`
-  - **File Info Array**: Direct list of file information dictionaries
-- **BIDS Compliance**: Automatically detects BIDS file types (.json, .nii.gz, .tsv, plain README, etc.)
-- **Metadata Integration**: Combines dataset metadata with individual file information
-- **Legacy Support**: Includes `listjl2filetype()` for backward compatibility
+```text
+your_dataset/
+├── metadata.xlsx          # Excel metadata file
+├── sub-01/               # BIDS subject directories
+│   ├── anat/
+│   └── func/
+├── sub-02/
+└── derivatives/          # Processed data
+```
 
-## Supported Formats
+## Validation and Error Handling
 
-### XML Format
+The tools provide comprehensive validation:
 
-- **Purpose**: CrossRef DOI registration
-- **Structure**: CrossRef 5.3.0 schema compliant
-- **Features**: DOI formatting, author management, pretty printing
-- **Output**: Clean XML with proper namespaces and indentation
+- **dataset_info**: Title, description, DOI validation
+- **participants**: Sample size, demographics
+- **dua**: Terms and restrictions
+- **authors**: Author information
+- **data_curators**: Curator details
 
-### JSONL Format
-
-- **Purpose**: Data catalog integration
-- **Structure**: Single-line JSON with comprehensive metadata
-- **Features**: Funding info, publications, participants, detailed metadata
-- **Output**: Complete dataset description for catalog systems
-
-## Features
-
-- **Default Both Formats**: Automatically generates both XML and JSONL
-- **Enhanced Keyword Parsing**: Smart parsing with comma vs space detection
-  - `'word1, compound word2'` → `['word1', 'compound word2']`
-  - `'word1 compound word2'` → `['word1', 'compound', 'word2']`
-- **Robust BIDS Field Processing**:
-  - **BIDS Data Types**: Supports comma or space separation (`'anat, func'` or `'anat func'`)
-  - **BIDS Dataset Type**: Validates and enforces 'raw' or 'derivatives' values
-- **Path Independence**: All files can be run from any directory
-- **Automatic Path Detection**: Scripts automatically find required files
-- **Error Handling**: Graceful handling of missing files or import errors
-- **Cross-Platform**: Works on Windows, Linux, and macOS
-- **Version Formatting**: Consistent V+number formatting (fixes VV1 → V1)
-- **DOI Processing**: Handles various DOI input formats
-- **Pattern Matching**: Flexible PN number pattern support
+Use `skip_validation=True` for testing purposes.
 
 ## Testing
 
-### Master Test Suite
-
-The comprehensive test suite validates all functionality using `test/PublicnEUro_test.xlsx`.
-
-#### Running Tests
+Comprehensive test suite available in `/test` directory:
 
 ```bash
 cd test
-python test_master_export_xlsx.py                 # Run all tests
-python test_master_export_xlsx.py --quick         # Quick tests only  
-python test_master_export_xlsx.py --verbose       # Detailed output
+python test_master_export_xlsx.py    # Full test suite
+python simple_test.py                # Basic functionality
+python check_dua.py                  # DUA content verification
 ```
 
-#### Test Coverage
+## Requirements
 
-The master test suite covers:
+- Python 3.7+
+- pandas, openpyxl
+- Properly formatted Excel files
+- Read/write access to data directories
 
-- ✅ Module import functionality
-- ✅ XML export (CrossRef format validation)
-- ✅ JSONL export (data catalog format validation)
-- ✅ Both formats export
-- ✅ CLI default behavior (both formats)
-- ✅ Enhanced keyword parsing (comma vs space detection)
-- ✅ BIDS field processing (datatypes and dataset type validation)
-- ✅ CLI single format options (xml/jsonl)
-- ✅ Version formatting (V1, not VV1)
-- ✅ Error handling for invalid inputs
+## Troubleshooting
 
-#### Available Test Files
+**Common Issues:**
 
-- `test_master_export_xlsx.py` - Comprehensive test suite
-- `test_find_catalogue.py` - Tests for catalog search functionality  
-- `test_file_metadata_utils.py` - Tests for file metadata processing
-- `compare_xml_files.py` - XML comparison utilities
+1. **Import errors**: Ensure files are in Python path
+2. **Excel format**: Check required sheets exist
+3. **File permissions**: Verify directory access
+4. **Empty values**: Use validation feedback to fix metadata
 
-## File Structure
+**Getting Help:**
 
-```text
-import/
-├── export_xlsx.py                    # Main Excel to XML/JSONL utility
-├── find_catalogue_set_file.py        # Catalog dataset search utility
-├── file_metadata_utils.py            # File scanning and metadata processing
-├── README.md                         # This documentation
-└── test/                            # Test directory
-    ├── PublicnEUro_test.xlsx         # Test Excel file
-    ├── PublicnEUro_test.jsonl        # Test dataset JSONL
-    ├── fake_files/                   # Test file structure
-    ├── test_master_export_xlsx.py   # Comprehensive test suite
-    ├── test_find_catalogue.py       # Catalog search tests
-    ├── test_file_metadata_utils.py  # File metadata processing tests
-    └── compare_xml_files.py         # XML comparison utilities
-```
-
-## Examples
-
-### Complete Workflow Example
-
-```python
-# Import utilities
-from export_xlsx import export_xlsx_to_both
-from find_catalogue_set_file import find_catalogue_set_file as fs
-
-# 1. Find existing datasets in catalog
-results = fs("PN000001*/V1")
-print(f"Found {len(results)} datasets")
-
-# 2. Convert new Excel file to both formats
-xml_file, jsonl_file = export_xlsx_to_both('new_dataset.xlsx')
-print(f"Generated: {xml_file}, {jsonl_file}")
-```
-
-### Batch Processing Example
-
-```python
-import os
-from export_xlsx import export_xlsx_to_both
-
-# Process all Excel files in a directory
-excel_dir = "data_import"
-for file in os.listdir(excel_dir):
-    if file.endswith('.xlsx'):
-        excel_path = os.path.join(excel_dir, file)
-        xml_file, jsonl_file = export_xlsx_to_both(excel_path)
-        print(f"Processed: {file} → {os.path.basename(xml_file)}, {os.path.basename(jsonl_file)}")
-```
-
-### File Metadata Processing Example
-
-```python
-from export_xlsx import export_xlsx_to_jsonl
-from file_metadata_utils import get_file_info, process_file_metadata
-
-# 1. Convert Excel to JSONL dataset metadata
-dataset_jsonl = export_xlsx_to_jsonl('dataset_metadata.xlsx')
-
-# Method A: Direct directory scanning (most common)
-catalog_file = process_file_metadata(
-    dataset_jsonl=dataset_jsonl,
-    file_list_source='/path/to/dataset/files',  # Directory to scan
-    source_name='PublicnEUro',
-    agent_name='DataCatalogBot'
-)
-
-# Method B: Two-step process with file list generation
-# Step 1: Generate file list
-file_list = get_file_info('/path/to/dataset/files', save_to_file=True, output_file='files.jsonl')
-# Step 2: Process with pre-generated list
-catalog_file = process_file_metadata(
-    dataset_jsonl=dataset_jsonl,
-    file_list_source='files.jsonl',  # Pre-generated file list
-    source_name='PublicnEUro',
-    agent_name='DataCatalogBot'
-)
-
-print(f"Generated comprehensive catalog: {catalog_file}")
-```
+- Check `/test/README.md` for detailed testing info
+- Review function docstrings for parameter details
+- Use `verbose=True` for detailed logging

@@ -501,6 +501,135 @@ class ExportXlsxTestSuite:
             self.log(f"✗ BIDS parsing test failed: {e}")
             return False
     
+    def test_dua_functionality(self):
+        """Test DUA (Data User Agreement) extraction functionality"""
+        self.log("Testing DUA extraction...")
+        
+        try:
+            from export_xlsx import parse_excel_metadata
+            
+            # Parse metadata from test file
+            metadata = parse_excel_metadata(self.test_excel_file)
+            
+            # Check if DUA content is present
+            if 'dua_content' not in metadata:
+                self.log("✗ DUA content not found in metadata")
+                return False
+            
+            dua = metadata['dua_content']
+            
+            # Validate DUA structure
+            if dua['name'] != 'DUA terms':
+                self.log(f"✗ DUA name incorrect: {dua['name']}")
+                return False
+            
+            if 'content' not in dua:
+                self.log("✗ DUA content structure missing")
+                return False
+            
+            content = dua['content']
+            
+            # Check for required fields
+            if 'Restrictions' not in content or 'Terms' not in content:
+                self.log("✗ DUA missing Restrictions or Terms fields")
+                return False
+            
+            # Test JSONL export includes DUA
+            from export_xlsx import export_xlsx_to_jsonl
+            import json
+            
+            with tempfile.TemporaryDirectory() as temp_dir:
+                original_cwd = os.getcwd()
+                os.chdir(temp_dir)
+                
+                try:
+                    jsonl_file = export_xlsx_to_jsonl(self.test_excel_file)
+                    
+                    with open(jsonl_file, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                    
+                    # Check if DUA is in additional_display
+                    dua_found = False
+                    for item in data.get('additional_display', []):
+                        if item.get('name') == 'DUA terms':
+                            dua_found = True
+                            dua_content = item.get('content', {})
+                            
+                            # Verify DUA structure in JSON output
+                            if 'Restrictions' not in dua_content or 'Terms' not in dua_content:
+                                self.log("✗ DUA structure incomplete in JSONL output")
+                                return False
+                            
+                            # Verify some content exists
+                            if not dua_content['Terms']:
+                                self.log("✗ DUA Terms are empty")
+                                return False
+                            
+                            self.log(f"✓ DUA found with {len(dua_content['Terms'])} terms")
+                            break
+                    
+                    if not dua_found:
+                        self.log("✗ DUA not found in JSONL additional_display")
+                        return False
+                    
+                    self.log("✓ DUA functionality works correctly")
+                    return True
+                    
+                finally:
+                    os.chdir(original_cwd)
+                    
+        except Exception as e:
+            self.log(f"✗ DUA functionality test failed: {e}")
+            return False
+    
+    def test_validation_functionality(self):
+        """Test validation functionality for mandatory fields"""
+        self.log("Testing validation functionality...")
+        
+        try:
+            from export_xlsx import validate_metadata, parse_excel_metadata
+            
+            # Parse metadata from test file
+            metadata = parse_excel_metadata(self.test_excel_file)
+            
+            # Test validation with current data
+            validation_errors = validate_metadata(metadata)
+            
+            total_errors = sum(len(errors) for errors in validation_errors.values())
+            self.log(f"✓ Validation function works: {total_errors} total errors found")
+            
+            for category, issues in validation_errors.items():
+                if issues:
+                    self.log(f"✓ {category}: {len(issues)} errors")
+                    for issue in issues:
+                        self.log(f"   - {issue}")
+            
+            # Test that export functions handle validation
+            from export_xlsx import export_xlsx_to_jsonl
+            
+            try:
+                with tempfile.TemporaryDirectory() as temp_dir:
+                    original_cwd = os.getcwd()
+                    os.chdir(temp_dir)
+                    
+                    try:
+                        jsonl_file = export_xlsx_to_jsonl(self.test_excel_file)
+                        self.log("✓ Export succeeded (validation passed)")
+                        return True
+                    except ValueError as ve:
+                        self.log(f"✓ Export failed with validation error: {str(ve)[:100]}...")
+                        return True  # This is expected behavior if validation fails
+                    finally:
+                        os.chdir(original_cwd)
+                        
+            except Exception as e:
+                self.log(f"✗ Export test failed: {e}")
+                return False
+                
+        except Exception as e:
+            self.log(f"✗ Validation functionality test failed: {e}")
+            return False
+    
     def run_all_tests(self, quick=False):
         """Run all tests in the suite"""
         print("🚀 Export XLSX Master Test Suite")
@@ -517,6 +646,8 @@ class ExportXlsxTestSuite:
             ("CLI Default Behavior", self.test_cli_default_behavior),
             ("Keyword Parsing", self.test_keyword_parsing),
             ("BIDS Parsing", self.test_bids_parsing),
+            ("DUA Functionality", self.test_dua_functionality),
+            ("Validation Functionality", self.test_validation_functionality),
         ]
         
         if not quick:

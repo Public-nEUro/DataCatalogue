@@ -1,7 +1,128 @@
 #!/usr/bin/env python3
 """
-Combined Excel to XML converter for PublicNeuro datasets.
-This module combines xlsx2xml.py and xml_dict.json into a single importable function.
+Excel to XML/JSONL Converter for PublicNeuro Datasets
+=====================================================
+
+This module converts Excel metadata files to XML and JSONL formats for dataset publication. It extracts comprehensive metadata including authors, funding, publications, participants, DUA (Data User Agreement) terms, and BIDS information with intelligent filtering of empty/meaningless values.
+
+MAIN FUNCTIONS:
+==============
+
+Core Export Functions:
+- export_xlsx_to_xml(excel_file, output_xml=None, skip_validation=False)
+  Converts Excel file to CrossRef XML format for DOI registration
+  
+- export_xlsx_to_jsonl(excel_file, output_jsonl=None, skip_validation=False) 
+  Converts Excel file to JSONL format for web catalog display
+  
+- export_xlsx_to_both(excel_file, output_xml=None, output_jsonl=None)
+  Converts Excel file to both XML and JSONL formats (shows warnings but exports anyway)
+
+Metadata Processing:
+- parse_excel_metadata(input_file)
+  Main parser that extracts all metadata from Excel sheets into structured dict
+  
+- validate_metadata(metadata)
+  Validates that all mandatory fields are present and have values
+  Returns validation errors dictionary by category (dataset_info, participants, dua, authors, data_curators)
+
+Data Parsing Utilities:
+- extract_doi_suffix(doi_value)
+  Extracts DOI suffix from various DOI formats
+  
+- format_version(version_value)
+  Ensures version numbers are properly formatted with 'V' prefix
+  
+- parse_keywords(keywords_value)
+  Intelligently parses keywords by commas or spaces, handles compound terms
+  
+- parse_bids_datatypes(bids_value)
+  Parses BIDS data types by commas or spaces
+  
+- parse_bids_dataset_type(dataset_type_value)
+  Ensures BIDS dataset type is 'raw' or 'derivatives'
+
+Text Processing & Filtering:
+- clean_text_for_jsonl(text, preserve_line_breaks=False)
+  Cleans text for JSONL output, optionally preserving line breaks for web rendering
+
+- filter_empty_values(data_dict)
+  Removes keys with empty, None, or meaningless placeholder values from dictionaries
+
+- clean_metadata_content(content_dict) 
+  Cleans metadata content by removing null, empty, and meaningless values
+
+- clean_jsonl_structure(data)
+  Comprehensively cleans entire JSONL structure removing empty arrays, null values, and meaningless entries
+
+Template Management:
+- get_xml_template()
+  Returns embedded CrossRef XML template structure
+
+Command Line Interface:
+- main()
+  CLI entry point, processes command line arguments and runs export
+
+EXCEL SHEET STRUCTURE EXPECTED:
+==============================
+- dataset_info: Basic dataset information (title, description, keywords, BIDS info)
+- participants_info: Number of subjects and participant details  
+- DUA: Data User Agreement restrictions (cell D3) and terms (cell B1)
+- authors: Author names and affiliations
+- dataset curators: Data curator names and institutions
+- funding: Funding sources and grant identifiers
+- publications: Related publications with DOIs
+
+DUA EXTRACTION:
+==============
+- Restrictions: Extracted from cell D3 of DUA sheet
+- Terms: Extracted from cell B1 of DUA sheet with line break preservation (\n)
+- Structure: {"name": "DUA terms", "content": {"Restrictions": [...], "Terms": [...]}}
+
+OUTPUT FORMATS:
+==============
+- XML: CrossRef format for DOI registration with database metadata
+- JSONL: Web catalog format with additional_display fields for rich rendering
+- Empty Value Filtering: Automatically removes null, empty arrays, meaningless placeholders
+
+VALIDATION:
+===========
+Comprehensive validation across 5 categories:
+1. Dataset info: title, description, keywords, BIDS version/type/datatypes
+2. Participants: total number of subjects
+3. DUA: restrictions selection and terms (unless restriction is 'None (CCBY)')
+4. Authors: at least one author with name
+5. Data curators: at least one curator with name and institution
+
+EXPORT BEHAVIOR:
+===============
+- Individual functions (export_xlsx_to_xml, export_xlsx_to_jsonl): Strict validation, fails on errors
+- Combined function (export_xlsx_to_both): Shows warnings but exports anyway
+- All functions support skip_validation parameter for testing
+
+FEATURES:
+=========
+- Intelligent keyword parsing (space or comma separated)
+- Line break preservation in DUA terms for web rendering
+- Comprehensive empty value filtering (null, [], "", meaningless placeholders)
+- Author filtering (keeps authors with either given name or family name)
+- BIDS compliance validation and parsing
+- Flexible DOI format handling
+- Version number normalization (V1, not VV1)
+
+Usage:
+======
+# Command line (both formats with warnings)
+python export_xlsx.py input_file.xlsx
+
+# Python API (strict validation)
+from export_xlsx import export_xlsx_to_xml, export_xlsx_to_jsonl
+xml_file = export_xlsx_to_xml('file.xlsx')
+jsonl_file = export_xlsx_to_jsonl('file.xlsx')
+
+# Python API (warnings but exports)
+from export_xlsx import export_xlsx_to_both
+xml_file, jsonl_file = export_xlsx_to_both('file.xlsx')
 """
 
 import openpyxl
@@ -142,6 +263,131 @@ def parse_bids_dataset_type(dataset_type_value):
     # Default to raw (including when 'raw' is present or for any other case)
     return 'raw'
 
+def validate_metadata(metadata):
+    """
+    Validate that all mandatory fields are present and have values.
+    Returns dictionary with validation errors by category.
+    """
+    validation_errors = {
+        'dataset_info': [],
+        'participants': [],
+        'dua': [],
+        'authors': [],
+        'data_curators': []
+    }
+    
+    # (1) Dataset info mandatory fields
+    if not metadata.get('title') or str(metadata['title']).strip() == 'Unknown Dataset':
+        validation_errors['dataset_info'].append("title")
+    if not metadata.get('description') or str(metadata['description']).strip() == 'No description available':
+        validation_errors['dataset_info'].append("description")
+    if not metadata.get('keywords') or len(metadata['keywords']) == 0:
+        validation_errors['dataset_info'].append("Keywords")
+    if not metadata.get('dataset_version') or str(metadata['dataset_version']).strip() in ['VNone', 'V']:
+        validation_errors['dataset_info'].append("dataset version")
+    
+    # Check BIDS fields from detailed_metadata
+    detailed_metadata = metadata.get('detailed_metadata', {}).get('content', {})
+    bids_datasettype = detailed_metadata.get('bids_datasettype')
+    if not bids_datasettype or (isinstance(bids_datasettype, list) and len(bids_datasettype) == 0):
+        validation_errors['dataset_info'].append("BIDS Dataset type")
+    
+    bids_version = detailed_metadata.get('bids_version')
+    if not bids_version or (isinstance(bids_version, list) and (len(bids_version) == 0 or not bids_version[0] or bids_version[0] == 'BIDS version')):
+        validation_errors['dataset_info'].append("BIDS version")
+    
+    bids_datatypes = detailed_metadata.get('bids_datatypes')
+    if not bids_datatypes or (isinstance(bids_datatypes, list) and len(bids_datatypes) == 0):
+        validation_errors['dataset_info'].append("BIDS data type")
+    
+    # (2) Participant info mandatory fields
+    participants = metadata.get('participants', {}).get('content', {})
+    total_subjects = participants.get('total_number', [''])
+    if not total_subjects or not total_subjects[0] or str(total_subjects[0]).strip() == '':
+        validation_errors['participants'].append("Number of subjects")
+    
+    # (3) DUA mandatory fields
+    dua_content = metadata.get('dua_content', {}).get('content', {})
+    
+    if not dua_content:
+        validation_errors['dua'].append("DUA content not found")
+    else:
+        restrictions = dua_content.get('Restrictions', [])
+        terms = dua_content.get('Terms', [])
+        
+        if not restrictions or len(restrictions) == 0:
+            validation_errors['dua'].append("Restrictions must be selected")
+        else:
+            # Check if restriction is 'None (CCBY)' - if so, terms are optional
+            restriction_value = restrictions[0] if restrictions else ""
+            if restriction_value != 'None (CCBY)':
+                if not terms or len(terms) == 0 or not terms[0].strip():
+                    validation_errors['dua'].append("Terms must have a value (unless restriction is 'None (CCBY)')")
+    
+    # (4) Authors mandatory fields
+    authors = metadata.get('authors', [])
+    if not authors or len(authors) == 0:
+        validation_errors['authors'].append("At least 1 author name is required")
+    else:
+        # Check if at least one author has a name
+        has_valid_author = False
+        for author in authors:
+            given_name = author.get('givenName', '').strip()
+            family_name = author.get('familyName', '').strip()
+            if given_name or family_name:
+                has_valid_author = True
+                break
+        if not has_valid_author:
+            validation_errors['authors'].append("At least 1 author must have a name")
+    
+    # (5) Data curator mandatory fields
+    metadata_sources = metadata.get('metadata_sources', {}).get('sources', [])
+    if not metadata_sources or len(metadata_sources) == 0:
+        validation_errors['data_curators'].append("At least 1 curator name and 1 institution is required")
+    else:
+        # Check if at least one curator has both name and institution
+        has_valid_curator = False
+        for source in metadata_sources:
+            agent_name = source.get('agent_name', '').strip()
+            source_name = source.get('source_name', '').strip()
+            if agent_name and source_name:
+                has_valid_curator = True
+                break
+        if not has_valid_curator:
+            validation_errors['data_curators'].append("At least 1 curator must have both name and institution")
+    
+    return validation_errors
+
+def filter_empty_values(data_dict):
+    """Remove keys with empty, None, or meaningless values from a dictionary"""
+    filtered = {}
+    for key, value in data_dict.items():
+        if isinstance(value, list):
+            # Filter out empty strings, None, meaningless placeholders, and whitespace-only strings from lists
+            filtered_list = [v for v in value if v is not None and str(v).strip() != '' and str(v).strip() != '[]']
+            if filtered_list:  # Only include the key if there are non-empty values
+                filtered[key] = filtered_list
+        elif value is not None and value != [] and str(value).strip() != '' and str(value).strip() != '[]':
+            filtered[key] = value
+    return filtered
+
+def clean_metadata_content(content_dict):
+    """Clean metadata content by removing null, empty, and meaningless values"""
+    cleaned = {}
+    for key, value in content_dict.items():
+        if value is None:
+            continue  # Skip null values
+        elif isinstance(value, list):
+            # Filter out None, empty strings, and meaningless values from lists
+            cleaned_list = [v for v in value if v is not None and str(v).strip() != '' and str(v).strip() not in ['[]', 'BIDS version']]
+            if cleaned_list:  # Only include if there are meaningful values
+                cleaned[key] = cleaned_list
+        elif isinstance(value, str) and value.strip() in ['', '[]', 'BIDS version']:
+            continue  # Skip empty or meaningless string values
+        else:
+            cleaned[key] = value
+    return cleaned
+
 def parse_excel_metadata(input_file):
     """
     Parse Excel file to extract metadata for both XML and JSONL generation.
@@ -207,16 +453,48 @@ def parse_excel_metadata(input_file):
                 if not pd.isna(value):
                     participants_aux[key] = str(value) if isinstance(value, int) else value
 
+    # Helper function to filter out empty values
+    def filter_empty_values(data_dict):
+        """Remove keys with empty, None, or meaningless values from a dictionary"""
+        filtered = {}
+        for key, value in data_dict.items():
+            if isinstance(value, list):
+                # Filter out empty strings, None, meaningless placeholders, and whitespace-only strings from lists
+                filtered_list = [v for v in value if v is not None and str(v).strip() != '' and str(v).strip() != '[]']
+                if filtered_list:  # Only include the key if there are non-empty values
+                    filtered[key] = filtered_list
+            elif value is not None and value != [] and str(value).strip() != '' and str(value).strip() != '[]':
+                filtered[key] = value
+        return filtered
+
+    # Helper function to clean metadata content
+    def clean_metadata_content(content_dict):
+        """Clean metadata content by removing null, empty, and meaningless values"""
+        cleaned = {}
+        for key, value in content_dict.items():
+            if value is None:
+                continue  # Skip null values
+            elif isinstance(value, list):
+                # Filter out None, empty strings, and meaningless values from lists
+                cleaned_list = [v for v in value if v is not None and str(v).strip() != '' and str(v).strip() not in ['[]', 'BIDS version']]
+                if cleaned_list:  # Only include if there are meaningful values
+                    cleaned[key] = cleaned_list
+            elif isinstance(value, str) and value.strip() in ['', '[]', 'BIDS version']:
+                continue  # Skip empty or meaningless string values
+            else:
+                cleaned[key] = value
+        return cleaned
+
     participants = {
         "name": "Participants",
-        "content": {
+        "content": filter_empty_values({
             "total_number": [participants_aux.get('Number of subjects', '')], 
             "age_range": [participants_aux.get('Age range [min max]', '').replace(" ", ", ")], 
             "number_of_healthy": [participants_aux.get('Number of Healthy Controls', '')], 
             "number_of_patients": [participants_aux.get('Number of Patients', '')], 
             "number_of_biological_males": [participants_aux.get('Number of biological males', '')], 
             "number_of_biological_females": [participants_aux.get('Number of biological females', '')]
-        }
+        })
     } if participants_aux else {"name": "Participants", "content": {}}
 
     # Extract dataset info
@@ -250,7 +528,7 @@ def parse_excel_metadata(input_file):
     # Create detailed metadata for JSONL with improved BIDS parsing
     detailed_metadata = {
         "name": "Dataset Metadata",
-        "content": {
+        "content": clean_metadata_content({
             "bids_version": handle_values(metadata_aux.get('BIDS version')),
             "bids_datasettype": parse_bids_dataset_type(metadata_aux.get('BIDS Dataset type')), 
             "bids_datatypes": parse_bids_datatypes(metadata_aux.get('BIDS data type')),
@@ -261,8 +539,57 @@ def parse_excel_metadata(input_file):
             "SNOMED label": handle_values(metadata_aux.get("SNOMED label")),
             "Cognitive Atlas concept": handle_values(metadata_aux.get('Cognitive Atlas concept(s)')),
             "Cognitive Atlas task": handle_values(metadata_aux.get('Cognitive Atlas task(s)'))
-        }
+        })
     }
+
+    # Extract DUA (Data User Agreement) information
+    def clean_text_for_jsonl(text, preserve_line_breaks=False):
+        """Clean text for JSONL compatibility"""
+        if pd.isna(text) or not text:
+            return ""
+        
+        text_str = str(text).strip()
+        
+        if preserve_line_breaks:
+            # Preserve line breaks as \n for web rendering
+            text_str = text_str.replace('\r\n', '\n').replace('\r', '\n')
+            # Clean problematic characters but keep line breaks
+            text_str = text_str.replace('"', "'").replace('\t', ' ')
+        else:
+            # Convert line breaks to periods (original behavior)
+            text_str = text_str.replace('\r\n', '. ').replace('\n', '. ').replace('\r', '. ')
+            text_str = text_str.replace('"', "'").replace('\t', ' ')
+            # Normalize multiple periods
+            import re
+            text_str = re.sub(r'\.+', '.', text_str)
+        
+        # Normalize multiple spaces to single space
+        import re
+        text_str = re.sub(r' +', ' ', text_str)
+        return text_str.strip()
+    
+    dua_content = {"name": "DUA terms", "content": {"Restrictions": [], "Terms": []}}
+    if "DUA" in aux_dict and len(aux_dict["DUA"]) >= 3:
+        dua_df = pd.DataFrame(aux_dict["DUA"])
+        
+        # Get Terms from cell B1 (row 0, column 1) - free text with potential formatting issues
+        if dua_df.shape[0] > 0 and dua_df.shape[1] > 1:
+            terms_value = dua_df.iloc[0, 1]
+            if not pd.isna(terms_value) and str(terms_value).strip():
+                # Preserve line breaks for Terms since they might be long text
+                clean_terms = clean_text_for_jsonl(terms_value, preserve_line_breaks=True)
+                if clean_terms:
+                    dua_content["content"]["Terms"] = [clean_terms]
+        
+        # Get Restrictions from the selected dropdown value in column D (index 3)
+        # Based on the expected output, we want the option from row 2 (D3)
+        if dua_df.shape[1] > 3 and dua_df.shape[0] > 2:  # Ensure column D and row 2 exist
+            restrictions_value = dua_df.iloc[2, 3]  # Row 2, Column D (D3)
+            if not pd.isna(restrictions_value) and str(restrictions_value).strip():
+                # Don't preserve line breaks for Restrictions (should be short dropdown text)
+                clean_restriction = clean_text_for_jsonl(restrictions_value, preserve_line_breaks=False)
+                if clean_restriction:
+                    dua_content["content"]["Restrictions"] = [clean_restriction]
 
     # Extract metadata sources
     metadata_sources = {"sources": []}
@@ -296,16 +623,8 @@ def parse_excel_metadata(input_file):
     download_url = f"{url_base}{url_dataset}/{url_version}".replace(" ", "%20")
 
     # Extract keywords with improved parsing
-    keywords_raw = metadata_aux.get('dataset_info', {})
-    if isinstance(keywords_raw, dict):
-        keywords_value = keywords_raw.get('values', '')
-    else:
-        # Try to get keywords from the dataset_info sheet
-        keywords_value = ''
-        if "dataset_info" in aux_dict and len(aux_dict["dataset_info"]) > 3:
-            keywords_entry = aux_dict["dataset_info"][3].get('values', '')
-            keywords_value = keywords_entry if not pd.isna(keywords_entry) else ''
-    
+    # Extract keywords using the same pattern as other metadata fields
+    keywords_value = metadata_aux.get('Keywords', '')
     keywords = parse_keywords(keywords_value)
 
     return {
@@ -324,6 +643,7 @@ def parse_excel_metadata(input_file):
         "publications": publication,
         "participants": participants,
         "detailed_metadata": detailed_metadata,
+        "dua_content": dua_content,
         "metadata_sources": metadata_sources,
         "keywords": keywords,
         "dataset_version": format_version(version_raw),
@@ -408,7 +728,7 @@ def dict2xml_element(tag, value):
         element.text = str(value)
     return element
 
-def export_xlsx_to_xml(excel_file_path, output_xml_path=None):
+def export_xlsx_to_xml(excel_file_path, output_xml_path=None, skip_validation=False):
     """
     Convert Excel metadata file to XML format for CrossRef submission.
     
@@ -419,9 +739,27 @@ def export_xlsx_to_xml(excel_file_path, output_xml_path=None):
     
     Returns:
         str: Path to the generated XML file
+    
+    Raises:
+        ValueError: If mandatory fields are missing
     """
     # Parse Excel metadata
     metadata = parse_excel_metadata(excel_file_path)
+    
+    # Validate metadata (if not skipped)
+    if not skip_validation:
+        validation_errors = validate_metadata(metadata)
+        total_errors = sum(len(errors) for errors in validation_errors.values())
+        if total_errors > 0:
+            error_msg = f"❌ VALIDATION FAILED - Cannot proceed with conversion:\n\n"
+            error_count = 1
+            for category, issues in validation_errors.items():
+                if issues:
+                    for issue in issues:
+                        error_msg += f"   {error_count}. {category}: {issue}\n"
+                        error_count += 1
+            error_msg += f"\nPlease fix these issues in '{excel_file_path}' and try again."
+            raise ValueError(error_msg)
     
     # Get XML template
     xml_dict = get_xml_template()
@@ -555,7 +893,7 @@ def export_xlsx_to_xml(excel_file_path, output_xml_path=None):
     print(f"\n\t [X] XML file has been saved in '{output_xml_path}'")
     return output_xml_path
 
-def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None):
+def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None, skip_validation=False):
     """
     Convert Excel metadata file to JSONL format for data catalog.
     
@@ -566,17 +904,79 @@ def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None):
     
     Returns:
         str: Path to the generated JSONL file
+    
+    Raises:
+        ValueError: If mandatory fields are missing
     """
     # Parse Excel metadata
     metadata = parse_excel_metadata(excel_file_path)
+    
+    # Validate metadata (if not skipped)
+    if not skip_validation:
+        validation_errors = validate_metadata(metadata)
+        total_errors = sum(len(errors) for errors in validation_errors.values())
+        if total_errors > 0:
+            error_msg = f"❌ VALIDATION FAILED - Cannot proceed with conversion:\n\n"
+            error_count = 1
+            for category, issues in validation_errors.items():
+                if issues:
+                    for issue in issues:
+                        error_msg += f"   {error_count}. {category}: {issue}\n"
+                        error_count += 1
+            error_msg += f"\nPlease fix these issues in '{excel_file_path}' and try again."
+            raise ValueError(error_msg)
     
     # Determine output file path
     if output_jsonl_path is None:
         base_name = os.path.splitext(excel_file_path)[0]
         output_jsonl_path = f"{base_name}.jsonl"
     
+    # Helper function to clean entire JSONL structure
+    def clean_jsonl_structure(data):
+        """Clean the entire JSONL structure by removing empty/meaningless values"""
+        cleaned = {}
+        for key, value in data.items():
+            if value is None:
+                continue  # Skip null values
+            elif isinstance(value, list):
+                if key == "keywords" and len(value) == 0:
+                    continue  # Skip empty keywords array
+                elif key == "funding" and len(value) == 0:
+                    continue  # Skip empty funding array  
+                elif key == "publications" and len(value) == 0:
+                    continue  # Skip empty publications array
+                elif key == "authors":
+                    # Clean authors - remove those with empty names
+                    cleaned_authors = []
+                    for author in value:
+                        if isinstance(author, dict):
+                            # Keep author if they have either given name or family name
+                            given = author.get('givenName', '').strip()
+                            family = author.get('familyName', '').strip()
+                            if given or family:
+                                cleaned_authors.append(author)
+                    if cleaned_authors:
+                        cleaned[key] = cleaned_authors
+                elif key == "additional_display":
+                    # Clean additional_display sections
+                    cleaned_sections = []
+                    for section in value:
+                        if isinstance(section, dict) and section.get('content'):
+                            # Only include sections that have meaningful content after cleaning
+                            if len(section['content']) > 0:
+                                cleaned_sections.append(section)
+                    if cleaned_sections:
+                        cleaned[key] = cleaned_sections
+                else:
+                    cleaned[key] = value
+            elif isinstance(value, str) and value.strip() == '':
+                continue  # Skip empty strings
+            else:
+                cleaned[key] = value
+        return cleaned
+    
     # Build JSONL structure
-    jsonl_data = {
+    jsonl_data = clean_jsonl_structure({
         "type": metadata["type"],
         "name": metadata["title"],
         "description": metadata["description"],
@@ -590,8 +990,8 @@ def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None):
         "funding": metadata["funding"],
         "publications": metadata["publications"],
         "metadata_sources": metadata["metadata_sources"],
-        "additional_display": [metadata["detailed_metadata"], metadata["participants"]]
-    }
+        "additional_display": [metadata["detailed_metadata"], metadata["dua_content"], metadata["participants"]]
+    })
     
     # Write JSONL file
     with open(output_jsonl_path, 'w', encoding='utf-8') as f:
@@ -611,9 +1011,29 @@ def export_xlsx_to_both(excel_file_path, output_xml_path=None, output_jsonl_path
     
     Returns:
         tuple: (xml_file_path, jsonl_file_path)
+    
+    Raises:
+        ValueError: If mandatory fields are missing
     """
-    xml_file = export_xlsx_to_xml(excel_file_path, output_xml_path)
-    jsonl_file = export_xlsx_to_jsonl(excel_file_path, output_jsonl_path)
+    # Parse and validate metadata once
+    metadata = parse_excel_metadata(excel_file_path)
+    validation_errors = validate_metadata(metadata)
+    
+    # Check if there are any validation errors
+    total_errors = sum(len(issues) for issues in validation_errors.values())
+    if total_errors > 0:
+        print(f"⚠️  VALIDATION WARNINGS - Found {total_errors} issues but proceeding with conversion:")
+        error_count = 1
+        for category, issues in validation_errors.items():
+            if issues:
+                for issue in issues:
+                    print(f"   {error_count}. {category}: {issue}")
+                    error_count += 1
+        print(f"Converting '{excel_file_path}' anyway...\n")
+    
+    # If validation passes, proceed with both exports
+    xml_file = export_xlsx_to_xml(excel_file_path, output_xml_path, skip_validation=True)
+    jsonl_file = export_xlsx_to_jsonl(excel_file_path, output_jsonl_path, skip_validation=True)
     
     print(f"\n\t [X] Both files generated successfully:")
     print(f"\t     XML:   {xml_file}")
@@ -669,6 +1089,10 @@ def main():
             print(f"\n\t [X] Successfully converted '{excel_file}' to both formats:")
             print(f"\t     XML:   {xml_file}")
             print(f"\t     JSONL: {jsonl_file}")
+    except ValueError as e:
+        # Handle validation errors specifically
+        print(f"\n{str(e)}")
+        sys.exit(1)
     except Exception as e:
         print(f"\n\t [X] Error during conversion: {str(e)}")
         sys.exit(1)
