@@ -52,6 +52,9 @@ Text Processing & Filtering:
 - clean_metadata_content(content_dict) 
   Cleans metadata content by removing null, empty, and meaningless values
 
+- remove_nan_and_na_values(data)
+  Recursively removes key-value pairs with NaN, 'n.a.', or other meaningless values from nested structures
+
 - clean_jsonl_structure(data)
   Comprehensively cleans entire JSONL structure removing empty arrays, null values, and meaningless entries
 
@@ -932,6 +935,62 @@ def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None, skip_validatio
         base_name = os.path.splitext(excel_file_path)[0]
         output_jsonl_path = f"{base_name}.jsonl"
     
+    # Helper function to remove NaN and n.a. values from nested structures
+    def remove_nan_and_na_values(data):
+        """
+        Recursively remove key-value pairs where the value is NaN, 'n.a.', or other meaningless values.
+        
+        Args:
+            data: Dictionary, list, or other data structure to clean
+            
+        Returns:
+            Cleaned data structure with NaN and n.a. values removed
+        """
+        if isinstance(data, dict):
+            cleaned = {}
+            for key, value in data.items():
+                # Skip keys with NaN values (handle scalars only)
+                try:
+                    if pd.isna(value):
+                        continue
+                except (ValueError, TypeError):
+                    # pd.isna() failed, probably because value is an array/list - continue processing
+                    pass
+                    
+                # Skip keys with string values that are meaningless
+                if isinstance(value, str) and value.strip().lower() in ['n.a.', 'na', 'n/a', '']:
+                    continue
+                # Recursively clean nested structures
+                elif isinstance(value, (dict, list)):
+                    cleaned_value = remove_nan_and_na_values(value)
+                    # Only include if the cleaned structure is not empty
+                    if cleaned_value:
+                        cleaned[key] = cleaned_value
+                else:
+                    cleaned[key] = value
+            return cleaned
+        elif isinstance(data, list):
+            cleaned = []
+            for item in data:
+                # Skip NaN items (handle scalars only)
+                try:
+                    if pd.isna(item):
+                        continue
+                except (ValueError, TypeError):
+                    # pd.isna() failed, continue processing
+                    pass
+                    
+                if isinstance(item, str) and item.strip().lower() in ['n.a.', 'na', 'n/a', '']:
+                    continue
+                else:
+                    cleaned_item = remove_nan_and_na_values(item)
+                    # Only include non-empty items
+                    if cleaned_item is not None and cleaned_item != {} and cleaned_item != []:
+                        cleaned.append(cleaned_item)
+            return cleaned
+        else:
+            return data
+
     # Helper function to clean entire JSONL structure
     def clean_jsonl_structure(data):
         """Clean the entire JSONL structure by removing empty/meaningless values"""
@@ -976,22 +1035,29 @@ def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None, skip_validatio
                 cleaned[key] = value
         return cleaned
     
-    # Build JSONL structure
+    # First apply NaN and n.a. cleanup to the metadata structure
+    cleaned_metadata = remove_nan_and_na_values(metadata)
+    
+    # Build JSONL structure with cleaned metadata (with fallbacks for safety)
     jsonl_data = clean_jsonl_structure({
-        "type": metadata["type"],
-        "name": metadata["title"],
-        "description": metadata["description"],
-        "dataset_id": metadata["name"],
-        "dataset_version": metadata["dataset_version"],
-        "doi": metadata["doi"],
-        "download_url": metadata["download_url"],
-        "keywords": metadata["keywords"],
-        "license": metadata["license"],
-        "authors": metadata["authors"],
-        "funding": metadata["funding"],
-        "publications": metadata["publications"],
-        "metadata_sources": metadata["metadata_sources"],
-        "additional_display": [metadata["detailed_metadata"], metadata["dua_content"], metadata["participants"]]
+        "type": cleaned_metadata.get("type", "dataset"),
+        "name": cleaned_metadata.get("title", ""),
+        "description": cleaned_metadata.get("description", ""),
+        "dataset_id": cleaned_metadata.get("name", ""),
+        "dataset_version": cleaned_metadata.get("dataset_version", ""),
+        "doi": cleaned_metadata.get("doi", ""),
+        "download_url": cleaned_metadata.get("download_url", ""),
+        "keywords": cleaned_metadata.get("keywords", []),
+        "license": cleaned_metadata.get("license", {}),
+        "authors": cleaned_metadata.get("authors", []),
+        "funding": cleaned_metadata.get("funding", []),
+        "publications": cleaned_metadata.get("publications", []),
+        "metadata_sources": cleaned_metadata.get("metadata_sources", {}),
+        "additional_display": [
+            cleaned_metadata.get("detailed_metadata", {}), 
+            cleaned_metadata.get("dua_content", {}), 
+            cleaned_metadata.get("participants", {})
+        ]
     })
     
     # Write JSONL file
