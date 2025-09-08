@@ -67,7 +67,7 @@ def fetch_set(folder):
     return dataset_file
 
 
-def find_catalogue_set_file(target_pattern="PN000011*/V1", base_path=None, verbose=True):
+def find_catalogue_set_file(target_pattern="PN*/V*", base_path=None, verbose=True):
     """
     Main function to find dataset files in catalog directory structures.
     Combines the functionality of findset.py and execute_findset.py.
@@ -120,14 +120,14 @@ def find_catalogue_set_file(target_pattern="PN000011*/V1", base_path=None, verbo
             return results
         
         # Extract PN number and version from pattern
-        # Patterns like "PN000001*/V1" or "PN000011*/V1"
-        if "*/" in pattern and pattern.endswith("/V1"):
-            pn_prefix = pattern.split("*/")[0]  # e.g., "PN000001"
-            version = pattern.split("/")[-1]    # e.g., "V1"
+        # Patterns like "PN*/V*" or "PN000011*/V1"
+        if "*/" in pattern and pattern.split("/")[-1].startswith("V"):
+            pn_prefix = pattern.split("*/")[0]  # e.g., "PN000001" or "PN"
+            version_pattern = pattern.split("/")[-1]    # e.g., "V1" or "V*"
             
             if verbose:
                 print(f"🔍 Looking for directories starting with: {pn_prefix}")
-                print(f"🔢 Target version: {version}")
+                print(f"🔢 Target version pattern: {version_pattern}")
             
             # Look for matching PN directories
             matching_dirs = []
@@ -143,18 +143,40 @@ def find_catalogue_set_file(target_pattern="PN000011*/V1", base_path=None, verbo
             if verbose:
                 print(f"📁 Found matching directories: {matching_dirs}")
             
-            # Process each matching directory's version subdirectory
+            # Process each matching directory's version subdirectories
             for pn_dir in matching_dirs:
                 pn_path = os.path.join(metadata_path, pn_dir)
-                version_path = os.path.join(pn_path, version)
                 
-                if verbose:
-                    print(f"\n📂 Processing: {pn_dir}/{version}")
-                
-                if not os.path.exists(version_path):
-                    if verbose:
-                        print(f"   ⚠️  {version} directory not found in {pn_dir}")
+                if not os.path.isdir(pn_path):
                     continue
+                
+                # Find version directories that match the version pattern
+                matching_versions = []
+                for version_item in os.listdir(pn_path):
+                    version_item_path = os.path.join(pn_path, version_item)
+                    if os.path.isdir(version_item_path):
+                        if version_pattern == "V*" and version_item.startswith("V"):
+                            matching_versions.append(version_item)
+                        elif version_pattern == version_item:
+                            matching_versions.append(version_item)
+                
+                if not matching_versions:
+                    if verbose:
+                        print(f"\n📂 Processing: {pn_dir}")
+                        print(f"   ⚠️  No {version_pattern} directories found in {pn_dir}")
+                    continue
+                
+                # Process each matching version directory
+                for version in matching_versions:
+                    version_path = os.path.join(pn_path, version)
+                    
+                    if verbose:
+                        print(f"\n📂 Processing: {pn_dir}/{version}")
+                    
+                    if not os.path.exists(version_path):
+                        if verbose:
+                            print(f"   ⚠️  {version} directory not found in {pn_dir}")
+                        continue
                 
                 # Use fetch_set to find dataset files in the version directory
                 try:
