@@ -75,8 +75,9 @@ EXCEL SHEET STRUCTURE EXPECTED:
 
 DUA EXTRACTION:
 ==============
-- Restrictions: Extracted from cell D3 of DUA sheet
-- Terms: Extracted from cell B1 of DUA sheet with line break preservation (\n)
+- Restrictions: Extracted from cell B1 of DUA sheet (dropdown selection)
+- Terms: Extracted from cell B2 of DUA sheet with line break preservation (\n)
+- Only processes columns A and B (ignores columns C, D, etc.)
 - Structure: {"name": "DUA terms", "content": {"Restrictions": [...], "Terms": [...]}}
 
 OUTPUT FORMATS:
@@ -569,27 +570,27 @@ def parse_excel_metadata(input_file):
         return text_str.strip()
     
     dua_content = {"name": "DUA terms", "content": {"Restrictions": [], "Terms": []}}
-    if "DUA" in aux_dict and len(aux_dict["DUA"]) >= 3:
+    if "DUA" in aux_dict and len(aux_dict["DUA"]) >= 2:  # Need at least 2 data rows
         dua_df = pd.DataFrame(aux_dict["DUA"])
         
-        # Get Terms from cell B1 (row 0, column 1) - free text with potential formatting issues
-        if dua_df.shape[0] > 0 and dua_df.shape[1] > 1:
-            terms_value = dua_df.iloc[0, 1]
-            if not pd.isna(terms_value) and str(terms_value).strip():
-                # Preserve line breaks for Terms since they might be long text
-                clean_terms = clean_text_for_jsonl(terms_value, preserve_line_breaks=True)
-                if clean_terms:
-                    dua_content["content"]["Terms"] = [clean_terms]
+        # With headers: pandas treats headers automatically, so data starts at row 0
+        # Row 0: "Restrictions" content, Row 1: "Terms" content
         
-        # Get Restrictions from the selected dropdown value in column D (index 3)
-        # Based on the expected output, we want the option from row 2 (D3)
-        if dua_df.shape[1] > 3 and dua_df.shape[0] > 2:  # Ensure column D and row 2 exist
-            restrictions_value = dua_df.iloc[2, 3]  # Row 2, Column D (D3)
+        # Get Restrictions from first data row (row 0, column 1)
+        if dua_df.shape[0] > 0 and dua_df.shape[1] > 1:
+            restrictions_value = dua_df.iloc[0, 1]  # First data row, column "Content"
             if not pd.isna(restrictions_value) and str(restrictions_value).strip():
-                # Don't preserve line breaks for Restrictions (should be short dropdown text)
                 clean_restriction = clean_text_for_jsonl(restrictions_value, preserve_line_breaks=False)
                 if clean_restriction:
                     dua_content["content"]["Restrictions"] = [clean_restriction]
+        
+        # Get Terms from second data row (row 1, column 1) 
+        if dua_df.shape[0] > 1 and dua_df.shape[1] > 1:
+            terms_value = dua_df.iloc[1, 1]  # Second data row, column "Content"
+            if not pd.isna(terms_value) and str(terms_value).strip():
+                clean_terms = clean_text_for_jsonl(terms_value, preserve_line_breaks=True)
+                if clean_terms:
+                    dua_content["content"]["Terms"] = [clean_terms]
 
     # Extract metadata sources
     metadata_sources = {"sources": []}

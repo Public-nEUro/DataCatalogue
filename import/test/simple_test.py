@@ -7,6 +7,13 @@ try:
     from export_xlsx import export_xlsx_to_both
     print("Function imported successfully")
     
+    # Clean up any existing output files first
+    output_files = ['PublicnEUro_test.xml', 'PublicnEUro_test.jsonl']
+    for file in output_files:
+        if os.path.exists(file):
+            os.remove(file)
+            print(f"Removed existing {file}")
+    
     print("Calling export_xlsx_to_both...")
     result = export_xlsx_to_both('PublicnEUro_test.xlsx')
     print(f"Result: {result}")
