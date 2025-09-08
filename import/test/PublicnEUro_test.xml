@@ -2,7 +2,7 @@
 <doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
     <head>
         <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2025090300000000</timestamp>
+        <timestamp>2025090800000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -30,7 +30,7 @@
                 <database_date>
                     <publication_date>
                         <month>09</month>
-                        <day>03</day>
+                        <day>08</day>
                         <year>2025</year>
                     </publication_date>
                 </database_date>
