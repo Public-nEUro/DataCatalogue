@@ -120,7 +120,7 @@ def get_file_info(directory_path: str, save_to_file: bool = False, output_file: 
             # Include files with BIDS-standard extensions + neuroimaging formats
             if file.endswith(('.json', '.edf', '.vhdr', '.vmrk', '.eeg', '.set', '.fdt', '.bdf', 
                              '.nii', '.nii.gz', '.zip', '.tsv', '.tsv.gz', '.pcd', '.tsa', 
-                             '.tst', '.tsm', '.tsp', '.wfb', '.log')):
+                             '.tst', '.tsm', '.tsp', '.wfb', '.log','.h5')):
                 should_include = True
             
             # Include BIDS-standard plain text files (no extension) 
