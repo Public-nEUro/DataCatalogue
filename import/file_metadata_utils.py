@@ -5,6 +5,29 @@ File listing and metadata processing utilities for PublicnEUro datasets.
 This module combines the functionality of get_files.py and listjl2filetype.py
 into importable functions that can process dataset files and generate comprehensive
 metadata catalogs.
+
+Usage Examples:
+    # Basic usage with directory scanning
+    from file_metadata_utils import process_file_metadata
+    output_file = process_file_metadata(
+        dataset_jsonl='dataset.jsonl',
+        file_list_source='/path/to/data/directory',
+        source_name='PublicnEUro',
+        agent_name='Cyril Pernet'
+    )
+    
+    # Usage with existing file list
+    output_file = process_file_metadata(
+        dataset_jsonl='dataset.jsonl',
+        file_list_source='file_list.jsonl',
+        source_name='PublicnEUro',
+        agent_name='Cyril Pernet'
+    )
+    
+Key Functions:
+    - get_file_info(directory_path): Scan directory for BIDS-compliant files
+    - process_file_metadata(dataset_jsonl, file_list_source, source_name, agent_name):
+        Generate comprehensive metadata catalog from dataset info and file lists
 """
 
 import os
