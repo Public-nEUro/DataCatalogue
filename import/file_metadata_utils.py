@@ -7,14 +7,6 @@ into importable functions that can process dataset files and generate comprehens
 metadata catalogs.
 
 Usage Examples:
-    # Scan directory and get file information
-    from file_metadata_utils import get_file_info
-    file_list = get_file_info('/path/to/dataset/directory')
-    # Returns: [{'path': 'sub-01/anat/sub-01_T1w.nii.gz', 'contentbytesize': 12345}, ...]
-    
-    # Scan directory and save to JSONL file
-    get_file_info('/path/to/dataset/directory', save_to_file=True, output_file='my_files.jsonl')
-    
     # Process complete dataset metadata with directory scanning
     from file_metadata_utils import process_file_metadata
     output_file = process_file_metadata(
@@ -31,6 +23,14 @@ Usage Examples:
         source_name='PublicnEUro',
         agent_name='Cyril Pernet'
     )
+        
+    # Scan directory and get file information
+    from file_metadata_utils import get_file_info
+    file_list = get_file_info('/path/to/dataset/directory')
+    # Returns: [{'path': 'sub-01/anat/sub-01_T1w.nii.gz', 'contentbytesize': 12345}, ...]
+    
+    # Scan directory and save to JSONL file
+    get_file_info('/path/to/dataset/directory', save_to_file=True, output_file='my_files.jsonl')
     
 Key Functions:
     - get_file_info(directory_path, save_to_file=False, output_file="file_list.jsonl"): 

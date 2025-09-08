@@ -2,6 +2,54 @@
 Combined functionality from findset.py and execute_findset.py
 Finds JSON files containing '"type": "dataset"' in catalog directory structures.
 Includes functionality to reorder dataset children.
+
+Usage:
+    # Command line execution (interactive mode):
+    python find_catalogue_set_file.py
+    
+    # Programmatic usage:
+    from find_catalogue_set_file import find_catalogue_set_file
+    
+    # Find all datasets matching pattern:
+    results = find_catalogue_set_file("PN*/V*")
+    
+    # Find specific dataset version:
+    results = find_catalogue_set_file("PN000011*/V1")
+    
+    # Find datasets in metadata directory:
+    results = find_catalogue_set_file("metadata/PN000001*/V*")
+    
+    # Silent mode without verbose output:
+    results = find_catalogue_set_file("PN*/V*", verbose=False)
+    
+    # Auto-reorder children without prompting:
+    results = find_catalogue_set_file("PN*/V*", reorder_children=True)
+    
+    # Specify custom base path:
+    results = find_catalogue_set_file("PN*/V*", base_path="/path/to/DataCatalogue")
+    
+    # Use absolute path to specific dataset directory (Windows):
+    results = find_catalogue_set_file(r"D:\DataCatalogue\metadata\PN000009 Dataset\V1")
+    
+    # Use absolute path to specific dataset directory (Unix/Linux/Mac):
+    results = find_catalogue_set_file("/home/user/DataCatalogue/metadata/PN000009 Dataset/V1")
+
+Functions:
+    - find_catalogue_set_file(): Main function to find and process datasets
+    - sort_children(): Sort dataset children according to BIDS conventions
+    - reorder_dataset_children(): Reorder children in a specific dataset file
+    - find_jsonl_dataset(): Find dataset files in folder structures
+    - fetch_set(): Search for dataset files in flat directory structure
+
+Pattern formats supported:
+    - "PN*/V*" : All datasets, all versions
+    - "PN000011*/V1" : Specific dataset prefix, specific version  
+    - "metadata/PN000001*/V*" : Datasets in metadata directory
+    - Absolute paths: Cross-platform file system paths to specific dataset directories
+    
+Returns:
+    Dictionary with dataset information including paths, metadata, and file details.
+    All paths in results are normalized for cross-platform compatibility.
 """
 
 import os
@@ -190,6 +238,9 @@ def find_catalogue_set_file(target_pattern="PN*/V*", base_path=None, verbose=Tru
     
     Args:
         target_pattern (str): Pattern to search for (e.g., "PN000011*/V1", "metadata/PN000001*/V1")
+                             or absolute path to specific dataset directory (cross-platform supported)
+                             (e.g., r"D:\DataCatalogue\metadata\PN000009 Dataset\V1" or 
+                              "/home/user/DataCatalogue/metadata/PN000009 Dataset/V1")
         base_path (str): Base path to search from (default: auto-detect DataCatalogue)
         verbose (bool): Whether to print detailed output (default: True)
         reorder_children (bool): Whether to reorder dataset children (None=ask user, True=yes, False=no)
@@ -217,87 +268,32 @@ def find_catalogue_set_file(target_pattern="PN*/V*", base_path=None, verbose=Tru
     try:
         results = {}
         
-        # Parse target pattern
-        # Handle patterns like "metadata/PN000001*/V1" or "PN000001*/V1"
-        if target_pattern.startswith("metadata/"):
-            # Remove "metadata/" prefix
-            pattern = target_pattern[9:]  # Remove "metadata/"
-            metadata_path = "metadata"
-        else:
-            pattern = target_pattern
-            metadata_path = "metadata"
-        
-        if verbose:
-            print(f"🎯 Target pattern: {target_pattern}")
-            print(f"📂 Parsed pattern: {pattern}")
-        
-        if not os.path.exists(metadata_path):
+        # Check if target_pattern is an absolute path to a specific directory
+        if os.path.isabs(target_pattern) and os.path.exists(target_pattern):
             if verbose:
-                print(f"❌ Metadata directory not found: {metadata_path}")
-            return results
-        
-        # Extract PN number and version from pattern
-        # Patterns like "PN*/V*" or "PN000011*/V1"
-        if "*/" in pattern and pattern.split("/")[-1].startswith("V"):
-            pn_prefix = pattern.split("*/")[0]  # e.g., "PN000001" or "PN"
-            version_pattern = pattern.split("/")[-1]    # e.g., "V1" or "V*"
+                print(f"🎯 Processing absolute path: {target_pattern}")
             
-            if verbose:
-                print(f"🔍 Looking for directories starting with: {pn_prefix}")
-                print(f"🔢 Target version pattern: {version_pattern}")
+            # Normalize path for cross-platform compatibility
+            normalized_path = os.path.normpath(target_pattern)
+            path_parts = normalized_path.replace('\\', '/').split('/')
             
-            # Look for matching PN directories
-            matching_dirs = []
-            for item in os.listdir(metadata_path):
-                if item.startswith(pn_prefix):
-                    matching_dirs.append(item)
+            # Find PN directory and version
+            pn_dir = None
+            version = None
             
-            if not matching_dirs:
+            for i, part in enumerate(path_parts):
+                if part.startswith('PN') and i < len(path_parts) - 1:
+                    pn_dir = part
+                    version = path_parts[i + 1]
+                    break
+            
+            if pn_dir and version:
                 if verbose:
-                    print(f"❌ No directories found starting with {pn_prefix}")
-                return results
-            
-            if verbose:
-                print(f"📁 Found matching directories: {matching_dirs}")
-            
-            # Process each matching directory's version subdirectories
-            for pn_dir in matching_dirs:
-                pn_path = os.path.join(metadata_path, pn_dir)
+                    print(f"📂 Detected: {pn_dir}/{version}")
                 
-                if not os.path.isdir(pn_path):
-                    continue
-                
-                # Find version directories that match the version pattern
-                matching_versions = []
-                for version_item in os.listdir(pn_path):
-                    version_item_path = os.path.join(pn_path, version_item)
-                    if os.path.isdir(version_item_path):
-                        if version_pattern == "V*" and version_item.startswith("V"):
-                            matching_versions.append(version_item)
-                        elif version_pattern == version_item:
-                            matching_versions.append(version_item)
-                
-                if not matching_versions:
-                    if verbose:
-                        print(f"\n📂 Processing: {pn_dir}")
-                        print(f"   ⚠️  No {version_pattern} directories found in {pn_dir}")
-                    continue
-                
-                # Process each matching version directory
-                for version in matching_versions:
-                    version_path = os.path.join(pn_path, version)
-                    
-                    if verbose:
-                        print(f"\n📂 Processing: {pn_dir}/{version}")
-                    
-                    if not os.path.exists(version_path):
-                        if verbose:
-                            print(f"   ⚠️  {version} directory not found in {pn_dir}")
-                        continue
-                
-                # Use fetch_set to find dataset files in the version directory
+                # Use fetch_set to find dataset files in the target directory
                 try:
-                    result = fetch_set(version_path)
+                    result = fetch_set(normalized_path)
                     if result != 'not found':
                         if verbose:
                             print(f"   ✅ Dataset file found: {result}")
@@ -333,19 +329,150 @@ def find_catalogue_set_file(target_pattern="PN*/V*", base_path=None, verbose=Tru
                                 print(f"   ⚠️  Could not read dataset details: {e}")
                     else:
                         if verbose:
-                            print(f"   ❌ No dataset file found")
+                            print(f"   ❌ No dataset file found in {target_pattern}")
                         
                 except Exception as e:
                     if verbose:
-                        print(f"   ❌ Error processing {version_path}: {e}")
+                        print(f"   ❌ Error processing {target_pattern}: {e}")
+            else:
+                if verbose:
+                    print(f"❌ Could not extract PN directory and version from path: {target_pattern}")
+            
+            # Skip to the end for reordering check
+            if verbose:
+                print(f"\n📊 Summary: Found {len(results)} dataset(s)")
         
         else:
+            # Original pattern-based logic
+            # Parse target pattern
+            # Handle patterns like "metadata/PN000001*/V1" or "PN000001*/V1"
+            if target_pattern.startswith("metadata/"):
+                # Remove "metadata/" prefix
+                pattern = target_pattern[9:]  # Remove "metadata/"
+                metadata_path = "metadata"
+            else:
+                pattern = target_pattern
+                metadata_path = "metadata"
+            
             if verbose:
-                print(f"❌ Unsupported pattern format: {pattern}")
-                print("   Supported formats: 'PN######*/V#' or 'metadata/PN######*/V#'")
-        
-        if verbose:
-            print(f"\n📊 Summary: Found {len(results)} dataset(s)")
+                print(f"🎯 Target pattern: {target_pattern}")
+                print(f"📂 Parsed pattern: {pattern}")
+            
+            if not os.path.exists(metadata_path):
+                if verbose:
+                    print(f"❌ Metadata directory not found: {metadata_path}")
+                return results
+            
+            # Extract PN number and version from pattern
+            # Patterns like "PN*/V*" or "PN000011*/V1"
+            if "*/" in pattern and pattern.split("/")[-1].startswith("V"):
+                pn_prefix = pattern.split("*/")[0]  # e.g., "PN000001" or "PN"
+                version_pattern = pattern.split("/")[-1]    # e.g., "V1" or "V*"
+                
+                if verbose:
+                    print(f"🔍 Looking for directories starting with: {pn_prefix}")
+                    print(f"🔢 Target version pattern: {version_pattern}")
+                
+                # Look for matching PN directories
+                matching_dirs = []
+                for item in os.listdir(metadata_path):
+                    if item.startswith(pn_prefix):
+                        matching_dirs.append(item)
+                
+                if not matching_dirs:
+                    if verbose:
+                        print(f"❌ No directories found starting with {pn_prefix}")
+                    return results
+                
+                if verbose:
+                    print(f"📁 Found matching directories: {matching_dirs}")
+                
+                # Process each matching directory's version subdirectories
+                for pn_dir in matching_dirs:
+                    pn_path = os.path.join(metadata_path, pn_dir)
+                    
+                    if not os.path.isdir(pn_path):
+                        continue
+                    
+                    # Find version directories that match the version pattern
+                    matching_versions = []
+                    for version_item in os.listdir(pn_path):
+                        version_item_path = os.path.join(pn_path, version_item)
+                        if os.path.isdir(version_item_path):
+                            if version_pattern == "V*" and version_item.startswith("V"):
+                                matching_versions.append(version_item)
+                            elif version_pattern == version_item:
+                                matching_versions.append(version_item)
+                    
+                    if not matching_versions:
+                        if verbose:
+                            print(f"\n📂 Processing: {pn_dir}")
+                            print(f"   ⚠️  No {version_pattern} directories found in {pn_dir}")
+                        continue
+                    
+                    # Process each matching version directory
+                    for version in matching_versions:
+                        version_path = os.path.join(pn_path, version)
+                        
+                        if verbose:
+                            print(f"\n📂 Processing: {pn_dir}/{version}")
+                        
+                        if not os.path.exists(version_path):
+                            if verbose:
+                                print(f"   ⚠️  {version} directory not found in {pn_dir}")
+                            continue
+                    
+                        # Use fetch_set to find dataset files in the version directory
+                        try:
+                            result = fetch_set(version_path)
+                            if result != 'not found':
+                                if verbose:
+                                    print(f"   ✅ Dataset file found: {result}")
+                                
+                                # Store result
+                                dataset_key = f"{pn_dir}_{version}".replace(' ', '').replace('-', '').replace(':', '')
+                                results[dataset_key] = {
+                                    'path': result,
+                                    'relative_path': os.path.relpath(result, base_path),
+                                    'directory': pn_dir,
+                                    'version': version
+                                }
+                                
+                                # Try to read and display dataset info
+                                try:
+                                    with open(result, 'r', encoding='utf-8') as f:
+                                        dataset_data = json.load(f)
+                                    
+                                    results[dataset_key]['metadata'] = dataset_data
+                                    
+                                    if verbose:
+                                        print(f"   📋 Dataset info:")
+                                        print(f"      - Type: {dataset_data.get('type', 'N/A')}")
+                                        print(f"      - Name: {dataset_data.get('name', 'N/A')}")
+                                        print(f"      - ID: {dataset_data.get('dataset_id', 'N/A')}")
+                                        if 'dataset_version' in dataset_data:
+                                            print(f"      - Version: {dataset_data.get('dataset_version', 'N/A')}")
+                                        if 'authors' in dataset_data:
+                                            print(f"      - Authors: {len(dataset_data['authors'])} author(s)")
+                                            
+                                except Exception as e:
+                                    if verbose:
+                                        print(f"   ⚠️  Could not read dataset details: {e}")
+                            else:
+                                if verbose:
+                                    print(f"   ❌ No dataset file found")
+                                
+                        except Exception as e:
+                            if verbose:
+                                print(f"   ❌ Error processing {version_path}: {e}")
+            
+            else:
+                if verbose:
+                    print(f"❌ Unsupported pattern format: {pattern}")
+                    print("   Supported formats: 'PN######*/V#' or 'metadata/PN######*/V#'")
+            
+            if verbose:
+                print(f"\n📊 Summary: Found {len(results)} dataset(s)")
         
         # Ask about reordering children if not specified
         if results and reorder_children is None and verbose:
