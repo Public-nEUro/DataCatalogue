@@ -7,27 +7,39 @@ into importable functions that can process dataset files and generate comprehens
 metadata catalogs.
 
 Usage Examples:
-    # Basic usage with directory scanning
+    # Scan directory and get file information
+    from file_metadata_utils import get_file_info
+    file_list = get_file_info('/path/to/dataset/directory')
+    # Returns: [{'path': 'sub-01/anat/sub-01_T1w.nii.gz', 'contentbytesize': 12345}, ...]
+    
+    # Scan directory and save to JSONL file
+    get_file_info('/path/to/dataset/directory', save_to_file=True, output_file='my_files.jsonl')
+    
+    # Process complete dataset metadata with directory scanning
     from file_metadata_utils import process_file_metadata
     output_file = process_file_metadata(
         dataset_jsonl='dataset.jsonl',
-        file_list_source='/path/to/data/directory',
+        file_list_source='/path/to/data/directory',  # Directory to scan
         source_name='PublicnEUro',
         agent_name='Cyril Pernet'
     )
     
-    # Usage with existing file list
+    # Process with existing file list JSONL
     output_file = process_file_metadata(
         dataset_jsonl='dataset.jsonl',
-        file_list_source='file_list.jsonl',
+        file_list_source='file_list.jsonl',  # Pre-generated file list
         source_name='PublicnEUro',
         agent_name='Cyril Pernet'
     )
     
 Key Functions:
-    - get_file_info(directory_path): Scan directory for BIDS-compliant files
+    - get_file_info(directory_path, save_to_file=False, output_file="file_list.jsonl"): 
+        Scan directory recursively for BIDS-compliant files and return file information
+        Supports .nii, .json, .tsv, .log, neuroimaging formats, and BIDS standard files
+        
     - process_file_metadata(dataset_jsonl, file_list_source, source_name, agent_name):
-        Generate comprehensive metadata catalog from dataset info and file lists
+        Generate comprehensive metadata catalog combining dataset info with file listings
+        file_list_source can be: directory path, JSONL file path, or list of file dictionaries
 """
 
 import os
@@ -38,22 +50,47 @@ from typing import List, Dict, Union
 
 def get_file_info(directory_path: str, save_to_file: bool = False, output_file: str = "file_list.jsonl") -> List[Dict]:
     """
-    Walk through a directory structure and return file information.
+    Walk through a directory structure and return BIDS-compliant file information.
+    
+    This function recursively scans a directory for files that comply with BIDS
+    (Brain Imaging Data Structure) standards and neuroimaging formats commonly
+    used in neuroscience datasets.
     
     Args:
-        directory_path: The path to the directory to scan
-        save_to_file: Whether to save the results to a JSONL file
-        output_file: Name of the output file if save_to_file is True
+        directory_path (str): The path to the directory to scan recursively
+        save_to_file (bool): Whether to save the results to a JSONL file (default: False)
+        output_file (str): Name of the output file if save_to_file is True (default: "file_list.jsonl")
         
     Returns:
-        List of dictionaries containing file path and size information
+        List[Dict]: List of dictionaries with file information, each containing:
+            - 'path': Relative path from directory_path
+            - 'contentbytesize': File size in bytes
+            
+    Included File Types:
+        - BIDS standard: .json, .tsv, .tsv.gz, .nii, .nii.gz
+        - Neuroimaging: .edf, .vhdr, .vmrk, .eeg, .set, .fdt, .bdf
+        - Additional: .zip, .log, .pcd, .tsa, .tst, .tsm, .tsp, .wfb
+        - BIDS text files: README, CHANGES, LICENSE, CITATION (no extension)
+        
+    Excluded:
+        - 'code' directories (completely skipped)
+        - Non-BIDS files: .txt, .md, .yml, .py, etc.
+        
+    Special Handling:
+        - Directories within 'sourcedata' or 'source' are included with total size
+        - Path separators normalized to forward slashes for cross-platform compatibility
+        
+    Example:
+        >>> files = get_file_info('/data/study01')
+        >>> print(files[0])
+        {'path': 'sub-01/anat/sub-01_T1w.nii.gz', 'contentbytesize': 8234567}
+        
+        >>> get_file_info('/data/study01', save_to_file=True, output_file='study_files.jsonl')
+        # Creates study_files.jsonl with one JSON object per line
         
     Note:
-        - Excludes 'code' directories completely
-        - Includes BIDS-standard file extensions (.json, .nii, .tsv, etc.)
-        - Includes BIDS-standard plain text files (README, CHANGES, LICENSE, CITATION)
-        - Excludes non-BIDS files like .yml, .txt, .md, etc.
-        - Includes directories within 'sourcedata'
+        This function is designed for BIDS-compliant datasets and may not be
+        suitable for general file system scanning due to its specific filtering rules.
     """
     file_info = []
     
@@ -65,11 +102,13 @@ def get_file_info(directory_path: str, save_to_file: bool = False, output_file: 
         # Process directories
         for directory in dirs:
             full_path = os.path.join(root, os.path.normpath(directory))
-            # Only include directories within 'source'
-            if root.endswith("sourcedata"):
+            # Only include directories within 'source' or 'sourcedata'
+            if root.endswith(("sourcedata", "source")):
                 size = sum(os.path.getsize(os.path.join(dirpath, filename)) 
                           for dirpath, _, filenames in os.walk(full_path) for filename in filenames)
-                dirname = os.path.join("sourcedata", os.path.normpath(directory))
+                # Get the parent directory name (source or sourcedata)
+                parent_dir = os.path.basename(root)
+                dirname = os.path.join(parent_dir, os.path.normpath(directory)).replace("\\", "/")
                 file_info.append({"path": dirname, "contentbytesize": size})
                 
         # Process files
@@ -92,11 +131,15 @@ def get_file_info(directory_path: str, save_to_file: bool = False, output_file: 
             
             if should_include:
                 size = os.path.getsize(full_path)
-                filename = os.path.relpath(full_path, directory_path)
+                filename = os.path.relpath(full_path, directory_path).replace("\\", "/")  # Normalize to forward slashes
                 file_info.append({"path": filename, "contentbytesize": size})
     
     if save_to_file:
-        output_path = os.path.join(os.getcwd(), output_file)
+        # Use the output_file parameter as-is if it's an absolute path, otherwise join with cwd
+        if os.path.isabs(output_file):
+            output_path = output_file
+        else:
+            output_path = os.path.join(os.getcwd(), output_file)
         with open(output_path, "w") as f:
             for item in file_info:
                 json.dump(item, f)
