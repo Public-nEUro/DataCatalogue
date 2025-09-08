@@ -52,7 +52,7 @@ def get_file_info(path, savelist):
             # Include files with BIDS-standard extensions + neuroimaging formats
             if file.endswith(('.json', '.edf', '.vhdr', '.vmrk', '.eeg', '.set', '.fdt', '.bdf', 
                              '.nii', '.nii.gz', '.zip', '.tsv', '.tsv.gz', '.pcd', '.tsa', 
-                             '.tst', '.tsm', '.tsp', '.wfb', '.yml', '.log','.hd5')):
+                             '.tst', '.tsm', '.tsp', '.wfb', '.yml', '.log','.h5')):
                 size = os.path.getsize(full_path)
                 filename = os.path.relpath(full_path, path).replace("\\", "/")
                 file_info.append({"path": filename, "contentbytesize": size})
