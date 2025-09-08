@@ -13,9 +13,9 @@ xml_file, jsonl_file = export_xlsx_to_both('dataset.xlsx')
 from file_metadata_utils import process_file_metadata
 catalog = process_file_metadata(jsonl_file, '/path/to/data/', 'source', 'agent')
 
-# 3. Find datasets in catalog
+# 3. Find datasets in catalog and optionally reorder children
 from find_catalogue_set_file import find_catalogue_set_file
-results = find_catalogue_set_file("PN000011*/V1")
+results = find_catalogue_set_file("PN000011*/V1", reorder_children=True)
 ```
 
 ## Tools Overview
@@ -58,20 +58,49 @@ Creates comprehensive file listings and metadata catalogs.
 - Flexible input (directories, file lists, or data)
 - Metadata integration
 
-### 🔍 find_catalogue_set_file.py - Dataset Locator
+### 🔍 find_catalogue_set_file.py - Dataset Locator & Organizer
 
-Finds dataset files in catalog directory structures.
+Finds dataset files in catalog directory structures and optionally reorders dataset children.
 
 **Key Functions:**
 
-- `find_catalogue_set_file(pattern)` - Find datasets by pattern
+- `find_catalogue_set_file(pattern, reorder_children=None)` - Find datasets by pattern with optional reordering
 - `find_jsonl_dataset(folder)` - Find dataset files in folder
+- `reorder_dataset_children(file_path)` - Reorder children in a dataset file
+- `sort_children(children)` - Sort dataset children according to rules
 
 **Pattern Examples:**
 
 - `"PN000011*/V1"` - Specific dataset and version
 - `"PN000001*"` - All versions of dataset
 - `"metadata/PN000003*"` - Search in metadata directory
+
+**Reordering Features:**
+
+The tool can automatically reorder dataset children according to these rules:
+
+1. **"source"** directory first
+2. **"code"** directory second  
+3. All **files** (`"type": "file"`)
+4. **"sub-*"** directories sorted numerically (sub-01, sub-02...) or alphabetically
+5. Other directories last
+
+**Reordering Options:**
+
+- `reorder_children=None` - Interactive prompt (default)
+- `reorder_children=True` - Automatic reordering
+- `reorder_children=False` - No reordering
+
+```python
+# Interactive mode - will prompt user
+results = find_catalogue_set_file('PN*/V*')
+
+# Force reordering without prompt  
+results = find_catalogue_set_file('PN*/V*', reorder_children=True)
+
+# Skip reordering without prompt
+results = find_catalogue_set_file('PN*/V*', reorder_children=False)
+```
 
 ## Complete Workflow Example
 
@@ -97,8 +126,8 @@ def process_dataset(excel_file, data_directory, dataset_pattern):
         agent_name='Pipeline'
     )
     
-    # Step 3: Verify in catalog
-    results = find_catalogue_set_file(dataset_pattern)
+    # Step 3: Verify in catalog and reorder children
+    results = find_catalogue_set_file(dataset_pattern, reorder_children=True)
     
     return {
         'xml': xml_file,
@@ -121,6 +150,12 @@ print(f"Processing complete: {result}")
 ```bash
 # Export Excel to both formats
 python export_xlsx.py dataset_metadata.xlsx
+
+# Find datasets with interactive reordering prompt
+python find_catalogue_set_file.py
+
+# Find specific dataset and reorder programmatically
+python -c "from find_catalogue_set_file import find_catalogue_set_file; find_catalogue_set_file('PN000011*/V1', reorder_children=True)"
 
 # Run from test directory
 cd test
@@ -177,6 +212,14 @@ python check_dua.py                  # DUA content verification
 2. **Excel format**: Check required sheets exist
 3. **File permissions**: Verify directory access
 4. **Empty values**: Use validation feedback to fix metadata
+5. **Dataset reordering**: Ensure dataset files are writable and valid JSON
+
+**Reordering Notes:**
+
+- Reordering only works on files with `"type": "dataset"`
+- Original file is overwritten - backup important files first
+- Invalid JSON files are skipped with warning messages
+- Use `reorder_children=False` to disable reordering
 
 **Getting Help:**
 

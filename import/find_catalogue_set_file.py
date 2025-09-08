@@ -1,10 +1,126 @@
 """
 Combined functionality from findset.py and execute_findset.py
 Finds JSON files containing '"type": "dataset"' in catalog directory structures.
+Includes functionality to reorder dataset children.
 """
 
 import os
 import json
+import re
+
+
+def sort_children(children):
+    """
+    Sort children according to the specified rules.
+    
+    Args:
+        children (list): List of child items from dataset JSON
+        
+    Returns:
+        list: Sorted list of children
+    """
+    source_items = []
+    code_items = []
+    file_items = []
+    sub_numeric_items = []
+    sub_alpha_items = []
+    other_items = []
+    
+    # Categorize children
+    for child in children:
+        name = child.get('name', '')
+        child_type = child.get('type', '')
+        
+        if name == 'source':
+            source_items.append(child)
+        elif name == 'code':
+            code_items.append(child)
+        elif child_type == 'file':
+            file_items.append(child)
+        elif name.startswith('sub-'):
+            # Extract the part after 'sub-'
+            sub_part = name[4:]  # Remove 'sub-' prefix
+            
+            # Check if it's numeric (with possible leading zeros)
+            if re.match(r'^\d+$', sub_part):
+                # Numeric: sort by integer value
+                child['_sort_key'] = int(sub_part)
+                sub_numeric_items.append(child)
+            else:
+                # Alphabetic: sort alphabetically
+                child['_sort_key'] = sub_part
+                sub_alpha_items.append(child)
+        else:
+            other_items.append(child)
+    
+    # Sort the sub-* items
+    sub_numeric_items.sort(key=lambda x: x['_sort_key'])
+    sub_alpha_items.sort(key=lambda x: x['_sort_key'])
+    
+    # Remove the temporary sort keys
+    for item in sub_numeric_items + sub_alpha_items:
+        if '_sort_key' in item:
+            del item['_sort_key']
+    
+    # Combine in the specified order
+    sorted_children = (
+        source_items + 
+        code_items + 
+        file_items + 
+        sub_numeric_items + 
+        sub_alpha_items + 
+        other_items
+    )
+    
+    return sorted_children
+
+
+def reorder_dataset_children(file_path, verbose=True):
+    """
+    Reorder children in a dataset JSON file.
+    
+    Args:
+        file_path (str): Path to the dataset JSON file
+        verbose (bool): Whether to print progress messages
+        
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    try:
+        # Read the JSON file
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Check if it's a dataset file and has children
+        if data.get('type') != 'dataset':
+            if verbose:
+                print(f"   ⚠️  File is not a dataset type")
+            return False
+            
+        if 'children' not in data:
+            if verbose:
+                print(f"   ⚠️  No children found in dataset")
+            return False
+        
+        original_count = len(data['children'])
+        if verbose:
+            print(f"   📋 Reordering {original_count} children...")
+        
+        # Sort the children
+        data['children'] = sort_children(data['children'])
+        
+        # Write back to file
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+        
+        if verbose:
+            print(f"   ✅ Children reordered and file updated")
+        return True
+        
+    except Exception as e:
+        if verbose:
+            print(f"   ❌ Error reordering: {e}")
+        return False
 
 
 def find_jsonl_dataset(folder):
@@ -67,7 +183,7 @@ def fetch_set(folder):
     return dataset_file
 
 
-def find_catalogue_set_file(target_pattern="PN*/V*", base_path=None, verbose=True):
+def find_catalogue_set_file(target_pattern="PN*/V*", base_path=None, verbose=True, reorder_children=None):
     """
     Main function to find dataset files in catalog directory structures.
     Combines the functionality of findset.py and execute_findset.py.
@@ -76,6 +192,7 @@ def find_catalogue_set_file(target_pattern="PN*/V*", base_path=None, verbose=Tru
         target_pattern (str): Pattern to search for (e.g., "PN000011*/V1", "metadata/PN000001*/V1")
         base_path (str): Base path to search from (default: auto-detect DataCatalogue)
         verbose (bool): Whether to print detailed output (default: True)
+        reorder_children (bool): Whether to reorder dataset children (None=ask user, True=yes, False=no)
         
     Returns:
         dict: Dictionary containing found datasets and their information
@@ -229,6 +346,33 @@ def find_catalogue_set_file(target_pattern="PN*/V*", base_path=None, verbose=Tru
         
         if verbose:
             print(f"\n📊 Summary: Found {len(results)} dataset(s)")
+        
+        # Ask about reordering children if not specified
+        if results and reorder_children is None and verbose:
+            try:
+                response = input("\n🔄 Do you want to reorder dataset children? (Y/N): ").strip().upper()
+                reorder_children = response == 'Y'
+            except (EOFError, KeyboardInterrupt):
+                reorder_children = False
+                print()
+        
+        # Apply reordering if requested
+        if results and reorder_children:
+            if verbose:
+                print("\n🔄 Reordering dataset children...")
+                print("=" * 40)
+            
+            reorder_success = 0
+            for key, info in results.items():
+                dataset_path = info['path']
+                if verbose:
+                    print(f"📂 Processing: {key}")
+                
+                if reorder_dataset_children(dataset_path, verbose):
+                    reorder_success += 1
+                    
+            if verbose:
+                print(f"\n✅ Reordered {reorder_success}/{len(results)} dataset(s)")
             
         return results
         
@@ -241,6 +385,9 @@ def main():
     """
     Main execution function for command line usage.
     """
+    print("🔍 DataCatalogue Dataset Finder")
+    print("=" * 50)
+    
     results = find_catalogue_set_file()
     
     if results:

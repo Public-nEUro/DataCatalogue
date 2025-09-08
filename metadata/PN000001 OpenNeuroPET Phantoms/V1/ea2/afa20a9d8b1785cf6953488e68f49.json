@@ -22,13 +22,6 @@
         },
         {
             "type": "directory",
-            "name": "sourcedata",
-            "path": "sourcedata",
-            "dataset_id": "PN000001 OpenNeuroPET Phantoms",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
             "name": "sub-CanonCartesionPrimeNIA",
             "path": "sub-CanonCartesionPrimeNIA",
             "dataset_id": "PN000001 OpenNeuroPET Phantoms",
@@ -136,6 +129,13 @@
             "type": "directory",
             "name": "sub-SiemensTrioBrainPETFZJ",
             "path": "sub-SiemensTrioBrainPETFZJ",
+            "dataset_id": "PN000001 OpenNeuroPET Phantoms",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sourcedata",
+            "path": "sourcedata",
             "dataset_id": "PN000001 OpenNeuroPET Phantoms",
             "dataset_version": "V1"
         }
