@@ -77,7 +77,7 @@ def get_file_info(directory_path: str, save_to_file: bool = False, output_file: 
         - Non-BIDS files: .txt, .md, .yml, .py, etc.
         
     Special Handling:
-        - Directories within 'sourcedata' or 'source' are included with total size
+        - Directories within 'sourcedata' are included with total size
         - Path separators normalized to forward slashes for cross-platform compatibility
         
     Example:
@@ -102,13 +102,12 @@ def get_file_info(directory_path: str, save_to_file: bool = False, output_file: 
         # Process directories
         for directory in dirs:
             full_path = os.path.join(root, os.path.normpath(directory))
-            # Only include directories within 'source' or 'sourcedata'
-            if root.endswith(("sourcedata", "source")):
+            # Only include directories within 'sourcedata'
+            if root.endswith("sourcedata"):
                 size = sum(os.path.getsize(os.path.join(dirpath, filename)) 
                           for dirpath, _, filenames in os.walk(full_path) for filename in filenames)
-                # Get the parent directory name (source or sourcedata)
-                parent_dir = os.path.basename(root)
-                dirname = os.path.join(parent_dir, os.path.normpath(directory)).replace("\\", "/")
+                # Use sourcedata as the parent directory name
+                dirname = os.path.join("sourcedata", os.path.normpath(directory)).replace("\\", "/")
                 file_info.append({"path": dirname, "contentbytesize": size})
                 
         # Process files
