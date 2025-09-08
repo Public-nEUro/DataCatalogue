@@ -46,17 +46,15 @@ Text Processing & Filtering:
 - clean_text_for_jsonl(text, preserve_line_breaks=False)
   Cleans text for JSONL output, optionally preserving line breaks for web rendering
 
-- filter_empty_values(data_dict)
-  Removes keys with empty, None, or meaningless placeholder values from dictionaries
+- clean_data_structure(data, mode='comprehensive', custom_empty_values=None)
+  Universal data cleaning function that removes empty, null, NaN, and meaningless values from nested structures
+  Supports 'basic', 'comprehensive', and 'jsonl' cleaning modes
 
-- clean_metadata_content(content_dict) 
-  Cleans metadata content by removing null, empty, and meaningless values
+- filter_empty_values(data_dict) [DEPRECATED]
+  Legacy function - use clean_data_structure with mode='basic' instead
 
-- remove_nan_and_na_values(data)
-  Recursively removes key-value pairs with NaN, 'n.a.', or other meaningless values from nested structures
-
-- clean_jsonl_structure(data)
-  Comprehensively cleans entire JSONL structure removing empty arrays, null values, and meaningless entries
+- clean_metadata_content(content_dict) [DEPRECATED] 
+  Legacy function - use clean_data_structure with mode='comprehensive' instead
 
 Template Management:
 - get_xml_template()
@@ -362,35 +360,149 @@ def validate_metadata(metadata):
     
     return validation_errors
 
-def filter_empty_values(data_dict):
-    """Remove keys with empty, None, or meaningless values from a dictionary"""
-    filtered = {}
-    for key, value in data_dict.items():
-        if isinstance(value, list):
-            # Filter out empty strings, None, meaningless placeholders, and whitespace-only strings from lists
-            filtered_list = [v for v in value if v is not None and str(v).strip() != '' and str(v).strip() != '[]']
-            if filtered_list:  # Only include the key if there are non-empty values
-                filtered[key] = filtered_list
-        elif value is not None and value != [] and str(value).strip() != '' and str(value).strip() != '[]':
-            filtered[key] = value
-    return filtered
-
-def clean_metadata_content(content_dict):
-    """Clean metadata content by removing null, empty, and meaningless values"""
-    cleaned = {}
-    for key, value in content_dict.items():
+def clean_data_structure(data, mode='comprehensive', custom_empty_values=None):
+    """
+    Universal data cleaning function that removes empty, null, NaN, and meaningless values.
+    
+    Args:
+        data: Dictionary, list, or other data structure to clean
+        mode: Cleaning mode - 'basic', 'comprehensive', or 'jsonl'
+        custom_empty_values: Additional values to consider as empty/meaningless
+        
+    Returns:
+        Cleaned data structure with unwanted values removed
+    """
+    # Define meaningless values based on mode
+    base_empty_strings = ['', '[]', 'BIDS version']
+    na_variants = ['n.a.', 'na', 'n/a']
+    
+    if mode == 'comprehensive':
+        meaningless_strings = base_empty_strings + na_variants
+    elif mode == 'basic':
+        meaningless_strings = base_empty_strings
+    else:  # jsonl mode
+        meaningless_strings = base_empty_strings + na_variants
+    
+    if custom_empty_values:
+        meaningless_strings.extend(custom_empty_values)
+    
+    def is_meaningless_value(value):
+        """Check if a value should be considered meaningless and removed"""
         if value is None:
-            continue  # Skip null values
-        elif isinstance(value, list):
-            # Filter out None, empty strings, and meaningless values from lists
-            cleaned_list = [v for v in value if v is not None and str(v).strip() != '' and str(v).strip() not in ['[]', 'BIDS version']]
-            if cleaned_list:  # Only include if there are meaningful values
-                cleaned[key] = cleaned_list
-        elif isinstance(value, str) and value.strip() in ['', '[]', 'BIDS version']:
-            continue  # Skip empty or meaningless string values
+            return True
+        
+        # Handle pandas NaN values
+        try:
+            if pd.isna(value):
+                return True
+        except (ValueError, TypeError):
+            # pd.isna() failed, probably because value is an array/list
+            pass
+            
+        # Handle string values
+        if isinstance(value, str):
+            return value.strip().lower() in [s.lower() for s in meaningless_strings]
+            
+        # Handle empty collections
+        if isinstance(value, (list, dict)) and len(value) == 0:
+            return True
+            
+        return False
+    
+    if isinstance(data, dict):
+        cleaned = {}
+        for key, value in data.items():
+            if is_meaningless_value(value):
+                continue
+                
+            # Handle nested structures recursively
+            if isinstance(value, (dict, list)):
+                cleaned_value = clean_data_structure(value, mode, custom_empty_values)
+                # Only include if the cleaned structure is not empty
+                if cleaned_value is not None and cleaned_value != {} and cleaned_value != []:
+                    cleaned[key] = cleaned_value
+            elif isinstance(value, list) and mode == 'basic':
+                # For basic mode, clean lists but don't recurse deeply
+                cleaned_list = [v for v in value if not is_meaningless_value(v)]
+                if cleaned_list:
+                    cleaned[key] = cleaned_list
+            else:
+                cleaned[key] = value
+                
+        # JSONL-specific post-processing
+        if mode == 'jsonl':
+            cleaned = apply_jsonl_specific_rules(cleaned)
+            
+        return cleaned
+        
+    elif isinstance(data, list):
+        cleaned = []
+        for item in data:
+            if is_meaningless_value(item):
+                continue
+            
+            # Recursively clean nested items
+            if isinstance(item, (dict, list)):
+                cleaned_item = clean_data_structure(item, mode, custom_empty_values)
+                if cleaned_item is not None and cleaned_item != {} and cleaned_item != []:
+                    cleaned.append(cleaned_item)
+            else:
+                cleaned.append(item)
+        return cleaned
+        
+    else:
+        # For scalar values, return as-is if not meaningless
+        return data if not is_meaningless_value(data) else None
+
+def apply_jsonl_specific_rules(data):
+    """Apply JSONL-specific cleaning rules for domain objects"""
+    if not isinstance(data, dict):
+        return data
+        
+    cleaned = {}
+    for key, value in data.items():
+        if isinstance(value, list):
+            # Skip empty arrays for specific keys
+            if key in ["keywords", "funding", "publications"] and len(value) == 0:
+                continue
+            
+            # Special handling for authors
+            elif key == "authors":
+                cleaned_authors = []
+                for author in value:
+                    if isinstance(author, dict):
+                        # Keep author if they have either given name or family name
+                        given = author.get('givenName', '').strip()
+                        family = author.get('familyName', '').strip()
+                        if given or family:
+                            cleaned_authors.append(author)
+                if cleaned_authors:
+                    cleaned[key] = cleaned_authors
+                    
+            # Special handling for additional_display sections
+            elif key == "additional_display":
+                cleaned_sections = []
+                for section in value:
+                    if isinstance(section, dict) and section.get('content'):
+                        if len(section['content']) > 0:
+                            cleaned_sections.append(section)
+                if cleaned_sections:
+                    cleaned[key] = cleaned_sections
+            else:
+                cleaned[key] = value
         else:
             cleaned[key] = value
+    
     return cleaned
+
+# Legacy function aliases for backward compatibility
+def filter_empty_values(data_dict):
+    """Legacy function - use clean_data_structure with mode='basic' instead"""
+    return clean_data_structure(data_dict, mode='basic')
+
+def clean_metadata_content(content_dict):
+    """Legacy function - use clean_data_structure with mode='comprehensive' instead"""
+    return clean_data_structure(content_dict, mode='comprehensive')
 
 def parse_excel_metadata(input_file):
     """
@@ -457,37 +569,10 @@ def parse_excel_metadata(input_file):
                 if not pd.isna(value):
                     participants_aux[key] = str(value) if isinstance(value, int) else value
 
-    # Helper function to filter out empty values
+    # Helper function to filter out empty values - use the global clean_data_structure function
     def filter_empty_values(data_dict):
         """Remove keys with empty, None, or meaningless values from a dictionary"""
-        filtered = {}
-        for key, value in data_dict.items():
-            if isinstance(value, list):
-                # Filter out empty strings, None, meaningless placeholders, and whitespace-only strings from lists
-                filtered_list = [v for v in value if v is not None and str(v).strip() != '' and str(v).strip() != '[]']
-                if filtered_list:  # Only include the key if there are non-empty values
-                    filtered[key] = filtered_list
-            elif value is not None and value != [] and str(value).strip() != '' and str(value).strip() != '[]':
-                filtered[key] = value
-        return filtered
-
-    # Helper function to clean metadata content
-    def clean_metadata_content(content_dict):
-        """Clean metadata content by removing null, empty, and meaningless values"""
-        cleaned = {}
-        for key, value in content_dict.items():
-            if value is None:
-                continue  # Skip null values
-            elif isinstance(value, list):
-                # Filter out None, empty strings, and meaningless values from lists
-                cleaned_list = [v for v in value if v is not None and str(v).strip() != '' and str(v).strip() not in ['[]', 'BIDS version']]
-                if cleaned_list:  # Only include if there are meaningful values
-                    cleaned[key] = cleaned_list
-            elif isinstance(value, str) and value.strip() in ['', '[]', 'BIDS version']:
-                continue  # Skip empty or meaningless string values
-            else:
-                cleaned[key] = value
-        return cleaned
+        return clean_data_structure(data_dict, mode='basic')
 
     participants = {
         "name": "Participants",
@@ -935,111 +1020,11 @@ def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None, skip_validatio
         base_name = os.path.splitext(excel_file_path)[0]
         output_jsonl_path = f"{base_name}.jsonl"
     
-    # Helper function to remove NaN and n.a. values from nested structures
-    def remove_nan_and_na_values(data):
-        """
-        Recursively remove key-value pairs where the value is NaN, 'n.a.', or other meaningless values.
-        
-        Args:
-            data: Dictionary, list, or other data structure to clean
-            
-        Returns:
-            Cleaned data structure with NaN and n.a. values removed
-        """
-        if isinstance(data, dict):
-            cleaned = {}
-            for key, value in data.items():
-                # Skip keys with NaN values (handle scalars only)
-                try:
-                    if pd.isna(value):
-                        continue
-                except (ValueError, TypeError):
-                    # pd.isna() failed, probably because value is an array/list - continue processing
-                    pass
-                    
-                # Skip keys with string values that are meaningless
-                if isinstance(value, str) and value.strip().lower() in ['n.a.', 'na', 'n/a', '']:
-                    continue
-                # Recursively clean nested structures
-                elif isinstance(value, (dict, list)):
-                    cleaned_value = remove_nan_and_na_values(value)
-                    # Only include if the cleaned structure is not empty
-                    if cleaned_value:
-                        cleaned[key] = cleaned_value
-                else:
-                    cleaned[key] = value
-            return cleaned
-        elif isinstance(data, list):
-            cleaned = []
-            for item in data:
-                # Skip NaN items (handle scalars only)
-                try:
-                    if pd.isna(item):
-                        continue
-                except (ValueError, TypeError):
-                    # pd.isna() failed, continue processing
-                    pass
-                    
-                if isinstance(item, str) and item.strip().lower() in ['n.a.', 'na', 'n/a', '']:
-                    continue
-                else:
-                    cleaned_item = remove_nan_and_na_values(item)
-                    # Only include non-empty items
-                    if cleaned_item is not None and cleaned_item != {} and cleaned_item != []:
-                        cleaned.append(cleaned_item)
-            return cleaned
-        else:
-            return data
-
-    # Helper function to clean entire JSONL structure
-    def clean_jsonl_structure(data):
-        """Clean the entire JSONL structure by removing empty/meaningless values"""
-        cleaned = {}
-        for key, value in data.items():
-            if value is None:
-                continue  # Skip null values
-            elif isinstance(value, list):
-                if key == "keywords" and len(value) == 0:
-                    continue  # Skip empty keywords array
-                elif key == "funding" and len(value) == 0:
-                    continue  # Skip empty funding array  
-                elif key == "publications" and len(value) == 0:
-                    continue  # Skip empty publications array
-                elif key == "authors":
-                    # Clean authors - remove those with empty names
-                    cleaned_authors = []
-                    for author in value:
-                        if isinstance(author, dict):
-                            # Keep author if they have either given name or family name
-                            given = author.get('givenName', '').strip()
-                            family = author.get('familyName', '').strip()
-                            if given or family:
-                                cleaned_authors.append(author)
-                    if cleaned_authors:
-                        cleaned[key] = cleaned_authors
-                elif key == "additional_display":
-                    # Clean additional_display sections
-                    cleaned_sections = []
-                    for section in value:
-                        if isinstance(section, dict) and section.get('content'):
-                            # Only include sections that have meaningful content after cleaning
-                            if len(section['content']) > 0:
-                                cleaned_sections.append(section)
-                    if cleaned_sections:
-                        cleaned[key] = cleaned_sections
-                else:
-                    cleaned[key] = value
-            elif isinstance(value, str) and value.strip() == '':
-                continue  # Skip empty strings
-            else:
-                cleaned[key] = value
-        return cleaned
-    
-    # First apply NaN and n.a. cleanup to the metadata structure
-    cleaned_metadata = remove_nan_and_na_values(metadata)
+    # First apply comprehensive cleanup to the metadata structure
+    cleaned_metadata = clean_data_structure(metadata, mode='comprehensive')
     
     # Build JSONL structure with cleaned metadata (with fallbacks for safety)
-    jsonl_data = clean_jsonl_structure({
+    jsonl_data = clean_data_structure({
         "type": cleaned_metadata.get("type", "dataset"),
         "name": cleaned_metadata.get("title", ""),
         "description": cleaned_metadata.get("description", ""),
@@ -1058,7 +1043,7 @@ def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None, skip_validatio
             cleaned_metadata.get("dua_content", {}), 
             cleaned_metadata.get("participants", {})
         ]
-    })
+    }, mode='jsonl')
     
     # Write JSONL file
     with open(output_jsonl_path, 'w', encoding='utf-8') as f:
