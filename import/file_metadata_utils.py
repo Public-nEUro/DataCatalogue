@@ -195,14 +195,7 @@ def process_file_metadata(dataset_jsonl: str,
             }
         }
 
-    # Determine output filename
-    if output_file is None:
-        output_file = f"{dataset_info['name'].replace(' ', '')}.jsonl"
-    
-    # Write dataset info
-    _write_jsonl_line(output_file, dataset_info, mode='w')
-
-    # 2 - Get file list
+    # 2 - Get file list first (we need it to build hasPart)
     file_info_list = []
     
     if isinstance(file_list_source, list):
@@ -221,6 +214,22 @@ def process_file_metadata(dataset_jsonl: str,
     else:
         raise ValueError(f"Invalid file_list_source type: {type(file_list_source)}")
 
+    # Add hasPart to dataset_info with all file paths
+    file_paths = []
+    for file_info_dict in file_info_list:
+        if 'path' in file_info_dict:
+            file_paths.append(file_info_dict['path'].replace("\\", "/"))
+    
+    # Add hasPart field to dataset
+    dataset_info['hasPart'] = sorted(file_paths)
+
+    # Determine output filename
+    if output_file is None:
+        output_file = f"{dataset_info['name'].replace(' ', '')}.jsonl"
+    
+    # Write dataset info with hasPart
+    _write_jsonl_line(output_file, dataset_info, mode='w')
+
     # 3 - Process each file and append to output
     clean_dataset_id = dataset_info.get('dataset_id', dataset_info.get('id', '')).strip()
     clean_dataset_version = dataset_info.get('dataset_version', '').strip()
@@ -233,6 +242,7 @@ def process_file_metadata(dataset_jsonl: str,
                 'dataset_version': clean_dataset_version,
                 'path': file_info_dict['path'].replace("\\", "/"),  # Normalize path separators
                 'contentbytesize': float(file_info_dict['contentbytesize']),
+                'isPartOf': clean_dataset_id,  # Add isPartOf relationship
                 'metadata_sources': {
                     'sources': {
                         'source_name': source_name,
