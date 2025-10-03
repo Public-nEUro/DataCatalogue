@@ -179,6 +179,12 @@ def process_file_metadata(dataset_jsonl: str,
     with open(dataset_jsonl, 'r') as f:
         dataset_info = json.loads(f.read())
 
+    # Clean up dataset_id and dataset_version (remove trailing spaces)
+    if 'dataset_id' in dataset_info:
+        dataset_info['dataset_id'] = dataset_info['dataset_id'].strip()
+    if 'dataset_version' in dataset_info:
+        dataset_info['dataset_version'] = dataset_info['dataset_version'].strip()
+
     # Add metadata sources if not already present
     if 'metadata_sources' not in dataset_info:
         dataset_info['metadata_sources'] = {
@@ -216,18 +222,21 @@ def process_file_metadata(dataset_jsonl: str,
         raise ValueError(f"Invalid file_list_source type: {type(file_list_source)}")
 
     # 3 - Process each file and append to output
+    clean_dataset_id = dataset_info.get('dataset_id', dataset_info.get('id', '')).strip()
+    clean_dataset_version = dataset_info.get('dataset_version', '').strip()
+    
     for file_info_dict in file_info_list:
         if 'path' in file_info_dict and 'contentbytesize' in file_info_dict:
             item = {
                 'type': 'file',
-                'dataset_id': dataset_info.get('dataset_id', dataset_info.get('id', '')),
-                'dataset_version': dataset_info['dataset_version'],
+                'dataset_id': clean_dataset_id,
+                'dataset_version': clean_dataset_version,
                 'path': file_info_dict['path'].replace("\\", "/"),  # Normalize path separators
                 'contentbytesize': float(file_info_dict['contentbytesize']),
                 'metadata_sources': {
                     'sources': {
                         'source_name': source_name,
-                        'source_version': dataset_info['dataset_version'],
+                        'source_version': clean_dataset_version,
                         'agent_name': agent_name
                     }
                 }
