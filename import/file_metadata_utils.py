@@ -185,6 +185,19 @@ def process_file_metadata(dataset_jsonl: str,
     if 'dataset_version' in dataset_info:
         dataset_info['dataset_version'] = dataset_info['dataset_version'].strip()
 
+    # Fix DOI format - ensure it has proper https://doi.org/ prefix
+    if 'doi' in dataset_info and dataset_info['doi']:
+        doi_value = str(dataset_info['doi']).strip()
+        if doi_value and not doi_value.startswith('https://doi.org/'):
+            if doi_value.startswith('http://dx.doi.org/'):
+                dataset_info['doi'] = doi_value.replace('http://dx.doi.org/', 'https://doi.org/')
+            elif doi_value.startswith('doi:'):
+                dataset_info['doi'] = f"https://doi.org/{doi_value[4:]}"
+            elif doi_value.startswith('10.'):
+                dataset_info['doi'] = f"https://doi.org/{doi_value}"
+            else:
+                dataset_info['doi'] = f"https://doi.org/{doi_value}"
+
     # Add metadata sources if not already present
     if 'metadata_sources' not in dataset_info:
         dataset_info['metadata_sources'] = {

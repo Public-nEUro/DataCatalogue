@@ -696,10 +696,22 @@ def parse_excel_metadata(input_file):
     description = metadata_aux.get('description', 'No description available')
     subtitle = f"{metadata_aux.get('PN ID', 'PN000000')} {metadata_aux.get('title', 'Unknown Dataset')}"
     
-    # Handle DOI extraction
+    # Handle DOI extraction and formatting
     doi_raw = metadata_aux.get('DOI', 'XXXX')
     doi_suffix = extract_doi_suffix(doi_raw)
-    doi = f"10.70883/{doi_suffix}"
+    doi_without_prefix = f"10.70883/{doi_suffix}"
+    
+    # Ensure DOI has proper https://doi.org/ prefix
+    if doi_without_prefix.startswith('https://doi.org/'):
+        doi = doi_without_prefix
+    elif doi_without_prefix.startswith('http://dx.doi.org/'):
+        doi = doi_without_prefix.replace('http://dx.doi.org/', 'https://doi.org/')
+    elif doi_without_prefix.startswith('doi:'):
+        doi = f"https://doi.org/{doi_without_prefix[4:]}"
+    elif doi_without_prefix.startswith('10.'):
+        doi = f"https://doi.org/{doi_without_prefix}"
+    else:
+        doi = f"https://doi.org/{doi_without_prefix}"
     
     # Build download URL
     pn_id = metadata_aux.get('PN ID', 'PN000000')
