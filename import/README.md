@@ -58,6 +58,22 @@ Creates comprehensive file listings and metadata catalogs.
 - Flexible input (directories, file lists, or data)
 - Metadata integration
 
+**Related Tools:**
+
+For reordering dataset children after file processing, use `find_catalogue_set_file.py`:
+
+```python
+# Reorder children in catalog JSON file
+from find_catalogue_set_file import reorder_dataset_children
+reorder_dataset_children('/path/to/dataset.json')
+
+# Find datasets and auto-reorder children  
+from find_catalogue_set_file import find_catalogue_set_file
+results = find_catalogue_set_file("PN*/V*", reorder_children=True)
+```
+
+Child ordering follows BIDS conventions: `source` → `code` → `files` → `sub-*` (numeric) → `sub-*` (alpha) → `others`
+
 ### 🔍 find_catalogue_set_file.py - Dataset Locator & Organizer
 
 Finds dataset files in catalog directory structures and optionally reorders dataset children.

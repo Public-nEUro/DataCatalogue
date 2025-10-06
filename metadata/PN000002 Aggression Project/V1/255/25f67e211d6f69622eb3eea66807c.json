@@ -1,688 +1,691 @@
 {
-    "type": "dataset",
-    "dataset_id": "PN000002 Aggression Project",
-    "dataset_version": "V1",
-    "children": [
-        {
-            "type": "file",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1",
-            "path": "dataset_description.json",
-            "contentbytesize": 1093.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublinEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "name": "dataset_description.json"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1",
-            "path": "participants.tsv",
-            "contentbytesize": 2181.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublinEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "name": "participants.tsv"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1",
-            "path": "participants.json",
-            "contentbytesize": 1164.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublinEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "name": "participants.json"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1",
-            "path": "task-faces_events.json",
-            "contentbytesize": 2277.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublinEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "name": "task-faces_events.json"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1",
-            "path": "task-psap_events.json",
-            "contentbytesize": 1140.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublinEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "name": "task-psap_events.json"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1",
-            "path": "task-rest_events.json",
-            "contentbytesize": 2.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublinEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "name": "task-rest_events.json"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53273",
-            "path": "sub-53273",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53268",
-            "path": "sub-53268",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53450",
-            "path": "sub-53450",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53362",
-            "path": "sub-53362",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53452",
-            "path": "sub-53452",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53449",
-            "path": "sub-53449",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53259",
-            "path": "sub-53259",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53440",
-            "path": "sub-53440",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53253",
-            "path": "sub-53253",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53446",
-            "path": "sub-53446",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53366",
-            "path": "sub-53366",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53326",
-            "path": "sub-53326",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-55136",
-            "path": "sub-55136",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53304",
-            "path": "sub-53304",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53300",
-            "path": "sub-53300",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53372",
-            "path": "sub-53372",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53260",
-            "path": "sub-53260",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53316",
-            "path": "sub-53316",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53451",
-            "path": "sub-53451",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53348",
-            "path": "sub-53348",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53255",
-            "path": "sub-53255",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53517",
-            "path": "sub-53517",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53278",
-            "path": "sub-53278",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53474",
-            "path": "sub-53474",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53376",
-            "path": "sub-53376",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53319",
-            "path": "sub-53319",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53512",
-            "path": "sub-53512",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53275",
-            "path": "sub-53275",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53356",
-            "path": "sub-53356",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53296",
-            "path": "sub-53296",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53375",
-            "path": "sub-53375",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53484",
-            "path": "sub-53484",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53353",
-            "path": "sub-53353",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53272",
-            "path": "sub-53272",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53443",
-            "path": "sub-53443",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53350",
-            "path": "sub-53350",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53323",
-            "path": "sub-53323",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53307",
-            "path": "sub-53307",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53305",
-            "path": "sub-53305",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53426",
-            "path": "sub-53426",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53264",
-            "path": "sub-53264",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53441",
-            "path": "sub-53441",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53293",
-            "path": "sub-53293",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53461",
-            "path": "sub-53461",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53281",
-            "path": "sub-53281",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53447",
-            "path": "sub-53447",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-50817",
-            "path": "sub-50817",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53346",
-            "path": "sub-53346",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53425",
-            "path": "sub-53425",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-53301",
-            "path": "sub-53301",
-            "dataset_id": "PN000002 Aggression Project",
-            "dataset_version": "V1"
-        }
-    ],
-    "metadata_sources": {
-        "key_source_map": {
-            "name": [
-                "Neurobiology Research Unit"
-            ],
-            "keywords": [
-                "Neurobiology Research Unit"
-            ],
-            "license": [
-                "Neurobiology Research Unit"
-            ],
-            "funding": [
-                "Neurobiology Research Unit"
-            ],
-            "publications": [
-                "Neurobiology Research Unit"
-            ],
-            "additional_display": [
-                "Neurobiology Research Unit"
-            ]
-        },
+  "type": "dataset",
+  "dataset_id": "PN000002 Aggression Project",
+  "dataset_version": "V1",
+  "children": [
+    {
+      "type": "file",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1",
+      "path": "dataset_description.json",
+      "contentbytesize": 1093.0,
+      "metadata_sources": {
         "sources": [
-            {
-                "source_name": "Neurobiology Research Unit",
-                "source_version": "1",
-                "agent_name": "Cyril Pernet"
-            }
+          {
+            "source_name": "PublinEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
         ]
+      },
+      "name": "dataset_description.json"
     },
-    "name": "Aggression Project",
-    "description": "The Aggression Project aimed to determine brain mechanisms underlying aggression using 5-HT1BR PET ([11C]AZ10419369) and MRI. Participants recruited included incarcerated violent offenders and healthy controls.",
-    "keywords": [
-        "functional MRI",
-        "HCP-Young Adults",
-        "multiverse",
-        "analytical choices",
-        "motor task"
-    ],
-    "license": {
-        "name": "Data User Agreement"
+    {
+      "type": "file",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1",
+      "path": "participants.tsv",
+      "contentbytesize": 2181.0,
+      "metadata_sources": {
+        "sources": [
+          {
+            "source_name": "PublinEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
+        ]
+      },
+      "name": "participants.tsv"
     },
-    "authors": [
-        {
-            "givenName": "Sofi",
-            "familyName": "da Cunha-Bang"
-        },
-        {
-            "givenName": "Liv",
-            "familyName": "Vadskjaer Hjordt"
-        },
-        {
-            "givenName": "Erik",
-            "familyName": "Perfalk"
-        },
-        {
-            "givenName": "Camilla",
-            "familyName": "Bock"
-        },
-        {
-            "givenName": "Dorte M.",
-            "familyName": "Sestoft"
-        },
-        {
-            "givenName": "Patrick",
-            "familyName": "Fisher"
-        },
-        {
-            "givenName": "Gitte",
-            "familyName": "Moos Knudsen"
-        }
-    ],
-    "funding": [
-        {
-            "name": "Danish Council for Independent Research",
-            "identifier": "1331-00328"
-        },
-        {
-            "name": "Rigshospitalets Research Council",
-            "identifier": "R49-A1646"
-        },
-        {
-            "name": "Rigshospitalets Research Council",
-            "identifier": "R65-A2250"
-        }
-    ],
-    "publications": [
-        {
-            "type": "academic publication",
-            "title": "Serotonin 1B Receptor Binding Is Associated With Trait Anger and Level of Psychopathy in Violent Offenders",
-            "datePublished": "2017",
-            "doi": "http:/dx.doi.org/10.1016/j.biopsych.2016.02.030",
-            "authors": [
-                {
-                    "givenName": "Sofi",
-                    "familyName": "da Cunha-Bang"
-                }
-            ]
-        },
-        {
-            "type": "academic publication",
-            "title": "Men with high serotonin 1B receptor binding respond to provocations with heightened amygdala reactivity",
-            "datePublished": "2018",
-            "doi": "https:/doi.org/10.1016/j.neuroimage.2017.10.032",
-            "authors": [
-                {
-                    "givenName": "Sofi",
-                    "familyName": "da Cunha-Bang"
-                }
-            ]
-        },
-        {
-            "type": "academic publication",
-            "title": "Violent offenders respond to provocations with high amygdala and striatal reactivity",
-            "datePublished": "2017",
-            "doi": "https:/doi.org/10.1093/scan/nsx006",
-            "authors": [
-                {
-                    "givenName": "Sofi",
-                    "familyName": "da Cunha-Bang"
-                }
-            ]
-        },
-        {
-            "type": "academic publication",
-            "title": "Amygdala reactivity to fearful faces correlates positively with impulsive aggression",
-            "datePublished": "2017",
-            "doi": "https:/doi.org/10.1080/17470919.2017.1421262",
-            "authors": [
-                {
-                    "givenName": "Sofi",
-                    "familyName": "da Cunha-Bang"
-                }
-            ]
-        },
-        {
-            "type": "academic publication",
-            "title": "Anterior cingulate serotonin 1B receptor binding is associated with emotional response inhibition",
-            "datePublished": "2017",
-            "doi": "https:/doi.org/10.1016/j.jpsychires.2017.05.003",
-            "authors": [
-                {
-                    "givenName": "Sofi",
-                    "familyName": "da Cunha-Bang"
-                }
-            ]
-        }
-    ],
-    "doi":"https://doi.org/10.70883/DEYZ5967",
-    "download_url": "/manage/request-access/PN000002",
-    "additional_display": [
-        {
-            "name": "Dataset Metadata",
-            "content": {
-                "bids_version": [
-                    "v1.9.3"
-                ],
-                "bids_datasettype": [
-                    "raw"
-                ],
-                "bids_datatypes": [
-                    "anat",
-                    "func",
-                    "fmap",
-                    "func",
-                    "pet"
-                ],
-                "NCBI Species Taxonomy": [
-                    "homo sapiens"
-                ],
-                "Disease Ontology Name": [
-                    "antisocial personality disorder"
-                ],
-                "Disease Ontology ID ": [
-                    "10939"
-                ],
-                "SNOMED ID": [
-                    "102512003",
-                    "11635001"
-                ],
-                "SNOMED label": [
-                    "Healthy adult",
-                    "Adult Antosocial Behavior"
-                ],
-                "Cognitive Atlas concept": [
-                    "emotion perception",
-                    "defensive aggression",
-                    "decision making"
-                ],
-                "Cognitive Atlas task": [
-                    "face matching task",
-                    "point subtraction aggression paradigm "
-                ]
-            }
-        },
-        {
-            "name": "Participants",
-            "content": {
-                "total_number": [
-                    "50"
-                ],
-                "age_range": [
-                    "[18, 61]"
-                ],
-                "number_of_healthy": [
-                    "27"
-                ],
-                "number_of_patients": [
-                    "23"
-                ],
-                "number_of_biological_males": [
-                    "50"
-                ],
-                "number_of_biological_females": [
-                    "0"
-                ]
-            }
-        },
-        {
-            "name": "DUA terms",
-            "content": {
-                "Restrictions": [
-                    "Institution of users from non EU or adequate countries must be able to sign standard contractual clauses"
-                ],
-                "Terms": [
-                    "This Agreement records the terms under which the Transferring data controller gives a given Dataset (a defined set of data). This Agreement sets out the terms of the Data transfer between the Transferring data controller and receiving data controller. The transferring data controller has agreed to make the Data available on the terms and conditions set out in this DUA. The transfer of the Data is regulated in accordance with Danish legislation for the processing of personal health data and protection of individual human subject rights and privacy, including any relevant ethical and legal requirements.  By accepting this agreement, The receiving data controller becomes the data controller (as defined under the GDPR) of the dataset that will be transferred and is thus responsible for access and use following the terms of this agreement. 1. TRANSFER OF DATA. The transferring data controller's dataset is formatted following the brain imaging data structure (BIDS) - no other imaging data and metadata will be provided. 2. RIGHTS OF PROVIDER. Nothing in this Agreement prevents the transferring data controller from exploiting the Data or distributing the Data to any third party, including both profit and non-profit organizations. 3. USE OF THE DATA AND OBLIGATIONS OF THE  RECEIVING DATA CONTROLLER. 3.1 The receiving data controller: 3.1.1 must only use the Data for the purposes of medical and cognitive neuroscience  research. 3.1.2 must comply with all applicable laws and approval, including appropriate ethical juridical approvals and standards in relation to the use of the personal health Data and act as data controller in accordance to EU General Data Protection Regulation (GDPR); 3.1.3 must treat the Data as confidential information and restrict access to the Data to those of its employee researchers who are directly involved in the Research and who are placed under an obligation to observe the terms of this DUA; 3.1.4 must take such reasonable steps to provide for the safe custody of any and all Data in its possession and to prevent unauthorized access thereto or use thereof; 3.1.5 under no circumstances attempt to re-identify the data subjects; will not link these data to any other database in a way that could provide identifying information. 3.1.6 must not transfer, sell, disseminate, disclose or otherwise distribute the Data to any third party 3.1.7 must not use the Data for any profit-making or commercial purposes without written approval from the transferring data controller; 3.1.8 must only share secondary or derivative data (e.g. group statistical maps or templates) if they are on a group level, and information from individual participants and cannot be deduced. 3.1.9 must not use the transferring data controller's name or logo without the prior written consent of such party; 3.1.10 accepts sole responsibility and liability for the conduct of the Research and will use the Data at its own risk and will obtain and maintain adequate insurance in respect of its use of the Data; 3.1.11 indemnifies the transferring data controller against all loss, liability, damage, (whether to persons or property), costs and expenses (including without limitation legal expenses), claims, demands, suits or other actions arising out of the receiving data controller's misuse of the Data; and 3.1.12 acknowledges and agrees that to the extent permitted by law, the transferring data controller excludes all warranties, express or implied, including without limitation warranties of merchantability, fitness for a particular use, safety or quality in relation to the Transfer and use of the Data. The transferring data controller makes no representation and provides no warranty that the use of the Data will not infringe any Intellectual Property right of any other person. The Data is provided by the transferring data controller under this DUA on an 'as is' basis. 3.2 The receiving data controller must notify the transferring data controller promptly of all Results and will on the transferring data controller's request supply the transferring data controller with a report and/or outline of any Results, discoveries or comments in relation to the Research at the conclusion of the Research. 4. INTELLECTUAL PROPERTY. 4.1 The Data and any Intellectual Property subsisting therein are the property of the transferring data controller. 4.2 The transferring data controller grants the receiving data controller a non-exclusive, royalty-free license to use the Data for the purpose of the Research only. Any Intellectual Property arising from the conduct of the Research shall vast on the receiving data controller. 5. PUBLICATION. The receiving data controller must: 5.1 acknowledge the transferring data controller`s researchers as authors in the publication(s) 5.2 not disclose any personal information contained in the Data despite any other provision contained in this DUA; 5.3 not release, publish or disclose any findings or information derived from the Data if such findings contain any combination of data elements that might allow for identification or the deduction of a study participant's identity; and 5.4 subject any findings or manuscripts arising from its use of the Data for public release (e.g., abstracts, presentations, publications) to a stringent review to ensure that individual study participants cannot be identified. 6. TERM AND TERMINATION. This Agreement commences on the date of the last signature and, unless extended or terminated earlier in the manner set out in this Agreement. 7. GENERAL PROVISIONS. 7.1 Governing law. This Agreement shall be governed in accordance with Danish Law. Each Party submits to the exclusive jurisdiction of the courts of Copenhagen, Denmark. 7.2 Relationship of the Parties. This Agreement does not create a partnership, agency, fiduciary or other relationship, except the relationship of contracting parties. A Party shall not represent that another Party or any of their staff in any way endorse, support or approve of, any products, services, Intellectual Property or business of the representing party unless that other Party has given its express written consent to such representation. 7.3 Entire agreement. This DUA constitutes the entire agreement of the Parties with respect to its subject matter and supersedes all prior oral or written representations and agreements. 7.4 Variation. This DUA may only be varied in writing signed by the Parties. 7.5 Assignment. The receiving data controller must not assign its rights under this DUA. 7.6 Waiver. A Party's failure to exercise or delay in exercising a right, power or remedy does not operate as a waiver of that right, power or remedy and does not preclude the future exercise of that right, power or remedy. To be effective, a waiver of a right, power or remedy must be in writing and signed by the Party granting the waiver. 7.7 Severance. If any provision or part provision of this DUA is invalid or unenforceable, such provision shall be deemed deleted but only to the extent necessary and the remaining provisions of this Agreement shall remain in full force and effect. 7.8 Force Majeure. A Party to this Agreement shall not be responsible or liable for any non-performance or delay in performance of any of its obligations under this Agreement that is caused by an act or event that is beyond the reasonable control of that Party ('Force Majeure Event'), provided that it promptly notifies the other parties (with appropriate details); and takes all reasonable steps to work around or reduce the effects of the Force Majeure Event. 7.9 Obligations. Each Party's obligations and liabilities under this Agreement are several and not joint or joint and several."                             
-                ]
-            }
-        }
+    {
+      "type": "file",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1",
+      "path": "participants.json",
+      "contentbytesize": 1164.0,
+      "metadata_sources": {
+        "sources": [
+          {
+            "source_name": "PublinEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
+        ]
+      },
+      "name": "participants.json"
+    },
+    {
+      "type": "file",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1",
+      "path": "task-faces_events.json",
+      "contentbytesize": 2277.0,
+      "metadata_sources": {
+        "sources": [
+          {
+            "source_name": "PublinEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
+        ]
+      },
+      "name": "task-faces_events.json"
+    },
+    {
+      "type": "file",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1",
+      "path": "task-psap_events.json",
+      "contentbytesize": 1140.0,
+      "metadata_sources": {
+        "sources": [
+          {
+            "source_name": "PublinEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
+        ]
+      },
+      "name": "task-psap_events.json"
+    },
+    {
+      "type": "file",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1",
+      "path": "task-rest_events.json",
+      "contentbytesize": 2.0,
+      "metadata_sources": {
+        "sources": [
+          {
+            "source_name": "PublinEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
+        ]
+      },
+      "name": "task-rest_events.json"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53273",
+      "path": "sub-53273",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53268",
+      "path": "sub-53268",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53450",
+      "path": "sub-53450",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53362",
+      "path": "sub-53362",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53452",
+      "path": "sub-53452",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53449",
+      "path": "sub-53449",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53259",
+      "path": "sub-53259",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53440",
+      "path": "sub-53440",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53253",
+      "path": "sub-53253",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53446",
+      "path": "sub-53446",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53366",
+      "path": "sub-53366",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53326",
+      "path": "sub-53326",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-55136",
+      "path": "sub-55136",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53304",
+      "path": "sub-53304",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53300",
+      "path": "sub-53300",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53372",
+      "path": "sub-53372",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53260",
+      "path": "sub-53260",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53316",
+      "path": "sub-53316",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53451",
+      "path": "sub-53451",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53348",
+      "path": "sub-53348",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53255",
+      "path": "sub-53255",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53517",
+      "path": "sub-53517",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53278",
+      "path": "sub-53278",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53474",
+      "path": "sub-53474",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53376",
+      "path": "sub-53376",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53319",
+      "path": "sub-53319",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53512",
+      "path": "sub-53512",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53275",
+      "path": "sub-53275",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53356",
+      "path": "sub-53356",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53296",
+      "path": "sub-53296",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53375",
+      "path": "sub-53375",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53484",
+      "path": "sub-53484",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53353",
+      "path": "sub-53353",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53272",
+      "path": "sub-53272",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53443",
+      "path": "sub-53443",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53350",
+      "path": "sub-53350",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53323",
+      "path": "sub-53323",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53307",
+      "path": "sub-53307",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53305",
+      "path": "sub-53305",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53426",
+      "path": "sub-53426",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53264",
+      "path": "sub-53264",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53441",
+      "path": "sub-53441",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53293",
+      "path": "sub-53293",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53461",
+      "path": "sub-53461",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53281",
+      "path": "sub-53281",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53447",
+      "path": "sub-53447",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-50817",
+      "path": "sub-50817",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53346",
+      "path": "sub-53346",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53425",
+      "path": "sub-53425",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-53301",
+      "path": "sub-53301",
+      "dataset_id": "PN000002 Aggression Project",
+      "dataset_version": "V1"
+    }
+  ],
+  "metadata_sources": {
+    "key_source_map": {
+      "name": [
+        "Neurobiology Research Unit"
+      ],
+      "keywords": [
+        "Neurobiology Research Unit"
+      ],
+      "license": [
+        "Neurobiology Research Unit"
+      ],
+      "funding": [
+        "Neurobiology Research Unit"
+      ],
+      "publications": [
+        "Neurobiology Research Unit"
+      ],
+      "additional_display": [
+        "Neurobiology Research Unit"
+      ]
+    },
+    "sources": [
+      {
+        "source_name": "Neurobiology Research Unit",
+        "source_version": "1",
+        "agent_name": "Cyril Pernet",
+        "source_time": 1726351200.0
+      }
     ]
+  },
+  "name": "Aggression Project",
+  "description": "The Aggression Project aimed to determine brain mechanisms underlying aggression using 5-HT1BR PET ([11C]AZ10419369) and MRI. Participants recruited included incarcerated violent offenders and healthy controls.",
+  "keywords": [
+    "functional MRI",
+    "HCP-Young Adults",
+    "multiverse",
+    "analytical choices",
+    "motor task"
+  ],
+  "license": {
+    "name": "Data User Agreement"
+  },
+  "authors": [
+    {
+      "givenName": "Sofi",
+      "familyName": "da Cunha-Bang"
+    },
+    {
+      "givenName": "Liv",
+      "familyName": "Vadskjaer Hjordt"
+    },
+    {
+      "givenName": "Erik",
+      "familyName": "Perfalk"
+    },
+    {
+      "givenName": "Camilla",
+      "familyName": "Bock"
+    },
+    {
+      "givenName": "Dorte M.",
+      "familyName": "Sestoft"
+    },
+    {
+      "givenName": "Patrick",
+      "familyName": "Fisher"
+    },
+    {
+      "givenName": "Gitte",
+      "familyName": "Moos Knudsen"
+    }
+  ],
+  "funding": [
+    {
+      "name": "Danish Council for Independent Research",
+      "identifier": "1331-00328"
+    },
+    {
+      "name": "Rigshospitalets Research Council",
+      "identifier": "R49-A1646"
+    },
+    {
+      "name": "Rigshospitalets Research Council",
+      "identifier": "R65-A2250"
+    }
+  ],
+  "publications": [
+    {
+      "type": "academic publication",
+      "title": "Serotonin 1B Receptor Binding Is Associated With Trait Anger and Level of Psychopathy in Violent Offenders",
+      "datePublished": "2017",
+      "doi": "http:/dx.doi.org/10.1016/j.biopsych.2016.02.030",
+      "authors": [
+        {
+          "givenName": "Sofi",
+          "familyName": "da Cunha-Bang"
+        }
+      ]
+    },
+    {
+      "type": "academic publication",
+      "title": "Men with high serotonin 1B receptor binding respond to provocations with heightened amygdala reactivity",
+      "datePublished": "2018",
+      "doi": "https:/doi.org/10.1016/j.neuroimage.2017.10.032",
+      "authors": [
+        {
+          "givenName": "Sofi",
+          "familyName": "da Cunha-Bang"
+        }
+      ]
+    },
+    {
+      "type": "academic publication",
+      "title": "Violent offenders respond to provocations with high amygdala and striatal reactivity",
+      "datePublished": "2017",
+      "doi": "https:/doi.org/10.1093/scan/nsx006",
+      "authors": [
+        {
+          "givenName": "Sofi",
+          "familyName": "da Cunha-Bang"
+        }
+      ]
+    },
+    {
+      "type": "academic publication",
+      "title": "Amygdala reactivity to fearful faces correlates positively with impulsive aggression",
+      "datePublished": "2017",
+      "doi": "https:/doi.org/10.1080/17470919.2017.1421262",
+      "authors": [
+        {
+          "givenName": "Sofi",
+          "familyName": "da Cunha-Bang"
+        }
+      ]
+    },
+    {
+      "type": "academic publication",
+      "title": "Anterior cingulate serotonin 1B receptor binding is associated with emotional response inhibition",
+      "datePublished": "2017",
+      "doi": "https:/doi.org/10.1016/j.jpsychires.2017.05.003",
+      "authors": [
+        {
+          "givenName": "Sofi",
+          "familyName": "da Cunha-Bang"
+        }
+      ]
+    }
+  ],
+  "doi": "https://doi.org/10.70883/DEYZ5967",
+  "download_url": "/manage/request-access/PN000002",
+  "additional_display": [
+    {
+      "name": "Dataset Metadata",
+      "content": {
+        "bids_version": [
+          "v1.9.3"
+        ],
+        "bids_datasettype": [
+          "raw"
+        ],
+        "bids_datatypes": [
+          "anat",
+          "func",
+          "fmap",
+          "func",
+          "pet"
+        ],
+        "NCBI Species Taxonomy": [
+          "homo sapiens"
+        ],
+        "Disease Ontology Name": [
+          "antisocial personality disorder"
+        ],
+        "Disease Ontology ID ": [
+          "10939"
+        ],
+        "SNOMED ID": [
+          "102512003",
+          "11635001"
+        ],
+        "SNOMED label": [
+          "Healthy adult",
+          "Adult Antosocial Behavior"
+        ],
+        "Cognitive Atlas concept": [
+          "emotion perception",
+          "defensive aggression",
+          "decision making"
+        ],
+        "Cognitive Atlas task": [
+          "face matching task",
+          "point subtraction aggression paradigm "
+        ]
+      }
+    },
+    {
+      "name": "Participants",
+      "content": {
+        "total_number": [
+          "50"
+        ],
+        "age_range": [
+          "[18, 61]"
+        ],
+        "number_of_healthy": [
+          "27"
+        ],
+        "number_of_patients": [
+          "23"
+        ],
+        "number_of_biological_males": [
+          "50"
+        ],
+        "number_of_biological_females": [
+          "0"
+        ]
+      }
+    },
+    {
+      "name": "DUA terms",
+      "content": {
+        "Restrictions": [
+          "Institution of users from non EU or adequate countries must be able to sign standard contractual clauses"
+        ],
+        "Terms": [
+          "This Agreement records the terms under which the Transferring data controller gives a given Dataset (a defined set of data). This Agreement sets out the terms of the Data transfer between the Transferring data controller and receiving data controller. The transferring data controller has agreed to make the Data available on the terms and conditions set out in this DUA. The transfer of the Data is regulated in accordance with Danish legislation for the processing of personal health data and protection of individual human subject rights and privacy, including any relevant ethical and legal requirements.  By accepting this agreement, The receiving data controller becomes the data controller (as defined under the GDPR) of the dataset that will be transferred and is thus responsible for access and use following the terms of this agreement. 1. TRANSFER OF DATA. The transferring data controller's dataset is formatted following the brain imaging data structure (BIDS) - no other imaging data and metadata will be provided. 2. RIGHTS OF PROVIDER. Nothing in this Agreement prevents the transferring data controller from exploiting the Data or distributing the Data to any third party, including both profit and non-profit organizations. 3. USE OF THE DATA AND OBLIGATIONS OF THE  RECEIVING DATA CONTROLLER. 3.1 The receiving data controller: 3.1.1 must only use the Data for the purposes of medical and cognitive neuroscience  research. 3.1.2 must comply with all applicable laws and approval, including appropriate ethical juridical approvals and standards in relation to the use of the personal health Data and act as data controller in accordance to EU General Data Protection Regulation (GDPR); 3.1.3 must treat the Data as confidential information and restrict access to the Data to those of its employee researchers who are directly involved in the Research and who are placed under an obligation to observe the terms of this DUA; 3.1.4 must take such reasonable steps to provide for the safe custody of any and all Data in its possession and to prevent unauthorized access thereto or use thereof; 3.1.5 under no circumstances attempt to re-identify the data subjects; will not link these data to any other database in a way that could provide identifying information. 3.1.6 must not transfer, sell, disseminate, disclose or otherwise distribute the Data to any third party 3.1.7 must not use the Data for any profit-making or commercial purposes without written approval from the transferring data controller; 3.1.8 must only share secondary or derivative data (e.g. group statistical maps or templates) if they are on a group level, and information from individual participants and cannot be deduced. 3.1.9 must not use the transferring data controller's name or logo without the prior written consent of such party; 3.1.10 accepts sole responsibility and liability for the conduct of the Research and will use the Data at its own risk and will obtain and maintain adequate insurance in respect of its use of the Data; 3.1.11 indemnifies the transferring data controller against all loss, liability, damage, (whether to persons or property), costs and expenses (including without limitation legal expenses), claims, demands, suits or other actions arising out of the receiving data controller's misuse of the Data; and 3.1.12 acknowledges and agrees that to the extent permitted by law, the transferring data controller excludes all warranties, express or implied, including without limitation warranties of merchantability, fitness for a particular use, safety or quality in relation to the Transfer and use of the Data. The transferring data controller makes no representation and provides no warranty that the use of the Data will not infringe any Intellectual Property right of any other person. The Data is provided by the transferring data controller under this DUA on an 'as is' basis. 3.2 The receiving data controller must notify the transferring data controller promptly of all Results and will on the transferring data controller's request supply the transferring data controller with a report and/or outline of any Results, discoveries or comments in relation to the Research at the conclusion of the Research. 4. INTELLECTUAL PROPERTY. 4.1 The Data and any Intellectual Property subsisting therein are the property of the transferring data controller. 4.2 The transferring data controller grants the receiving data controller a non-exclusive, royalty-free license to use the Data for the purpose of the Research only. Any Intellectual Property arising from the conduct of the Research shall vast on the receiving data controller. 5. PUBLICATION. The receiving data controller must: 5.1 acknowledge the transferring data controller`s researchers as authors in the publication(s) 5.2 not disclose any personal information contained in the Data despite any other provision contained in this DUA; 5.3 not release, publish or disclose any findings or information derived from the Data if such findings contain any combination of data elements that might allow for identification or the deduction of a study participant's identity; and 5.4 subject any findings or manuscripts arising from its use of the Data for public release (e.g., abstracts, presentations, publications) to a stringent review to ensure that individual study participants cannot be identified. 6. TERM AND TERMINATION. This Agreement commences on the date of the last signature and, unless extended or terminated earlier in the manner set out in this Agreement. 7. GENERAL PROVISIONS. 7.1 Governing law. This Agreement shall be governed in accordance with Danish Law. Each Party submits to the exclusive jurisdiction of the courts of Copenhagen, Denmark. 7.2 Relationship of the Parties. This Agreement does not create a partnership, agency, fiduciary or other relationship, except the relationship of contracting parties. A Party shall not represent that another Party or any of their staff in any way endorse, support or approve of, any products, services, Intellectual Property or business of the representing party unless that other Party has given its express written consent to such representation. 7.3 Entire agreement. This DUA constitutes the entire agreement of the Parties with respect to its subject matter and supersedes all prior oral or written representations and agreements. 7.4 Variation. This DUA may only be varied in writing signed by the Parties. 7.5 Assignment. The receiving data controller must not assign its rights under this DUA. 7.6 Waiver. A Party's failure to exercise or delay in exercising a right, power or remedy does not operate as a waiver of that right, power or remedy and does not preclude the future exercise of that right, power or remedy. To be effective, a waiver of a right, power or remedy must be in writing and signed by the Party granting the waiver. 7.7 Severance. If any provision or part provision of this DUA is invalid or unenforceable, such provision shall be deemed deleted but only to the extent necessary and the remaining provisions of this Agreement shall remain in full force and effect. 7.8 Force Majeure. A Party to this Agreement shall not be responsible or liable for any non-performance or delay in performance of any of its obligations under this Agreement that is caused by an act or event that is beyond the reasonable control of that Party ('Force Majeure Event'), provided that it promptly notifies the other parties (with appropriate details); and takes all reasonable steps to work around or reduce the effects of the Force Majeure Event. 7.9 Obligations. Each Party's obligations and liabilities under this Agreement are several and not joint or joint and several."
+        ]
+      }
+    }
+  ],
+  "dateCreated": "2024-09-15 00:00:00",
+  "dateModified": "2024-09-15 00:00:00"
 }

@@ -31,6 +31,23 @@ Usage Examples:
     
     # Scan directory and save to JSONL file
     get_file_info('/path/to/dataset/directory', save_to_file=True, output_file='my_files.jsonl')
+
+Related Tools:
+    For reordering dataset children according to BIDS conventions, use find_catalogue_set_file.py:
+    
+    # Reorder children in a specific catalog JSON file
+    from find_catalogue_set_file import reorder_dataset_children
+    reorder_dataset_children('/path/to/dataset.json')
+    
+    # Find datasets and auto-reorder their children
+    from find_catalogue_set_file import find_catalogue_set_file
+    results = find_catalogue_set_file("PN*/V*", reorder_children=True)
+    
+    # Manual sorting of children list
+    from find_catalogue_set_file import sort_children
+    sorted_children = sort_children(dataset['children'])
+    
+    Child ordering rules: source dirs → code dirs → files → sub-* (numeric) → sub-* (alpha) → others
     
 Key Functions:
     - get_file_info(directory_path, save_to_file=False, output_file="file_list.jsonl"): 
