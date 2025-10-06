@@ -680,16 +680,98 @@ def parse_excel_metadata(input_file):
                 if clean_terms:
                     dua_content["content"]["Terms"] = [clean_terms]
 
+    # Helper function to convert Excel date to Unix timestamp
+    def excel_date_to_timestamp(date_value):
+        """Convert Excel date/datetime to Unix timestamp"""
+        if pd.isna(date_value) or date_value is None:
+            return None
+        
+        try:
+            # If it's already a datetime object
+            if isinstance(date_value, pd.Timestamp):
+                return date_value.timestamp()
+            elif hasattr(date_value, 'timestamp'):  # datetime object
+                return date_value.timestamp()
+            
+            # If it's a string, try to parse it
+            if isinstance(date_value, str):
+                # Try different date formats
+                for date_format in ['%Y-%m-%d %H:%M:%S', '%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y']:
+                    try:
+                        dt = pd.to_datetime(date_value, format=date_format)
+                        return dt.timestamp()
+                    except:
+                        continue
+                
+                # Try pandas automatic parsing as last resort
+                try:
+                    dt = pd.to_datetime(date_value)
+                    return dt.timestamp()
+                except:
+                    return None
+            
+            # Try to convert directly
+            dt = pd.to_datetime(date_value)
+            return dt.timestamp()
+            
+        except Exception as e:
+            print(f"Warning: Could not convert date '{date_value}' to timestamp: {e}")
+            return None
+
+    # Extract date information from metadata
+    last_updated_str = metadata_aux.get('last-updated', None)
+    created_date_str = metadata_aux.get('created', None)  # in case there's a created field
+    
+    # Convert dates to timestamps and format strings
+    last_updated_timestamp = excel_date_to_timestamp(last_updated_str)
+    created_timestamp = excel_date_to_timestamp(created_date_str)
+    
+    # Format dates as strings for JSON compatibility
+    def format_date_for_json(date_value):
+        """Convert date to YYYY-MM-DD HH:MM:SS string format"""
+        if pd.isna(date_value) or date_value is None:
+            return None
+        
+        try:
+            # If it's already a string in the right format, return it
+            if isinstance(date_value, str):
+                # Try to parse and reformat to ensure consistency
+                dt = pd.to_datetime(date_value)
+                return dt.strftime('%Y-%m-%d %H:%M:%S')
+            
+            # If it's a datetime object, format it
+            if isinstance(date_value, pd.Timestamp):
+                return date_value.strftime('%Y-%m-%d %H:%M:%S')
+            elif hasattr(date_value, 'strftime'):  # datetime object
+                return date_value.strftime('%Y-%m-%d %H:%M:%S')
+            
+            # Try to convert to datetime first
+            dt = pd.to_datetime(date_value)
+            return dt.strftime('%Y-%m-%d %H:%M:%S')
+            
+        except Exception as e:
+            print(f"Warning: Could not format date '{date_value}': {e}")
+            return str(date_value) if date_value else None
+
+    last_updated_formatted = format_date_for_json(last_updated_str)
+    created_formatted = format_date_for_json(created_date_str)
+
     # Extract metadata sources
     metadata_sources = {"sources": []}
     if "dataset curators" in aux_dict:
         for info in aux_dict["dataset curators"][2:]:
             if not pd.isna(info.get('# Metadata record for PublicnEUro')):
-                metadata_sources["sources"].append({
+                source_entry = {
                     'source_name': info.get('Unnamed: 1', ''),
                     'source_version': format_version(metadata_aux.get('dataset version', 'None')),
                     'agent_name': info['# Metadata record for PublicnEUro']
-                })
+                }
+                
+                # Add source_time if last-updated is available
+                if last_updated_timestamp is not None:
+                    source_entry['source_time'] = last_updated_timestamp
+                
+                metadata_sources["sources"].append(source_entry)
 
     # Extract required fields
     name = metadata_aux.get('title', 'Unknown Dataset')
@@ -749,7 +831,13 @@ def parse_excel_metadata(input_file):
         "keywords": keywords,
         "dataset_version": format_version(version_raw),
         "license": {"name": "Data User Agreement"},
-        "type": "dataset"
+        "type": "dataset",
+        
+        # Date information
+        "dateCreated": created_formatted,
+        "dateModified": last_updated_formatted,
+        "last_updated": last_updated_formatted,
+        "last_updated_timestamp": last_updated_timestamp
     }
 
 def get_xml_template():
@@ -1050,6 +1138,8 @@ def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None, skip_validatio
         "funding": cleaned_metadata.get("funding", []),
         "publications": cleaned_metadata.get("publications", []),
         "metadata_sources": cleaned_metadata.get("metadata_sources", {}),
+        "dateCreated": cleaned_metadata.get("dateCreated"),
+        "dateModified": cleaned_metadata.get("dateModified"),
         "additional_display": [
             cleaned_metadata.get("detailed_metadata", {}), 
             cleaned_metadata.get("dua_content", {}), 
