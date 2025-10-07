@@ -2,7 +2,32 @@
 
 This directory contains three main utility modules for processing dataset metadata and files in the PublicnEUro data catalog.
 
+**Complete Workflow Overview:**
+
+1. **Convert** Excel metadata to XML/JSONL formats (`export_xlsx.py`)
+2. **Generate** file catalog from data directory (`file_metadata_utils.py`)
+3. **Validate & Import** to datalad catalog (manual `datalad catalog-validate` + `datalad catalog-add`)
+4. **Find & Organize** datasets in catalog (`find_catalogue_set_file.py`)
+
+*Note: The CLI tool (`process_dataset.py`) automates all steps including datalad operations.*
+
 ## Quick Start
+
+### Complete Workflow (Recommended)
+
+For the full dataset processing pipeline, use the CLI tool:
+
+```bash
+# Complete workflow: Excel → XML/JSONL → File catalog → Datalad import → Catalog integration
+python process_dataset.py metadata.xlsx /path/to/data/ "PN000011*/V1"
+
+# With custom source and agent names
+python process_dataset.py metadata.xlsx /path/to/data/ "PN000011*/V1" --source MySource --agent MyAgent
+```
+
+This CLI tool automates the complete workflow including datalad catalog validation and import.
+
+### Individual Tool Usage
 
 ```python
 # 1. Convert Excel metadata to XML/JSONL
@@ -13,10 +38,16 @@ xml_file, jsonl_file = export_xlsx_to_both('dataset.xlsx')
 from file_metadata_utils import process_file_metadata
 catalog = process_file_metadata(jsonl_file, '/path/to/data/', 'source', 'agent')
 
-# 3. Find datasets in catalog and optionally reorder children
+# 3. Validate and import to datalad catalog (manual datalad commands)
+# datalad catalog-validate --metadata catalog_file
+# datalad catalog-add --catalog ../DataCatalogue --metadata catalog_file
+
+# 4. Find datasets in catalog and optionally reorder children
 from find_catalogue_set_file import find_catalogue_set_file
 results = find_catalogue_set_file("PN000011*/V1", reorder_children=True)
 ```
+
+**Note:** Steps 3 (datalad validation/import) is handled automatically by the CLI tool but requires manual execution when using individual tools.
 
 ## Tools Overview
 
@@ -42,14 +73,19 @@ Converts Excel metadata files to XML (CrossRef) and JSONL (web catalog) formats.
 
 Your Excel file needs these sheets: `dataset_info`, `participants_info`, `DUA`, `authors`, `funding`, `publications`
 
+Check the user information from the Excel file, this is the reason the export csan fail.
+
 ### 📁 file_metadata_utils.py - File Catalog Generator
 
 Creates comprehensive file listings and metadata catalogs.
 
 **Key Functions:**
 
-- `get_file_info(directory_path)` - Scan directory for files
-- `process_file_metadata(dataset_jsonl, file_source, source_name, agent_name)` - Create catalog
+- `process_file_metadata(dataset_jsonl, /path_to_dataset/, source_name, agent_name)` - Create catalog adding files from dataset folder
+
+  Alternatively do:
+- `get_file_info(directory_path)` - Scan directory for files and create a file list
+- `process_file_metadata(dataset_jsonl, file_source, source_name, agent_name)` - Create catalog mergng the file list
 
 **Features:**
 
@@ -57,22 +93,6 @@ Creates comprehensive file listings and metadata catalogs.
 - Excludes code directories automatically
 - Flexible input (directories, file lists, or data)
 - Metadata integration
-
-**Related Tools:**
-
-For reordering dataset children after file processing, use `find_catalogue_set_file.py`:
-
-```python
-# Reorder children in catalog JSON file
-from find_catalogue_set_file import reorder_dataset_children
-reorder_dataset_children('/path/to/dataset.json')
-
-# Find datasets and auto-reorder children  
-from find_catalogue_set_file import find_catalogue_set_file
-results = find_catalogue_set_file("PN*/V*", reorder_children=True)
-```
-
-Child ordering follows BIDS conventions: `source` → `code` → `files` → `sub-*` (numeric) → `sub-*` (alpha) → `others`
 
 ### 🔍 find_catalogue_set_file.py - Dataset Locator & Organizer
 
@@ -96,7 +116,7 @@ Finds dataset files in catalog directory structures and optionally reorders data
 The tool can automatically reorder dataset children according to these rules:
 
 1. **"source"** directory first
-2. **"code"** directory second  
+2. **"code"** directory second
 3. All **files** (`"type": "file"`)
 4. **"sub-*"** directories sorted numerically (sub-01, sub-02...) or alphabetically
 5. Other directories last
@@ -118,54 +138,25 @@ results = find_catalogue_set_file('PN*/V*', reorder_children=True)
 results = find_catalogue_set_file('PN*/V*', reorder_children=False)
 ```
 
-## Complete Workflow Example
-
-```python
-#!/usr/bin/env python3
-"""Complete dataset processing pipeline"""
-
-from export_xlsx import export_xlsx_to_both
-from file_metadata_utils import process_file_metadata
-from find_catalogue_set_file import find_catalogue_set_file
-
-def process_dataset(excel_file, data_directory, dataset_pattern):
-    """Process complete dataset from Excel to catalog"""
-    
-    # Step 1: Convert Excel metadata
-    xml_file, jsonl_file = export_xlsx_to_both(excel_file)
-    
-    # Step 2: Generate file catalog
-    catalog_file = process_file_metadata(
-        dataset_jsonl=jsonl_file,
-        file_list_source=data_directory,
-        source_name='Local_Processing',
-        agent_name='Pipeline'
-    )
-    
-    # Step 3: Verify in catalog and reorder children
-    results = find_catalogue_set_file(dataset_pattern, reorder_children=True)
-    
-    return {
-        'xml': xml_file,
-        'jsonl': jsonl_file,
-        'catalog': catalog_file,
-        'found': list(results.keys())
-    }
-
-# Usage
-result = process_dataset(
-    excel_file='PN000011_metadata.xlsx',
-    data_directory='/data/PN000011/',
-    dataset_pattern='PN000011*/V1'
-)
-print(f"Processing complete: {result}")
-```
+Child ordering follows BIDS conventions: `source` → `code` → `files` → `sub-*` (numeric) → `sub-*` (alpha) → `others`
 
 ## Command Line Usage
 
 ```bash
+# Complete workflow pipeline
+python process_dataset.py metadata.xlsx /path/to/data/ "PN000011*/V1"
+python process_dataset.py metadata.xlsx /path/to/data/ "PN000011*/V1" --source CustomSource --agent CustomAgent
+
+# Individual tool usage
 # Export Excel to both formats
 python export_xlsx.py dataset_metadata.xlsx
+
+# Generate file catalog (requires previous step)
+python -c "from file_metadata_utils import process_file_metadata; process_file_metadata('dataset.jsonl', '/path/to/data/', 'source', 'agent')"
+
+# Manual datalad catalog operations (required between steps 2 and 4)
+datalad catalog-validate --metadata catalog_file.jsonl
+datalad catalog-add --catalog ../DataCatalogue --metadata catalog_file.jsonl
 
 # Find datasets with interactive reordering prompt
 python find_catalogue_set_file.py
@@ -176,6 +167,7 @@ python -c "from find_catalogue_set_file import find_catalogue_set_file; find_cat
 # Run from test directory
 cd test
 python simple_test.py
+python test_process_dataset_cli.py  # Test the new CLI
 ```
 
 ## File Structure Requirements
@@ -211,6 +203,7 @@ cd test
 python test_master_export_xlsx.py    # Full test suite
 python simple_test.py                # Basic functionality
 python check_dua.py                  # DUA content verification
+python test_process_dataset_cli.py   # Test complete workflow CLI
 ```
 
 ## Requirements
