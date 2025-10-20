@@ -136,16 +136,26 @@ class FileMetadataTestSuite:
                 with open(os.path.basename(temp_path), 'r') as f:
                     lines = f.readlines()
                 
-                if len(lines) != len(file_info):
-                    self.log(f"✗ File has {len(lines)} lines, expected {len(file_info)}")
+                # File should have 1 extra line for size metadata at the beginning
+                expected_lines = len(file_info) + 1
+                if len(lines) != expected_lines:
+                    self.log(f"✗ File has {len(lines)} lines, expected {expected_lines} (files + size metadata)")
                     return False
                 
-                # Verify each line is valid JSON
-                for i, line in enumerate(lines):
+                # Verify first line is size metadata
+                first_line = json.loads(lines[0].strip())
+                if '_total_size_gb' not in first_line:
+                    self.log("✗ First line should contain size metadata (_total_size_gb)")
+                    return False
+                
+                self.log(f"✓ First line contains size metadata: {first_line['_total_size_gb']}GB")
+                
+                # Verify remaining lines are valid JSON (file info)
+                for i, line in enumerate(lines[1:], start=2):
                     try:
                         json.loads(line.strip())
                     except json.JSONDecodeError as e:
-                        self.log(f"✗ Invalid JSON on line {i+1}: {e}")
+                        self.log(f"✗ Invalid JSON on line {i}: {e}")
                         return False
                 
                 self.log("✓ File saved and contents are valid")
@@ -287,8 +297,129 @@ class FileMetadataTestSuite:
             self.log(f"✗ File list processing test failed: {e}")
             return False
     
+    def test_description_includes_total_size(self):
+        """Test 5: Verify description includes total size information (direct directory scan)"""
+        self.log("Testing that description includes total size (direct directory)...")
+        
+        try:
+            from file_metadata_utils import process_file_metadata
+            
+            # Use temporary output file
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp_file:
+                temp_output = tmp_file.name
+            
+            try:
+                # Process with directory input
+                output_file = process_file_metadata(
+                    self.test_dataset_jsonl,
+                    self.fake_files_dir,
+                    source_name='test',
+                    agent_name='test',
+                    output_file=temp_output
+                )
+                
+                # Read first line (dataset info)
+                with open(output_file, 'r') as f:
+                    first_line = f.readline()
+                
+                dataset_info = json.loads(first_line.strip())
+                
+                # Check that description exists and contains total size
+                if 'description' not in dataset_info:
+                    self.log("✗ Description field missing")
+                    return False
+                
+                description = dataset_info['description']
+                
+                # Should contain the pattern "(total size: X.XXgb)" or "(total size: XGB)"
+                if '(total size:' not in description.lower():
+                    self.log(f"✗ Description does not contain total size: {description}")
+                    return False
+                
+                if 'gb)' not in description.lower():
+                    self.log(f"✗ Description does not end with GB): {description}")
+                    return False
+                
+                self.log(f"✓ Description includes total size: {description}")
+                return True
+                
+            finally:
+                if os.path.exists(temp_output):
+                    os.remove(temp_output)
+                    
+        except Exception as e:
+            self.log(f"✗ Description total size test failed: {e}")
+            return False
+    
+    def test_file_list_with_size_metadata(self):
+        """Test 6: Verify total size works with pre-generated file list"""
+        self.log("Testing two-step workflow with file list containing size metadata...")
+        
+        try:
+            from file_metadata_utils import get_file_info, process_file_metadata
+            
+            # Use temporary files
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp_list:
+                temp_list_file = tmp_list.name
+            
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp_output:
+                temp_output_file = tmp_output.name
+            
+            try:
+                # Step 1: Generate file list with size metadata
+                file_info = get_file_info(
+                    self.fake_files_dir,
+                    save_to_file=True,
+                    output_file=os.path.basename(temp_list_file)
+                )
+                
+                # Verify the file list has size metadata as first line
+                with open(os.path.basename(temp_list_file), 'r') as f:
+                    first_line = f.readline()
+                
+                first_item = json.loads(first_line.strip())
+                if '_total_size_gb' not in first_item:
+                    self.log("✗ File list does not contain size metadata as first line")
+                    return False
+                
+                total_size = first_item['_total_size_gb']
+                self.log(f"✓ File list contains size metadata: {total_size}GB")
+                
+                # Step 2: Use the file list with process_file_metadata
+                output_file = process_file_metadata(
+                    self.test_dataset_jsonl,
+                    os.path.basename(temp_list_file),
+                    source_name='test',
+                    agent_name='test',
+                    output_file=temp_output_file
+                )
+                
+                # Verify the description includes the size
+                with open(output_file, 'r') as f:
+                    first_line = f.readline()
+                
+                dataset_info = json.loads(first_line.strip())
+                description = dataset_info.get('description', '')
+                
+                if f'(total size: {total_size}GB)' not in description:
+                    self.log(f"✗ Description does not contain expected size: {description}")
+                    return False
+                
+                self.log(f"✓ Two-step workflow successful: {description}")
+                return True
+                
+            finally:
+                # Cleanup
+                for file_to_remove in [temp_list_file, temp_output_file, os.path.basename(temp_list_file)]:
+                    if os.path.exists(file_to_remove):
+                        os.remove(file_to_remove)
+                        
+        except Exception as e:
+            self.log(f"✗ File list with size metadata test failed: {e}")
+            return False
+    
     def test_legacy_function(self):
-        """Test 5: Legacy listjl2filetype function"""
+        """Test 7: Legacy listjl2filetype function"""
         self.log("Testing legacy listjl2filetype function...")
         
         try:
@@ -359,6 +490,8 @@ class FileMetadataTestSuite:
             ("Get File Info Save to File", self.test_get_file_info_save_to_file),
             ("Process with Directory", self.test_process_file_metadata_with_directory),
             ("Process with File List", self.test_process_file_metadata_with_file_list),
+            ("Description Includes Total Size (Direct)", self.test_description_includes_total_size),
+            ("File List with Size Metadata (Two-Step)", self.test_file_list_with_size_metadata),
             ("Legacy Function", self.test_legacy_function),
         ]
         

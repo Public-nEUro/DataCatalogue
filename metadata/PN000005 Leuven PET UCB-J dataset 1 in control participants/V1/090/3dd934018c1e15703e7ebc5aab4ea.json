@@ -1,378 +1,378 @@
 {
-    "type": "dataset",
-    "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-    "dataset_version": "V1",
-    "children": [
-        {
-            "type": "file",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1",
-            "path": "participants.tsv",
-            "contentbytesize": 262.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublicnEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "isPartOf": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "name": "participants.tsv"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1",
-            "path": "dataset_description.json",
-            "contentbytesize": 302.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublicnEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "isPartOf": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "name": "dataset_description.json"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1",
-            "path": "participants.json",
-            "contentbytesize": 318.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublicnEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "isPartOf": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "name": "participants.json"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN07",
-            "path": "sub-AN07",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN08",
-            "path": "sub-AN08",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN09",
-            "path": "sub-AN09",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN10",
-            "path": "sub-AN10",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN11",
-            "path": "sub-AN11",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN12",
-            "path": "sub-AN12",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN13",
-            "path": "sub-AN13",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN14",
-            "path": "sub-AN14",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN15",
-            "path": "sub-AN15",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN16",
-            "path": "sub-AN16",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN17",
-            "path": "sub-AN17",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-AN18",
-            "path": "sub-AN18",
-            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-            "dataset_version": "V1"
-        }
-    ],
-    "metadata_sources": {
-        "key_source_map": {
-            "name": [
-                "UZ Leuven"
-            ],
-            "doi": [
-                "UZ Leuven"
-            ],
-            "download_url": [
-                "UZ Leuven"
-            ],
-            "keywords": [
-                "UZ Leuven"
-            ],
-            "license": [
-                "UZ Leuven"
-            ],
-            "funding": [
-                "UZ Leuven"
-            ],
-            "publications": [
-                "UZ Leuven"
-            ],
-            "additional_display": [
-                "UZ Leuven"
-            ],
-            "hasPart": [
-                "UZ Leuven"
-            ],
-            "dateCreated": [
-                "UZ Leuven"
-            ],
-            "dateModified": [
-                "UZ Leuven"
-            ]
-        },
+  "type": "dataset",
+  "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+  "dataset_version": "V1",
+  "children": [
+    {
+      "type": "file",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1",
+      "path": "participants.tsv",
+      "contentbytesize": 262.0,
+      "metadata_sources": {
         "sources": [
-            {
-                "source_name": "UZ Leuven",
-                "source_version": "V1",
-                "agent_name": "Janne Vignero",
-                "source_time": 1758492000.0
-            }
+          {
+            "source_name": "PublicnEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
         ]
+      },
+      "isPartOf": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "name": "participants.tsv"
     },
-    "name": "Leuven PET UCB-J dataset 1 in control participants",
-    "description": "UCB-J in healthy volunteers: dynamic PET baseline scan (0-90 min), T1w and eASL",
-    "doi": "https://doi.org/10.70883/BKWA8149",
-    "download_url": "https:/datacatalog.publicneuro.eu/dataset/PN000005%20Leuven%20PET%20UCB-J%20dataset%201%20in%20control%20participants%20/V1",
-    "keywords": [
-        "UCBJ",
-        "PET",
-        "T1w",
-        "eASL",
-        "SV2A",
-        "11C",
-        "dynamic"
-    ],
-    "license": {
-        "name": "Data User Agreement"
+    {
+      "type": "file",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1",
+      "path": "dataset_description.json",
+      "contentbytesize": 302.0,
+      "metadata_sources": {
+        "sources": [
+          {
+            "source_name": "PublicnEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
+        ]
+      },
+      "isPartOf": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "name": "dataset_description.json"
     },
-    "authors": [
+    {
+      "type": "file",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1",
+      "path": "participants.json",
+      "contentbytesize": 318.0,
+      "metadata_sources": {
+        "sources": [
+          {
+            "source_name": "PublicnEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
+        ]
+      },
+      "isPartOf": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "name": "participants.json"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN07",
+      "path": "sub-AN07",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN08",
+      "path": "sub-AN08",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN09",
+      "path": "sub-AN09",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN10",
+      "path": "sub-AN10",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN11",
+      "path": "sub-AN11",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN12",
+      "path": "sub-AN12",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN13",
+      "path": "sub-AN13",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN14",
+      "path": "sub-AN14",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN15",
+      "path": "sub-AN15",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN16",
+      "path": "sub-AN16",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN17",
+      "path": "sub-AN17",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-AN18",
+      "path": "sub-AN18",
+      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+      "dataset_version": "V1"
+    }
+  ],
+  "metadata_sources": {
+    "key_source_map": {
+      "name": [
+        "UZ Leuven"
+      ],
+      "doi": [
+        "UZ Leuven"
+      ],
+      "download_url": [
+        "UZ Leuven"
+      ],
+      "keywords": [
+        "UZ Leuven"
+      ],
+      "license": [
+        "UZ Leuven"
+      ],
+      "funding": [
+        "UZ Leuven"
+      ],
+      "publications": [
+        "UZ Leuven"
+      ],
+      "additional_display": [
+        "UZ Leuven"
+      ],
+      "hasPart": [
+        "UZ Leuven"
+      ],
+      "dateCreated": [
+        "UZ Leuven"
+      ],
+      "dateModified": [
+        "UZ Leuven"
+      ]
+    },
+    "sources": [
+      {
+        "source_name": "UZ Leuven",
+        "source_version": "V1",
+        "agent_name": "Janne Vignero",
+        "source_time": 1758492000.0
+      }
+    ]
+  },
+  "name": "Leuven PET UCB-J dataset 1 in control participants",
+  "description": "UCB-J in healthy volunteers: dynamic PET baseline scan (0-90 min), T1w and eASL (total size: 1.1GB)",
+  "doi": "https://doi.org/10.70883/BKWA8149",
+  "download_url": "https:/datacatalog.publicneuro.eu/dataset/PN000005%20Leuven%20PET%20UCB-J%20dataset%201%20in%20control%20participants%20/V1",
+  "keywords": [
+    "UCBJ",
+    "PET",
+    "T1w",
+    "eASL",
+    "SV2A",
+    "11C",
+    "dynamic"
+  ],
+  "license": {
+    "name": "Data User Agreement"
+  },
+  "authors": [
+    {
+      "givenName": "Koen",
+      "familyName": "Van Laere"
+    },
+    {
+      "givenName": "Michel",
+      "familyName": "Koole"
+    },
+    {
+      "givenName": "Jan",
+      "familyName": "De Hoon"
+    }
+  ],
+  "funding": [
+    {
+      "name": "Leuven Research and Development",
+      "identifier": "Protocol UP0036"
+    }
+  ],
+  "publications": [
+    {
+      "type": "academic publication",
+      "title": "Padsevonil randomized Phase IIa trial in treatment-resistant focal epilepsy: a translational approach",
+      "datePublished": "2020-11-01 00:00:00",
+      "doi": "10.1093/braincomms/fcaa183",
+      "authors": [
         {
-            "givenName": "Koen",
-            "familyName": "Van Laere"
-        },
-        {
-            "givenName": "Michel",
-            "familyName": "Koole"
-        },
-        {
-            "givenName": "Jan",
-            "familyName": "De Hoon"
+          "givenName": "Muglia",
+          "familyName": "P., Hannestad J., Brandt C., DeBruyn S., Germani M., Lacroix B., Majoie M., Otoul C., Sciberras D., Steinhoff B.J., Van Larere K., Van Paesschen W., Webster E., Kaminski R.M., Werhahn K.J., Toledo M."
         }
-    ],
-    "funding": [
-        {
-            "name": "Leuven Research and Development",
-            "identifier": "Protocol UP0036"
-        }
-    ],
-    "publications": [
-        {
-            "type": "academic publication",
-            "title": "Padsevonil randomized Phase IIa trial in treatment-resistant focal epilepsy: a translational approach",
-            "datePublished": "2020-11-01 00:00:00",
-            "doi": "10.1093/braincomms/fcaa183",
-            "authors": [
-                {
-                    "givenName": "Muglia",
-                    "familyName": "P., Hannestad J., Brandt C., DeBruyn S., Germani M., Lacroix B., Majoie M., Otoul C., Sciberras D., Steinhoff B.J., Van Larere K., Van Paesschen W., Webster E., Kaminski R.M., Werhahn K.J., Toledo M."
-                }
-            ]
-        }
-    ],
-    "additional_display": [
-        {
-            "name": "Dataset Metadata",
-            "content": {
-                "bids_version": [
-                    "1.7.0"
-                ],
-                "bids_datasettype": "raw",
-                "bids_datatypes": [
-                    "anat",
-                    "perf",
-                    "pet"
-                ],
-                "NCBI Species Taxonomy": [
-                    "homo sapiens"
-                ]
-            }
-        },
-        {
-            "name": "DUA terms",
-            "content": {
-                "Restrictions": [
-                    "Institution of users from non EU or adequate countries must be able to sign standard contractual clauses + data controller oversight"
-                ],
-                "Terms": [
-                    "By accepting this agreement, I become the data controller (as defined under the GDPR) of the data that I have access to, and am responsible that I access these data under the following terms:\n\n1. I will comply with all relevant rules and regulations imposed by my institution and my government. Rules established in this agreement thus take place in addition to existing general data protection regulations that are applicable in my country.\n2. I will not attempt to establish or retrieve the identity of the study participants. I will not link these data to any other database in a way that could provide identifying information. I shall not request the pseudonymisation key that would link these data to an individual’s personal information, nor will I accept any additional information about individual participants under this Data Use Agreement.\n3. I will not redistribute these data or share access to these data with others, unless they have independently applied and been granted access to these data, i.e., signed this Data Use Agreement. This includes individuals in my institution.\n4. I will reference the specific source of the accessed data when publicly presenting any results or algorithms that benefited from their use: (a) Papers, book chapters, books, posters, oral presentations, and all other presentations of results derived from the data should acknowledge the origin of the data as follows: “Data were provided (in part) by the Department of Movement Sciences, KU Leuven, Belgium”. (b) Authors of publications or presentations using the data should cite relevant publications describing the methods developed and used by the Department of Movement Sciences to acquire and process the data. The specific publications that are appropriate to cite in any given study will depend on what the data were used and for what purposes. When applicable, a list of publications will be included in the collection. (c) Neither the Department of Movement Sciences or Leuven, nor the researchers that provide this data will be liable for any results and/or derived data. They shall not be included as an author of publications or presentations without consent.\n5. Failure to abide by these guidelines will result in termination of my privileges to access these data."
-                ]
-            }
-        },
-        {
-            "name": "Participants",
-            "content": {
-                "total_number": [
-                    "12"
-                ],
-                "age_range": [
-                    "[20, 53]"
-                ],
-                "number_of_healthy": [
-                    "12"
-                ],
-                "number_of_patients": [
-                    "0"
-                ],
-                "number_of_biological_males": [
-                    "9"
-                ],
-                "number_of_biological_females": [
-                    "3"
-                ]
-            }
-        }
-    ],
-    "hasPart": [
-        "dataset_description.json",
-        "participants.json",
-        "participants.tsv",
-        "sub-AN07/anat/sub-AN07_T1w.json",
-        "sub-AN07/anat/sub-AN07_T1w.nii.gz",
-        "sub-AN07/perf/sub-AN07_asl.json",
-        "sub-AN07/perf/sub-AN07_asl.nii.gz",
-        "sub-AN07/perf/sub-AN07_aslcontext.tsv",
-        "sub-AN07/pet/sub-AN07_trc-11CUCBJ_pet.json",
-        "sub-AN07/pet/sub-AN07_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN08/anat/sub-AN08_T1w.json",
-        "sub-AN08/anat/sub-AN08_T1w.nii.gz",
-        "sub-AN08/perf/sub-AN08_asl.json",
-        "sub-AN08/perf/sub-AN08_asl.nii.gz",
-        "sub-AN08/perf/sub-AN08_aslcontext.tsv",
-        "sub-AN08/pet/sub-AN08_trc-11CUCBJ_pet.json",
-        "sub-AN08/pet/sub-AN08_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN09/anat/sub-AN09_T1w.json",
-        "sub-AN09/anat/sub-AN09_T1w.nii.gz",
-        "sub-AN09/perf/sub-AN09_asl.json",
-        "sub-AN09/perf/sub-AN09_asl.nii.gz",
-        "sub-AN09/perf/sub-AN09_aslcontext.tsv",
-        "sub-AN09/pet/sub-AN09_trc-11CUCBJ_pet.json",
-        "sub-AN09/pet/sub-AN09_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN10/anat/sub-AN10_T1w.json",
-        "sub-AN10/anat/sub-AN10_T1w.nii.gz",
-        "sub-AN10/perf/sub-AN10_asl.json",
-        "sub-AN10/perf/sub-AN10_asl.nii.gz",
-        "sub-AN10/perf/sub-AN10_aslcontext.tsv",
-        "sub-AN10/pet/sub-AN10_trc-11CUCBJ_pet.json",
-        "sub-AN10/pet/sub-AN10_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN11/anat/sub-AN11_T1w.json",
-        "sub-AN11/anat/sub-AN11_T1w.nii.gz",
-        "sub-AN11/perf/sub-AN11_asl.json",
-        "sub-AN11/perf/sub-AN11_asl.nii.gz",
-        "sub-AN11/perf/sub-AN11_aslcontext.tsv",
-        "sub-AN11/pet/sub-AN11_trc-11CUCBJ_pet.json",
-        "sub-AN11/pet/sub-AN11_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN12/anat/sub-AN12_T1w.json",
-        "sub-AN12/anat/sub-AN12_T1w.nii.gz",
-        "sub-AN12/perf/sub-AN12_asl.json",
-        "sub-AN12/perf/sub-AN12_asl.nii.gz",
-        "sub-AN12/perf/sub-AN12_aslcontext.tsv",
-        "sub-AN12/pet/sub-AN12_trc-11CUCBJ_pet.json",
-        "sub-AN12/pet/sub-AN12_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN13/anat/sub-AN13_T1w.json",
-        "sub-AN13/anat/sub-AN13_T1w.nii.gz",
-        "sub-AN13/perf/sub-AN13_asl.json",
-        "sub-AN13/perf/sub-AN13_asl.nii.gz",
-        "sub-AN13/perf/sub-AN13_aslcontext.tsv",
-        "sub-AN13/pet/sub-AN13_trc-11CUCBJ_pet.json",
-        "sub-AN13/pet/sub-AN13_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN14/anat/sub-AN14_T1w.json",
-        "sub-AN14/anat/sub-AN14_T1w.nii.gz",
-        "sub-AN14/perf/sub-AN14_asl.json",
-        "sub-AN14/perf/sub-AN14_asl.nii.gz",
-        "sub-AN14/perf/sub-AN14_aslcontext.tsv",
-        "sub-AN14/pet/sub-AN14_trc-11CUCBJ_pet.json",
-        "sub-AN14/pet/sub-AN14_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN15/anat/sub-AN15_T1w.json",
-        "sub-AN15/anat/sub-AN15_T1w.nii.gz",
-        "sub-AN15/pet/sub-AN15_trc-11CUCBJ_pet.json",
-        "sub-AN15/pet/sub-AN15_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN16/anat/sub-AN16_T1w.json",
-        "sub-AN16/anat/sub-AN16_T1w.nii.gz",
-        "sub-AN16/perf/sub-AN16_asl.json",
-        "sub-AN16/perf/sub-AN16_asl.nii.gz",
-        "sub-AN16/perf/sub-AN16_aslcontext.tsv",
-        "sub-AN16/pet/sub-AN16_trc-11CUCBJ_pet.json",
-        "sub-AN16/pet/sub-AN16_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN17/anat/sub-AN17_T1w.json",
-        "sub-AN17/anat/sub-AN17_T1w.nii.gz",
-        "sub-AN17/perf/sub-AN17_asl.json",
-        "sub-AN17/perf/sub-AN17_asl.nii.gz",
-        "sub-AN17/perf/sub-AN17_aslcontext.tsv",
-        "sub-AN17/pet/sub-AN17_trc-11CUCBJ_pet.json",
-        "sub-AN17/pet/sub-AN17_trc-11CUCBJ_pet.nii.gz",
-        "sub-AN18/anat/sub-AN18_T1w.json",
-        "sub-AN18/anat/sub-AN18_T1w.nii.gz",
-        "sub-AN18/pet/sub-AN18_trc-11CUCBJ_pet.json",
-        "sub-AN18/pet/sub-AN18_trc-11CUCBJ_pet.nii.gz"
-    ],
-    "dateCreated": "2025-09-22 00:00:00",
-    "dateModified": "2025-09-22 00:00:00"
+      ]
+    }
+  ],
+  "additional_display": [
+    {
+      "name": "Dataset Metadata",
+      "content": {
+        "bids_version": [
+          "1.7.0"
+        ],
+        "bids_datasettype": "raw",
+        "bids_datatypes": [
+          "anat",
+          "perf",
+          "pet"
+        ],
+        "NCBI Species Taxonomy": [
+          "homo sapiens"
+        ]
+      }
+    },
+    {
+      "name": "DUA terms",
+      "content": {
+        "Restrictions": [
+          "Institution of users from non EU or adequate countries must be able to sign standard contractual clauses + data controller oversight"
+        ],
+        "Terms": [
+          "By accepting this agreement, I become the data controller (as defined under the GDPR) of the data that I have access to, and am responsible that I access these data under the following terms:\n\n1. I will comply with all relevant rules and regulations imposed by my institution and my government. Rules established in this agreement thus take place in addition to existing general data protection regulations that are applicable in my country.\n2. I will not attempt to establish or retrieve the identity of the study participants. I will not link these data to any other database in a way that could provide identifying information. I shall not request the pseudonymisation key that would link these data to an individual’s personal information, nor will I accept any additional information about individual participants under this Data Use Agreement.\n3. I will not redistribute these data or share access to these data with others, unless they have independently applied and been granted access to these data, i.e., signed this Data Use Agreement. This includes individuals in my institution.\n4. I will reference the specific source of the accessed data when publicly presenting any results or algorithms that benefited from their use: (a) Papers, book chapters, books, posters, oral presentations, and all other presentations of results derived from the data should acknowledge the origin of the data as follows: “Data were provided (in part) by the Department of Movement Sciences, KU Leuven, Belgium”. (b) Authors of publications or presentations using the data should cite relevant publications describing the methods developed and used by the Department of Movement Sciences to acquire and process the data. The specific publications that are appropriate to cite in any given study will depend on what the data were used and for what purposes. When applicable, a list of publications will be included in the collection. (c) Neither the Department of Movement Sciences or Leuven, nor the researchers that provide this data will be liable for any results and/or derived data. They shall not be included as an author of publications or presentations without consent.\n5. Failure to abide by these guidelines will result in termination of my privileges to access these data."
+        ]
+      }
+    },
+    {
+      "name": "Participants",
+      "content": {
+        "total_number": [
+          "12"
+        ],
+        "age_range": [
+          "[20, 53]"
+        ],
+        "number_of_healthy": [
+          "12"
+        ],
+        "number_of_patients": [
+          "0"
+        ],
+        "number_of_biological_males": [
+          "9"
+        ],
+        "number_of_biological_females": [
+          "3"
+        ]
+      }
+    }
+  ],
+  "hasPart": [
+    "dataset_description.json",
+    "participants.json",
+    "participants.tsv",
+    "sub-AN07/anat/sub-AN07_T1w.json",
+    "sub-AN07/anat/sub-AN07_T1w.nii.gz",
+    "sub-AN07/perf/sub-AN07_asl.json",
+    "sub-AN07/perf/sub-AN07_asl.nii.gz",
+    "sub-AN07/perf/sub-AN07_aslcontext.tsv",
+    "sub-AN07/pet/sub-AN07_trc-11CUCBJ_pet.json",
+    "sub-AN07/pet/sub-AN07_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN08/anat/sub-AN08_T1w.json",
+    "sub-AN08/anat/sub-AN08_T1w.nii.gz",
+    "sub-AN08/perf/sub-AN08_asl.json",
+    "sub-AN08/perf/sub-AN08_asl.nii.gz",
+    "sub-AN08/perf/sub-AN08_aslcontext.tsv",
+    "sub-AN08/pet/sub-AN08_trc-11CUCBJ_pet.json",
+    "sub-AN08/pet/sub-AN08_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN09/anat/sub-AN09_T1w.json",
+    "sub-AN09/anat/sub-AN09_T1w.nii.gz",
+    "sub-AN09/perf/sub-AN09_asl.json",
+    "sub-AN09/perf/sub-AN09_asl.nii.gz",
+    "sub-AN09/perf/sub-AN09_aslcontext.tsv",
+    "sub-AN09/pet/sub-AN09_trc-11CUCBJ_pet.json",
+    "sub-AN09/pet/sub-AN09_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN10/anat/sub-AN10_T1w.json",
+    "sub-AN10/anat/sub-AN10_T1w.nii.gz",
+    "sub-AN10/perf/sub-AN10_asl.json",
+    "sub-AN10/perf/sub-AN10_asl.nii.gz",
+    "sub-AN10/perf/sub-AN10_aslcontext.tsv",
+    "sub-AN10/pet/sub-AN10_trc-11CUCBJ_pet.json",
+    "sub-AN10/pet/sub-AN10_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN11/anat/sub-AN11_T1w.json",
+    "sub-AN11/anat/sub-AN11_T1w.nii.gz",
+    "sub-AN11/perf/sub-AN11_asl.json",
+    "sub-AN11/perf/sub-AN11_asl.nii.gz",
+    "sub-AN11/perf/sub-AN11_aslcontext.tsv",
+    "sub-AN11/pet/sub-AN11_trc-11CUCBJ_pet.json",
+    "sub-AN11/pet/sub-AN11_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN12/anat/sub-AN12_T1w.json",
+    "sub-AN12/anat/sub-AN12_T1w.nii.gz",
+    "sub-AN12/perf/sub-AN12_asl.json",
+    "sub-AN12/perf/sub-AN12_asl.nii.gz",
+    "sub-AN12/perf/sub-AN12_aslcontext.tsv",
+    "sub-AN12/pet/sub-AN12_trc-11CUCBJ_pet.json",
+    "sub-AN12/pet/sub-AN12_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN13/anat/sub-AN13_T1w.json",
+    "sub-AN13/anat/sub-AN13_T1w.nii.gz",
+    "sub-AN13/perf/sub-AN13_asl.json",
+    "sub-AN13/perf/sub-AN13_asl.nii.gz",
+    "sub-AN13/perf/sub-AN13_aslcontext.tsv",
+    "sub-AN13/pet/sub-AN13_trc-11CUCBJ_pet.json",
+    "sub-AN13/pet/sub-AN13_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN14/anat/sub-AN14_T1w.json",
+    "sub-AN14/anat/sub-AN14_T1w.nii.gz",
+    "sub-AN14/perf/sub-AN14_asl.json",
+    "sub-AN14/perf/sub-AN14_asl.nii.gz",
+    "sub-AN14/perf/sub-AN14_aslcontext.tsv",
+    "sub-AN14/pet/sub-AN14_trc-11CUCBJ_pet.json",
+    "sub-AN14/pet/sub-AN14_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN15/anat/sub-AN15_T1w.json",
+    "sub-AN15/anat/sub-AN15_T1w.nii.gz",
+    "sub-AN15/pet/sub-AN15_trc-11CUCBJ_pet.json",
+    "sub-AN15/pet/sub-AN15_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN16/anat/sub-AN16_T1w.json",
+    "sub-AN16/anat/sub-AN16_T1w.nii.gz",
+    "sub-AN16/perf/sub-AN16_asl.json",
+    "sub-AN16/perf/sub-AN16_asl.nii.gz",
+    "sub-AN16/perf/sub-AN16_aslcontext.tsv",
+    "sub-AN16/pet/sub-AN16_trc-11CUCBJ_pet.json",
+    "sub-AN16/pet/sub-AN16_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN17/anat/sub-AN17_T1w.json",
+    "sub-AN17/anat/sub-AN17_T1w.nii.gz",
+    "sub-AN17/perf/sub-AN17_asl.json",
+    "sub-AN17/perf/sub-AN17_asl.nii.gz",
+    "sub-AN17/perf/sub-AN17_aslcontext.tsv",
+    "sub-AN17/pet/sub-AN17_trc-11CUCBJ_pet.json",
+    "sub-AN17/pet/sub-AN17_trc-11CUCBJ_pet.nii.gz",
+    "sub-AN18/anat/sub-AN18_T1w.json",
+    "sub-AN18/anat/sub-AN18_T1w.nii.gz",
+    "sub-AN18/pet/sub-AN18_trc-11CUCBJ_pet.json",
+    "sub-AN18/pet/sub-AN18_trc-11CUCBJ_pet.nii.gz"
+  ],
+  "dateCreated": "2025-09-22 00:00:00",
+  "dateModified": "2025-09-22 00:00:00"
 }

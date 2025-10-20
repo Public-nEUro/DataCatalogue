@@ -1,505 +1,505 @@
 {
-    "type": "dataset",
-    "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-    "dataset_version": "V1",
-    "children": [
-        {
-            "type": "file",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1",
-            "path": "participants.tsv",
-            "contentbytesize": 369.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublicnEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "isPartOf": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "name": "participants.tsv"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1",
-            "path": "dataset_description.json",
-            "contentbytesize": 399.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublicnEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "isPartOf": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "name": "dataset_description.json"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1",
-            "path": "participants.json",
-            "contentbytesize": 343.0,
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "PublicnEUro",
-                        "source_version": "V1",
-                        "agent_name": "Cyril Pernet"
-                    }
-                ]
-            },
-            "isPartOf": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "name": "participants.json"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON001",
-            "path": "sub-HDCON001",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON002",
-            "path": "sub-HDCON002",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON003",
-            "path": "sub-HDCON003",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON004",
-            "path": "sub-HDCON004",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON005",
-            "path": "sub-HDCON005",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON006",
-            "path": "sub-HDCON006",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON007",
-            "path": "sub-HDCON007",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON008",
-            "path": "sub-HDCON008",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON009",
-            "path": "sub-HDCON009",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON010",
-            "path": "sub-HDCON010",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON011",
-            "path": "sub-HDCON011",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON012",
-            "path": "sub-HDCON012",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON013",
-            "path": "sub-HDCON013",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON014",
-            "path": "sub-HDCON014",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-HDCON015",
-            "path": "sub-HDCON015",
-            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-            "dataset_version": "V1"
-        }
-    ],
-    "metadata_sources": {
-        "key_source_map": {
-            "name": [
-                "UZ Leuven"
-            ],
-            "doi": [
-                "UZ Leuven"
-            ],
-            "download_url": [
-                "UZ Leuven"
-            ],
-            "keywords": [
-                "UZ Leuven"
-            ],
-            "license": [
-                "UZ Leuven"
-            ],
-            "funding": [
-                "UZ Leuven"
-            ],
-            "publications": [
-                "UZ Leuven"
-            ],
-            "additional_display": [
-                "UZ Leuven"
-            ],
-            "hasPart": [
-                "UZ Leuven"
-            ],
-            "dateCreated": [
-                "UZ Leuven"
-            ],
-            "dateModified": [
-                "UZ Leuven"
-            ]
-        },
+  "type": "dataset",
+  "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+  "dataset_version": "V1",
+  "children": [
+    {
+      "type": "file",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1",
+      "path": "participants.tsv",
+      "contentbytesize": 369.0,
+      "metadata_sources": {
         "sources": [
-            {
-                "source_name": "UZ Leuven",
-                "source_version": "V1",
-                "agent_name": "Janne Vignero",
-                "source_time": 1758492000.0
-            }
+          {
+            "source_name": "PublicnEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
         ]
+      },
+      "isPartOf": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "name": "participants.tsv"
     },
-    "name": "Leuven PET UCB-J dataset 5 in control participants",
-    "description": "Test-retest in healthy volunteers: dynamic UCB-J PET baseline scan (60 - 100 min after injection), dynamic FDG PET baseline scan (30 - 50 min after injection), T1w",
-    "doi": "https://doi.org/10.70883/WSYQ4663",
-    "download_url": "https:/datacatalog.publicneuro.eu/dataset/PN000010%20Leuven%20PET%20UCB-J%20dataset%205%20in%20control%20participants%20/V1",
-    "keywords": [
-        "UCBJ",
-        "FDG",
-        "PET",
-        "T1w",
-        "SV2A",
-        "11C",
-        "dynamic"
-    ],
-    "license": {
-        "name": "Data User Agreement"
+    {
+      "type": "file",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1",
+      "path": "dataset_description.json",
+      "contentbytesize": 399.0,
+      "metadata_sources": {
+        "sources": [
+          {
+            "source_name": "PublicnEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
+        ]
+      },
+      "isPartOf": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "name": "dataset_description.json"
     },
-    "authors": [
+    {
+      "type": "file",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1",
+      "path": "participants.json",
+      "contentbytesize": 343.0,
+      "metadata_sources": {
+        "sources": [
+          {
+            "source_name": "PublicnEUro",
+            "source_version": "V1",
+            "agent_name": "Cyril Pernet"
+          }
+        ]
+      },
+      "isPartOf": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "name": "participants.json"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON001",
+      "path": "sub-HDCON001",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON002",
+      "path": "sub-HDCON002",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON003",
+      "path": "sub-HDCON003",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON004",
+      "path": "sub-HDCON004",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON005",
+      "path": "sub-HDCON005",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON006",
+      "path": "sub-HDCON006",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON007",
+      "path": "sub-HDCON007",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON008",
+      "path": "sub-HDCON008",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON009",
+      "path": "sub-HDCON009",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON010",
+      "path": "sub-HDCON010",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON011",
+      "path": "sub-HDCON011",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON012",
+      "path": "sub-HDCON012",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON013",
+      "path": "sub-HDCON013",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON014",
+      "path": "sub-HDCON014",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-HDCON015",
+      "path": "sub-HDCON015",
+      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+      "dataset_version": "V1"
+    }
+  ],
+  "metadata_sources": {
+    "key_source_map": {
+      "name": [
+        "UZ Leuven"
+      ],
+      "doi": [
+        "UZ Leuven"
+      ],
+      "download_url": [
+        "UZ Leuven"
+      ],
+      "keywords": [
+        "UZ Leuven"
+      ],
+      "license": [
+        "UZ Leuven"
+      ],
+      "funding": [
+        "UZ Leuven"
+      ],
+      "publications": [
+        "UZ Leuven"
+      ],
+      "additional_display": [
+        "UZ Leuven"
+      ],
+      "hasPart": [
+        "UZ Leuven"
+      ],
+      "dateCreated": [
+        "UZ Leuven"
+      ],
+      "dateModified": [
+        "UZ Leuven"
+      ]
+    },
+    "sources": [
+      {
+        "source_name": "UZ Leuven",
+        "source_version": "V1",
+        "agent_name": "Janne Vignero",
+        "source_time": 1758492000.0
+      }
+    ]
+  },
+  "name": "Leuven PET UCB-J dataset 5 in control participants",
+  "description": "Test-retest in healthy volunteers: dynamic UCB-J PET baseline scan (60 - 100 min after injection), dynamic FDG PET baseline scan (30 - 50 min after injection), T1w (total size: 1.4GB)",
+  "doi": "https://doi.org/10.70883/WSYQ4663",
+  "download_url": "https:/datacatalog.publicneuro.eu/dataset/PN000010%20Leuven%20PET%20UCB-J%20dataset%205%20in%20control%20participants%20/V1",
+  "keywords": [
+    "UCBJ",
+    "FDG",
+    "PET",
+    "T1w",
+    "SV2A",
+    "11C",
+    "dynamic"
+  ],
+  "license": {
+    "name": "Data User Agreement"
+  },
+  "authors": [
+    {
+      "givenName": "Koen",
+      "familyName": "Van Laere"
+    },
+    {
+      "givenName": "Aline",
+      "familyName": "Delva"
+    },
+    {
+      "givenName": "Wim",
+      "familyName": "Vandenberghe"
+    }
+  ],
+  "funding": [
+    {
+      "name": "UZ Leuven",
+      "identifier": "KOOR"
+    },
+    {
+      "name": "FWO",
+      "identifier": "G 0932 18N"
+    },
+    {
+      "name": "KU Leuven",
+      "identifier": "C2-17-063"
+    }
+  ],
+  "publications": [
+    {
+      "type": "academic publication",
+      "title": "Longitudinal Imaging of Regional Brain Volumes, SV2A, and Glucose Metabolism In Huntington's Disease",
+      "datePublished": "2023-06-01 00:00:00",
+      "doi": "10.1002/mds.29501",
+      "authors": [
         {
-            "givenName": "Koen",
-            "familyName": "Van Laere"
-        },
-        {
-            "givenName": "Aline",
-            "familyName": "Delva"
-        },
-        {
-            "givenName": "Wim",
-            "familyName": "Vandenberghe"
+          "givenName": "Delva",
+          "familyName": "A., Van Laere K., Vandenberghe W."
         }
-    ],
-    "funding": [
+      ]
+    },
+    {
+      "type": "academic publication",
+      "title": "Synaptic Damage and Its Clinical Correlates in People With Early Huntington Disease: A PET Study",
+      "datePublished": "2022-01-01 00:00:00",
+      "doi": "10.1212/WNL.0000000000012969",
+      "authors": [
         {
-            "name": "UZ Leuven",
-            "identifier": "KOOR"
-        },
-        {
-            "name": "FWO",
-            "identifier": "G 0932 18N"
-        },
-        {
-            "name": "KU Leuven",
-            "identifier": "C2-17-063"
+          "givenName": "Delva",
+          "familyName": "A., Michiels L., Koole M., Van Laere K., Vandenberghe W."
         }
-    ],
-    "publications": [
-        {
-            "type": "academic publication",
-            "title": "Longitudinal Imaging of Regional Brain Volumes, SV2A, and Glucose Metabolism In Huntington's Disease",
-            "datePublished": "2023-06-01 00:00:00",
-            "doi": "10.1002/mds.29501",
-            "authors": [
-                {
-                    "givenName": "Delva",
-                    "familyName": "A., Van Laere K., Vandenberghe W."
-                }
-            ]
-        },
-        {
-            "type": "academic publication",
-            "title": "Synaptic Damage and Its Clinical Correlates in People With Early Huntington Disease: A PET Study",
-            "datePublished": "2022-01-01 00:00:00",
-            "doi": "10.1212/WNL.0000000000012969",
-            "authors": [
-                {
-                    "givenName": "Delva",
-                    "familyName": "A., Michiels L., Koole M., Van Laere K., Vandenberghe W."
-                }
-            ]
-        }
-    ],
-    "additional_display": [
-        {
-            "name": "Dataset Metadata",
-            "content": {
-                "bids_version": [
-                    "1.7.0"
-                ],
-                "bids_datasettype": "raw",
-                "bids_datatypes": [
-                    "anat",
-                    "pet"
-                ],
-                "NCBI Species Taxonomy": [
-                    "homo sapiens"
-                ]
-            }
-        },
-        {
-            "name": "DUA terms",
-            "content": {
-                "Restrictions": [
-                    "Institution of users from non EU or adequate countries must be able to sign standard contractual clauses + data controller oversight"
-                ],
-                "Terms": [
-                    "By accepting this agreement, I become the data controller (as defined under the GDPR) of the data that I have access to, and am responsible that I access these data under the following terms:\n\n1. I will comply with all relevant rules and regulations imposed by my institution and my government. Rules established in this agreement thus take place in addition to existing general data protection regulations that are applicable in my country.\n2. I will not attempt to establish or retrieve the identity of the study participants. I will not link these data to any other database in a way that could provide identifying information. I shall not request the pseudonymisation key that would link these data to an individual’s personal information, nor will I accept any additional information about individual participants under this Data Use Agreement.\n3. I will not redistribute these data or share access to these data with others, unless they have independently applied and been granted access to these data, i.e., signed this Data Use Agreement. This includes individuals in my institution.\n4. I will reference the specific source of the accessed data when publicly presenting any results or algorithms that benefited from their use: (a) Papers, book chapters, books, posters, oral presentations, and all other presentations of results derived from the data should acknowledge the origin of the data as follows: “Data were provided (in part) by the Department of Movement Sciences, KU Leuven, Belgium”. (b) Authors of publications or presentations using the data should cite relevant publications describing the methods developed and used by the Department of Movement Sciences to acquire and process the data. The specific publications that are appropriate to cite in any given study will depend on what the data were used and for what purposes. When applicable, a list of publications will be included in the collection. (c) Neither the Department of Movement Sciences or Leuven, nor the researchers that provide this data will be liable for any results and/or derived data. They shall not be included as an author of publications or presentations without consent.\n5. Failure to abide by these guidelines will result in termination of my privileges to access these data."
-                ]
-            }
-        },
-        {
-            "name": "Participants",
-            "content": {
-                "total_number": [
-                    "15"
-                ],
-                "number_of_healthy": [
-                    "15"
-                ],
-                "number_of_patients": [
-                    "0"
-                ],
-                "number_of_biological_males": [
-                    "11"
-                ],
-                "number_of_biological_females": [
-                    "4"
-                ]
-            }
-        }
-    ],
-    "hasPart": [
-        "dataset_description.json",
-        "participants.json",
-        "participants.tsv",
-        "sub-HDCON001/ses-01UCBJ/pet/sub-HDCON001_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON001/ses-01UCBJ/pet/sub-HDCON001_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON001/ses-02FDG/anat/sub-HDCON001_ses-02FDG_T1w.json",
-        "sub-HDCON001/ses-02FDG/anat/sub-HDCON001_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON001/ses-02FDG/pet/sub-HDCON001_ses-02FDG_pet.json",
-        "sub-HDCON001/ses-02FDG/pet/sub-HDCON001_ses-02FDG_pet.nii.gz",
-        "sub-HDCON001/ses-03UCBJ/pet/sub-HDCON001_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON001/ses-03UCBJ/pet/sub-HDCON001_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON001/ses-04FDG/anat/sub-HDCON001_ses-04FDG_T1w.json",
-        "sub-HDCON001/ses-04FDG/anat/sub-HDCON001_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON001/ses-04FDG/pet/sub-HDCON001_ses-04FDG_pet.json",
-        "sub-HDCON001/ses-04FDG/pet/sub-HDCON001_ses-04FDG_pet.nii.gz",
-        "sub-HDCON002/ses-01UCBJ/pet/sub-HDCON002_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON002/ses-01UCBJ/pet/sub-HDCON002_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON002/ses-02FDG/anat/sub-HDCON002_ses-02FDG_T1w.json",
-        "sub-HDCON002/ses-02FDG/anat/sub-HDCON002_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON002/ses-02FDG/pet/sub-HDCON002_ses-02FDG_pet.json",
-        "sub-HDCON002/ses-02FDG/pet/sub-HDCON002_ses-02FDG_pet.nii.gz",
-        "sub-HDCON002/ses-03UCBJ/pet/sub-HDCON002_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON002/ses-03UCBJ/pet/sub-HDCON002_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON002/ses-04FDG/anat/sub-HDCON002_ses-04FDG_T1w.json",
-        "sub-HDCON002/ses-04FDG/anat/sub-HDCON002_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON002/ses-04FDG/pet/sub-HDCON002_ses-04FDG_pet.json",
-        "sub-HDCON002/ses-04FDG/pet/sub-HDCON002_ses-04FDG_pet.nii.gz",
-        "sub-HDCON003/ses-01UCBJ/pet/sub-HDCON003_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON003/ses-01UCBJ/pet/sub-HDCON003_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON003/ses-02FDG/anat/sub-HDCON003_ses-02FDG_T1w.json",
-        "sub-HDCON003/ses-02FDG/anat/sub-HDCON003_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON003/ses-02FDG/pet/sub-HDCON003_ses-02FDG_pet.json",
-        "sub-HDCON003/ses-02FDG/pet/sub-HDCON003_ses-02FDG_pet.nii.gz",
-        "sub-HDCON003/ses-03UCBJ/pet/sub-HDCON003_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON003/ses-03UCBJ/pet/sub-HDCON003_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON003/ses-04FDG/anat/sub-HDCON003_ses-04FDG_T1w.json",
-        "sub-HDCON003/ses-04FDG/anat/sub-HDCON003_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON003/ses-04FDG/pet/sub-HDCON003_ses-04FDG_pet.json",
-        "sub-HDCON003/ses-04FDG/pet/sub-HDCON003_ses-04FDG_pet.nii.gz",
-        "sub-HDCON004/ses-01UCBJ/pet/sub-HDCON004_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON004/ses-01UCBJ/pet/sub-HDCON004_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON004/ses-02FDG/anat/sub-HDCON004_ses-02FDG_T1w.json",
-        "sub-HDCON004/ses-02FDG/anat/sub-HDCON004_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON004/ses-02FDG/pet/sub-HDCON004_ses-02FDG_pet.json",
-        "sub-HDCON004/ses-02FDG/pet/sub-HDCON004_ses-02FDG_pet.nii.gz",
-        "sub-HDCON004/ses-03UCBJ/pet/sub-HDCON004_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON004/ses-03UCBJ/pet/sub-HDCON004_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON004/ses-04FDG/anat/sub-HDCON004_ses-04FDG_T1w.json",
-        "sub-HDCON004/ses-04FDG/anat/sub-HDCON004_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON004/ses-04FDG/pet/sub-HDCON004_ses-04FDG_pet.json",
-        "sub-HDCON004/ses-04FDG/pet/sub-HDCON004_ses-04FDG_pet.nii.gz",
-        "sub-HDCON005/ses-01UCBJ/pet/sub-HDCON005_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON005/ses-01UCBJ/pet/sub-HDCON005_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON005/ses-02FDG/anat/sub-HDCON005_ses-02FDG_T1w.json",
-        "sub-HDCON005/ses-02FDG/anat/sub-HDCON005_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON005/ses-02FDG/pet/sub-HDCON005_ses-02FDG_pet.json",
-        "sub-HDCON005/ses-02FDG/pet/sub-HDCON005_ses-02FDG_pet.nii.gz",
-        "sub-HDCON005/ses-03UCBJ/pet/sub-HDCON005_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON005/ses-03UCBJ/pet/sub-HDCON005_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON005/ses-04FDG/anat/sub-HDCON005_ses-04FDG_T1w.json",
-        "sub-HDCON005/ses-04FDG/anat/sub-HDCON005_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON005/ses-04FDG/pet/sub-HDCON005_ses-04FDG_pet.json",
-        "sub-HDCON005/ses-04FDG/pet/sub-HDCON005_ses-04FDG_pet.nii.gz",
-        "sub-HDCON006/ses-01UCBJ/pet/sub-HDCON006_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON006/ses-01UCBJ/pet/sub-HDCON006_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON006/ses-02FDG/anat/sub-HDCON006_ses-02FDG_T1w.json",
-        "sub-HDCON006/ses-02FDG/anat/sub-HDCON006_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON006/ses-02FDG/pet/sub-HDCON006_ses-02FDG_pet.json",
-        "sub-HDCON006/ses-02FDG/pet/sub-HDCON006_ses-02FDG_pet.nii.gz",
-        "sub-HDCON006/ses-03UCBJ/pet/sub-HDCON006_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON006/ses-03UCBJ/pet/sub-HDCON006_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON006/ses-04FDG/anat/sub-HDCON006_ses-04FDG_T1w.json",
-        "sub-HDCON006/ses-04FDG/anat/sub-HDCON006_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON006/ses-04FDG/pet/sub-HDCON006_ses-04FDG_pet.json",
-        "sub-HDCON006/ses-04FDG/pet/sub-HDCON006_ses-04FDG_pet.nii.gz",
-        "sub-HDCON007/ses-01UCBJ/pet/sub-HDCON007_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON007/ses-01UCBJ/pet/sub-HDCON007_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON007/ses-02FDG/anat/sub-HDCON007_ses-02FDG_T1w.json",
-        "sub-HDCON007/ses-02FDG/anat/sub-HDCON007_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON007/ses-02FDG/pet/sub-HDCON007_ses-02FDG_pet.json",
-        "sub-HDCON007/ses-02FDG/pet/sub-HDCON007_ses-02FDG_pet.nii.gz",
-        "sub-HDCON007/ses-03UCBJ/pet/sub-HDCON007_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON007/ses-03UCBJ/pet/sub-HDCON007_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON007/ses-04FDG/anat/sub-HDCON007_ses-04FDG_T1w.json",
-        "sub-HDCON007/ses-04FDG/anat/sub-HDCON007_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON007/ses-04FDG/pet/sub-HDCON007_ses-04FDG_pet.json",
-        "sub-HDCON007/ses-04FDG/pet/sub-HDCON007_ses-04FDG_pet.nii.gz",
-        "sub-HDCON008/ses-01UCBJ/pet/sub-HDCON008_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON008/ses-01UCBJ/pet/sub-HDCON008_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON008/ses-02FDG/anat/sub-HDCON008_ses-02FDG_T1w.json",
-        "sub-HDCON008/ses-02FDG/anat/sub-HDCON008_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON008/ses-02FDG/pet/sub-HDCON008_ses-02FDG_pet.json",
-        "sub-HDCON008/ses-02FDG/pet/sub-HDCON008_ses-02FDG_pet.nii.gz",
-        "sub-HDCON009/ses-01UCBJ/pet/sub-HDCON009_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON009/ses-01UCBJ/pet/sub-HDCON009_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON009/ses-02FDG/anat/sub-HDCON009_ses-02FDG_T1w.json",
-        "sub-HDCON009/ses-02FDG/anat/sub-HDCON009_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON009/ses-02FDG/pet/sub-HDCON009_ses-02FDG_pet.json",
-        "sub-HDCON009/ses-02FDG/pet/sub-HDCON009_ses-02FDG_pet.nii.gz",
-        "sub-HDCON009/ses-03UCBJ/pet/sub-HDCON009_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON009/ses-03UCBJ/pet/sub-HDCON009_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON009/ses-04FDG/anat/sub-HDCON009_ses-04FDG_T1w.json",
-        "sub-HDCON009/ses-04FDG/anat/sub-HDCON009_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON009/ses-04FDG/pet/sub-HDCON009_ses-04FDG_pet.json",
-        "sub-HDCON009/ses-04FDG/pet/sub-HDCON009_ses-04FDG_pet.nii.gz",
-        "sub-HDCON010/ses-01UCBJ/pet/sub-HDCON010_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON010/ses-01UCBJ/pet/sub-HDCON010_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON010/ses-02FDG/anat/sub-HDCON010_ses-02FDG_T1w.json",
-        "sub-HDCON010/ses-02FDG/anat/sub-HDCON010_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON010/ses-02FDG/pet/sub-HDCON010_ses-02FDG_pet.json",
-        "sub-HDCON010/ses-02FDG/pet/sub-HDCON010_ses-02FDG_pet.nii.gz",
-        "sub-HDCON010/ses-03UCBJ/pet/sub-HDCON010_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON010/ses-03UCBJ/pet/sub-HDCON010_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON010/ses-04FDG/anat/sub-HDCON010_ses-04FDG_T1w.json",
-        "sub-HDCON010/ses-04FDG/anat/sub-HDCON010_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON010/ses-04FDG/pet/sub-HDCON010_ses-04FDG_trc-18FPE2I_pet.json",
-        "sub-HDCON010/ses-04FDG/pet/sub-HDCON010_ses-04FDG_trc-18FPE2I_pet.nii.gz",
-        "sub-HDCON011/ses-01UCBJ/pet/sub-HDCON011_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON011/ses-01UCBJ/pet/sub-HDCON011_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON011/ses-02FDG/anat/sub-HDCON011_ses-02FDG_T1w.json",
-        "sub-HDCON011/ses-02FDG/anat/sub-HDCON011_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON011/ses-02FDG/pet/sub-HDCON011_ses-02FDG_pet.json",
-        "sub-HDCON011/ses-02FDG/pet/sub-HDCON011_ses-02FDG_pet.nii.gz",
-        "sub-HDCON011/ses-03UCBJ/pet/sub-HDCON011_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON011/ses-03UCBJ/pet/sub-HDCON011_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON011/ses-04FDG/anat/sub-HDCON011_ses-04FDG_T1w.json",
-        "sub-HDCON011/ses-04FDG/anat/sub-HDCON011_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON011/ses-04FDG/pet/sub-HDCON011_ses-04FDG_pet.json",
-        "sub-HDCON011/ses-04FDG/pet/sub-HDCON011_ses-04FDG_pet.nii.gz",
-        "sub-HDCON012/ses-01UCBJ/pet/sub-HDCON012_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON012/ses-01UCBJ/pet/sub-HDCON012_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON012/ses-02FDG/anat/sub-HDCON012_ses-02FDG_T1w.json",
-        "sub-HDCON012/ses-02FDG/anat/sub-HDCON012_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON012/ses-02FDG/pet/sub-HDCON012_ses-02FDG_pet.json",
-        "sub-HDCON012/ses-02FDG/pet/sub-HDCON012_ses-02FDG_pet.nii.gz",
-        "sub-HDCON013/ses-01UCBJ/pet/sub-HDCON013_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON013/ses-01UCBJ/pet/sub-HDCON013_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON013/ses-02FDG/anat/sub-HDCON013_ses-02FDG_T1w.json",
-        "sub-HDCON013/ses-02FDG/anat/sub-HDCON013_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON013/ses-02FDG/pet/sub-HDCON013_ses-02FDG_pet.json",
-        "sub-HDCON013/ses-02FDG/pet/sub-HDCON013_ses-02FDG_pet.nii.gz",
-        "sub-HDCON013/ses-03UCBJ/pet/sub-HDCON013_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON013/ses-03UCBJ/pet/sub-HDCON013_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON013/ses-04FDG/anat/sub-HDCON013_ses-04FDG_T1w.json",
-        "sub-HDCON013/ses-04FDG/anat/sub-HDCON013_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON013/ses-04FDG/pet/sub-HDCON013_ses-04FDG_pet.json",
-        "sub-HDCON013/ses-04FDG/pet/sub-HDCON013_ses-04FDG_pet.nii.gz",
-        "sub-HDCON014/ses-01UCBJ/pet/sub-HDCON014_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON014/ses-01UCBJ/pet/sub-HDCON014_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON014/ses-02FDG/anat/sub-HDCON014_ses-02FDG_T1w.json",
-        "sub-HDCON014/ses-02FDG/anat/sub-HDCON014_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON014/ses-02FDG/pet/sub-HDCON014_ses-02FDG_pet.json",
-        "sub-HDCON014/ses-02FDG/pet/sub-HDCON014_ses-02FDG_pet.nii.gz",
-        "sub-HDCON014/ses-03UCBJ/pet/sub-HDCON014_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON014/ses-03UCBJ/pet/sub-HDCON014_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON014/ses-04FDG/anat/sub-HDCON014_ses-04FDG_T1w.json",
-        "sub-HDCON014/ses-04FDG/anat/sub-HDCON014_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON014/ses-04FDG/pet/sub-HDCON014_ses-04FDG_pet.json",
-        "sub-HDCON014/ses-04FDG/pet/sub-HDCON014_ses-04FDG_pet.nii.gz",
-        "sub-HDCON015/ses-01UCBJ/pet/sub-HDCON015_ses-01UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON015/ses-01UCBJ/pet/sub-HDCON015_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON015/ses-02FDG/anat/sub-HDCON015_ses-02FDG_T1w.json",
-        "sub-HDCON015/ses-02FDG/anat/sub-HDCON015_ses-02FDG_T1w.nii.gz",
-        "sub-HDCON015/ses-02FDG/pet/sub-HDCON015_ses-02FDG_pet.json",
-        "sub-HDCON015/ses-02FDG/pet/sub-HDCON015_ses-02FDG_pet.nii.gz",
-        "sub-HDCON015/ses-03UCBJ/pet/sub-HDCON015_ses-03UCBJ_trc-11CUCBJ_pet.json",
-        "sub-HDCON015/ses-03UCBJ/pet/sub-HDCON015_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
-        "sub-HDCON015/ses-04FDG/anat/sub-HDCON015_ses-04FDG_T1w.json",
-        "sub-HDCON015/ses-04FDG/anat/sub-HDCON015_ses-04FDG_T1w.nii.gz",
-        "sub-HDCON015/ses-04FDG/pet/sub-HDCON015_ses-04FDG_pet.json",
-        "sub-HDCON015/ses-04FDG/pet/sub-HDCON015_ses-04FDG_pet.nii.gz"
-    ],
-    "dateCreated": "2025-09-22 00:00:00",
-    "dateModified": "2025-09-22 00:00:00"
+      ]
+    }
+  ],
+  "additional_display": [
+    {
+      "name": "Dataset Metadata",
+      "content": {
+        "bids_version": [
+          "1.7.0"
+        ],
+        "bids_datasettype": "raw",
+        "bids_datatypes": [
+          "anat",
+          "pet"
+        ],
+        "NCBI Species Taxonomy": [
+          "homo sapiens"
+        ]
+      }
+    },
+    {
+      "name": "DUA terms",
+      "content": {
+        "Restrictions": [
+          "Institution of users from non EU or adequate countries must be able to sign standard contractual clauses + data controller oversight"
+        ],
+        "Terms": [
+          "By accepting this agreement, I become the data controller (as defined under the GDPR) of the data that I have access to, and am responsible that I access these data under the following terms:\n\n1. I will comply with all relevant rules and regulations imposed by my institution and my government. Rules established in this agreement thus take place in addition to existing general data protection regulations that are applicable in my country.\n2. I will not attempt to establish or retrieve the identity of the study participants. I will not link these data to any other database in a way that could provide identifying information. I shall not request the pseudonymisation key that would link these data to an individual’s personal information, nor will I accept any additional information about individual participants under this Data Use Agreement.\n3. I will not redistribute these data or share access to these data with others, unless they have independently applied and been granted access to these data, i.e., signed this Data Use Agreement. This includes individuals in my institution.\n4. I will reference the specific source of the accessed data when publicly presenting any results or algorithms that benefited from their use: (a) Papers, book chapters, books, posters, oral presentations, and all other presentations of results derived from the data should acknowledge the origin of the data as follows: “Data were provided (in part) by the Department of Movement Sciences, KU Leuven, Belgium”. (b) Authors of publications or presentations using the data should cite relevant publications describing the methods developed and used by the Department of Movement Sciences to acquire and process the data. The specific publications that are appropriate to cite in any given study will depend on what the data were used and for what purposes. When applicable, a list of publications will be included in the collection. (c) Neither the Department of Movement Sciences or Leuven, nor the researchers that provide this data will be liable for any results and/or derived data. They shall not be included as an author of publications or presentations without consent.\n5. Failure to abide by these guidelines will result in termination of my privileges to access these data."
+        ]
+      }
+    },
+    {
+      "name": "Participants",
+      "content": {
+        "total_number": [
+          "15"
+        ],
+        "number_of_healthy": [
+          "15"
+        ],
+        "number_of_patients": [
+          "0"
+        ],
+        "number_of_biological_males": [
+          "11"
+        ],
+        "number_of_biological_females": [
+          "4"
+        ]
+      }
+    }
+  ],
+  "hasPart": [
+    "dataset_description.json",
+    "participants.json",
+    "participants.tsv",
+    "sub-HDCON001/ses-01UCBJ/pet/sub-HDCON001_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON001/ses-01UCBJ/pet/sub-HDCON001_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON001/ses-02FDG/anat/sub-HDCON001_ses-02FDG_T1w.json",
+    "sub-HDCON001/ses-02FDG/anat/sub-HDCON001_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON001/ses-02FDG/pet/sub-HDCON001_ses-02FDG_pet.json",
+    "sub-HDCON001/ses-02FDG/pet/sub-HDCON001_ses-02FDG_pet.nii.gz",
+    "sub-HDCON001/ses-03UCBJ/pet/sub-HDCON001_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON001/ses-03UCBJ/pet/sub-HDCON001_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON001/ses-04FDG/anat/sub-HDCON001_ses-04FDG_T1w.json",
+    "sub-HDCON001/ses-04FDG/anat/sub-HDCON001_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON001/ses-04FDG/pet/sub-HDCON001_ses-04FDG_pet.json",
+    "sub-HDCON001/ses-04FDG/pet/sub-HDCON001_ses-04FDG_pet.nii.gz",
+    "sub-HDCON002/ses-01UCBJ/pet/sub-HDCON002_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON002/ses-01UCBJ/pet/sub-HDCON002_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON002/ses-02FDG/anat/sub-HDCON002_ses-02FDG_T1w.json",
+    "sub-HDCON002/ses-02FDG/anat/sub-HDCON002_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON002/ses-02FDG/pet/sub-HDCON002_ses-02FDG_pet.json",
+    "sub-HDCON002/ses-02FDG/pet/sub-HDCON002_ses-02FDG_pet.nii.gz",
+    "sub-HDCON002/ses-03UCBJ/pet/sub-HDCON002_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON002/ses-03UCBJ/pet/sub-HDCON002_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON002/ses-04FDG/anat/sub-HDCON002_ses-04FDG_T1w.json",
+    "sub-HDCON002/ses-04FDG/anat/sub-HDCON002_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON002/ses-04FDG/pet/sub-HDCON002_ses-04FDG_pet.json",
+    "sub-HDCON002/ses-04FDG/pet/sub-HDCON002_ses-04FDG_pet.nii.gz",
+    "sub-HDCON003/ses-01UCBJ/pet/sub-HDCON003_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON003/ses-01UCBJ/pet/sub-HDCON003_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON003/ses-02FDG/anat/sub-HDCON003_ses-02FDG_T1w.json",
+    "sub-HDCON003/ses-02FDG/anat/sub-HDCON003_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON003/ses-02FDG/pet/sub-HDCON003_ses-02FDG_pet.json",
+    "sub-HDCON003/ses-02FDG/pet/sub-HDCON003_ses-02FDG_pet.nii.gz",
+    "sub-HDCON003/ses-03UCBJ/pet/sub-HDCON003_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON003/ses-03UCBJ/pet/sub-HDCON003_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON003/ses-04FDG/anat/sub-HDCON003_ses-04FDG_T1w.json",
+    "sub-HDCON003/ses-04FDG/anat/sub-HDCON003_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON003/ses-04FDG/pet/sub-HDCON003_ses-04FDG_pet.json",
+    "sub-HDCON003/ses-04FDG/pet/sub-HDCON003_ses-04FDG_pet.nii.gz",
+    "sub-HDCON004/ses-01UCBJ/pet/sub-HDCON004_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON004/ses-01UCBJ/pet/sub-HDCON004_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON004/ses-02FDG/anat/sub-HDCON004_ses-02FDG_T1w.json",
+    "sub-HDCON004/ses-02FDG/anat/sub-HDCON004_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON004/ses-02FDG/pet/sub-HDCON004_ses-02FDG_pet.json",
+    "sub-HDCON004/ses-02FDG/pet/sub-HDCON004_ses-02FDG_pet.nii.gz",
+    "sub-HDCON004/ses-03UCBJ/pet/sub-HDCON004_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON004/ses-03UCBJ/pet/sub-HDCON004_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON004/ses-04FDG/anat/sub-HDCON004_ses-04FDG_T1w.json",
+    "sub-HDCON004/ses-04FDG/anat/sub-HDCON004_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON004/ses-04FDG/pet/sub-HDCON004_ses-04FDG_pet.json",
+    "sub-HDCON004/ses-04FDG/pet/sub-HDCON004_ses-04FDG_pet.nii.gz",
+    "sub-HDCON005/ses-01UCBJ/pet/sub-HDCON005_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON005/ses-01UCBJ/pet/sub-HDCON005_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON005/ses-02FDG/anat/sub-HDCON005_ses-02FDG_T1w.json",
+    "sub-HDCON005/ses-02FDG/anat/sub-HDCON005_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON005/ses-02FDG/pet/sub-HDCON005_ses-02FDG_pet.json",
+    "sub-HDCON005/ses-02FDG/pet/sub-HDCON005_ses-02FDG_pet.nii.gz",
+    "sub-HDCON005/ses-03UCBJ/pet/sub-HDCON005_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON005/ses-03UCBJ/pet/sub-HDCON005_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON005/ses-04FDG/anat/sub-HDCON005_ses-04FDG_T1w.json",
+    "sub-HDCON005/ses-04FDG/anat/sub-HDCON005_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON005/ses-04FDG/pet/sub-HDCON005_ses-04FDG_pet.json",
+    "sub-HDCON005/ses-04FDG/pet/sub-HDCON005_ses-04FDG_pet.nii.gz",
+    "sub-HDCON006/ses-01UCBJ/pet/sub-HDCON006_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON006/ses-01UCBJ/pet/sub-HDCON006_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON006/ses-02FDG/anat/sub-HDCON006_ses-02FDG_T1w.json",
+    "sub-HDCON006/ses-02FDG/anat/sub-HDCON006_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON006/ses-02FDG/pet/sub-HDCON006_ses-02FDG_pet.json",
+    "sub-HDCON006/ses-02FDG/pet/sub-HDCON006_ses-02FDG_pet.nii.gz",
+    "sub-HDCON006/ses-03UCBJ/pet/sub-HDCON006_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON006/ses-03UCBJ/pet/sub-HDCON006_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON006/ses-04FDG/anat/sub-HDCON006_ses-04FDG_T1w.json",
+    "sub-HDCON006/ses-04FDG/anat/sub-HDCON006_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON006/ses-04FDG/pet/sub-HDCON006_ses-04FDG_pet.json",
+    "sub-HDCON006/ses-04FDG/pet/sub-HDCON006_ses-04FDG_pet.nii.gz",
+    "sub-HDCON007/ses-01UCBJ/pet/sub-HDCON007_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON007/ses-01UCBJ/pet/sub-HDCON007_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON007/ses-02FDG/anat/sub-HDCON007_ses-02FDG_T1w.json",
+    "sub-HDCON007/ses-02FDG/anat/sub-HDCON007_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON007/ses-02FDG/pet/sub-HDCON007_ses-02FDG_pet.json",
+    "sub-HDCON007/ses-02FDG/pet/sub-HDCON007_ses-02FDG_pet.nii.gz",
+    "sub-HDCON007/ses-03UCBJ/pet/sub-HDCON007_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON007/ses-03UCBJ/pet/sub-HDCON007_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON007/ses-04FDG/anat/sub-HDCON007_ses-04FDG_T1w.json",
+    "sub-HDCON007/ses-04FDG/anat/sub-HDCON007_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON007/ses-04FDG/pet/sub-HDCON007_ses-04FDG_pet.json",
+    "sub-HDCON007/ses-04FDG/pet/sub-HDCON007_ses-04FDG_pet.nii.gz",
+    "sub-HDCON008/ses-01UCBJ/pet/sub-HDCON008_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON008/ses-01UCBJ/pet/sub-HDCON008_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON008/ses-02FDG/anat/sub-HDCON008_ses-02FDG_T1w.json",
+    "sub-HDCON008/ses-02FDG/anat/sub-HDCON008_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON008/ses-02FDG/pet/sub-HDCON008_ses-02FDG_pet.json",
+    "sub-HDCON008/ses-02FDG/pet/sub-HDCON008_ses-02FDG_pet.nii.gz",
+    "sub-HDCON009/ses-01UCBJ/pet/sub-HDCON009_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON009/ses-01UCBJ/pet/sub-HDCON009_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON009/ses-02FDG/anat/sub-HDCON009_ses-02FDG_T1w.json",
+    "sub-HDCON009/ses-02FDG/anat/sub-HDCON009_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON009/ses-02FDG/pet/sub-HDCON009_ses-02FDG_pet.json",
+    "sub-HDCON009/ses-02FDG/pet/sub-HDCON009_ses-02FDG_pet.nii.gz",
+    "sub-HDCON009/ses-03UCBJ/pet/sub-HDCON009_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON009/ses-03UCBJ/pet/sub-HDCON009_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON009/ses-04FDG/anat/sub-HDCON009_ses-04FDG_T1w.json",
+    "sub-HDCON009/ses-04FDG/anat/sub-HDCON009_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON009/ses-04FDG/pet/sub-HDCON009_ses-04FDG_pet.json",
+    "sub-HDCON009/ses-04FDG/pet/sub-HDCON009_ses-04FDG_pet.nii.gz",
+    "sub-HDCON010/ses-01UCBJ/pet/sub-HDCON010_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON010/ses-01UCBJ/pet/sub-HDCON010_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON010/ses-02FDG/anat/sub-HDCON010_ses-02FDG_T1w.json",
+    "sub-HDCON010/ses-02FDG/anat/sub-HDCON010_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON010/ses-02FDG/pet/sub-HDCON010_ses-02FDG_pet.json",
+    "sub-HDCON010/ses-02FDG/pet/sub-HDCON010_ses-02FDG_pet.nii.gz",
+    "sub-HDCON010/ses-03UCBJ/pet/sub-HDCON010_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON010/ses-03UCBJ/pet/sub-HDCON010_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON010/ses-04FDG/anat/sub-HDCON010_ses-04FDG_T1w.json",
+    "sub-HDCON010/ses-04FDG/anat/sub-HDCON010_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON010/ses-04FDG/pet/sub-HDCON010_ses-04FDG_trc-18FPE2I_pet.json",
+    "sub-HDCON010/ses-04FDG/pet/sub-HDCON010_ses-04FDG_trc-18FPE2I_pet.nii.gz",
+    "sub-HDCON011/ses-01UCBJ/pet/sub-HDCON011_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON011/ses-01UCBJ/pet/sub-HDCON011_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON011/ses-02FDG/anat/sub-HDCON011_ses-02FDG_T1w.json",
+    "sub-HDCON011/ses-02FDG/anat/sub-HDCON011_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON011/ses-02FDG/pet/sub-HDCON011_ses-02FDG_pet.json",
+    "sub-HDCON011/ses-02FDG/pet/sub-HDCON011_ses-02FDG_pet.nii.gz",
+    "sub-HDCON011/ses-03UCBJ/pet/sub-HDCON011_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON011/ses-03UCBJ/pet/sub-HDCON011_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON011/ses-04FDG/anat/sub-HDCON011_ses-04FDG_T1w.json",
+    "sub-HDCON011/ses-04FDG/anat/sub-HDCON011_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON011/ses-04FDG/pet/sub-HDCON011_ses-04FDG_pet.json",
+    "sub-HDCON011/ses-04FDG/pet/sub-HDCON011_ses-04FDG_pet.nii.gz",
+    "sub-HDCON012/ses-01UCBJ/pet/sub-HDCON012_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON012/ses-01UCBJ/pet/sub-HDCON012_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON012/ses-02FDG/anat/sub-HDCON012_ses-02FDG_T1w.json",
+    "sub-HDCON012/ses-02FDG/anat/sub-HDCON012_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON012/ses-02FDG/pet/sub-HDCON012_ses-02FDG_pet.json",
+    "sub-HDCON012/ses-02FDG/pet/sub-HDCON012_ses-02FDG_pet.nii.gz",
+    "sub-HDCON013/ses-01UCBJ/pet/sub-HDCON013_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON013/ses-01UCBJ/pet/sub-HDCON013_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON013/ses-02FDG/anat/sub-HDCON013_ses-02FDG_T1w.json",
+    "sub-HDCON013/ses-02FDG/anat/sub-HDCON013_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON013/ses-02FDG/pet/sub-HDCON013_ses-02FDG_pet.json",
+    "sub-HDCON013/ses-02FDG/pet/sub-HDCON013_ses-02FDG_pet.nii.gz",
+    "sub-HDCON013/ses-03UCBJ/pet/sub-HDCON013_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON013/ses-03UCBJ/pet/sub-HDCON013_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON013/ses-04FDG/anat/sub-HDCON013_ses-04FDG_T1w.json",
+    "sub-HDCON013/ses-04FDG/anat/sub-HDCON013_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON013/ses-04FDG/pet/sub-HDCON013_ses-04FDG_pet.json",
+    "sub-HDCON013/ses-04FDG/pet/sub-HDCON013_ses-04FDG_pet.nii.gz",
+    "sub-HDCON014/ses-01UCBJ/pet/sub-HDCON014_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON014/ses-01UCBJ/pet/sub-HDCON014_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON014/ses-02FDG/anat/sub-HDCON014_ses-02FDG_T1w.json",
+    "sub-HDCON014/ses-02FDG/anat/sub-HDCON014_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON014/ses-02FDG/pet/sub-HDCON014_ses-02FDG_pet.json",
+    "sub-HDCON014/ses-02FDG/pet/sub-HDCON014_ses-02FDG_pet.nii.gz",
+    "sub-HDCON014/ses-03UCBJ/pet/sub-HDCON014_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON014/ses-03UCBJ/pet/sub-HDCON014_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON014/ses-04FDG/anat/sub-HDCON014_ses-04FDG_T1w.json",
+    "sub-HDCON014/ses-04FDG/anat/sub-HDCON014_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON014/ses-04FDG/pet/sub-HDCON014_ses-04FDG_pet.json",
+    "sub-HDCON014/ses-04FDG/pet/sub-HDCON014_ses-04FDG_pet.nii.gz",
+    "sub-HDCON015/ses-01UCBJ/pet/sub-HDCON015_ses-01UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON015/ses-01UCBJ/pet/sub-HDCON015_ses-01UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON015/ses-02FDG/anat/sub-HDCON015_ses-02FDG_T1w.json",
+    "sub-HDCON015/ses-02FDG/anat/sub-HDCON015_ses-02FDG_T1w.nii.gz",
+    "sub-HDCON015/ses-02FDG/pet/sub-HDCON015_ses-02FDG_pet.json",
+    "sub-HDCON015/ses-02FDG/pet/sub-HDCON015_ses-02FDG_pet.nii.gz",
+    "sub-HDCON015/ses-03UCBJ/pet/sub-HDCON015_ses-03UCBJ_trc-11CUCBJ_pet.json",
+    "sub-HDCON015/ses-03UCBJ/pet/sub-HDCON015_ses-03UCBJ_trc-11CUCBJ_pet.nii.gz",
+    "sub-HDCON015/ses-04FDG/anat/sub-HDCON015_ses-04FDG_T1w.json",
+    "sub-HDCON015/ses-04FDG/anat/sub-HDCON015_ses-04FDG_T1w.nii.gz",
+    "sub-HDCON015/ses-04FDG/pet/sub-HDCON015_ses-04FDG_pet.json",
+    "sub-HDCON015/ses-04FDG/pet/sub-HDCON015_ses-04FDG_pet.nii.gz"
+  ],
+  "dateCreated": "2025-09-22 00:00:00",
+  "dateModified": "2025-09-22 00:00:00"
 }

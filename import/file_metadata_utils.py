@@ -156,12 +156,37 @@ def get_file_info(directory_path: str, save_to_file: bool = False, output_file: 
             output_path = output_file
         else:
             output_path = os.path.join(os.getcwd(), output_file)
+        
+        # Calculate total size in GB
+        total_size_gb = _calculate_total_size_gb(file_info)
+        
         with open(output_path, "w") as f:
+            # Write total size as first line (special metadata line)
+            size_metadata = {"_total_size_gb": total_size_gb}
+            json.dump(size_metadata, f)
+            f.write("\n")
+            
+            # Write file info
             for item in file_info:
                 json.dump(item, f)
                 f.write("\n")  # Add newline after each JSON object
     
     return file_info
+
+
+def _calculate_total_size_gb(file_info_list: List[Dict]) -> float:
+    """
+    Calculate total size in GB from a list of file info dictionaries.
+    
+    Args:
+        file_info_list: List of dictionaries containing 'contentbytesize' key
+        
+    Returns:
+        Total size in gigabytes (GB), rounded to 2 decimal places
+    """
+    total_bytes = sum(file_info.get('contentbytesize', 0) for file_info in file_info_list)
+    total_gb = total_bytes / (1024 ** 3)  # Convert bytes to GB
+    return round(total_gb, 2)
 
 
 def process_file_metadata(dataset_jsonl: str, 
@@ -227,6 +252,7 @@ def process_file_metadata(dataset_jsonl: str,
 
     # 2 - Get file list first (we need it to build hasPart)
     file_info_list = []
+    total_size_gb = None  # Will be set if reading from file with size metadata
     
     if isinstance(file_list_source, list):
         # Direct list of file info dictionaries
@@ -238,12 +264,28 @@ def process_file_metadata(dataset_jsonl: str,
         elif os.path.isfile(file_list_source):
             # File path - read the JSONL file
             with open(file_list_source, 'r') as f:
-                file_info_list = [json.loads(line.strip()) for line in f.readlines() if line.strip()]
+                lines = f.readlines()
+                for line in lines:
+                    if line.strip():
+                        item = json.loads(line.strip())
+                        # Check if this is the size metadata line (first line)
+                        if '_total_size_gb' in item:
+                            total_size_gb = item['_total_size_gb']
+                        else:
+                            file_info_list.append(item)
         else:
             raise ValueError(f"File list source not found: {file_list_source}")
     else:
         raise ValueError(f"Invalid file_list_source type: {type(file_list_source)}")
 
+    # Calculate total size if not already provided from file
+    if total_size_gb is None:
+        total_size_gb = _calculate_total_size_gb(file_info_list)
+    
+    # Append total size to description
+    if 'description' in dataset_info and dataset_info['description']:
+        dataset_info['description'] = f"{dataset_info['description']} (total size: {total_size_gb}GB)"
+    
     # Add hasPart to dataset_info with all file paths
     file_paths = []
     for file_info_dict in file_info_list:
