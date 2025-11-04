@@ -115,12 +115,14 @@
     "name": "Public nEUro",
     "description": "Public nEUro is a public repository for brain imaging (MRI, PET, EEG, MEG, etc..) dataset. The notion of public must be understood as metadata are open and publicly availbale (here and elsewhere) but data access is controlled. This is necessary as brain imaging data are seen as personnal within EU and many other countries, such data are protected by law. Note there are also a few open data available.",
     "keywords": [
-        "Data Repository",
-        "GDPR",
-        "Brain",
+        "Open Metadata",
         "Sharing",
+        "Data Repository",
+        "Access control",
         "Open metadata",
-        "Access control"
+        "GDPR",
+        "Access Control",
+        "Brain"
     ],
     "homepage_url": "https://publicneuro.eu/",
     "license": {
