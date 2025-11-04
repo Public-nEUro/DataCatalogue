@@ -45,7 +45,7 @@
                 <description language="en">Test-retest in healthy volunteers: dynamic UCB-J PET baseline scan (60 - 90 min after injection), dynamic PE2I PET baseline scan (50 - 70 min after injection), T1w </description>
                 <doi_data>
                     <doi>10.70883/MIIQ4096</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000008%20Leuven%20PET%20UCB-J%20dataset%204%20in%20control%20participants%20/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000008%20Leuven%20PET%20UCB-J%20dataset%204%20in%20control%20participants/V1</resource>
                 </doi_data>
             </dataset>
         </database>
