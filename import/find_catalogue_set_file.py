@@ -57,19 +57,31 @@ import json
 import re
 
 
-def sort_children(children):
+def sort_children(children, parent_name=''):
     """
     Sort children according to the specified rules.
     
+    BIDS-compliant ordering:
+    1. Files (README, LICENSE, dataset_description.json, etc.)
+    2. sourcedata/ directory (if exists) - with alphabetically sorted children
+    3. code/ directory (if exists) - with alphabetically sorted children
+    4. sub-* directories (sorted: numeric first by value, then alphabetic)
+    5. Other directories
+    
+    Special rules:
+    - Files within sourcedata/ or code/ directories are sorted alphabetically
+    - Recursive processing of nested children
+    
     Args:
         children (list): List of child items from dataset JSON
+        parent_name (str): Name of the parent directory (for context)
         
     Returns:
         list: Sorted list of children
     """
-    source_items = []
-    code_items = []
     file_items = []
+    sourcedata_items = []
+    code_items = []
     sub_numeric_items = []
     sub_alpha_items = []
     other_items = []
@@ -79,12 +91,16 @@ def sort_children(children):
         name = child.get('name', '')
         child_type = child.get('type', '')
         
-        if name == 'source':
-            source_items.append(child)
+        # Recursively sort nested children if they exist
+        if 'children' in child and isinstance(child['children'], list) and len(child['children']) > 0:
+            child['children'] = sort_children(child['children'], parent_name=name)
+        
+        if child_type == 'file':
+            file_items.append(child)
+        elif name == 'sourcedata':
+            sourcedata_items.append(child)
         elif name == 'code':
             code_items.append(child)
-        elif child_type == 'file':
-            file_items.append(child)
         elif name.startswith('sub-'):
             # Extract the part after 'sub-'
             sub_part = name[4:]  # Remove 'sub-' prefix
@@ -110,11 +126,16 @@ def sort_children(children):
         if '_sort_key' in item:
             del item['_sort_key']
     
-    # Combine in the specified order
+    # Special handling: sort files alphabetically within sourcedata/ or code/ directories
+    if parent_name in ['sourcedata', 'code']:
+        file_items.sort(key=lambda x: x.get('name', '').lower())
+        other_items.sort(key=lambda x: x.get('name', '').lower())
+    
+    # Combine in the specified order: files, sourcedata, code, sub-*, others
     sorted_children = (
-        source_items + 
-        code_items + 
         file_items + 
+        sourcedata_items + 
+        code_items + 
         sub_numeric_items + 
         sub_alpha_items + 
         other_items
@@ -123,9 +144,64 @@ def sort_children(children):
     return sorted_children
 
 
+def sort_has_part(has_part_list):
+    """
+    Sort hasPart array with special rules for sourcedata/ and code/ files.
+    
+    Sorting rules:
+    1. Top-level files (no /) come first
+    2. sourcedata/ files are sorted alphabetically
+    3. code/ files are sorted alphabetically
+    4. sub-* files follow their parent directory ordering
+    5. Other files maintain their relative order
+    
+    Args:
+        has_part_list (list): List of file paths from hasPart array
+        
+    Returns:
+        list: Sorted list of file paths
+    """
+    if not has_part_list:
+        return has_part_list
+    
+    top_level_files = []
+    sourcedata_files = []
+    code_files = []
+    sub_files = []
+    other_files = []
+    
+    for item in has_part_list:
+        if '/' not in item:
+            # Top-level files
+            top_level_files.append(item)
+        elif item.startswith('sourcedata/'):
+            sourcedata_files.append(item)
+        elif item.startswith('code/'):
+            code_files.append(item)
+        elif item.startswith('sub-'):
+            sub_files.append(item)
+        else:
+            other_files.append(item)
+    
+    # Sort sourcedata and code files alphabetically
+    sourcedata_files.sort()
+    code_files.sort()
+    
+    # Combine in the specified order
+    sorted_has_part = (
+        top_level_files +
+        sourcedata_files +
+        code_files +
+        sub_files +
+        other_files
+    )
+    
+    return sorted_has_part
+
+
 def reorder_dataset_children(file_path, verbose=True):
     """
-    Reorder children in a dataset JSON file.
+    Reorder children and hasPart in a dataset JSON file.
     
     Args:
         file_path (str): Path to the dataset JSON file
@@ -151,11 +227,19 @@ def reorder_dataset_children(file_path, verbose=True):
             return False
         
         original_count = len(data['children'])
+        has_part_count = len(data.get('hasPart', []))
+        
         if verbose:
             print(f"   📋 Reordering {original_count} children...")
+            if has_part_count > 0:
+                print(f"   📋 Sorting {has_part_count} hasPart entries...")
         
         # Sort the children
         data['children'] = sort_children(data['children'])
+        
+        # Sort the hasPart array if it exists
+        if 'hasPart' in data and isinstance(data['hasPart'], list):
+            data['hasPart'] = sort_has_part(data['hasPart'])
         
         # Write back to file
         with open(file_path, 'w', encoding='utf-8') as f:
