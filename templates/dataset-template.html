@@ -197,7 +197,7 @@
               <span v-if="displayData.description && Array.isArray(displayData.description) && displayData.description.length>0 ">
                 <span v-for="desc in displayData.description">{{desc}}<br></span>
               </span>
-              <span v-else>{{selectedDataset.description}}</span>
+              <span v-else v-html="formattedDescription"></span>
             </b-card-text>
           </b-col>
           <b-col md="3">

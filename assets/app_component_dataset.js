@@ -438,6 +438,12 @@ const datasetView = () =>
               return true
             }
           },
+          formattedDescription() {
+            if (this.selectedDataset && this.selectedDataset.description) {
+              return this.selectedDataset.description.replace(/\n/g, '<br>');
+            }
+            return '';
+          },
         },
         methods: {
           newTabActivated(newTabIndex, prevTabIndex, bvEvent) {
