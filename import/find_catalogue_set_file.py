@@ -302,13 +302,14 @@ def fetch_set(folder):
         if os.path.isdir(item_path):
             for sub_item in os.listdir(item_path):
                 sub_item_path = os.path.join(item_path, sub_item)
-                if os.path.isfile(sub_item_path):
+                if os.path.isfile(sub_item_path) and sub_item.endswith('.json'):
                     try:
                         with open(sub_item_path, 'r', encoding='utf-8') as f:
                             data = json.load(f)
                         if isinstance(data, dict) and data.get('type', '').lower() == 'dataset':
                             dataset_file = sub_item_path
                             print(f'dataset file found {dataset_file}')
+                            return dataset_file  # Return immediately when found
                     except (json.JSONDecodeError, UnicodeDecodeError):
                         continue
     
@@ -352,79 +353,160 @@ def find_catalogue_set_file(target_pattern="PN*/V*", base_path=None, verbose=Tru
     try:
         results = {}
         
-        # Check if target_pattern is an absolute path to a specific directory
-        if os.path.isabs(target_pattern) and os.path.exists(target_pattern):
+        # Check if target_pattern is an absolute path (with or without wildcards)
+        if os.path.isabs(target_pattern):
             if verbose:
                 print(f"🎯 Processing absolute path: {target_pattern}")
             
-            # Normalize path for cross-platform compatibility
-            normalized_path = os.path.normpath(target_pattern)
-            path_parts = normalized_path.replace('\\', '/').split('/')
+            # Handle wildcards in absolute paths
+            import glob as glob_module
             
-            # Find PN directory and version
-            pn_dir = None
-            version = None
-            
-            for i, part in enumerate(path_parts):
-                if part.startswith('PN') and i < len(path_parts) - 1:
-                    pn_dir = part
-                    version = path_parts[i + 1]
-                    break
-            
-            if pn_dir and version:
-                if verbose:
-                    print(f"📂 Detected: {pn_dir}/{version}")
-                
-                # Use fetch_set to find dataset files in the target directory
-                try:
-                    result = fetch_set(normalized_path)
-                    if result != 'not found':
-                        if verbose:
-                            print(f"   ✅ Dataset file found: {result}")
-                        
-                        # Store result
-                        dataset_key = f"{pn_dir}_{version}".replace(' ', '').replace('-', '').replace(':', '')
-                        results[dataset_key] = {
-                            'path': result,
-                            'relative_path': os.path.relpath(result, base_path),
-                            'directory': pn_dir,
-                            'version': version
-                        }
-                        
-                        # Try to read and display dataset info
-                        try:
-                            with open(result, 'r', encoding='utf-8') as f:
-                                dataset_data = json.load(f)
-                            
-                            results[dataset_key]['metadata'] = dataset_data
-                            
-                            if verbose:
-                                print(f"   📋 Dataset info:")
-                                print(f"      - Type: {dataset_data.get('type', 'N/A')}")
-                                print(f"      - Name: {dataset_data.get('name', 'N/A')}")
-                                print(f"      - ID: {dataset_data.get('dataset_id', 'N/A')}")
-                                if 'dataset_version' in dataset_data:
-                                    print(f"      - Version: {dataset_data.get('dataset_version', 'N/A')}")
-                                if 'authors' in dataset_data:
-                                    print(f"      - Authors: {len(dataset_data['authors'])} author(s)")
-                                    
-                        except Exception as e:
-                            if verbose:
-                                print(f"   ⚠️  Could not read dataset details: {e}")
-                    else:
-                        if verbose:
-                            print(f"   ❌ No dataset file found in {target_pattern}")
-                        
-                except Exception as e:
+            # If it contains wildcards, expand them
+            if '*' in target_pattern:
+                matching_paths = glob_module.glob(target_pattern)
+                if not matching_paths:
                     if verbose:
-                        print(f"   ❌ Error processing {target_pattern}: {e}")
-            else:
+                        print(f"❌ No directories found matching pattern: {target_pattern}")
+                    return results
+                
                 if verbose:
-                    print(f"❌ Could not extract PN directory and version from path: {target_pattern}")
+                    print(f"📁 Found {len(matching_paths)} matching path(s)")
+                
+                # Process each matching path
+                for matched_path in matching_paths:
+                    if not os.path.isdir(matched_path):
+                        continue
+                    
+                    if verbose:
+                        print(f"\n📂 Processing: {matched_path}")
+                    
+                    # Extract dataset info from path
+                    path_parts = matched_path.replace('\\', '/').split('/')
+                    pn_dir = None
+                    version = None
+                    
+                    for i, part in enumerate(path_parts):
+                        if part.startswith('PN') and i < len(path_parts) - 1:
+                            pn_dir = part
+                            version = path_parts[i + 1]
+                            break
+                    
+                    if not pn_dir or not version:
+                        if verbose:
+                            print(f"   ⚠️  Could not extract PN directory and version from: {matched_path}")
+                        continue
+                    
+                    # Use fetch_set to find dataset file
+                    try:
+                        result = fetch_set(matched_path)
+                        if result != 'not found':
+                            if verbose:
+                                print(f"   ✅ Dataset file found: {os.path.basename(result)}")
+                            
+                            dataset_key = f"{pn_dir}_{version}".replace(' ', '').replace('-', '').replace(':', '')
+                            results[dataset_key] = {
+                                'path': result,
+                                'relative_path': os.path.relpath(result, base_path),
+                                'directory': pn_dir,
+                                'version': version
+                            }
+                            
+                            # Try to read dataset info
+                            try:
+                                with open(result, 'r', encoding='utf-8') as f:
+                                    dataset_data = json.load(f)
+                                results[dataset_key]['metadata'] = dataset_data
+                                
+                                if verbose:
+                                    print(f"   📋 Dataset ID: {dataset_data.get('dataset_id', 'N/A')}")
+                                    print(f"   📋 Name: {dataset_data.get('name', 'N/A')}")
+                            except Exception as e:
+                                if verbose:
+                                    print(f"   ⚠️  Could not read dataset details: {e}")
+                        else:
+                            if verbose:
+                                print(f"   ❌ No dataset file found")
+                    except Exception as e:
+                        if verbose:
+                            print(f"   ❌ Error: {e}")
+                
+                # Skip to summary
+                if verbose:
+                    print(f"\n📊 Summary: Found {len(results)} dataset(s)")
             
-            # Skip to the end for reordering check
-            if verbose:
-                print(f"\n📊 Summary: Found {len(results)} dataset(s)")
+            # No wildcards - process as single path
+            elif os.path.exists(target_pattern):
+                if verbose:
+                    print(f"🎯 Processing absolute path: {target_pattern}")
+            
+                # Normalize path for cross-platform compatibility
+                normalized_path = os.path.normpath(target_pattern)
+                path_parts = normalized_path.replace('\\', '/').split('/')
+                
+                # Find PN directory and version
+                pn_dir = None
+                version = None
+                
+                for i, part in enumerate(path_parts):
+                    if part.startswith('PN') and i < len(path_parts) - 1:
+                        pn_dir = part
+                        version = path_parts[i + 1]
+                        break
+                
+                if pn_dir and version:
+                    if verbose:
+                        print(f"📂 Detected: {pn_dir}/{version}")
+                    
+                    # Use fetch_set to find dataset files in the target directory
+                    try:
+                        result = fetch_set(normalized_path)
+                        if result != 'not found':
+                            if verbose:
+                                print(f"   ✅ Dataset file found: {result}")
+                            
+                            # Store result
+                            dataset_key = f"{pn_dir}_{version}".replace(' ', '').replace('-', '').replace(':', '')
+                            results[dataset_key] = {
+                                'path': result,
+                                'relative_path': os.path.relpath(result, base_path),
+                                'directory': pn_dir,
+                                'version': version
+                            }
+                            
+                            # Try to read and display dataset info
+                            try:
+                                with open(result, 'r', encoding='utf-8') as f:
+                                    dataset_data = json.load(f)
+                                
+                                results[dataset_key]['metadata'] = dataset_data
+                                
+                                if verbose:
+                                    print(f"   📋 Dataset info:")
+                                    print(f"      - Type: {dataset_data.get('type', 'N/A')}")
+                                    print(f"      - Name: {dataset_data.get('name', 'N/A')}")
+                                    print(f"      - ID: {dataset_data.get('dataset_id', 'N/A')}")
+                                    if 'dataset_version' in dataset_data:
+                                        print(f"      - Version: {dataset_data.get('dataset_version', 'N/A')}")
+                                    if 'authors' in dataset_data:
+                                        print(f"      - Authors: {len(dataset_data['authors'])} author(s)")
+                                        
+                            except Exception as e:
+                                if verbose:
+                                    print(f"   ⚠️  Could not read dataset details: {e}")
+                        else:
+                            if verbose:
+                                print(f"   ❌ No dataset file found in {target_pattern}")
+                            
+                    except Exception as e:
+                        if verbose:
+                            print(f"   ❌ Error processing {target_pattern}: {e}")
+                else:
+                    if verbose:
+                        print(f"❌ Could not extract PN directory and version from path: {target_pattern}")
+                
+                # Skip to the end for reordering check
+                if verbose:
+                    print(f"\n📊 Summary: Found {len(results)} dataset(s)")
         
         else:
             # Original pattern-based logic
