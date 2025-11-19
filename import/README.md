@@ -39,8 +39,8 @@ from file_metadata_utils import process_file_metadata
 catalog = process_file_metadata(jsonl_file, '/path/to/data/', 'source', 'agent')
 
 # 3. Validate and import to datalad catalog (manual datalad commands)
-# datalad catalog-validate --metadata catalog_file
-# datalad catalog-add --catalog ../DataCatalogue --metadata catalog_file
+# datalad catalog-validate --metadata "path/PN0000X.jsonl"
+# datalad catalog-add -c "path/DataCatalogue" -m "path/PN0000X.jsonl"
 
 # 4. Find datasets in catalog and optionally reorder children
 from find_catalogue_set_file import find_catalogue_set_file
