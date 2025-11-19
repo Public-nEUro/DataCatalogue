@@ -228,17 +228,33 @@ def process_file_metadata(dataset_jsonl: str,
         dataset_info['dataset_version'] = dataset_info['dataset_version'].strip()
 
     # Fix DOI format - ensure it has proper https://doi.org/ prefix
+    # Always extract the 10.70883/... part and add the correct prefix
     if 'doi' in dataset_info and dataset_info['doi']:
         doi_value = str(dataset_info['doi']).strip()
-        if doi_value and not doi_value.startswith('https://doi.org/'):
-            if doi_value.startswith('http://dx.doi.org/'):
-                dataset_info['doi'] = doi_value.replace('http://dx.doi.org/', 'https://doi.org/')
-            elif doi_value.startswith('doi:'):
-                dataset_info['doi'] = f"https://doi.org/{doi_value[4:]}"
-            elif doi_value.startswith('10.'):
+        if doi_value:
+            # Find the 10.70883/... pattern and extract it (institution-specific)
+            import re
+            doi_match = re.search(r'(10\.70883/[^\s]+)', doi_value)
+            if doi_match:
+                # Extract just the DOI identifier (e.g., "10.70883/GIOX3828")
+                doi_identifier = doi_match.group(1)
+                # Always use https:// with two slashes
+                dataset_info['doi'] = f"https://doi.org/{doi_identifier}"
+            elif doi_value.startswith('10.70883/'):
+                # If it's already just the identifier, add the prefix
                 dataset_info['doi'] = f"https://doi.org/{doi_value}"
-            else:
-                dataset_info['doi'] = f"https://doi.org/{doi_value}"
+    
+    # Fix download_url - generate proper format based on dataset_id
+    # Extract PNID from dataset_id (e.g., "PN000014" from "PN000014 multimodal...")
+    if 'dataset_id' in dataset_info and dataset_info['dataset_id']:
+        import re
+        dataset_id = str(dataset_info['dataset_id']).strip()
+        # Extract the PNID (PN followed by digits, e.g., PN000014 or PNC00002)
+        pnid_match = re.match(r'(PN[C]?\d+)', dataset_id)
+        if pnid_match:
+            pnid = pnid_match.group(1)
+            # Always set download_url to the correct format
+            dataset_info['download_url'] = f"https://datacatalog.publicneuro.eu/manage/request-access/{pnid}"
 
     # Add metadata sources if not already present
     if 'metadata_sources' not in dataset_info:
@@ -286,20 +302,18 @@ def process_file_metadata(dataset_jsonl: str,
     if 'description' in dataset_info and dataset_info['description']:
         dataset_info['description'] = f"{dataset_info['description']} (total size: {total_size_gb}GB)"
     
-    # Add hasPart to dataset_info with all file paths
-    file_paths = []
-    for file_info_dict in file_info_list:
-        if 'path' in file_info_dict:
-            file_paths.append(file_info_dict['path'].replace("\\", "/"))
-    
-    # Add hasPart field to dataset
-    dataset_info['hasPart'] = sorted(file_paths)
+    # Note: hasPart field is not needed - children will be added as separate JSONL entries
 
     # Determine output filename
     if output_file is None:
-        output_file = f"{dataset_info['name'].replace(' ', '')}.jsonl"
+        filename = f"{dataset_info['name'].replace(' ', '')}.jsonl"
+        # If input JSONL has a directory path, save output in same directory
+        if isinstance(dataset_jsonl, str) and os.path.dirname(dataset_jsonl):
+            output_file = os.path.join(os.path.dirname(dataset_jsonl), filename)
+        else:
+            output_file = filename
     
-    # Write dataset info with hasPart
+    # Write dataset info (without hasPart field)
     _write_jsonl_line(output_file, dataset_info, mode='w')
 
     # 3 - Process each file and append to output

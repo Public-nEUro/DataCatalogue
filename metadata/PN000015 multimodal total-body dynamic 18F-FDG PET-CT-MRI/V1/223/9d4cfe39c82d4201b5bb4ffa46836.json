@@ -1,0 +1,1 @@
+{"type": "directory", "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI", "dataset_version": "V1", "children": [{"type": "directory", "name": "ses-quadra", "path": "0-10/sub-008/ses-quadra", "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI", "dataset_version": "V1"}], "path": "0-10/sub-008", "name": "sub-008"}

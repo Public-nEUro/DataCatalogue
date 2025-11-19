@@ -185,6 +185,14 @@
       "dirs_from_path": [
         "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images"
       ]
-    }
+    },
+    {
+      "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1",
+      "dataset_path": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+      "dirs_from_path": [
+        "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI"
+      ]
+    }   
   ]
 }
