@@ -85,7 +85,7 @@
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>A multimodal total-body static 18F-FDG PET/CT/MRI dataset of 80 healthy humans Data</title>
+                    <title>A multimodal total-body static 18F-FDG PET-CT-MRI dataset of 80 healthy humans Data</title>
                 </titles>
                 <database_date>
                     <publication_date>
@@ -97,7 +97,7 @@
                 <description language="en">Whole-body static 18F-FDG PET reconstructions, CT, and MRI for 80 age and sex stratified healthy controls of the hedyPET cohort. Derivatives include totalsegmentator segmentations, synthseg brain segmentations, and pipelines that contains images resampled (registered for MRI) to common spaces.</description>
                 <doi_data>
                     <doi>https://doi.org/10.70883/GIOX3828</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN0000014%20A%20multimodal%20total-body%20static%2018F-FDG%20PET/CT/MRI%20dataset%20of%2080%20healthy%20humans/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000014%20multimodal%20total-body%2018F-FDG%20PET-CT-MRI%20-%20static%20images/V1</resource>
                 </doi_data>
             </dataset>
         </database>

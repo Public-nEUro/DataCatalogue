@@ -85,7 +85,7 @@
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>A multimodal total-body dynamic 18F-FDG PET/CT/MRI dataset of 80 healthy humans Data</title>
+                    <title>A multimodal total-body dynamic 18F-FDG PET-CT-MRI dataset of 80 healthy humans Data</title>
                 </titles>
                 <database_date>
                     <publication_date>
@@ -97,7 +97,7 @@
                 <description language="en">70min 18F-FDG dynamic nifti files and corresponding resampled CT, MRI, and segmentations for 80 age and sex stratified healthy controls of the hedyPET cohort.</description>
                 <doi_data>
                     <doi>https://doi.org/10.70883/UYAG3430</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN0000015%20A%20multimodal%20total-body%20dynamic%2018F-FDG%20PET/CT/MRI%20dataset%20of%2080%20healthy%20humans/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000015%20multimodal%20total-body%20dynamic%2018F-FDG%20PET-CT-MRI/V1?tab=content</resource>
                 </doi_data>
             </dataset>
         </database>
