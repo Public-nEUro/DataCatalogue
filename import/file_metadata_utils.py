@@ -86,7 +86,7 @@ def get_file_info(directory_path: str, save_to_file: bool = False, output_file: 
     Included File Types:
         - BIDS standard: .json, .tsv, .tsv.gz, .nii, .nii.gz
         - Neuroimaging: .edf, .vhdr, .vmrk, .eeg, .set, .fdt, .bdf
-        - Additional: .zip, .log, .pcd, .tsa, .tst, .tsm, .tsp, .wfb
+        - Additional: .zip, .log, .pcd, .tsa, .tst, .tsm, .tsp, .wfb .ptd .IMA .dcm
         - BIDS text files: README, CHANGES, LICENSE, CITATION (no extension)
         
     Excluded:
@@ -137,7 +137,7 @@ def get_file_info(directory_path: str, save_to_file: bool = False, output_file: 
             # Include files with BIDS-standard extensions + neuroimaging formats
             if file.endswith(('.json', '.edf', '.vhdr', '.vmrk', '.eeg', '.set', '.fdt', '.bdf', 
                              '.nii', '.nii.gz', '.zip', '.tsv', '.tsv.gz', '.pcd', '.tsa', 
-                             '.tst', '.tsm', '.tsp', '.wfb', '.log','.h5')):
+                             '.tst', '.tsm', '.tsp', '.wfb', '.log','.h5','.ptd', '.IMA', '.dcm')):
                 should_include = True
             
             # Include BIDS-standard plain text files (no extension) 
