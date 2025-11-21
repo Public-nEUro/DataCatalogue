@@ -1,1 +1,0 @@
-{"type": "directory", "dataset_id": "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images", "dataset_version": "V1", "children": [{"type": "directory", "name": "anat", "path": "sub-031/ses-vida/anat", "dataset_id": "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images", "dataset_version": "V1"}], "path": "sub-031/ses-vida", "name": "ses-vida"}

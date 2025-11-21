@@ -95,8 +95,190 @@
         },
         {
             "type": "directory",
-            "name": "sub-037",
-            "path": "sub-037",
+            "name": "sub-000",
+            "path": "sub-000",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-001",
+            "path": "sub-001",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-002",
+            "path": "sub-002",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-004",
+            "path": "sub-004",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-005",
+            "path": "sub-005",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-006",
+            "path": "sub-006",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-008",
+            "path": "sub-008",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-009",
+            "path": "sub-009",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-010",
+            "path": "sub-010",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-013",
+            "path": "sub-013",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-014",
+            "path": "sub-014",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-015",
+            "path": "sub-015",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-018",
+            "path": "sub-018",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-019",
+            "path": "sub-019",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-020",
+            "path": "sub-020",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-021",
+            "path": "sub-021",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-022",
+            "path": "sub-022",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-024",
+            "path": "sub-024",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-025",
+            "path": "sub-025",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-026",
+            "path": "sub-026",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-027",
+            "path": "sub-027",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-028",
+            "path": "sub-028",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-029",
+            "path": "sub-029",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-030",
+            "path": "sub-030",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-032",
+            "path": "sub-032",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-034",
+            "path": "sub-034",
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-036",
+            "path": "sub-036",
             "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
             "dataset_version": "V1"
         },
@@ -123,13 +305,6 @@
         },
         {
             "type": "directory",
-            "name": "sub-041",
-            "path": "sub-041",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
             "name": "sub-042",
             "path": "sub-042",
             "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
@@ -146,20 +321,6 @@
             "type": "directory",
             "name": "sub-044",
             "path": "sub-044",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-045",
-            "path": "sub-045",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-046",
-            "path": "sub-046",
             "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
             "dataset_version": "V1"
         },
@@ -202,13 +363,6 @@
             "type": "directory",
             "name": "sub-052",
             "path": "sub-052",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-053",
-            "path": "sub-053",
             "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
             "dataset_version": "V1"
         },
@@ -263,13 +417,6 @@
         },
         {
             "type": "directory",
-            "name": "sub-061",
-            "path": "sub-061",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
             "name": "sub-062",
             "path": "sub-062",
             "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
@@ -279,13 +426,6 @@
             "type": "directory",
             "name": "sub-063",
             "path": "sub-063",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-064",
-            "path": "sub-064",
             "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
             "dataset_version": "V1"
         },
@@ -384,13 +524,6 @@
             "type": "directory",
             "name": "sub-078",
             "path": "sub-078",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "sub-079",
-            "path": "sub-079",
             "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
             "dataset_version": "V1"
         },
@@ -515,13 +648,6 @@
         },
         {
             "type": "directory",
-            "name": "sub-097",
-            "path": "sub-097",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
             "name": "sub-098",
             "path": "sub-098",
             "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
@@ -529,36 +655,8 @@
         },
         {
             "type": "directory",
-            "name": "sub-099",
-            "path": "sub-099",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "0-10",
-            "path": "0-10",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
             "name": "derivatives",
             "path": "derivatives",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "11-25",
-            "path": "11-25",
-            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-            "dataset_version": "V1"
-        },
-        {
-            "type": "directory",
-            "name": "26-36",
-            "path": "26-36",
             "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
             "dataset_version": "V1"
         }
@@ -596,9 +694,9 @@
             }
         ]
     },
-    "name": "PN000015 A multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-    "description": "70min 18F-FDG dynamic nifti files and corresponding resampled CT, MRI, and segmentations for 80 age and sex stratified healthy controls of the hedyPET cohort. (total size: 303.81GB)",
-    "doi": "https://doi.org/10.70883/UYAG3430",
+    "name": "A multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+    "description": "70min 18F-FDG dynamic nifti files and corresponding resampled CT, MRI, and segmentations for 80 age and sex stratified healthy controls of the hedyPET cohort. (total size: 246.11GB)",
+    "doi": "https:/doi.org/10.70883/UYAG3430",
     "download_url": "https:/datacatalog.publicneuro.eu/manage/request-access/PN000015",
     "keywords": [
         "PET",
