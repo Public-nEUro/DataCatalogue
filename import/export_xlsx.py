@@ -817,6 +817,7 @@ def parse_excel_metadata(input_file):
         "title": title,
         "subtitle": subtitle,
         "doi": doi,
+        "doi_without_prefix": doi_without_prefix,
         "id": pn_id,
         "download_url": download_url,
         "name": f"{pn_id} {title}",
@@ -1002,7 +1003,7 @@ def export_xlsx_to_xml(excel_file_path, output_xml_path=None, skip_validation=Fa
             for doi_data in dataset.iter("doi_data"):
                 doi_elem = doi_data.find(".//doi")
                 if doi_elem is not None:
-                    doi_elem.text = metadata["doi"]
+                    doi_elem.text = metadata["doi_without_prefix"]
                 
                 resource_elem = doi_data.find(".//resource")
                 if resource_elem is not None:
