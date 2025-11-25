@@ -569,6 +569,56 @@ def parse_excel_metadata(input_file):
                 if not pd.isna(value):
                     participants_aux[key] = str(value) if isinstance(value, int) else value
 
+        # Auto-compute Number of subjects if missing or empty
+        subj_key = 'Number of subjects'
+        if subj_key not in participants_aux or not str(participants_aux.get(subj_key, '')).strip():
+            def _to_int(x):
+                try:
+                    if pd.isna(x):
+                        return None
+                except Exception:
+                    pass
+                try:
+                    return int(str(x).strip())
+                except Exception:
+                    return None
+
+            males = _to_int(participants_aux.get('Number of biological males'))
+            females = _to_int(participants_aux.get('Number of biological females'))
+            healthy = _to_int(participants_aux.get('Number of Healthy Controls'))
+            patients = _to_int(participants_aux.get('Number of Patients'))
+
+            sum_sex = None
+            sum_group = None
+            if males is not None and females is not None:
+                sum_sex = males + females
+            if healthy is not None and patients is not None:
+                sum_group = healthy + patients
+
+            # Decide inferred value
+            inferred = None
+            if sum_sex is not None and sum_group is not None:
+                if sum_sex != sum_group:
+                    print(f"[participants] Consistency warning: males+females={sum_sex} != healthy+patients={sum_group}. Using males+females.")
+                inferred = sum_sex  # prefer sex-based total
+            elif sum_sex is not None:
+                inferred = sum_sex
+            elif sum_group is not None:
+                inferred = sum_group
+
+            if inferred is not None:
+                participants_aux[subj_key] = str(inferred)
+                # Emit patch warning describing source of inference
+                if sum_sex is not None and sum_group is not None:
+                    if sum_sex == sum_group:
+                        print(f"[participants] Auto-filled 'Number of subjects' = {inferred} (from both males+females and healthy+patients totals).")
+                    else:
+                        print(f"[participants] Auto-filled 'Number of subjects' = {inferred} (used males+females; healthy+patients differed: {sum_group}).")
+                elif sum_sex is not None:
+                    print(f"[participants] Auto-filled 'Number of subjects' = {inferred} (from males+females total).")
+                elif sum_group is not None:
+                    print(f"[participants] Auto-filled 'Number of subjects' = {inferred} (from healthy+patients total).")
+
     # Helper function to filter out empty values - use the global clean_data_structure function
     def filter_empty_values(data_dict):
         """Remove keys with empty, None, or meaningless values from a dictionary"""
@@ -586,15 +636,32 @@ def parse_excel_metadata(input_file):
         })
     } if participants_aux else {"name": "Participants", "content": {}}
 
-    # Extract dataset info
+    # Extract dataset info (robust header handling)
     metadata_aux = dict()
     if "dataset_info" in aux_dict:
+        header_variants = [
+            '# Metadata record for PublicnEUro\n# BOLD field are mandatory',
+            '# Metadata record for PublicnEUro_x000d_\n# BOLD field are mandatory'
+        ]
+        # Determine which header exists by inspecting first row dict keys
+        sample_row = aux_dict["dataset_info"][0] if aux_dict["dataset_info"] else {}
+        found_header = None
+        for h in sample_row.keys():
+            normalized = h.replace('_x000d_', '').strip()
+            for target in header_variants:
+                if normalized == target.replace('_x000d_', '').strip():
+                    found_header = h
+                    break
+            if found_header:
+                break
+        # Fallback: use first key if no match
+        if not found_header and sample_row:
+            found_header = list(sample_row.keys())[0]
         for info in aux_dict["dataset_info"]:
-            key_field = info.get('# Metadata record for PublicnEUro\n# BOLD field are mandatory')
+            key_field = info.get(found_header) if found_header else None
             if pd.isna(key_field):
                 continue
-        
-            key = str(key_field).replace("\n", "").strip()
+            key = str(key_field).replace('_x000d_', '').replace('\n', '').strip()
             value = info.get('values')
             if not pd.isna(value):
                 metadata_aux[key] = str(value) if isinstance(value, int) else value

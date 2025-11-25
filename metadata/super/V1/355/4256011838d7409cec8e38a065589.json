@@ -45,6 +45,12 @@
       "name": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
       "dataset_id": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
       "dataset_version": "V1"
+    },
+    {
+      "type": "dataset",
+      "name": "PNC0002 A multimodal total-body 18F-FDG PET-CT-MRI dataset",
+      "dataset_id": "PNC0002 A multimodal total-body 18F-FDG PET-CT-MRI dataset",
+      "dataset_version": "V1"
     }
   ],
   "metadata_sources": {
@@ -192,6 +198,14 @@
       "dataset_path": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
       "dirs_from_path": [
         "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI"
+      ]
+    },
+    {
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1",
+      "dataset_path": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dirs_from_path": [
+        "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI"
       ]
     }   
   ]
