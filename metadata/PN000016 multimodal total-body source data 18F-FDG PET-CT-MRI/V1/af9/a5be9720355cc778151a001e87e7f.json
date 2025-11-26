@@ -87,24 +87,6 @@
         "key_source_map": {
             "name": [
                 "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "doi": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "download_url": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "keywords": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "license": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "dateModified": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "additional_display": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
             ]
         },
         "sources": [
@@ -118,7 +100,7 @@
     },
     "name": "multimodal total-body source data 18F-FDG PET-CT-MRI",
     "description": "70min 18F-FDG Listmode and DICOM CT source files for 80 age and sex stratified healthy controls of the hedyPET cohort. Data is organized in the folder-structure needed for Siemens JSRecon (e7). (total size: 1653.04GB)",
-    "doi": "https:/doi.org/10.70883/JZJH3431",
+    "doi": "10.70883/JZJH3431",
     "download_url": "https:/datacatalog.publicneuro.eu/manage/request-access/PN000016",
     "keywords": [
         "PET",
