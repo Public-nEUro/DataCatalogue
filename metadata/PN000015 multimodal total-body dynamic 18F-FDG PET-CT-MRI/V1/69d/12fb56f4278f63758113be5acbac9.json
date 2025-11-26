@@ -665,24 +665,6 @@
         "key_source_map": {
             "name": [
                 "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "doi": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "download_url": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "keywords": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "license": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "dateModified": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
-            ],
-            "additional_display": [
-                "Department of Clinical Physiology and Nuclear Medicine, Copenhagen University Hospital, Rigshospitalet, Copenhagen, Denmark"
             ]
         },
         "sources": [
@@ -696,7 +678,7 @@
     },
     "name": "A multimodal total-body dynamic 18F-FDG PET-CT-MRI",
     "description": "70min 18F-FDG dynamic nifti files and corresponding resampled CT, MRI, and segmentations for 80 age and sex stratified healthy controls of the hedyPET cohort. (total size: 246.11GB)",
-    "doi": "https:/doi.org/10.70883/UYAG3430",
+    "doi": "10.70883/UYAG3430",
     "download_url": "https:/datacatalog.publicneuro.eu/manage/request-access/PN000015",
     "keywords": [
         "PET",
