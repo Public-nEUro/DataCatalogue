@@ -99,22 +99,87 @@
         ]
     },
     "name": "multimodal total-body source data 18F-FDG PET-CT-MRI",
-    "description": "70min 18F-FDG Listmode and DICOM CT source files for 80 age and sex stratified healthy controls of the hedyPET cohort. Data is organized in the folder-structure needed for Siemens JSRecon (e7). (total size: 1653.04GB)",
+    "description": "70min 18F-FDG Listmode and DICOM CT source files for 80 age and sex stratified healthy controls of the hedyPET cohort. Data is organized in the folder-structure needed for Siemens JSRecon (e7). (total size: 2593.18GB)",
     "doi": "https://doi.org/10.70883/JZJH3431",
     "download_url": "https:/datacatalog.publicneuro.eu/manage/request-access/PN000016",
     "keywords": [
         "PET",
+        "Control",
+        "18F-FDG",
+        "Whole-Body",
         "CT",
         "LAFOV",
-        "Whole-Body",
-        "18F-FDG",
-        "Control",
         "Listmode"
     ],
     "license": {
         "name": "Data User Agreement"
     },
-    "authors": [{"givenName": "Christian", "familyName": "Hinge"}, {"givenName": "Frederikke", "familyName": "Engel Høi-Hansen"}, {"givenName": "Rasmus", "familyName": "Hvass Hansen"}, {"givenName": "Kirsten", "familyName": "Korsholm"}, {"givenName": "Helle", "familyName": "Hjorth Johannesen"}, {"givenName": "Elisabeth", "familyName": "Albrech-Beste"}, {"givenName": "Eunice", "familyName": "Sánchez Saxtoft"}, {"givenName": "Vibeke", "familyName": "Jensen"}, {"givenName": "Christina", "familyName": "Schulze"}, {"givenName": "Christina", "familyName": "Mikkelsen"}, {"givenName": "Cyril", "familyName": "Pernet"}, {"givenName": "Janna", "familyName": "Nissen"}, {"givenName": "Sisse", "familyName": "Rye Ostrowski"}, {"givenName": "Barbara", "familyName": "Malene Fischer"}, {"givenName": "Claes", "familyName": "Nøhr Ladefoged"}, {"givenName": "Flemming", "familyName": "Littrup Andersen"}],
+    "authors": [
+        {
+            "givenName": "Christian",
+            "familyName": "Hinge"
+        },
+        {
+            "givenName": "Frederikke",
+            "familyName": "Engel Høi-Hansen"
+        },
+        {
+            "givenName": "Rasmus",
+            "familyName": "Hvass Hansen"
+        },
+        {
+            "givenName": "Kirsten",
+            "familyName": "Korsholm"
+        },
+        {
+            "givenName": "Helle",
+            "familyName": "Hjorth Johannesen"
+        },
+        {
+            "givenName": "Elisabeth",
+            "familyName": "Albrech-Beste"
+        },
+        {
+            "givenName": "Eunice",
+            "familyName": "Sánchez Saxtoft"
+        },
+        {
+            "givenName": "Vibeke",
+            "familyName": "Jensen"
+        },
+        {
+            "givenName": "Christina",
+            "familyName": "Schulze"
+        },
+        {
+            "givenName": "Christina",
+            "familyName": "Mikkelsen"
+        },
+        {
+            "givenName": "Cyril",
+            "familyName": "Pernet"
+        },
+        {
+            "givenName": "Janna",
+            "familyName": "Nissen"
+        },
+        {
+            "givenName": "Sisse",
+            "familyName": "Rye Ostrowski"
+        },
+        {
+            "givenName": "Barbara",
+            "familyName": "Malene Fischer"
+        },
+        {
+            "givenName": "Claes",
+            "familyName": "Nøhr Ladefoged"
+        },
+        {
+            "givenName": "Flemming",
+            "familyName": "Littrup Andersen"
+        }
+    ],
     "dateModified": "2025-10-30 00:00:00",
     "additional_display": [
         {

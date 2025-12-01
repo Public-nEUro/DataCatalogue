@@ -1,1 +1,562 @@
-{"type": "directory", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "children": [{"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-015", "contentbytesize": 36009012090.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-015"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-013", "contentbytesize": 38088244609.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-013"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-009", "contentbytesize": 42853644304.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-009"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-005", "contentbytesize": 38947052873.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-005"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-028", "contentbytesize": 37196128578.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-028"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-026", "contentbytesize": 39911603894.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-026"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-000", "contentbytesize": 41075640504.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-000"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-018", "contentbytesize": 35847484125.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-018"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-021", "contentbytesize": 34931780017.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-021"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-008", "contentbytesize": 35224591480.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-008"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-029", "contentbytesize": 32112403035.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-029"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-030", "contentbytesize": 37306896410.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-030"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-001", "contentbytesize": 35723401811.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-001"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-024", "contentbytesize": 29723577050.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-024"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-019", "contentbytesize": 34580625843.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-019"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-022", "contentbytesize": 35889054372.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-022"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-020", "contentbytesize": 42008670201.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-020"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-014", "contentbytesize": 37099397346.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-014"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-010", "contentbytesize": 36971961125.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-010"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-006", "contentbytesize": 44027589750.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-006"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-004", "contentbytesize": 31866554851.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-004"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-002", "contentbytesize": 34500407561.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-002"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-027", "contentbytesize": 30826345487.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-027"}, {"type": "file", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1", "path": "sourcedata/sub-025", "contentbytesize": 44745069137.0, "isPartOf": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "metadata_sources": {"sources": [{"source_name": "Local_Processing", "source_version": "V1", "agent_name": "Pipeline"}]}, "name": "sub-025"}, {"type": "directory", "name": "sub-015", "path": "sourcedata/sub-015", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-013", "path": "sourcedata/sub-013", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-009", "path": "sourcedata/sub-009", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-005", "path": "sourcedata/sub-005", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-028", "path": "sourcedata/sub-028", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-026", "path": "sourcedata/sub-026", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-000", "path": "sourcedata/sub-000", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-018", "path": "sourcedata/sub-018", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-021", "path": "sourcedata/sub-021", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-008", "path": "sourcedata/sub-008", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-029", "path": "sourcedata/sub-029", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-030", "path": "sourcedata/sub-030", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-001", "path": "sourcedata/sub-001", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-024", "path": "sourcedata/sub-024", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-019", "path": "sourcedata/sub-019", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-022", "path": "sourcedata/sub-022", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-020", "path": "sourcedata/sub-020", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-014", "path": "sourcedata/sub-014", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-010", "path": "sourcedata/sub-010", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-006", "path": "sourcedata/sub-006", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-004", "path": "sourcedata/sub-004", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-002", "path": "sourcedata/sub-002", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-027", "path": "sourcedata/sub-027", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}, {"type": "directory", "name": "sub-025", "path": "sourcedata/sub-025", "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI", "dataset_version": "V1"}], "path": "sourcedata", "name": "sourcedata"}
+{
+  "type": "directory",
+  "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+  "dataset_version": "V1",
+  "children": [
+    {
+      "type": "directory",
+      "name": "sub-000",
+      "path": "sourcedata/sub-000",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-001",
+      "path": "sourcedata/sub-001",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-002",
+      "path": "sourcedata/sub-002",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-004",
+      "path": "sourcedata/sub-004",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-005",
+      "path": "sourcedata/sub-005",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-006",
+      "path": "sourcedata/sub-006",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-008",
+      "path": "sourcedata/sub-008",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-009",
+      "path": "sourcedata/sub-009",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-010",
+      "path": "sourcedata/sub-010",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-013",
+      "path": "sourcedata/sub-013",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-014",
+      "path": "sourcedata/sub-014",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-015",
+      "path": "sourcedata/sub-015",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-018",
+      "path": "sourcedata/sub-018",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-019",
+      "path": "sourcedata/sub-019",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-020",
+      "path": "sourcedata/sub-020",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-021",
+      "path": "sourcedata/sub-021",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-022",
+      "path": "sourcedata/sub-022",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-024",
+      "path": "sourcedata/sub-024",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-025",
+      "path": "sourcedata/sub-025",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-026",
+      "path": "sourcedata/sub-026",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-027",
+      "path": "sourcedata/sub-027",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-028",
+      "path": "sourcedata/sub-028",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-029",
+      "path": "sourcedata/sub-029",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-030",
+      "path": "sourcedata/sub-030",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-032",
+      "path": "sourcedata/sub-032",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-034",
+      "path": "sourcedata/sub-034",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-036",
+      "path": "sourcedata/sub-036",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-038",
+      "path": "sourcedata/sub-038",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-039",
+      "path": "sourcedata/sub-039",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-040",
+      "path": "sourcedata/sub-040",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-042",
+      "path": "sourcedata/sub-042",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-043",
+      "path": "sourcedata/sub-043",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-044",
+      "path": "sourcedata/sub-044",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-047",
+      "path": "sourcedata/sub-047",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-048",
+      "path": "sourcedata/sub-048",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-049",
+      "path": "sourcedata/sub-049",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-050",
+      "path": "sourcedata/sub-050",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-052",
+      "path": "sourcedata/sub-052",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-054",
+      "path": "sourcedata/sub-054",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-055",
+      "path": "sourcedata/sub-055",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-056",
+      "path": "sourcedata/sub-056",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-057",
+      "path": "sourcedata/sub-057",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-058",
+      "path": "sourcedata/sub-058",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-059",
+      "path": "sourcedata/sub-059",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-060",
+      "path": "sourcedata/sub-060",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-062",
+      "path": "sourcedata/sub-062",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-063",
+      "path": "sourcedata/sub-063",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-065",
+      "path": "sourcedata/sub-065",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-066",
+      "path": "sourcedata/sub-066",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-067",
+      "path": "sourcedata/sub-067",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-068",
+      "path": "sourcedata/sub-068",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-069",
+      "path": "sourcedata/sub-069",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-070",
+      "path": "sourcedata/sub-070",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-071",
+      "path": "sourcedata/sub-071",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-072",
+      "path": "sourcedata/sub-072",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-073",
+      "path": "sourcedata/sub-073",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-074",
+      "path": "sourcedata/sub-074",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-075",
+      "path": "sourcedata/sub-075",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-076",
+      "path": "sourcedata/sub-076",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-077",
+      "path": "sourcedata/sub-077",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-078",
+      "path": "sourcedata/sub-078",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-080",
+      "path": "sourcedata/sub-080",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-081",
+      "path": "sourcedata/sub-081",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-082",
+      "path": "sourcedata/sub-082",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-083",
+      "path": "sourcedata/sub-083",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-084",
+      "path": "sourcedata/sub-084",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-085",
+      "path": "sourcedata/sub-085",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-086",
+      "path": "sourcedata/sub-086",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-087",
+      "path": "sourcedata/sub-087",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-088",
+      "path": "sourcedata/sub-088",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-089",
+      "path": "sourcedata/sub-089",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-090",
+      "path": "sourcedata/sub-090",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-091",
+      "path": "sourcedata/sub-091",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-092",
+      "path": "sourcedata/sub-092",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-093",
+      "path": "sourcedata/sub-093",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-094",
+      "path": "sourcedata/sub-094",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-095",
+      "path": "sourcedata/sub-095",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-096",
+      "path": "sourcedata/sub-096",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    },
+    {
+      "type": "directory",
+      "name": "sub-098",
+      "path": "sourcedata/sub-098",
+      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+      "dataset_version": "V1"
+    }
+  ],
+  "path": "sourcedata",
+  "name": "sourcedata"
+}
