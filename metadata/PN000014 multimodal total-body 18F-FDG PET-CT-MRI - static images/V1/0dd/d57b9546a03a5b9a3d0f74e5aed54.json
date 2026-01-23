@@ -679,7 +679,7 @@
     "name": "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images",
     "description": "Whole-body static 18F-FDG PET reconstructions, CT, and MRI for 80 age and sex stratified healthy controls of the hedyPET cohort. Derivatives include totalsegmentator segmentations, synthseg brain segmentations, and pipelines that contains images resampled (registered for MRI) to common spaces. (total size: 110.49GB)",
     "doi": "https://doi.org/10.70883/GIOX3828",
-    "download_url": "https:/datacatalog.publicneuro.eu/manage/request-access/PN000014",
+    "download_url": "/manage/request-access/PN000014",
     "keywords": [
         "PET",
         "CT",

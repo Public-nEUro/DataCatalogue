@@ -47,6 +47,10 @@ Related Tools:
     from find_catalogue_set_file import sort_children
     sorted_children = sort_children(dataset['children'])
     
+    # Sort sourcedata directory in a dataset
+    from file_metadata_utils import sort_sourcedata_directory
+    sort_sourcedata_directory("PN000016*/V1")
+    
     Child ordering rules: source dirs → code dirs → files → sub-* (numeric) → sub-* (alpha) → others
     
 Key Functions:
@@ -57,6 +61,10 @@ Key Functions:
     - process_file_metadata(dataset_jsonl, file_list_source, source_name, agent_name):
         Generate comprehensive metadata catalog combining dataset info with file listings
         file_list_source can be: directory path, JSONL file path, or list of file dictionaries
+        
+    - sort_sourcedata_directory(dataset_pattern):
+        Find and sort sourcedata directory children in a catalog dataset
+        Sorts sub-* directories (numeric first) and files within each sub-* alphabetically
 """
 
 import os
@@ -404,6 +412,164 @@ def _fix_metadata_sources(filename: str):
     # Rewrite the file
     with open(filename, 'w') as f:
         f.writelines(updated_lines)
+
+
+def sort_sourcedata_directory(dataset_pattern: str, verbose: bool = True) -> dict:
+    """
+    Find and sort sourcedata directory children in a catalog dataset.
+    
+    This function:
+    1. Finds the dataset matching the pattern
+    2. Locates the sourcedata directory JSON (type=directory, name=sourcedata)
+    3. Sorts its children according to BIDS conventions:
+       - sub-* directories sorted numerically (sub-000, sub-001, ...)
+       - Files within each sub-* directory sorted alphabetically
+       - Other items sorted alphabetically
+    
+    Args:
+        dataset_pattern (str): Pattern to find dataset (e.g., 'PN000016*/V1')
+        verbose (bool): Whether to print progress messages (default: True)
+        
+    Returns:
+        dict: Statistics about the sorting operation with keys:
+            - 'sorted': Number of children sorted
+            - 'total': Total number of children
+            - 'sub_directories': Number of sub-* directories
+            - 'sourcedata_path': Path to the sourcedata JSON file
+            
+    Raises:
+        FileNotFoundError: If dataset or sourcedata directory not found
+        ValueError: If dataset has no sourcedata directory child
+        
+    Example:
+        from file_metadata_utils import sort_sourcedata_directory
+        
+        # Sort sourcedata in PN000016 dataset
+        stats = sort_sourcedata_directory("PN000016*/V1")
+        print(f"Sorted {stats['sub_directories']} sub-* directories")
+    """
+    # Import here to avoid circular dependency
+    from find_catalogue_set_file import find_catalogue_set_file, sort_children
+    import hashlib
+    
+    if verbose:
+        print(f"🔍 Searching for dataset matching pattern: {dataset_pattern}")
+    
+    # Find the dataset
+    results = find_catalogue_set_file(dataset_pattern, reorder_children=False, verbose=verbose)
+    
+    if not results:
+        raise FileNotFoundError(f"No dataset found matching pattern: {dataset_pattern}")
+    
+    # Get dataset info
+    dataset_key = list(results.keys())[0]
+    dataset_info = results[dataset_key]
+    dataset_path = dataset_info['path']
+    
+    # Make path absolute if relative
+    if not os.path.isabs(dataset_path):
+        catalog_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        dataset_path = os.path.join(catalog_root, dataset_path)
+    
+    if verbose:
+        print(f"✅ Found dataset: {dataset_key}")
+        print(f"   Path: {dataset_path}")
+    
+    # Load dataset JSON
+    with open(dataset_path, 'r') as f:
+        dataset = json.load(f)
+    
+    # Look for sourcedata child
+    children = dataset.get('children', [])
+    sourcedata_found = False
+    
+    for child in children:
+        if child.get('name') == 'sourcedata' and child.get('type') == 'directory':
+            sourcedata_found = True
+            break
+    
+    if not sourcedata_found:
+        raise ValueError("No sourcedata directory found in dataset children")
+    
+    if verbose:
+        print("📂 Searching for sourcedata directory JSON...")
+    
+    # Get the dataset version directory
+    dataset_version_dir = os.path.dirname(os.path.dirname(dataset_path))
+    
+    # Search for sourcedata directory JSON
+    sourcedata_json_path = None
+    for root, dirs, files in os.walk(dataset_version_dir):
+        for file in files:
+            if not file.endswith('.json'):
+                continue
+            file_path = os.path.join(root, file)
+            try:
+                with open(file_path, 'r') as f:
+                    data = json.load(f)
+                if (data.get('type') == 'directory' and 
+                    data.get('name') == 'sourcedata'):
+                    sourcedata_json_path = file_path
+                    break
+            except (json.JSONDecodeError, IOError):
+                continue
+        if sourcedata_json_path:
+            break
+    
+    if not sourcedata_json_path:
+        raise FileNotFoundError("sourcedata directory JSON not found")
+    
+    if verbose:
+        print(f"✅ Found sourcedata JSON: {sourcedata_json_path}")
+        print(f"\n📝 Loading sourcedata JSON...")
+    
+    # Load sourcedata JSON
+    with open(sourcedata_json_path, 'r') as f:
+        sourcedata = json.load(f)
+    
+    # Get children
+    children = sourcedata.get('children', [])
+    original_count = len(children)
+    
+    if verbose:
+        print(f"   Found {original_count} children")
+    
+    if original_count == 0:
+        if verbose:
+            print("⚠️  No children to sort")
+        return {'sorted': 0, 'total': 0, 'sub_directories': 0, 'sourcedata_path': sourcedata_json_path}
+    
+    # Sort children
+    if verbose:
+        print(f"\n🔄 Sorting children...")
+    sorted_children = sort_children(children, parent_name='sourcedata')
+    
+    # Update sourcedata JSON
+    sourcedata['children'] = sorted_children
+    
+    # Write back
+    if verbose:
+        print(f"💾 Writing sorted JSON back to file...")
+    with open(sourcedata_json_path, 'w') as f:
+        json.dump(sourcedata, f, indent=2)
+    
+    if verbose:
+        print(f"✅ Successfully sorted {original_count} children")
+    
+    # Count sub-* directories
+    sub_count = sum(1 for child in sorted_children if child.get('name', '').startswith('sub-'))
+    
+    if verbose:
+        print(f"\n🎉 Sorting complete!")
+        print(f"   Total children sorted: {original_count}")
+        print(f"   Sub-* directories: {sub_count}")
+    
+    return {
+        'sorted': original_count,
+        'total': original_count,
+        'sub_directories': sub_count,
+        'sourcedata_path': sourcedata_json_path
+    }
 
 
 # Convenience aliases for backward compatibility
