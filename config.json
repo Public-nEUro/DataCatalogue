@@ -3,6 +3,7 @@
     "catalog_url": "https://publicneuro-catalogue.netlify.app/",
     "link_color": "#0066cc",
     "link_hover_color": "#0052a3",
+    "logo_path": "artwork/catalog_logo.svg?v=2",
     "social_links": {
         "about": null,
         "documentation": "https://publicneuro.eu/",
