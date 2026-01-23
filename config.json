@@ -1,8 +1,8 @@
 {
     "catalog_name": "publicneuro-catalogue",
     "catalog_url": "https://publicneuro-catalogue.netlify.app/",
-    "link_color": "#fba304",
-    "link_hover_color": "#af7714",
+    "link_color": "#0066cc",
+    "link_hover_color": "#0052a3",
     "social_links": {
         "about": null,
         "documentation": "https://publicneuro.eu/",
