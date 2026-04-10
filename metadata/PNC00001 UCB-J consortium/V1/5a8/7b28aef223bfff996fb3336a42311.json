@@ -35,8 +35,8 @@
         },
         {
             "type": "dataset",
-            "name": "PN000012 UCB-J NRU",
-            "dataset_id": "PN000012 UCB-J NRU",
+            "name": "PN000012 PET UCB-J in healthy adult participants across the life span",
+            "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
             "dataset_version": "V1"
         },
         {

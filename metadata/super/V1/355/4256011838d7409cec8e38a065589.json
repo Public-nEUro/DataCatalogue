@@ -184,6 +184,14 @@
       ]
     },
     {
+      "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
+      "dataset_version": "V1",
+      "dataset_path": "PN000012 PET UCB-J in healthy adult participants across the life span",
+      "dirs_from_path": [
+        "PN000012 PET UCB-J in healthy adult participants across the life span"
+      ]
+    },
+    {
       "dataset_id": "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images",
       "dataset_version": "V1",
       "dataset_path": "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images",

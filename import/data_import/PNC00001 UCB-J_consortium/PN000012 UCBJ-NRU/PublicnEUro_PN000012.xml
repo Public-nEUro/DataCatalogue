@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+    <head>
+        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
+        <timestamp>2026041000000000</timestamp>
+        <depositor>
+            <depositor_name>PublicNeuro</depositor_name>
+            <email_address>publicneuro@nru.dk</email_address>
+        </depositor>
+        <registrant>Neurobiology Research Unit, Rigshospitalet, Denmark</registrant>
+    </head>
+    <body>
+        <database>
+            <database_metadata language="en">
+                <titles>
+                    <title>PublicNeuro Datasets</title>
+                    <subtitle>PN000012 PET UCB-J in healthy adult participants across the life span</subtitle>
+                </titles>
+            </database_metadata>
+            <dataset dataset_type="record">
+                <contributors>
+                    <person_name sequence="first" contributor_role="author">
+                        <given_name>Sophia</given_name>
+                        <surname>Armand</surname>
+                    </person_name>
+                    <person_name sequence="additional" contributor_role="author">
+                        <given_name>Gitte</given_name>
+                        <surname>Moos Knudsen</surname>
+                    </person_name>
+                    <person_name sequence="additional" contributor_role="author">
+                        <given_name>Annette</given_name>
+                        <surname>Johansen</surname>
+                    </person_name>
+                </contributors>
+                <titles>
+                    <title>PET UCB-J in healthy adult participants across the life span Data</title>
+                </titles>
+                <database_date>
+                    <publication_date>
+                        <month>04</month>
+                        <day>10</day>
+                        <year>2026</year>
+                    </publication_date>
+                </database_date>
+                <description language="en">The dataset contains 120 min dynamic scan starting with C11-UCBJ bolus along with T1w and T2w MRI data from people aged between 20 and 83 years old.</description>
+                <doi_data>
+                    <doi>10.70883/NRUJ1547</doi>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000012%20PET%20UCB-J%20in%20healthy%20adult%20participants%20across%20the%20life%20span/V1</resource>
+                </doi_data>
+            </dataset>
+        </database>
+    </body>
+</doi_batch>
