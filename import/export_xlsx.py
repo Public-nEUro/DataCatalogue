@@ -866,11 +866,8 @@ def parse_excel_metadata(input_file):
     pn_id = metadata_aux.get('PN ID', 'PN000000')
     title = metadata_aux.get('title', 'Unknown Dataset')
     version_raw = metadata_aux.get('dataset version', 'None')
-    
-    url_base = "https://datacatalog.publicneuro.eu/dataset/"
-    url_dataset = f"{pn_id} {title}"
-    url_version = format_version(version_raw)
-    download_url = f"{url_base}{url_dataset}/{url_version}".replace(" ", "%20")
+
+    download_url = f"https://datacatalog.publicneuro.eu/manage/request-access/{pn_id}"
 
     # Extract keywords with improved parsing
     # Extract keywords using the same pattern as other metadata fields
