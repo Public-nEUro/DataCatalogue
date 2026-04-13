@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 Complete dataset processing pipeline CLI
 
 This script provides a command-line interface for the complete PublicnEUro dataset
@@ -143,7 +143,72 @@ def process_dataset(excel_file, file_list_source, source_name='Local_Processing'
             print(f"✅ Found {len(found_datasets)} dataset(s): {found_datasets}")
         else:
             print("⚠️  No datasets found matching pattern")
-        
+
+        # Step 5: Patch catalog JSON fields (download_url, description, authors)
+        print("\n🔧 Step 5: Patching catalog JSON fields...")
+        with open(jsonl_file, 'r') as f:
+            source_metadata = json.loads(f.readline())
+
+        for key, info in results.items():
+            # info['path'] is relative to catalog_root (set during find_catalogue_set_file)
+            catalog_json_path = os.path.join(catalog_root, info['path'])
+            try:
+                with open(catalog_json_path, 'r', encoding='utf-8') as f:
+                    catalog_data = json.load(f)
+
+                changed = False
+
+                # Fix download_url: should be /manage/request-access/{pnid}
+                cat_dataset_id = str(catalog_data.get('dataset_id', '')).strip()
+                pnid_match = re.match(r'(PN[C]?\d+)', cat_dataset_id)
+                if pnid_match:
+                    correct_url = f"/manage/request-access/{pnid_match.group(1)}"
+                    if catalog_data.get('download_url') != correct_url:
+                        print(f"   Fixing download_url: {catalog_data.get('download_url')} → {correct_url}")
+                        catalog_data['download_url'] = correct_url
+                        changed = True
+
+                # Fix description if null/missing
+                if not catalog_data.get('description') and source_metadata.get('description'):
+                    print(f"   Fixing description: null → (copied from JSONL)")
+                    catalog_data['description'] = source_metadata['description']
+                    changed = True
+
+                # Fix authors if null/missing
+                if not catalog_data.get('authors') and source_metadata.get('authors'):
+                    print(f"   Fixing authors: null → (copied from JSONL)")
+                    catalog_data['authors'] = source_metadata['authors']
+                    changed = True
+
+                if changed:
+                    with open(catalog_json_path, 'w', encoding='utf-8') as f:
+                        json.dump(catalog_data, f, indent=4, ensure_ascii=False)
+                    print(f"✅ Patched: {os.path.basename(catalog_json_path)}")
+                else:
+                    print(f"   No changes needed: {os.path.basename(catalog_json_path)}")
+
+            except Exception as e:
+                print(f"⚠️  Could not patch {catalog_json_path}: {e}")
+
+        # Step 6: Write dataset_file.txt next to the Excel file
+        print("\n📝 Step 6: Writing dataset_file.txt...")
+        excel_dir = os.path.dirname(os.path.abspath(excel_file))
+        txt_path = os.path.join(excel_dir, 'dataset_file.txt')
+        written = False
+        for key, info in results.items():
+            rel_path = info.get('relative_path', '')
+            if rel_path:
+                # Normalize to forward slashes
+                rel_path = rel_path.replace(os.sep, '/')
+                with open(txt_path, 'w', encoding='utf-8') as f:
+                    f.write(rel_path + '\n')
+                print(f"✅ Written: {txt_path}")
+                print(f"   → {rel_path}")
+                written = True
+                break
+        if not written:
+            print("⚠️  No dataset found to write to dataset_file.txt")
+
         result = {
             'xml': xml_file,
             'jsonl': jsonl_file,

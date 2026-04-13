@@ -2,7 +2,7 @@
 <doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
     <head>
         <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2025111700000000</timestamp>
+        <timestamp>2026041300000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -14,7 +14,7 @@
             <database_metadata language="en">
                 <titles>
                     <title>PublicNeuro Datasets</title>
-                    <subtitle>PN0000014 A multimodal total-body static 18F-FDG PET/CT/MRI dataset of 80 healthy humans</subtitle>
+                    <subtitle>PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images</subtitle>
                 </titles>
             </database_metadata>
             <dataset dataset_type="record">
@@ -85,19 +85,19 @@
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>A multimodal total-body static 18F-FDG PET-CT-MRI dataset of 80 healthy humans Data</title>
+                    <title>multimodal total-body 18F-FDG PET-CT-MRI - static images Data</title>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>11</month>
-                        <day>17</day>
-                        <year>2025</year>
+                        <month>04</month>
+                        <day>13</day>
+                        <year>2026</year>
                     </publication_date>
                 </database_date>
                 <description language="en">Whole-body static 18F-FDG PET reconstructions, CT, and MRI for 80 age and sex stratified healthy controls of the hedyPET cohort. Derivatives include totalsegmentator segmentations, synthseg brain segmentations, and pipelines that contains images resampled (registered for MRI) to common spaces.</description>
                 <doi_data>
                     <doi>10.70883/GIOX3828</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000014%20multimodal%20total-body%2018F-FDG%20PET-CT-MRI%20-%20static%20images/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/manage/request-access/PN000014</resource>
                 </doi_data>
             </dataset>
         </database>

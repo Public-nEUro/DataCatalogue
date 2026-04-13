@@ -1,0 +1,5 @@
+cd /dpnru002/data/raw/01_Catalogue/DataCatalogue/import
+
+source /dpnru002/data/raw/01_Catalogue/my_catalog_env/bin/activate
+
+python process_dataset.py 'data_import/PNC00001 UCB-J_consortium/PN000012 UCBJ-NRU/PublicnEUro_PN000012.xlsx' '/dpnru002/data/raw/PN000012/UCBJ-NRU' --source 'PublicnEUro' --agent 'Cyril Pernet'

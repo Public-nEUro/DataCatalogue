@@ -7,51 +7,15 @@
             "type": "file",
             "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
             "dataset_version": "V1",
-            "path": "participants.json",
-            "contentbytesize": 416.0,
-            "isPartOf": "PN000012 PET UCB-J in healthy adult participants across the life span",
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "Local_Processing",
-                        "source_version": "V1",
-                        "agent_name": "Pipeline"
-                    }
-                ]
-            },
-            "name": "participants.json"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
-            "dataset_version": "V1",
-            "path": "participants.tsv",
-            "contentbytesize": 683.0,
-            "isPartOf": "PN000012 PET UCB-J in healthy adult participants across the life span",
-            "metadata_sources": {
-                "sources": [
-                    {
-                        "source_name": "Local_Processing",
-                        "source_version": "V1",
-                        "agent_name": "Pipeline"
-                    }
-                ]
-            },
-            "name": "participants.tsv"
-        },
-        {
-            "type": "file",
-            "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
-            "dataset_version": "V1",
             "path": "README",
-            "contentbytesize": 2150.0,
+            "contentbytesize": 2062.0,
             "isPartOf": "PN000012 PET UCB-J in healthy adult participants across the life span",
             "metadata_sources": {
                 "sources": [
                     {
-                        "source_name": "Local_Processing",
+                        "source_name": "PublicnEUro",
                         "source_version": "V1",
-                        "agent_name": "Pipeline"
+                        "agent_name": "Cyril Pernet"
                     }
                 ]
             },
@@ -61,19 +25,55 @@
             "type": "file",
             "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
             "dataset_version": "V1",
-            "path": "dataset_description.json",
-            "contentbytesize": 810.0,
+            "path": "participants.tsv",
+            "contentbytesize": 1210.0,
             "isPartOf": "PN000012 PET UCB-J in healthy adult participants across the life span",
             "metadata_sources": {
                 "sources": [
                     {
-                        "source_name": "Local_Processing",
+                        "source_name": "PublicnEUro",
                         "source_version": "V1",
-                        "agent_name": "Pipeline"
+                        "agent_name": "Cyril Pernet"
+                    }
+                ]
+            },
+            "name": "participants.tsv"
+        },
+        {
+            "type": "file",
+            "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
+            "dataset_version": "V1",
+            "path": "dataset_description.json",
+            "contentbytesize": 893.0,
+            "isPartOf": "PN000012 PET UCB-J in healthy adult participants across the life span",
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "PublicnEUro",
+                        "source_version": "V1",
+                        "agent_name": "Cyril Pernet"
                     }
                 ]
             },
             "name": "dataset_description.json"
+        },
+        {
+            "type": "file",
+            "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
+            "dataset_version": "V1",
+            "path": "participants.json",
+            "contentbytesize": 416.0,
+            "isPartOf": "PN000012 PET UCB-J in healthy adult participants across the life span",
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "PublicnEUro",
+                        "source_version": "V1",
+                        "agent_name": "Cyril Pernet"
+                    }
+                ]
+            },
+            "name": "participants.json"
         },
         {
             "type": "directory",
@@ -347,8 +347,29 @@
             "name": [
                 "Neurobiology Researh Unit"
             ],
+            "doi": [
+                "Neurobiology Researh Unit"
+            ],
+            "download_url": [
+                "Neurobiology Researh Unit"
+            ],
+            "keywords": [
+                "Neurobiology Researh Unit"
+            ],
+            "license": [
+                "Neurobiology Researh Unit"
+            ],
+            "funding": [
+                "Neurobiology Researh Unit"
+            ],
+            "publications": [
+                "Neurobiology Researh Unit"
+            ],
             "dateModified": [
-                "10-04-2026 12:00:00"
+                "Neurobiology Researh Unit"
+            ],
+            "additional_display": [
+                "Neurobiology Researh Unit"
             ]
         },
         "sources": [
@@ -362,21 +383,34 @@
     },
     "name": "PET UCB-J in healthy adult participants across the life span",
     "description": "The dataset contains 120 min dynamic scan starting with C11-UCBJ bolus along with T1w and T2w MRI data from people aged between 20 and 83 years old.",
-    "doi": "https:/doi.org/10.70883/NRUJ1547",
-    "download_url": "https:/datacatalog.publicneuro.eu/manage/request-access/PN000012",
+    "doi": "10.70883/NRUJ1547",
+    "download_url": "/manage/request-access/PN000012",
     "keywords": [
+        "dynamic",
+        "UCBJ",
         "11C",
         "T2w",
-        "SV2A",
-        "UCBJ",
-        "dynamic",
+        "T1w",
         "PET",
-        "T1w"
+        "SV2A"
     ],
     "license": {
         "name": "Data User Agreement"
     },
-    "authors": null,
+    "authors": [
+        {
+            "givenName": "Sophia",
+            "familyName": "Armand"
+        },
+        {
+            "givenName": "Gitte",
+            "familyName": "Moos Knudsen"
+        },
+        {
+            "givenName": "Annette",
+            "familyName": "Johansen"
+        }
+    ],
     "funding": [
         {
             "name": "Lundbeck Foundation",

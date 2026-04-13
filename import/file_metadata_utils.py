@@ -235,23 +235,6 @@ def process_file_metadata(dataset_jsonl: str,
     if 'dataset_version' in dataset_info:
         dataset_info['dataset_version'] = dataset_info['dataset_version'].strip()
 
-    # Fix DOI format - ensure it has proper https://doi.org/ prefix
-    # Always extract the 10.70883/... part and add the correct prefix
-    if 'doi' in dataset_info and dataset_info['doi']:
-        doi_value = str(dataset_info['doi']).strip()
-        if doi_value:
-            # Find the 10.70883/... pattern and extract it (institution-specific)
-            import re
-            doi_match = re.search(r'(10\.70883/[^\s]+)', doi_value)
-            if doi_match:
-                # Extract just the DOI identifier (e.g., "10.70883/GIOX3828")
-                doi_identifier = doi_match.group(1)
-                # Always use https:// with two slashes
-                dataset_info['doi'] = f"https://doi.org/{doi_identifier}"
-            elif doi_value.startswith('10.70883/'):
-                # If it's already just the identifier, add the prefix
-                dataset_info['doi'] = f"https://doi.org/{doi_value}"
-    
     # Fix download_url - generate proper format based on dataset_id
     # Extract PNID from dataset_id (e.g., "PN000014" from "PN000014 multimodal...")
     if 'dataset_id' in dataset_info and dataset_info['dataset_id']:
@@ -314,7 +297,15 @@ def process_file_metadata(dataset_jsonl: str,
 
     # Determine output filename
     if output_file is None:
-        filename = f"{dataset_info['name'].replace(' ', '')}.jsonl"
+        # Build filename from dataset name, sanitizing characters that are unsafe in filenames
+        # (e.g. "PET/CT/MRI" would create spurious subdirectories without this)
+        raw_name = dataset_info.get('name', '').replace(' ', '')
+        safe_name = re.sub(r'[/\\:*?"<>|]', '-', raw_name)
+        if safe_name:
+            filename = f"{safe_name}.jsonl"
+        else:
+            # Fallback: use the same stem as the input JSONL (i.e. the Excel filename)
+            filename = os.path.basename(dataset_jsonl) if isinstance(dataset_jsonl, str) else 'output.jsonl'
         # If input JSONL has a directory path, save output in same directory
         if isinstance(dataset_jsonl, str) and os.path.dirname(dataset_jsonl):
             output_file = os.path.join(os.path.dirname(dataset_jsonl), filename)
