@@ -51,6 +51,12 @@
       "name": "PNC0002 A multimodal total-body 18F-FDG PET-CT-MRI dataset",
       "dataset_id": "PNC0002 A multimodal total-body 18F-FDG PET-CT-MRI dataset",
       "dataset_version": "V1"
+    },
+    {
+      "type": "dataset",
+      "name": "PNC0003 Mapping the Serotonin Transporter of the Human Brain",
+      "dataset_id": "PNC0003 Mapping the Serotonin Transporter of the Human Brain",
+      "dataset_version": "V1"
     }
   ],
   "metadata_sources": {
