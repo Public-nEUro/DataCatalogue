@@ -386,7 +386,7 @@
   "name": "Leuven PET UCB-J dataset 3 in control participants",
   "description": "UCB-J in healthy volunteers: dynamic UCB-J PET baseline scans (60 - 90 min after injection), eASL, T1w and DWI (total size: 3.1GB)",
   "doi": "https://doi.org/10.70883/GUMA1819",
-  "download_url": "https:/datacatalog.publicneuro.eu/dataset/PN000007%20Leuven%20PET%20UCB-J%20dataset%203%20in%20control%20participants%20/V1",
+  "download_url": "/manage/request-access/PN000007",
   "keywords": [
     "UCBJ",
     "PET",

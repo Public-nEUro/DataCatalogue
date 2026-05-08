@@ -183,7 +183,7 @@
   "name": "Leuven PET UCB-J dataset 2 in control participants",
   "description": "UCB-J in healthy volunteers: dynamic UCB-J and FDG PET baseline scans (60 - 90 min after injection),  T1w and FLAIR (total size: 0.65GB)",
   "doi": "https://doi.org/10.70883/FIYQ9929",
-  "download_url": "https:/datacatalog.publicneuro.eu/dataset/PN000006%20Leuven%20PET%20UCB-J%20dataset%202%20in%20control%20participants%20/V1",
+  "download_url": "/manage/request-access/PN000006",
   "keywords": [
     "UCBJ",
     "PET",
