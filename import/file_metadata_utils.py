@@ -300,7 +300,7 @@ def process_file_metadata(dataset_jsonl: str,
         # Build filename from dataset name, sanitizing characters that are unsafe in filenames
         # (e.g. "PET/CT/MRI" would create spurious subdirectories without this)
         raw_name = dataset_info.get('name', '').replace(' ', '')
-        safe_name = re.sub(r'[/\\:*?"<>|]', '-', raw_name)
+        safe_name = re.sub(r'[/\\:*?"<>|]', '-', raw_name).rstrip('.')
         if safe_name:
             filename = f"{safe_name}.jsonl"
         else:

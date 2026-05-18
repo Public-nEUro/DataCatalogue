@@ -1182,7 +1182,7 @@ def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None, skip_validatio
         "type": cleaned_metadata.get("type", "dataset"),
         "name": cleaned_metadata.get("title", ""),
         "description": cleaned_metadata.get("description", ""),
-        "dataset_id": cleaned_metadata.get("name", ""),
+        "dataset_id": cleaned_metadata.get("name", "").rstrip('.'),
         "dataset_version": cleaned_metadata.get("dataset_version", ""),
         "doi": cleaned_metadata.get("doi", ""),
         "download_url": cleaned_metadata.get("download_url", ""),

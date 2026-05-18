@@ -41,6 +41,40 @@ import json
 import re
 
 
+def _compute_data_size(file_list_source):
+    """
+    Return total dataset size as a human-readable string (e.g. '12.34 GB').
+
+    - If file_list_source is a directory: walk it and sum file sizes.
+    - If file_list_source is a JSONL file: sum 'contentbytesize' across all lines.
+    Returns None on failure.
+    """
+    try:
+        p = Path(file_list_source)
+        if p.is_dir():
+            total = sum(f.stat().st_size for f in p.rglob('*') if f.is_file())
+        elif p.is_file():
+            total = 0
+            with open(p, 'r', encoding='utf-8') as fh:
+                for line in fh:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        total += int(json.loads(line).get('contentbytesize', 0) or 0)
+                    except (json.JSONDecodeError, ValueError):
+                        pass
+        else:
+            return None
+        for unit in ('B', 'KB', 'MB', 'GB', 'TB'):
+            if total < 1024.0 or unit == 'TB':
+                return f"{total:.2f} {unit}"
+            total /= 1024.0
+    except Exception as e:
+        print(f"   ⚠️  Could not compute data size: {e}")
+        return None
+
+
 def process_dataset(excel_file, file_list_source, source_name='Local_Processing', agent_name='Pipeline'):
     """
     Process complete dataset from Excel to catalog with datalad import
@@ -70,7 +104,25 @@ def process_dataset(excel_file, file_list_source, source_name='Local_Processing'
         xml_file, jsonl_file = export_xlsx_to_both(excel_file)
         print(f"✅ Created: {xml_file}")
         print(f"✅ Created: {jsonl_file}")
-        
+
+        # Append total data size to description in JSONL
+        print("   Computing total data size...")
+        data_size = _compute_data_size(file_list_source)
+        if data_size:
+            print(f"   Total data size: {data_size}")
+            with open(jsonl_file, 'r', encoding='utf-8') as fh:
+                lines = fh.readlines()
+            first = json.loads(lines[0])
+            existing_desc = first.get('description') or ''
+            if f"(total size: {data_size})" not in existing_desc:
+                first['description'] = (existing_desc.rstrip() + f" (total size: {data_size})").lstrip()
+                lines[0] = json.dumps(first, ensure_ascii=False) + '\n'
+                with open(jsonl_file, 'w', encoding='utf-8') as fh:
+                    fh.writelines(lines)
+                print(f"   ✅ Description updated with total size")
+        else:
+            print("   ⚠️  Could not determine data size; description unchanged")
+
         # Step 2: Generate file catalog
         print("\n📁 Step 2: Generating file catalog...")
         catalog_file = process_file_metadata(
@@ -133,7 +185,25 @@ def process_dataset(excel_file, file_list_source, source_name='Local_Processing'
             raise Exception(f"Failed to import dataset to catalog: {import_result.stderr}")
         else:
             print("✅ Dataset imported to catalog")
-        
+
+        # Update dateModified and source_time in super catalog JSON
+        import time as _time
+        super_json_path = os.path.join(catalog_root, "metadata", "super", "V1", "355",
+                                       "4256011838d7409cec8e38a065589.json")
+        try:
+            now_ts = _time.time()
+            now_str = _time.strftime("%Y-%m-%d %H:%M:%S", _time.localtime(now_ts))
+            with open(super_json_path, 'r', encoding='utf-8') as f:
+                super_data = json.load(f)
+            super_data['dateModified'] = now_str
+            for src in super_data.get('metadata_sources', {}).get('sources', []):
+                src['source_time'] = now_ts
+            with open(super_json_path, 'w', encoding='utf-8') as f:
+                json.dump(super_data, f, indent=4, ensure_ascii=False)
+            print(f"✅ Updated super catalog dates: dateModified={now_str}, source_time={now_ts:.0f}")
+        except Exception as e:
+            print(f"⚠️  Could not update super catalog dates: {e}")
+
         # Step 4: Verify in catalog and reorder children
         print("\n🔍 Step 4: Finding dataset in catalog and reordering children...")
         results = find_catalogue_set_file(dataset_pattern, reorder_children=True)

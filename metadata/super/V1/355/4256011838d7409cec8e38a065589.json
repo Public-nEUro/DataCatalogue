@@ -1,225 +1,281 @@
 {
-  "type": "dataset",
-  "dataset_id": "super",
-  "dataset_version": "V1",
-  "doi": "https://doi.org/10.70883/CUOT3926",
-  "children": [
-    {
-      "type": "dataset",
-      "name": "PN000001 OpenNeuroPET Phantoms",
-      "dataset_id": "PN000001 OpenNeuroPET Phantoms",
-      "dataset_version": "V2"
+    "type": "dataset",
+    "dataset_id": "super",
+    "dataset_version": "V1",
+    "doi": "https://doi.org/10.70883/CUOT3926",
+    "children": [
+        {
+            "type": "dataset",
+            "name": "PN000001 OpenNeuroPET Phantoms",
+            "dataset_id": "PN000001 OpenNeuroPET Phantoms",
+            "dataset_version": "V2"
+        },
+        {
+            "type": "dataset",
+            "name": "PN000002 Aggression Project",
+            "dataset_id": "PN000002 Aggression Project",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PN000003 HCP multipipelines",
+            "dataset_id": "PN000003 HCP multipipelines",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PN000004 Closed Loop Sleep Motor Memory",
+            "dataset_id": "PN000004 Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PNC00001 UCB-J consortium",
+            "dataset_id": "PNC00001 UCB-J consortium",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PN000009 Markerless Prospective Motion Correction",
+            "dataset_id": "PN000009 Markerless Prospective Motion Correction",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
+            "dataset_id": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PNC0002 A multimodal total-body 18F-FDG PET-CT-MRI dataset",
+            "dataset_id": "PNC0002 A multimodal total-body 18F-FDG PET-CT-MRI dataset",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PNC0003 Mapping the Serotonin Transporter of the Human Brain",
+            "dataset_id": "PNC0003 Mapping the Serotonin Transporter of the Human Brain",
+            "dataset_version": "V1"
+        }
+    ],
+    "metadata_sources": {
+        "key_source_map": {
+            "name": [
+                "OpenNeuroPET"
+            ],
+            "keywords": [
+                "OpenNeuroPET"
+            ]
+        },
+        "sources": [
+            {
+                "source_name": "OpenNeuroPET",
+                "source_version": "1",
+                "agent_name": "Cyril Pernet",
+                "source_time": 1779107008.8471088
+            }
+        ]
     },
-    {
-      "type": "dataset",
-      "name": "PN000002 Aggression Project",
-      "dataset_id": "PN000002 Aggression Project",
-      "dataset_version": "V1"
+    "name": "Public nEUro",
+    "description": "Public nEUro is a GDPR-compliant repository and catalogue for human brain-imaging datasets (MRI, PET, EEG, MEG, etc.). The word “public” highlights that all metadata — such as all available files, modality description, participant group (“healthy controls”/“patients”), scanner field strength, study description, DOI, licensing terms, and dataset versioning — are openly accessible and fully searchable. Access to the actual imaging data, however, remains controlled and requires user registration, institutional affiliation and agreement to a Data-User Agreement. This structure is aligned with European and international regulations that consider brain-imaging data as personal and subject to legal restrictions. A small subset of datasets in the repository are designated as fully open access.\n\n**Cite**: Please acknowledge data hosting and download by citing our DOI 10.70883/CUOT3926\n\n**Download**: Once you have registered, and requested a dataset and signed the DUA, you can download the dataset at any time either using the web browser (make sure to allow pop-up) or via command line (see below) using a link you receive by email -- LINKS ARE ACTIVE FOR 72 HOURS ONLY -- but you can request new one when needed:\n\nbash <(wget -qO- https://datacatalog.publicneuro.eu/api/cli.sh)\n\nThis will prompt you to enter\nyour email\nyour password\nthe PublicnEUro (PN) ID\nthe folder that you want to download - use / for the entire dataset",
+    "keywords": [
+        "Open Metadata",
+        "Data Repository",
+        "Access control",
+        "Brain",
+        "GDPR",
+        "Access Control",
+        "Sharing"
+    ],
+    "homepage_url": "https://publicneuro.eu/",
+    "license": {
+        "name": "Mostly Data User Agreements, some CCBY"
     },
-    {
-      "type": "dataset",
-      "name": "PN000003 HCP multipipelines",
-      "dataset_id": "PN000003 HCP multipipelines",
-      "dataset_version": "V1"
-    },
-    {
-      "type": "dataset",
-      "name": "PN000004 Closed Loop Sleep Motor Memory",
-      "dataset_id": "PN000004 Closed Loop Sleep Motor Memory",
-      "dataset_version": "V1"
-    },
-    {
-      "type": "dataset",
-      "name": "PNC00001 UCB-J consortium",
-      "dataset_id": "PNC00001 UCB-J consortium",
-      "dataset_version": "V1"
-    },
-    {
-      "type": "dataset",
-      "name": "PN000009 Markerless Prospective Motion Correction",
-      "dataset_id": "PN000009 Markerless Prospective Motion Correction",
-      "dataset_version": "V1"
-    },
-    {
-      "type": "dataset",
-      "name": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
-      "dataset_id": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
-      "dataset_version": "V1"
-    },
-    {
-      "type": "dataset",
-      "name": "PNC0002 A multimodal total-body 18F-FDG PET-CT-MRI dataset",
-      "dataset_id": "PNC0002 A multimodal total-body 18F-FDG PET-CT-MRI dataset",
-      "dataset_version": "V1"
-    },
-    {
-      "type": "dataset",
-      "name": "PNC0003 Mapping the Serotonin Transporter of the Human Brain",
-      "dataset_id": "PNC0003 Mapping the Serotonin Transporter of the Human Brain",
-      "dataset_version": "V1"
-    }
-  ],
-  "metadata_sources": {
-    "key_source_map": {
-      "name": [
-        "OpenNeuroPET"
-      ],
-      "keywords": [
-        "OpenNeuroPET"
-      ]
-    },
-    "sources": [
-      {
-        "source_name": "OpenNeuroPET",
-        "source_version": "1",
-        "agent_name": "Cyril Pernet",
-        "source_time": 1759701600.0
-      }
+    "funding": [
+        {
+            "name": "Novo Nordisk Foundation",
+            "identifier": "NNF20OC0063277"
+        }
+    ],
+    "dateCreated": "2024-06-02 00:00:00",
+    "dateModified": "2026-05-18 14:23:28",
+    "subdatasets": [
+        {
+            "dataset_id": "PN000001 OpenNeuroPET Phantoms",
+            "dataset_version": "V2",
+            "dataset_path": "PN000001 OpenNeuroPET Phantoms",
+            "dirs_from_path": [
+                "PN000001 OpenNeuroPET Phantoms"
+            ]
+        },
+        {
+            "dataset_id": "PN000002 Aggression Project",
+            "dataset_version": "V1",
+            "dataset_path": "PN000002 Aggression Project",
+            "dirs_from_path": [
+                "PN000002 Aggression Project"
+            ]
+        },
+        {
+            "dataset_id": "PN000003 HCP multipipelines",
+            "dataset_version": "V1",
+            "dataset_path": "PN000003 HCP multipipelines",
+            "dirs_from_path": [
+                "PN000003 HCP multipipelines"
+            ]
+        },
+        {
+            "dataset_id": "PN000004 Closed Loop Sleep Motor Memory",
+            "dataset_version": "V1",
+            "dataset_path": "PN000004 Closed Loop Sleep Motor Memory",
+            "dirs_from_path": [
+                "PN000004 Closed Loop Sleep Motor Memory"
+            ]
+        },
+        {
+            "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+            "dataset_version": "V1",
+            "dataset_path": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
+            "dirs_from_path": [
+                "PN000005 Leuven PET UCB-J dataset 1 in control participants"
+            ]
+        },
+        {
+            "dataset_id": "PN000006 Leuven PET UCB-J dataset 2 in control participants",
+            "dataset_version": "V1",
+            "dataset_path": "PN000006 Leuven PET UCB-J dataset 2 in control participants",
+            "dirs_from_path": [
+                "PN000006 Leuven PET UCB-J dataset 2 in control participants"
+            ]
+        },
+        {
+            "dataset_id": "PN000007 Leuven PET UCB-J dataset 3 in control participants",
+            "dataset_version": "V1",
+            "dataset_path": "PN000007 Leuven PET UCB-J dataset 3 in control participants",
+            "dirs_from_path": [
+                "PN000007 Leuven PET UCB-J dataset 3 in control participants"
+            ]
+        },
+        {
+            "dataset_id": "PN000008 Leuven PET UCB-J dataset 4 in control participants",
+            "dataset_version": "V1",
+            "dataset_path": "PN000008 Leuven PET UCB-J dataset 4 in control participants",
+            "dirs_from_path": [
+                "PN000008 Leuven PET UCB-J dataset 4 in control participants"
+            ]
+        },
+        {
+            "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+            "dataset_version": "V1",
+            "dataset_path": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
+            "dirs_from_path": [
+                "PN000010 Leuven PET UCB-J dataset 5 in control participants"
+            ]
+        },
+        {
+            "dataset_id": "PN000009 Markerless Prospective Motion Correction",
+            "dataset_version": "V1",
+            "dataset_path": "PN000009 Markerless Prospective Motion Correction",
+            "dirs_from_path": [
+                "PN000009 Markerless Prospective Motion Correction"
+            ]
+        },
+        {
+            "dataset_id": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
+            "dataset_version": "V1",
+            "dataset_path": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
+            "dirs_from_path": [
+                "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction"
+            ]
+        },
+        {
+            "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
+            "dataset_version": "V1",
+            "dataset_path": "PN000012 PET UCB-J in healthy adult participants across the life span",
+            "dirs_from_path": [
+                "PN000012 PET UCB-J in healthy adult participants across the life span"
+            ]
+        },
+        {
+            "dataset_id": "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images",
+            "dataset_version": "V1",
+            "dataset_path": "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images",
+            "dirs_from_path": [
+                "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images"
+            ]
+        },
+        {
+            "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1",
+            "dataset_path": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
+            "dirs_from_path": [
+                "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI"
+            ]
+        },
+        {
+            "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+            "dataset_version": "V1",
+            "dataset_path": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
+            "dirs_from_path": [
+                "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI"
+            ]
+        },
+        {
+            "dataset_id": "PN000017 PN000017 Serotonine transporter data in healthy and obese participants",
+            "dataset_version": "V1",
+            "dataset_path": "PN000017 mPN000017 PN000017 Serotonine transporter data in healthy and obese participants",
+            "dirs_from_path": [
+                "PN000017 PN000017 PN000017 Serotonine transporter data in healthy and obese participants"
+            ]
+        },
+        {
+            "dataset_id": "PN000018 Gonadotrophin releasing hormone agonist (GnRHa) sex-hormone manipulation model of risk for depression",
+            "dataset_version": "V1",
+            "dataset_path": "PN000018 Gonadotrophin releasing hormone agonist (GnRHa) sex-hormone manipulation model of risk for depression",
+            "dirs_from_path": [
+                "PN000018 Gonadotrophin releasing hormone agonist (GnRHa) sex-hormone manipulation model of risk for depression"
+            ]
+        },
+        {
+            "dataset_id": "PN000019 Serotonine transporter PET data in healthy controls during bright-light therapy",
+            "dataset_version": "V1",
+            "dataset_path": "PN000019 Serotonine transporter PET data in healthy controls during bright-light therapy",
+            "dirs_from_path": [
+                "PN000019 Serotonine transporter PET data in healthy controls during bright-light therapy"
+            ]
+        },
+        {
+            "dataset_id": "PN000020 Serotonine transporter imaging in MDMA or hallucinogenic drug users and non using controls",
+            "dataset_version": "V1",
+            "dataset_path": "PN000020 Serotonine transporter imaging in MDMA or hallucinogenic drug users and non using controls",
+            "dirs_from_path": [
+                "PN000020 Serotonine transporter imaging in MDMA or hallucinogenic drug users and non using controls"
+            ]
+        },
+        {
+            "dataset_id": "PN000021 Serotonine transporter imaging in seasonal affective disorder",
+            "dataset_version": "V1",
+            "dataset_path": "PN000021 Serotonine transporter imaging in seasonal affective disorder",
+            "dirs_from_path": [
+                "PN000021 Serotonine transporter imaging in seasonal affective disorder"
+            ]
+        },
+        {
+            "dataset_id": "PN000022 Serotonergic brain architecture of early Alzheimers Disease",
+            "dataset_version": "V1",
+            "dataset_path": "PN000022 Serotonergic brain architecture of early Alzheimers Disease",
+            "dirs_from_path": [
+                "PN000022 Serotonergic brain architecture of early Alzheimers Disease"
+            ]
+        },
+        {
+            "dataset_id": "PN000023 Familial risk for affective disorders and serotonergic brain architecture",
+            "dataset_version": "V1",
+            "dataset_path": "PN000023 Familial risk for affective disorders and serotonergic brain architecture",
+            "dirs_from_path": [
+                "PN000023 Familial risk for affective disorders and serotonergic brain architecture"
+            ]
+        }
     ]
-  },
-  "name": "Public nEUro",
-  "description": "Public nEUro is a GDPR-compliant repository and catalogue for human brain-imaging datasets (MRI, PET, EEG, MEG, etc.). The word \u201cpublic\u201d highlights that all metadata \u2014 such as all available files, modality description, participant group (\u201chealthy controls\u201d/\u201cpatients\u201d), scanner field strength, study description, DOI, licensing terms, and dataset versioning \u2014 are openly accessible and fully searchable. Access to the actual imaging data, however, remains controlled and requires user registration, institutional affiliation and agreement to a Data-User Agreement. This structure is aligned with European and international regulations that consider brain-imaging data as personal and subject to legal restrictions. A small subset of datasets in the repository are designated as fully open access.\n\n**Cite**: Please acknowledge data hosting and download by citing our DOI 10.70883/CUOT3926\n\n**Download**: Once you have registered, and requested a dataset and signed the DUA, you can download the dataset at any time either using the web browser (make sure to allow pop-up) or via command line (see below) using a link you receive by email -- LINKS ARE ACTIVE FOR 72 HOURS ONLY -- but you can request new one when needed:\n\nbash <(wget -qO- https://datacatalog.publicneuro.eu/api/cli.sh)\n\nThis will prompt you to enter\nyour email\nyour password\nthe PublicnEUro (PN) ID\nthe folder that you want to download - use / for the entire dataset",
-  "keywords": [
-    "Open Metadata",
-    "Data Repository",
-    "Access control",
-    "Brain",
-    "GDPR",
-    "Access Control",
-    "Sharing"
-  ],
-  "homepage_url": "https://publicneuro.eu/",
-  "license": {
-    "name": "Mostly Data User Agreements, some CCBY"
-  },
-  "funding": [
-    {
-      "name": "Novo Nordisk Foundation",
-      "identifier": "NNF20OC0063277"
-    }
-  ],
-  "dateCreated": "2024-06-02 00:00:00",
-  "dateModified": "2025-10-06 00:00:00",
-  "subdatasets": [
-    {
-      "dataset_id": "PN000001 OpenNeuroPET Phantoms",
-      "dataset_version": "V2",
-      "dataset_path": "PN000001 OpenNeuroPET Phantoms",
-      "dirs_from_path": [
-        "PN000001 OpenNeuroPET Phantoms"
-      ]
-    },
-    {
-      "dataset_id": "PN000002 Aggression Project",
-      "dataset_version": "V1",
-      "dataset_path": "PN000002 Aggression Project",
-      "dirs_from_path": [
-        "PN000002 Aggression Project"
-      ]
-    },
-    {
-      "dataset_id": "PN000003 HCP multipipelines",
-      "dataset_version": "V1",
-      "dataset_path": "PN000003 HCP multipipelines",
-      "dirs_from_path": [
-        "PN000003 HCP multipipelines"
-      ]
-    },
-    {
-      "dataset_id": "PN000004 Closed Loop Sleep Motor Memory",
-      "dataset_version": "V1",
-      "dataset_path": "PN000004 Closed Loop Sleep Motor Memory",
-      "dirs_from_path": [
-        "PN000004 Closed Loop Sleep Motor Memory"
-      ]
-    },
-    {
-      "dataset_id": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-      "dataset_version": "V1",
-      "dataset_path": "PN000005 Leuven PET UCB-J dataset 1 in control participants",
-      "dirs_from_path": [
-        "PN000005 Leuven PET UCB-J dataset 1 in control participants"
-      ]
-    },
-    {
-      "dataset_id": "PN000006 Leuven PET UCB-J dataset 2 in control participants",
-      "dataset_version": "V1",
-      "dataset_path": "PN000006 Leuven PET UCB-J dataset 2 in control participants",
-      "dirs_from_path": [
-        "PN000006 Leuven PET UCB-J dataset 2 in control participants"
-      ]
-    },
-    {
-      "dataset_id": "PN000007 Leuven PET UCB-J dataset 3 in control participants",
-      "dataset_version": "V1",
-      "dataset_path": "PN000007 Leuven PET UCB-J dataset 3 in control participants",
-      "dirs_from_path": [
-        "PN000007 Leuven PET UCB-J dataset 3 in control participants"
-      ]
-    },
-    {
-      "dataset_id": "PN000008 Leuven PET UCB-J dataset 4 in control participants",
-      "dataset_version": "V1",
-      "dataset_path": "PN000008 Leuven PET UCB-J dataset 4 in control participants",
-      "dirs_from_path": [
-        "PN000008 Leuven PET UCB-J dataset 4 in control participants"
-      ]
-    },
-    {
-      "dataset_id": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-      "dataset_version": "V1",
-      "dataset_path": "PN000010 Leuven PET UCB-J dataset 5 in control participants",
-      "dirs_from_path": [
-        "PN000010 Leuven PET UCB-J dataset 5 in control participants"
-      ]
-    },
-    {
-      "dataset_id": "PN000009 Markerless Prospective Motion Correction",
-      "dataset_version": "V1",
-      "dataset_path": "PN000009 Markerless Prospective Motion Correction",
-      "dirs_from_path": [
-        "PN000009 Markerless Prospective Motion Correction"
-      ]
-    },
-    {
-      "dataset_id": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
-      "dataset_version": "V1",
-      "dataset_path": "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction",
-      "dirs_from_path": [
-        "PN000011 A dataset of clinical pediatric brain MRI with and without motion correction"
-      ]
-    },
-    {
-      "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
-      "dataset_version": "V1",
-      "dataset_path": "PN000012 PET UCB-J in healthy adult participants across the life span",
-      "dirs_from_path": [
-        "PN000012 PET UCB-J in healthy adult participants across the life span"
-      ]
-    },
-    {
-      "dataset_id": "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images",
-      "dataset_version": "V1",
-      "dataset_path": "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images",
-      "dirs_from_path": [
-        "PN000014 multimodal total-body 18F-FDG PET-CT-MRI - static images"
-      ]
-    },
-    {
-      "dataset_id": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-      "dataset_version": "V1",
-      "dataset_path": "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-      "dirs_from_path": [
-        "PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI"
-      ]
-    },
-    {
-      "dataset_id": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
-      "dataset_version": "V1",
-      "dataset_path": "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI",
-      "dirs_from_path": [
-        "PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI"
-      ]
-    }   
-  ]
 }
