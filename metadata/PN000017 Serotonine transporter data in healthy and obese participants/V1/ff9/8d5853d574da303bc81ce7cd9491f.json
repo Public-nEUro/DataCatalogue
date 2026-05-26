@@ -495,7 +495,7 @@
     },
     "name": "Serotonine transporter data in healthy and obese participants.",
     "description": "This dataset is a combination of studies ran under the same ethic approval, combining data from healthy individuals and obese patients. (total size: 12.26 GB)",
-    "doi": "10.70883/GBWN3773",
+    "doi": "https://doi.org/10.70883/GBWN3773",
     "download_url": "/manage/request-access/PN000017",
     "keywords": [
         "DASB",
