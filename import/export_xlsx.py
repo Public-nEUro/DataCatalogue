@@ -131,6 +131,7 @@ import openpyxl
 import pandas as pd
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from urllib.parse import quote
 import re
 import os
 import sys
@@ -1060,7 +1061,8 @@ def export_xlsx_to_xml(excel_file_path, output_xml_path=None, skip_validation=Fa
                 
                 resource_elem = doi_data.find(".//resource")
                 if resource_elem is not None:
-                    resource_elem.text = metadata["download_url"]
+                    encoded_name = quote(metadata["name"], safe='')
+                    resource_elem.text = f"https://datacatalog.publicneuro.eu/dataset/{encoded_name}/{metadata['dataset_version']}"
             
             # Update description
             desc_elem = dataset.find('.//description')
