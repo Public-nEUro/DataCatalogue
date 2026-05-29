@@ -849,8 +849,8 @@ def parse_excel_metadata(input_file):
     # Handle DOI extraction and formatting
     doi_raw = metadata_aux.get('DOI', 'XXXX')
     doi_suffix = extract_doi_suffix(doi_raw)
-    doi = f"10.70883/{doi_suffix}"
-    doi_without_prefix = doi  # alias used by XML generation
+    doi_without_prefix = f"10.70883/{doi_suffix}"       # bare DOI for XML
+    doi = f"https://doi.org/10.70883/{doi_suffix}"      # full URL for JSONL/catalog
 
     # Build download URL
     pn_id = metadata_aux.get('PN ID', 'PN000000')
