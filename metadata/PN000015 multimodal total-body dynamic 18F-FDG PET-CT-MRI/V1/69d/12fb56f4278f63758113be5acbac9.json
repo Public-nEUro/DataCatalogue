@@ -695,7 +695,7 @@
         ]
     },
     "name": "multimodal total-body dynamic 18F-FDG PET-CT-MRI",
-    "description": "70min 18F-FDG dynamic nifti files and corresponding resampled CT, MRI, and segmentations for 80 age and sex stratified healthy controls of the hedyPET cohort.",
+    "description": "70min 18F-FDG dynamic nifti files and corresponding resampled CT, MRI, and segmentations for 80 age and sex stratified healthy controls of the hedyPET cohort. (total size: 227.5GB)",
     "doi": "https://doi.org/10.70883/UYAG3430",
     "download_url": "/manage/request-access/PN000015",
     "keywords": [
