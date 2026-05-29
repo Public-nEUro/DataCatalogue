@@ -274,7 +274,7 @@
     },
     "name": "Serotonine transporter PET data in healthy controls during bright-light therapy",
     "description": "Dataset for PET imaging using the [11C]DASB tracer for the LYS study containing scans of 24 healthy men, before and after three weeks of bright light therapy. (total size: 12.17 GB)",
-    "doi": "10.70883/JEKA8722",
+    "doi": "https://doi.org/10.70883/JEKA8722",
     "download_url": "/manage/request-access/PN000019",
     "keywords": [
         "DASB",

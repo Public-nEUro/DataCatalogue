@@ -562,7 +562,7 @@
     },
     "name": "Gonadotrophin releasing hormone agonist (GnRHa) sex-hormone manipulation model of risk for depression",
     "description": "63 healthy female volunteers participated in this randomized (1:1), placebo-controlled double blind study of neurobiological and psychometrical signatures of ovarian sex hormone suppression. (total size: 39.54 GB)",
-    "doi": "10.70883/MYCX5689",
+    "doi": "https://doi.org/10.70883/MYCX5689",
     "download_url": "/manage/request-access/PN000018",
     "license": {
         "name": "Data User Agreement"

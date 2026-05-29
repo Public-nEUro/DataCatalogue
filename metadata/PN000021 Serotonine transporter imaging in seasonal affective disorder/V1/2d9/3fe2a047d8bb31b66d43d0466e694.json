@@ -337,7 +337,7 @@
     },
     "name": "Serotonine transporter imaging in seasonal affective disorder",
     "description": "The dataset is a subset of (11)C-DASB positron emission tomography scans that were conducted to quantify cerebral serotonin transporter binding; 23 healthy controls with low seasonality scores and 17 patients diagnosed with seasonal affective disorder were scanned in both summer and winter to investigate differences in cerebral serotonin transporter binding across groups and across seasons. (total size: 13.36 GB)",
-    "doi": "10.70883/FRBP6839",
+    "doi": "https://doi.org/10.70883/FRBP6839",
     "download_url": "/manage/request-access/PN000021",
     "keywords": [
         "SAD",
