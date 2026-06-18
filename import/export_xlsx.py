@@ -826,8 +826,14 @@ def parse_excel_metadata(input_file):
 
     # Extract metadata sources
     metadata_sources = {"sources": []}
-    if "dataset curators" in aux_dict:
-        for info in aux_dict["dataset curators"][2:]:
+    curator_sheet_name = None
+    for candidate in ["dataset curators", "dataset_curators"]:
+        if candidate in aux_dict:
+            curator_sheet_name = candidate
+            break
+
+    if curator_sheet_name:
+        for info in aux_dict[curator_sheet_name][2:]:
             if not pd.isna(info.get('# Metadata record for PublicnEUro')):
                 source_entry = {
                     'source_name': info.get('Unnamed: 1', ''),
