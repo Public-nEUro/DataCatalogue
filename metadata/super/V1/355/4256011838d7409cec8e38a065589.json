@@ -57,6 +57,12 @@
             "name": "PNC0003 Mapping the Serotonin Transporter of the Human Brain",
             "dataset_id": "PNC0003 Mapping the Serotonin Transporter of the Human Brain",
             "dataset_version": "V1"
+        },
+        {
+            "type": "dataset",
+            "name": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
         }
     ],
     "metadata_sources": {
@@ -73,7 +79,7 @@
                 "source_name": "OpenNeuroPET",
                 "source_version": "1",
                 "agent_name": "Cyril Pernet",
-                "source_time": 1779107008.8471088
+                "source_time": 1781784992.562655
             }
         ]
     },
@@ -99,7 +105,7 @@
         }
     ],
     "dateCreated": "2024-06-02 00:00:00",
-    "dateModified": "2026-05-18 14:23:28",
+    "dateModified": "2026-06-18 14:16:32",
     "subdatasets": [
         {
             "dataset_id": "PN000001 OpenNeuroPET Phantoms",
@@ -275,6 +281,14 @@
             "dataset_path": "PN000023 Familial risk for affective disorders and serotonergic brain architecture",
             "dirs_from_path": [
                 "PN000023 Familial risk for affective disorders and serotonergic brain architecture"
+            ]
+        },
+        {
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1",
+            "dataset_path": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dirs_from_path": [
+                "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy"
             ]
         }
     ]

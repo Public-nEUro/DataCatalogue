@@ -545,6 +545,10 @@ def parse_excel_metadata(input_file):
     if "publications" in aux_dict:
         for i in aux_dict["publications"][2:]:
             if not pd.isna(i.get('# Metadata record for PublicnEUro')):
+                pub_doi = i.get('Unnamed: 3', '')
+                # doi is required by the catalog schema — skip entries without one
+                if pd.isna(pub_doi) or str(pub_doi).strip() == '':
+                    continue
                 author_name = str(i.get('Unnamed: 2', ''))
                 name_parts = author_name.split(" ")
                 
@@ -552,7 +556,7 @@ def parse_excel_metadata(input_file):
                     "type": "academic publication",
                     "title": i['# Metadata record for PublicnEUro'], 
                     "datePublished": str(i.get('Unnamed: 1', '')),
-                    "doi": i.get('Unnamed: 3', ''),
+                    "doi": str(pub_doi).strip(),
                     "authors": [{
                         "givenName": name_parts[0] if len(name_parts) > 0 else '',
                         "familyName": (" ".join(name_parts[1:-2]) if "et al." in author_name 
@@ -658,12 +662,21 @@ def parse_excel_metadata(input_file):
         # Fallback: use first key if no match
         if not found_header and sample_row:
             found_header = list(sample_row.keys())[0]
+        # Identify the intermediate column (between the header column and 'values')
+        # Some fields (e.g. PN ID, DOI) store their value there instead of in 'values'
+        fallback_col = None
+        for col in sample_row.keys():
+            if col != found_header and col != 'values':
+                fallback_col = col
+                break
         for info in aux_dict["dataset_info"]:
             key_field = info.get(found_header) if found_header else None
             if pd.isna(key_field):
                 continue
             key = str(key_field).replace('_x000d_', '').replace('\n', '').strip()
             value = info.get('values')
+            if pd.isna(value) and fallback_col is not None:
+                value = info.get(fallback_col)
             if not pd.isna(value):
                 metadata_aux[key] = str(value) if isinstance(value, int) else value
 

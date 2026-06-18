@@ -1,0 +1,1696 @@
+{
+    "type": "dataset",
+    "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+    "dataset_version": "V1",
+    "children": [
+        {
+            "type": "file",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1",
+            "path": "README",
+            "contentbytesize": 1259.0,
+            "isPartOf": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "Local_Processing",
+                        "source_version": "V1",
+                        "agent_name": "Pipeline"
+                    }
+                ]
+            },
+            "name": "README"
+        },
+        {
+            "type": "file",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1",
+            "path": "dataset_description.json",
+            "contentbytesize": 934.0,
+            "isPartOf": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "Local_Processing",
+                        "source_version": "V1",
+                        "agent_name": "Pipeline"
+                    }
+                ]
+            },
+            "name": "dataset_description.json"
+        },
+        {
+            "type": "file",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1",
+            "path": "participants.json",
+            "contentbytesize": 1940.0,
+            "isPartOf": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "Local_Processing",
+                        "source_version": "V1",
+                        "agent_name": "Pipeline"
+                    }
+                ]
+            },
+            "name": "participants.json"
+        },
+        {
+            "type": "file",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1",
+            "path": "participants.tsv",
+            "contentbytesize": 9688.0,
+            "isPartOf": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "metadata_sources": {
+                "sources": [
+                    {
+                        "source_name": "Local_Processing",
+                        "source_version": "V1",
+                        "agent_name": "Pipeline"
+                    }
+                ]
+            },
+            "name": "participants.tsv"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP000433",
+            "path": "sub-EP000433",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP000807",
+            "path": "sub-EP000807",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP001047",
+            "path": "sub-EP001047",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP001171",
+            "path": "sub-EP001171",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP001237",
+            "path": "sub-EP001237",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP001462",
+            "path": "sub-EP001462",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP001610",
+            "path": "sub-EP001610",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP001811",
+            "path": "sub-EP001811",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP002584",
+            "path": "sub-EP002584",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP002828",
+            "path": "sub-EP002828",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP003081",
+            "path": "sub-EP003081",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP003444",
+            "path": "sub-EP003444",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP003488",
+            "path": "sub-EP003488",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP003548",
+            "path": "sub-EP003548",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP003637",
+            "path": "sub-EP003637",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP003673",
+            "path": "sub-EP003673",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP003725",
+            "path": "sub-EP003725",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP004035",
+            "path": "sub-EP004035",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP004090",
+            "path": "sub-EP004090",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP004597",
+            "path": "sub-EP004597",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP004713",
+            "path": "sub-EP004713",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP005137",
+            "path": "sub-EP005137",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP005337",
+            "path": "sub-EP005337",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP005411",
+            "path": "sub-EP005411",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP005533",
+            "path": "sub-EP005533",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP005674",
+            "path": "sub-EP005674",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP005976",
+            "path": "sub-EP005976",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP006881",
+            "path": "sub-EP006881",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP007514",
+            "path": "sub-EP007514",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP008100",
+            "path": "sub-EP008100",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP008111",
+            "path": "sub-EP008111",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP008180",
+            "path": "sub-EP008180",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP008232",
+            "path": "sub-EP008232",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP008423",
+            "path": "sub-EP008423",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP008644",
+            "path": "sub-EP008644",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP009037",
+            "path": "sub-EP009037",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP009213",
+            "path": "sub-EP009213",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP009552",
+            "path": "sub-EP009552",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP009666",
+            "path": "sub-EP009666",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP009733",
+            "path": "sub-EP009733",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP009886",
+            "path": "sub-EP009886",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP010073",
+            "path": "sub-EP010073",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP010256",
+            "path": "sub-EP010256",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP011149",
+            "path": "sub-EP011149",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP011235",
+            "path": "sub-EP011235",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP011290",
+            "path": "sub-EP011290",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP011408",
+            "path": "sub-EP011408",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP011439",
+            "path": "sub-EP011439",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP011480",
+            "path": "sub-EP011480",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP011507",
+            "path": "sub-EP011507",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP012401",
+            "path": "sub-EP012401",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP012411",
+            "path": "sub-EP012411",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP012599",
+            "path": "sub-EP012599",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP012683",
+            "path": "sub-EP012683",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP012747",
+            "path": "sub-EP012747",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP013035",
+            "path": "sub-EP013035",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP013213",
+            "path": "sub-EP013213",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP013371",
+            "path": "sub-EP013371",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP013623",
+            "path": "sub-EP013623",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP013839",
+            "path": "sub-EP013839",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP013966",
+            "path": "sub-EP013966",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP014147",
+            "path": "sub-EP014147",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP014160",
+            "path": "sub-EP014160",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP014585",
+            "path": "sub-EP014585",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP014619",
+            "path": "sub-EP014619",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP014844",
+            "path": "sub-EP014844",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP015041",
+            "path": "sub-EP015041",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP015441",
+            "path": "sub-EP015441",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP016069",
+            "path": "sub-EP016069",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP016127",
+            "path": "sub-EP016127",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP016170",
+            "path": "sub-EP016170",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP016220",
+            "path": "sub-EP016220",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP016457",
+            "path": "sub-EP016457",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP017010",
+            "path": "sub-EP017010",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP017091",
+            "path": "sub-EP017091",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP017439",
+            "path": "sub-EP017439",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP017593",
+            "path": "sub-EP017593",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP017732",
+            "path": "sub-EP017732",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP017776",
+            "path": "sub-EP017776",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP017781",
+            "path": "sub-EP017781",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP017880",
+            "path": "sub-EP017880",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP018077",
+            "path": "sub-EP018077",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP018238",
+            "path": "sub-EP018238",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP018343",
+            "path": "sub-EP018343",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP018429",
+            "path": "sub-EP018429",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP018910",
+            "path": "sub-EP018910",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP019249",
+            "path": "sub-EP019249",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP019284",
+            "path": "sub-EP019284",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP019573",
+            "path": "sub-EP019573",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP019903",
+            "path": "sub-EP019903",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP019942",
+            "path": "sub-EP019942",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP020143",
+            "path": "sub-EP020143",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP020433",
+            "path": "sub-EP020433",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP020493",
+            "path": "sub-EP020493",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP020799",
+            "path": "sub-EP020799",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP020973",
+            "path": "sub-EP020973",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP021169",
+            "path": "sub-EP021169",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP021328",
+            "path": "sub-EP021328",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP021360",
+            "path": "sub-EP021360",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP021479",
+            "path": "sub-EP021479",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP021550",
+            "path": "sub-EP021550",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP021664",
+            "path": "sub-EP021664",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP021802",
+            "path": "sub-EP021802",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP021921",
+            "path": "sub-EP021921",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP022155",
+            "path": "sub-EP022155",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP023198",
+            "path": "sub-EP023198",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP023300",
+            "path": "sub-EP023300",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP023350",
+            "path": "sub-EP023350",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP023756",
+            "path": "sub-EP023756",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP024036",
+            "path": "sub-EP024036",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP024456",
+            "path": "sub-EP024456",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP024529",
+            "path": "sub-EP024529",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP024618",
+            "path": "sub-EP024618",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP024726",
+            "path": "sub-EP024726",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP024764",
+            "path": "sub-EP024764",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP025026",
+            "path": "sub-EP025026",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP025267",
+            "path": "sub-EP025267",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP025736",
+            "path": "sub-EP025736",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP025768",
+            "path": "sub-EP025768",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP025957",
+            "path": "sub-EP025957",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP025976",
+            "path": "sub-EP025976",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP025985",
+            "path": "sub-EP025985",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP026431",
+            "path": "sub-EP026431",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP026446",
+            "path": "sub-EP026446",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP026668",
+            "path": "sub-EP026668",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP026898",
+            "path": "sub-EP026898",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP027287",
+            "path": "sub-EP027287",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP027304",
+            "path": "sub-EP027304",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP027457",
+            "path": "sub-EP027457",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP027632",
+            "path": "sub-EP027632",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP027775",
+            "path": "sub-EP027775",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP028161",
+            "path": "sub-EP028161",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP028343",
+            "path": "sub-EP028343",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP028560",
+            "path": "sub-EP028560",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP028855",
+            "path": "sub-EP028855",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP029615",
+            "path": "sub-EP029615",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP029951",
+            "path": "sub-EP029951",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP029957",
+            "path": "sub-EP029957",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP030384",
+            "path": "sub-EP030384",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP030613",
+            "path": "sub-EP030613",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP031027",
+            "path": "sub-EP031027",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP031458",
+            "path": "sub-EP031458",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP031714",
+            "path": "sub-EP031714",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP031748",
+            "path": "sub-EP031748",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP031791",
+            "path": "sub-EP031791",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP031863",
+            "path": "sub-EP031863",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP031891",
+            "path": "sub-EP031891",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP032140",
+            "path": "sub-EP032140",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP032187",
+            "path": "sub-EP032187",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP032281",
+            "path": "sub-EP032281",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP032378",
+            "path": "sub-EP032378",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP032457",
+            "path": "sub-EP032457",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP032579",
+            "path": "sub-EP032579",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP032617",
+            "path": "sub-EP032617",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP032668",
+            "path": "sub-EP032668",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP032737",
+            "path": "sub-EP032737",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP033321",
+            "path": "sub-EP033321",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP033801",
+            "path": "sub-EP033801",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP033857",
+            "path": "sub-EP033857",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034090",
+            "path": "sub-EP034090",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034106",
+            "path": "sub-EP034106",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034236",
+            "path": "sub-EP034236",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034333",
+            "path": "sub-EP034333",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034355",
+            "path": "sub-EP034355",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034356",
+            "path": "sub-EP034356",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034553",
+            "path": "sub-EP034553",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034713",
+            "path": "sub-EP034713",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034714",
+            "path": "sub-EP034714",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034809",
+            "path": "sub-EP034809",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP034994",
+            "path": "sub-EP034994",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP035008",
+            "path": "sub-EP035008",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP035313",
+            "path": "sub-EP035313",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP035367",
+            "path": "sub-EP035367",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP035693",
+            "path": "sub-EP035693",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP035948",
+            "path": "sub-EP035948",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP036056",
+            "path": "sub-EP036056",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP036132",
+            "path": "sub-EP036132",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP036340",
+            "path": "sub-EP036340",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP036409",
+            "path": "sub-EP036409",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP036782",
+            "path": "sub-EP036782",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP036882",
+            "path": "sub-EP036882",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP037123",
+            "path": "sub-EP037123",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP037415",
+            "path": "sub-EP037415",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP037534",
+            "path": "sub-EP037534",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP037840",
+            "path": "sub-EP037840",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP037999",
+            "path": "sub-EP037999",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP038047",
+            "path": "sub-EP038047",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP038247",
+            "path": "sub-EP038247",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP038510",
+            "path": "sub-EP038510",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP038623",
+            "path": "sub-EP038623",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP038955",
+            "path": "sub-EP038955",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP038959",
+            "path": "sub-EP038959",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP039013",
+            "path": "sub-EP039013",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP039110",
+            "path": "sub-EP039110",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP039383",
+            "path": "sub-EP039383",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP039400",
+            "path": "sub-EP039400",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP039425",
+            "path": "sub-EP039425",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP039804",
+            "path": "sub-EP039804",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP040342",
+            "path": "sub-EP040342",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP040911",
+            "path": "sub-EP040911",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP040949",
+            "path": "sub-EP040949",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP041245",
+            "path": "sub-EP041245",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP041573",
+            "path": "sub-EP041573",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP041894",
+            "path": "sub-EP041894",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP041994",
+            "path": "sub-EP041994",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP042446",
+            "path": "sub-EP042446",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP043004",
+            "path": "sub-EP043004",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "sub-EP043006",
+            "path": "sub-EP043006",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        },
+        {
+            "type": "directory",
+            "name": "derivatives",
+            "path": "derivatives",
+            "dataset_id": "PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+            "dataset_version": "V1"
+        }
+    ],
+    "metadata_sources": {
+        "key_source_map": {
+            "name": [
+                "Neurobiology Research Unit, Rigshospitalet"
+            ],
+            "doi": [
+                "Neurobiology Research Unit, Rigshospitalet"
+            ],
+            "download_url": [
+                "Neurobiology Research Unit, Rigshospitalet"
+            ],
+            "keywords": [
+                "Neurobiology Research Unit, Rigshospitalet"
+            ],
+            "license": [
+                "Neurobiology Research Unit, Rigshospitalet"
+            ],
+            "funding": [
+                "Neurobiology Research Unit, Rigshospitalet"
+            ],
+            "dateModified": [
+                "Neurobiology Research Unit, Rigshospitalet"
+            ],
+            "additional_display": [
+                "Neurobiology Research Unit, Rigshospitalet"
+            ]
+        },
+        "sources": [
+            {
+                "source_name": "Neurobiology Research Unit, Rigshospitalet",
+                "source_version": "V1",
+                "agent_name": "Llucia Coll",
+                "source_time": 1781647200.0
+            }
+        ]
+    },
+    "name": "A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy",
+    "description": "The PMG-BrainDrugs dataset is the first open polymicrogyria (PMG) dataset including patients across the full age range. Polymicrogyria is a malformation of cortical development characterised by abnormal cortical layering. The associated abnormalities are heterogeneous and can sometimes be difficult to detect.\nThe dataset comprises 208 subjects, including 119 patients with radiologically confirmed PMG and 89 controls with negative findings. Each scanning session may include several anatomical imaging modalities (T1w, T2w, and T2* weighted, or FLAIR sequences). For 27 subjects, 2 or 3 time points are available. The release of this dataset includes minimally processed data (with only defacing applied) as well as manually segmented masks of PMG abnormalities. This dataset aims to bridge the gap between curated research datasets and the variability encountered in routine clinical practice. In doing so, it offers a valuable resource for developing and evaluating more robust and generalisable methods for the detection of polymicrogyria and related cortical malformations. (total size: 38.45 GB)",
+    "doi": "10.70883/GBSQ9852",
+    "download_url": "/manage/request-access/PN000024",
+    "keywords": [
+        "polymicrogyria",
+        "MRI",
+        "BIDS",
+        "clinical acquisition",
+        "epilepsy"
+    ],
+    "license": {
+        "name": "Data User Agreement"
+    },
+    "authors": [
+        {
+            "givenName": "Llucia",
+            "familyName": "Coll"
+        },
+        {
+            "givenName": "Abdullah",
+            "familyName": "Shafique"
+        },
+        {
+            "givenName": "Helene",
+            "familyName": "Kaas"
+        },
+        {
+            "givenName": "Martin",
+            "familyName": "Prener"
+        },
+        {
+            "givenName": "Lars",
+            "familyName": "Hageman Pinborg"
+        },
+        {
+            "givenName": "Gitte",
+            "familyName": "Moos Knudsen"
+        },
+        {
+            "givenName": "Melanie",
+            "familyName": "Ganz"
+        }
+    ],
+    "funding": [
+        {
+            "name": "Lundbeck Foundation",
+            "identifier": "R279–2018–1145"
+        }
+    ],
+    "dateModified": "2026-06-17 00:00:00",
+    "additional_display": [
+        {
+            "name": "Dataset Metadata",
+            "content": {
+                "bids_version": [
+                    "1.9.0"
+                ],
+                "bids_datasettype": "raw",
+                "bids_datatypes": [
+                    "anat",
+                    "derivatives"
+                ],
+                "NCBI Species Taxonomy": [
+                    "homo sapiens"
+                ],
+                "Disease Ontology Name": [
+                    "epilepsy"
+                ],
+                "SNOMED ID": [
+                    "84757009"
+                ],
+                "SNOMED label": [
+                    "epilepsy"
+                ],
+                "Cognitive Atlas concept": [
+                    "https:/www.cognitiveatlas.org/concepts"
+                ],
+                "Cognitive Atlas task": [
+                    "https:/www.cognitiveatlas.org/tasks"
+                ]
+            }
+        },
+        {
+            "name": "DUA terms",
+            "content": {
+                "Restrictions": [
+                    "Institution of users from non EU or adequate countries must be able to sign standard contractual clauses + data controller oversight"
+                ],
+                "Terms": [
+                    "This Agreement records the terms under which the Transferring data controller gives a given Dataset (a defined set of data). This Agreement sets out the terms of the Data transfer between the Transferring data controller and receiving data controller. The transferring data controller has agreed to make the Data available on the terms and conditions set out in this DUA. The transfer of the Data is regulated in accordance with Danish legislation for the processing of personal health data and protection of individual human subject rights and privacy, including any relevant ethical and legal requirements. \n\nBy accepting this agreement, The receiving data controller becomes the data controller (as defined under the GDPR) of the dataset that will be transferred and is thus responsible for access and use following the terms of this agreement. \n1. TRANSFER OF DATA. The transferring data controller's dataset is formatted following the brain imaging data structure (BIDS) - no other imaging data and metadata will be provided. \n2. RIGHTS OF PROVIDER. Nothing in this Agreement prevents the transferring data controller from exploiting the Data or distributing the Data to any third party, including both profit and non-profit organizations. \n3. USE OF THE DATA AND OBLIGATIONS OF THE RECEIVING DATA CONTROLLER. \n3.1 The receiving data controller: 3.1.1 must only use the Data for the purposes of medical and cognitive neuroscience research. 3.1.2 must comply with all applicable laws and approval, including appropriate ethical juridical approvals and standards in relation to the use of the personal health Data and act as data controller in accordance to EU General Data Protection Regulation (GDPR); 3.1.3 must treat the Data as confidential information and restrict access to the Data to those of its employee researchers who are directly involved in the Research and who are placed under an obligation to observe the terms of this DUA; 3.1.4 must take such reasonable steps to provide for the safe custody of any and all Data in its possession and to prevent unauthorized access thereto or use thereof; 3.1.5 under no circumstances attempt to re-identify the data subjects; will not link these data to any other database in a way that could provide identifying information. 3.1.6 must not transfer, sell, disseminate, disclose or otherwise distribute the Data to any third party 3.1.7 must not use the Data for any profit-making or commercial purposes without written approval from the transferring data controller; 3.1.8 must only share secondary or derivative data (e.g. group statistical maps or templates) if they are on a group level, and information from individual participants and cannot be deduced. 3.1.9 must not use the transferring data controller's name or logo without the prior written consent of such party; 3.1.10 accepts sole responsibility and liability for the conduct of the Research and will use the Data at its own risk and will obtain and maintain adequate insurance in respect of its use of the Data; 3.1.11 indemnifies the transferring data controller against all loss, liability, damage, (whether to persons or property), costs and expenses (including without limitation legal expenses), claims, demands, suits or other actions arising out of the receiving data controller's misuse of the Data; and 3.1.12 acknowledges and agrees that to the extent permitted by law, the transferring data controller excludes all warranties, express or implied, including without limitation warranties of merchantability, fitness for a particular use, safety or quality in relation to the Transfer and use of the Data. The transferring data controller makes no representation and provides no warranty that the use of the Data will not infringe any Intellectual Property right of any other person. The Data is provided by the transferring data controller under this DUA on an 'as is' basis. \n3.2 The receiving data controller must notify the transferring data controller promptly of all Results and will on the transferring data controller's request supply the transferring data controller with a report and/or outline of any Results, discoveries or comments in relation to the Research at the conclusion of the Research. \n4. INTELLECTUAL PROPERTY. 4.1 The Data and any Intellectual Property subsisting therein are the property of the transferring data controller. 4.2 The transferring data controller grants the receiving data controller a non-exclusive, royalty-free license to use the Data for the purpose of the Research only. Any Intellectual Property arising from the conduct of the Research shall vast on the receiving data controller. \n5. PUBLICATION. The receiving data controller must: 5.1 acknowledge the transferring data controller`s researchers as authors in the publication(s) 5.2 not disclose any personal information contained in the Data despite any other provision contained in this DUA; 5.3 not release, publish or disclose any findings or information derived from the Data if such findings contain any combination of data elements that might allow for identification or the deduction of a study participant's identity; and 5.4 subject any findings or manuscripts arising from its use of the Data for public release (e.g., abstracts, presentations, publications) to a stringent review to ensure that individual study participants cannot be identified. \n6. TERM AND TERMINATION. This Agreement commences on the date of the last signature and, unless extended or terminated earlier in the manner set out in this Agreement. \n7. GENERAL PROVISIONS. 7.1 Governing law. This Agreement shall be governed in accordance with Danish Law. Each Party submits to the exclusive jurisdiction of the courts of Copenhagen, Denmark. 7.2 Relationship of the Parties. This Agreement does not create a partnership, agency, fiduciary or other relationship, except the relationship of contracting parties. A Party shall not represent that another Party or any of their staff in any way endorse, support or approve of, any products, services, Intellectual Property or business of the representing party unless that other Party has given its express written consent to such representation. 7.3 Entire agreement. This DUA constitutes the entire agreement of the Parties with respect to its subject matter and supersedes all prior oral or written representations and agreements. 7.4 Variation. This DUA may only be varied in writing signed by the Parties. 7.5 Assignment. The receiving data controller must not assign its rights under this DUA. 7.6 Waiver. A Party's failure to exercise or delay in exercising a right, power or remedy does not operate as a waiver of that right, power or remedy and does not preclude the future exercise of that right, power or remedy. To be effective, a waiver of a right, power or remedy must be in writing and signed by the Party granting the waiver. 7.7 Severance. If any provision or part provision of this DUA is invalid or unenforceable, such provision shall be deemed deleted but only to the extent necessary and the remaining provisions of this Agreement shall remain in full force and effect. 7.8 Force Majeure. A Party to this Agreement shall not be responsible or liable for any non-performance or delay in performance of any of its obligations under this Agreement that is caused by an act or event that is beyond the reasonable control of that Party ('Force Majeure Event'), provided that it promptly notifies the other parties (with appropriate details); and takes all reasonable steps to work around or reduce the effects of the Force Majeure Event. 7.9 Obligations. Each Party's obligations and liabilities under this Agreement are several and not joint or joint and several."
+                ]
+            }
+        },
+        {
+            "name": "Participants",
+            "content": {
+                "total_number": [
+                    "208"
+                ],
+                "age_range": [
+                    "[0, 79]"
+                ],
+                "number_of_healthy": [
+                    "0"
+                ],
+                "number_of_patients": [
+                    "208"
+                ],
+                "number_of_biological_males": [
+                    "102"
+                ],
+                "number_of_biological_females": [
+                    "106"
+                ]
+            }
+        }
+    ]
+}

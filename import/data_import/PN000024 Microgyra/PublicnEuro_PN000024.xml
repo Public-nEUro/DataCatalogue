@@ -14,7 +14,7 @@
             <database_metadata language="en">
                 <titles>
                     <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000000 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy</subtitle>
+                    <subtitle>PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy</subtitle>
                 </titles>
             </database_metadata>
             <dataset dataset_type="record">
@@ -61,8 +61,8 @@
                 <description language="en">The PMG-BrainDrugs dataset is the first open polymicrogyria (PMG) dataset including patients across the full age range. Polymicrogyria is a malformation of cortical development characterised by abnormal cortical layering. The associated abnormalities are heterogeneous and can sometimes be difficult to detect.
 The dataset comprises 208 subjects, including 119 patients with radiologically confirmed PMG and 89 controls with negative findings. Each scanning session may include several anatomical imaging modalities (T1w, T2w, and T2* weighted, or FLAIR sequences). For 27 subjects, 2 or 3 time points are available. The release of this dataset includes minimally processed data (with only defacing applied) as well as manually segmented masks of PMG abnormalities. This dataset aims to bridge the gap between curated research datasets and the variability encountered in routine clinical practice. In doing so, it offers a valuable resource for developing and evaluating more robust and generalisable methods for the detection of polymicrogyria and related cortical malformations.</description>
                 <doi_data>
-                    <doi>10.70883/XXXX</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000000%20A%20clinical%20brain%20MRI%20dataset%20of%20polymicrogyria%20in%20patients%20suspected%20of%20epilepsy/V1</resource>
+                    <doi>10.70883/GBSQ9852</doi>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000024%20A%20clinical%20brain%20MRI%20dataset%20of%20polymicrogyria%20in%20patients%20suspected%20of%20epilepsy/V1</resource>
                 </doi_data>
             </dataset>
         </database>
