@@ -79,7 +79,7 @@
                 "source_name": "OpenNeuroPET",
                 "source_version": "1",
                 "agent_name": "Cyril Pernet",
-                "source_time": 1781784992.562655
+                "source_time": 1786023363.6344976
             }
         ]
     },
@@ -105,7 +105,7 @@
         }
     ],
     "dateCreated": "2024-06-02 00:00:00",
-    "dateModified": "2026-06-18 14:16:32",
+    "dateModified": "2026-08-06 15:36:03",
     "subdatasets": [
         {
             "dataset_id": "PN000001 OpenNeuroPET Phantoms",
@@ -196,6 +196,14 @@
             ]
         },
         {
+            "dataset_id": "PN000013 Aarhus University (PACE) UCBJ cohort",
+            "dataset_version": "V1",
+            "dataset_path": "PN000013 Aarhus University (PACE) UCBJ cohort",
+            "dirs_from_path": [
+                "PN000013 Aarhus University (PACE) UCBJ cohort"
+            ]
+        },
+        {
             "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
             "dataset_version": "V1",
             "dataset_path": "PN000012 PET UCB-J in healthy adult participants across the life span",
@@ -228,11 +236,11 @@
             ]
         },
         {
-            "dataset_id": "PN000017 PN000017 Serotonine transporter data in healthy and obese participants",
+            "dataset_id": "PN000017 Serotonine transporter data in healthy and obese participants",
             "dataset_version": "V1",
-            "dataset_path": "PN000017 mPN000017 PN000017 Serotonine transporter data in healthy and obese participants",
+            "dataset_path": "PN000017 Serotonine transporter data in healthy and obese participants",
             "dirs_from_path": [
-                "PN000017 PN000017 PN000017 Serotonine transporter data in healthy and obese participants"
+                "PN000017 Serotonine transporter data in healthy and obese participants"
             ]
         },
         {

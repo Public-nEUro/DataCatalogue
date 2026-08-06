@@ -1,0 +1,1 @@
+{"type": "directory", "dataset_id": "PN000013 Aarhus University (PACE) UCBJ cohort", "dataset_version": "V1", "children": [{"type": "directory", "name": "ses-01", "path": "sub-UCBJ007/ses-01", "dataset_id": "PN000013 Aarhus University (PACE) UCBJ cohort", "dataset_version": "V1"}], "path": "sub-UCBJ007", "name": "sub-UCBJ007"}

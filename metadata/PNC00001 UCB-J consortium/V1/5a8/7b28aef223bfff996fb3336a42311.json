@@ -40,10 +40,12 @@
             "dataset_version": "V1"
         },
         {
-            "type": "dataset",
-            "name": "PN000013 UCB-J Yale",
-            "dataset_id": "PN000013 UCB-J Yale",
-            "dataset_version": "V1"
+            "dataset_id": "PN000013 Aarhus University (PACE) UCBJ cohort",
+            "dataset_version": "V1",
+            "dataset_path": "PN000013 Aarhus University (PACE) UCBJ cohort",
+            "dirs_from_path": [
+                "PN000013 Aarhus University (PACE) UCBJ cohort"
+            ]
         }
     ],
     "metadata_sources": {
@@ -52,7 +54,7 @@
                 "NRU"
             ],
             "keywords": [
-                "NRU, Leuven, Yale"
+                "NRU, Leuven, Aarhus, UCB-J, PET, SV2A, synaptic density, Parkinson's disease"
             ],
             "license": [
                 "DUA"
@@ -63,7 +65,7 @@
                 "source_name": "NRU",
                 "source_version": "1",
                 "agent_name": "Cyril Pernet",
-                "source_time": 1759701600.0
+                "source_time": 1786023855.0
             }
         ]
     },
@@ -90,7 +92,9 @@
                 ],
                 "Keywords": [
                     "PET",
-                    "UCB-J"
+                    "UCB-J",
+                    "SV2A",
+                    "Synaptic density"
                 ],
                 "License": [
                     "Data User Agreement - restricted access until 2030"
@@ -149,19 +153,19 @@
             ]
         },
         {
-            "dataset_id": "PN000012 UCB-J NRU",
+            "dataset_id": "PN000012 PET UCB-J in healthy adult participants across the life span",
             "dataset_version": "V1",
-            "dataset_path": "PN000012 UCB-J NRU",
+            "dataset_path": "PN000012 PET UCB-J in healthy adult participants across the life span",
             "dirs_from_path": [
-                "PN000012 UCB-J NRU"
+                "PN000012 PET UCB-J in healthy adult participants across the life span"
             ]
         },
         {
-            "dataset_id": "PN000013 UCB-J Yale",
+            "dataset_id": "PN000013 Aarhus University (PACE) UCBJ cohort",
             "dataset_version": "V1",
-            "dataset_path": "PN000013 UCB-J Yale",
+            "dataset_path": "PN000013 Aarhus University (PACE) UCBJ cohort",
             "dirs_from_path": [
-                "PN000013 UCB-J Yale"
+                "PN000013 Aarhus University (PACE) UCBJ cohort"
             ]
         }
     ]
