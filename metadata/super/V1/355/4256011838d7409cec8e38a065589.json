@@ -79,7 +79,7 @@
                 "source_name": "OpenNeuroPET",
                 "source_version": "1",
                 "agent_name": "Cyril Pernet",
-                "source_time": 1786023363.6344976
+                "source_time": 1787233694.7317998
             }
         ]
     },
@@ -105,7 +105,7 @@
         }
     ],
     "dateCreated": "2024-06-02 00:00:00",
-    "dateModified": "2026-08-06 15:36:03",
+    "dateModified": "2026-08-20 15:48:14",
     "subdatasets": [
         {
             "dataset_id": "PN000001 OpenNeuroPET Phantoms",
