@@ -422,7 +422,7 @@
             "type": "academic publication",
             "title": "Effects of escitalopram on synaptic density in the healthy human brain: a randomized controlled trial",
             "datePublished": "2023-10-09 00:00:00",
-            "doi": " 10.1038/s41380-023-02285-8",
+            "doi": "https://doi.org/10.1038/s41380-023-02285-8",
             "authors": [
                 {
                     "givenName": "Annette",
@@ -434,7 +434,7 @@
             "type": "academic publication",
             "title": "An In Vivo High-Resolution Human Brain Atlas of Synaptic Density",
             "datePublished": "2024-08-14 00:00:00",
-            "doi": " 10.1523/JNEUROSCI.1750-23.2024",
+            "doi": "https://doi.org/10.1523/JNEUROSCI.1750-23.2024",
             "authors": [
                 {
                     "givenName": "Annette",

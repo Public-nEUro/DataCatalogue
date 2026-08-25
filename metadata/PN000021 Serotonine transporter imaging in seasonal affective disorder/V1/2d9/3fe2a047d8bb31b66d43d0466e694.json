@@ -382,7 +382,7 @@
             "type": "academic publication",
             "title": "Mc Mahon et al. Seasonal difference in brain serotonin transporter binding predicts symptom severity in patients with seasonal affective disorder",
             "datePublished": "2016-03-19 00:00:00",
-            "doi": "doi:10.1093/brain/aww043",
+            "doi": "https://doi.org/10.1093/brain/aww043",
             "authors": [
                 {
                     "givenName": "\"Brenda",

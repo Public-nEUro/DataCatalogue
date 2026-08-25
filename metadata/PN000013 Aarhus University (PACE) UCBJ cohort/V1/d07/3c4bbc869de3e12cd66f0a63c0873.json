@@ -607,7 +607,7 @@
             "type": "academic publication",
             "title": "Healthy brain aging assessed with [18F]FDG and [11C]UCB-J PET",
             "datePublished": "2022-09",
-            "doi": "10.1016/j.nucmedbio.2022.06.007",
+            "doi": "https://doi.org/10.1016/j.nucmedbio.2022.06.007",
             "authors": [
                 {
                     "givenName": "Katrine",

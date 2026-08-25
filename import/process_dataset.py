@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-r"""
+"""
 Complete dataset processing pipeline CLI
 
 This script provides a command-line interface for the complete PublicnEUro dataset

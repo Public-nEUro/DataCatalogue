@@ -468,7 +468,7 @@
             "type": "academic publication",
             "title": "In Vivo Imaging of Cerebral Serotonin Transporter and Serotonin2A Receptor Binding in 3,4-Methylenedioxymethamphetamine (MDMA or “Ecstasy”) and Hallucinogen Users",
             "datePublished": "2011-06-06 00:00:00",
-            "doi": "10.1001/archgenpsychiatry.2011.56",
+            "doi": "https://doi.org/10.1001/archgenpsychiatry.2011.56",
             "authors": [
                 {
                     "familyName": "\"David Erritzoe MD PhD\",     \"Vibe G. Frokjaer MD PhD\",     \"Klaus K. Holst MSc\",     \"Maria Christoffersen\",     \"Sys S. Johansen PhD\",     \"Claus Svarer PhD\",     \"Jacob Madsen PhD\",     \"Peter M. Rasmussen MSc\",     \"Thomas Ramsøy PhD\",     \"Terry L. Jernigan PhD\",     \"Gitte M. Knudsen MD DMSc\""

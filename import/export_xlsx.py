@@ -159,6 +159,26 @@ def extract_doi_suffix(doi_value):
     parts = doi_str.split('/')
     return parts[-1] if parts[-1] else "XXXX"
 
+def normalize_publication_doi(doi_value):
+    """Return a publication DOI as a canonical https://doi.org/ URL."""
+    if pd.isna(doi_value):
+        return ""
+
+    doi = str(doi_value).strip()
+    if not doi or doi.lower() in {"none", "n/a", "nan"}:
+        return doi
+
+    # Accept bare DOIs and repair prefixes commonly entered in spreadsheets,
+    # such as ``doi:10...``, ``https:/doi.org/...``, and dx.doi.org URLs.
+    doi = re.sub(r'^doi:\s*', '', doi, flags=re.IGNORECASE)
+    doi = re.sub(
+        r'^(?:(?:https?):/{1,2})?(?:dx\.)?doi\.org/',
+        '',
+        doi,
+        flags=re.IGNORECASE,
+    )
+    return f"https://doi.org/{doi}"
+
 def format_version(version_value):
     """
     Format version to ensure it's always V followed by a number.
@@ -556,7 +576,7 @@ def parse_excel_metadata(input_file):
                     "type": "academic publication",
                     "title": i['# Metadata record for PublicnEUro'], 
                     "datePublished": str(i.get('Unnamed: 1', '')),
-                    "doi": str(pub_doi).strip(),
+                    "doi": normalize_publication_doi(pub_doi),
                     "authors": [{
                         "givenName": name_parts[0] if len(name_parts) > 0 else '',
                         "familyName": (" ".join(name_parts[1:-2]) if "et al." in author_name 

@@ -257,7 +257,7 @@
       "type": "academic publication",
       "title": "Longitudinal Imaging of Regional Brain Volumes, SV2A, and Glucose Metabolism In Huntington's Disease",
       "datePublished": "2023-06-01 00:00:00",
-      "doi": "10.1002/mds.29501",
+      "doi": "https://doi.org/10.1002/mds.29501",
       "authors": [
         {
           "givenName": "Delva",
@@ -269,7 +269,7 @@
       "type": "academic publication",
       "title": "Synaptic Damage and Its Clinical Correlates in People With Early Huntington Disease: A PET Study",
       "datePublished": "2022-01-01 00:00:00",
-      "doi": "10.1212/WNL.0000000000012969",
+      "doi": "https://doi.org/10.1212/WNL.0000000000012969",
       "authors": [
         {
           "givenName": "Delva",

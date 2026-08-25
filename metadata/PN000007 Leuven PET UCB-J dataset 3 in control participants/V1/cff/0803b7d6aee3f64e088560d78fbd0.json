@@ -437,7 +437,7 @@
       "type": "academic publication",
       "title": "In vivo synaptic density loss is related to tau deposition in amnestic mild cognitive impairment",
       "datePublished": "2020-08-01 00:00:00",
-      "doi": "10.1212/WNL.0000000000009818",
+      "doi": "https://doi.org/10.1212/WNL.0000000000009818",
       "authors": [
         {
           "givenName": "Vanhaute",
@@ -449,7 +449,7 @@
       "type": "academic publication",
       "title": "Synaptic density in healthy human aging is not influenced by age or sex: a 11C-UCB-J PET study",
       "datePublished": "2021-05-01 00:00:00",
-      "doi": "10.1016/j.neuroimage.2021.117877",
+      "doi": "https://doi.org/10.1016/j.neuroimage.2021.117877",
       "authors": [
         {
           "givenName": "Michiels",
@@ -461,7 +461,7 @@
       "type": "academic publication",
       "title": "Spatial decrease of synaptic density in amnestic mild cognitive impairment follows the tau build-up pattern",
       "datePublished": "2022-10-01 00:00:00",
-      "doi": "10.1038/s41380-022-01672-x",
+      "doi": "https://doi.org/10.1038/s41380-022-01672-x",
       "authors": [
         {
           "givenName": "Vanderlinden",
