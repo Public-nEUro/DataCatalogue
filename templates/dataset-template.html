@@ -28,7 +28,8 @@
           <strong>DOI:</strong> <span v-if="selectedDataset.doi"><a :href="selectedDataset.doi" target="_blank"> {{selectedDataset.doi.replace("https://doi.org/", "")}}</a></span>
           <span v-else><em>unknown</em></span>&nbsp;
           <strong>License:</strong> <span v-if="selectedDataset.license && selectedDataset.license.name"><a :href="selectedDataset.license.url" target="_blank"> {{selectedDataset.license.name}}</a></span>
-          <span v-else><em>unknown</em></span>
+          <span v-else><em>unknown</em></span>&nbsp;
+          <strong>Status:</strong> <span class="text-capitalize">{{displayData.status}}</span>
         </b-card-text>
         <!-- DATASET BUTTONS -->
         <div style="text-align: left;">
@@ -48,8 +49,8 @@
             <span style="margin-left: auto;">
               <span v-if="displayData.show_homepage"><b-button variant="outline-dark" size="sm" :href="displayData.homepage_url" target="_blank"><i class="fas fa-house"></i> Homepage</b-button>&nbsp;</span>
               <span v-if="displayData.show_download"><b-button variant="outline-dark" size="sm" :href="displayData.download_url" target="_blank"><i class="fas fa-download"></i> Download</b-button>&nbsp;</span>
-              <span v-if="displayData.show_access_request && selectedDataset.access_request_contact"><b-button variant="outline-dark" size="sm" :href="displayData.access_request_mailto"><i class="far fa-envelope"></i> Request access</b-button>&nbsp;</span>
-              <span v-if="displayData.show_access_request && selectedDataset.access_request_url"><b-button variant="outline-dark" size="sm" @click="gotoURL(selectedDataset.access_request_url)"><i class="fas fa-share"></i> Request access</b-button></span>
+              <span v-if="displayData.show_access_request && selectedDataset.access_request_contact"><b-button variant="outline-dark" size="sm" :href="displayData.access_request_mailto"><i class="far fa-envelope"></i> {{displayData.access_request_label}}</b-button>&nbsp;</span>
+              <span v-if="displayData.show_access_request && selectedDataset.access_request_url"><b-button variant="outline-dark" size="sm" @click="gotoURL(selectedDataset.access_request_url)"><i class="fas fa-share"></i> {{displayData.access_request_label}}</b-button></span>
             </span>
           </div>
           
