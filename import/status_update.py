@@ -19,11 +19,17 @@ def _read_records(path):
     path = Path(path)
     if path.suffix.lower() == ".jsonl":
         lines = path.read_text(encoding="utf-8").splitlines(keepends=True)
-        records = []
+        datasets = []
         for index, line in enumerate(lines):
-            if line.strip():
-                records.append((index, json.loads(line)))
-        return records, True, lines
+            if not line.strip():
+                continue
+            if not datasets or ('"type"' in line and '"dataset"' in line):
+                record = json.loads(line)
+                if record.get("type") == "dataset":
+                    datasets.append((index, record))
+                    if len(datasets) > 1:
+                        break
+        return datasets, True, lines
 
     with path.open("r", encoding="utf-8") as stream:
         return [(0, json.load(stream))], False, None
