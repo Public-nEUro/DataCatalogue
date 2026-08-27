@@ -258,9 +258,14 @@ const datasetView = () =>
                 disp_dataset.show_access_request = false;
               }
               // Archived and retired records use the explicit retrieval/contact
-              // route rather than the normal dataset download route.
-              if (disp_dataset.status !== "active") {
+              // route rather than the normal dataset download route. Withdrawn
+              // records expose neither retrieval nor contact controls. A
+              // superseded version remains downloadable.
+              if (["archived", "retired", "withdrawn"].includes(disp_dataset.status)) {
                 disp_dataset.show_download = false;
+              }
+              if (disp_dataset.status === "withdrawn") {
+                disp_dataset.show_access_request = false;
               }
               // Create href mailto for request access contact
               if (
