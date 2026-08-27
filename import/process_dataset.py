@@ -261,7 +261,7 @@ def process_dataset(excel_file, file_list_source, source_name='Local_Processing'
                 # Preserve an explicit source status, defaulting new records to
                 # active if DataLad omitted the field during import.
                 if not catalog_data.get('status'):
-                    catalog_data['status'] = source_metadata.get('status', 'active')
+                    catalog_data['status'] = source_metadata.get('status') or 'active'
                     print(f"   Setting status: {catalog_data['status']}")
                     changed = True
 
