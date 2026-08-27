@@ -31,6 +31,11 @@
           <span v-else><em>unknown</em></span>&nbsp;
           <strong>Status:</strong> <span class="text-capitalize">{{displayData.status}}</span>
         </b-card-text>
+        <b-alert v-if="displayData.status_note || displayData.replacement" show variant="secondary">
+          <span v-if="displayData.status_note">{{displayData.status_note}}</span>
+          <span v-if="displayData.status_note && displayData.replacement">&nbsp;</span>
+          <span v-if="displayData.replacement"><strong>Replacement:</strong> <a :href="displayData.replacement" target="_blank">{{displayData.replacement}}</a></span>
+        </b-alert>
         <!-- DATASET BUTTONS -->
         <div style="text-align: left;">
           <div style="display: flex; flex-direction: row;">

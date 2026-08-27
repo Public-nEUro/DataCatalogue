@@ -105,6 +105,8 @@ const datasetView = () =>
               // Dataset availability. Missing status is treated as active for
               // backwards compatibility with existing catalogue records.
               disp_dataset.status = dataset.status || "active";
+              disp_dataset.status_note = dataset.status_note || "";
+              disp_dataset.replacement = dataset.replacement || "";
               disp_dataset.access_request_label = "Request access";
               if (disp_dataset.status === "archived") {
                 disp_dataset.access_request_label = "Request retrieval";
