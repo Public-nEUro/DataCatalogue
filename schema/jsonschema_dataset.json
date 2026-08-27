@@ -28,6 +28,18 @@
       "enum": ["active", "archived", "retired", "withdrawn", "superseded"],
       "default": "active"
     },
+    "status_note": {
+      "description": "A concise explanation of the current lifecycle status, such as why a dataset was withdrawn.",
+      "title": "Status note",
+      "type": "string",
+      "minLength": 1
+    },
+    "replacement": {
+      "description": "Persistent URL or DOI URL of the dataset or version that supersedes this record.",
+      "title": "Replacement",
+      "type": "string",
+      "format": "uri"
+    },
     "name":  {
       "description": "The long name of the dataset",
       "title": "Name",
@@ -354,6 +366,20 @@
           {"required": ["access_request_contact"]}
         ]
       }
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "withdrawn"}},
+        "required": ["status"]
+      },
+      "then": {"required": ["status_note"]}
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "superseded"}},
+        "required": ["status"]
+      },
+      "then": {"required": ["replacement"]}
     }
   ],
   "required": [ "type", "dataset_id", "dataset_version", "metadata_sources"]

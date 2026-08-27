@@ -21,6 +21,25 @@
       "title": "Dataset version",
       "type": "string"
     },
+    "status": {
+      "description": "User-facing availability status. Active datasets are available through the normal retrieval route. Archived datasets are held in cold storage and require a retrieval request. For retired datasets, PublicnEUro retains the metadata record but no longer holds the data; users must contact the data controller. Withdrawn datasets retain their metadata record but provide no data access or contact action. Superseded datasets remain downloadable, although a newer version should normally be used.",
+      "title": "Status",
+      "type": "string",
+      "enum": ["active", "archived", "retired", "withdrawn", "superseded"],
+      "default": "active"
+    },
+    "status_note": {
+      "description": "A concise explanation of the current lifecycle status, such as why a dataset was withdrawn.",
+      "title": "Status note",
+      "type": "string",
+      "minLength": 1
+    },
+    "replacement": {
+      "description": "Persistent URL or DOI URL of the dataset or version that supersedes this record.",
+      "title": "Replacement",
+      "type": "string",
+      "format": "uri"
+    },
     "name":  {
       "description": "The long name of the dataset",
       "title": "Name",
@@ -29,6 +48,11 @@
     "short_name":  {
       "description": "The short name of the dataset",
       "title": "Short name",
+      "type": "string"
+    },
+    "alias": {
+      "description": "An alias of the dataset, used for shortened URL access within the catalog",
+      "title": "Alias",
       "type": "string"
     },
     "description": {
@@ -43,7 +67,23 @@
     },
     "url": {
       "description": "The location of the datalad dataset's annex",
-      "title": "URL",
+      "title": "DataLad URL",
+      "type": ["array", "string"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "download_url": {
+      "description": "The URL at which the complete dataset can be downloaded directly, typically via HTTP protocol and without further access restrictions",
+      "title": "Download URL",
+      "type": ["array", "string"],
+      "items": {
+        "type": "string"
+      }
+    },
+    "homepage_url": {
+      "description": "A unique URL with content that describes the current dataset and which may provide further data access",
+      "title": "Homepage URL",
       "type": ["array", "string"],
       "items": {
         "type": "string"
@@ -286,8 +326,61 @@
       },
       "uniqueItems": true,
       "maxItems": 5
+    },
+    "notebooks": {
+      "description": "Jupyter notebooks that will be linked to from the 'Explore with Binder' button and will typically be used to demonstrate the use of the dataset",
+      "title": "Jupyter notebooks",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "git_repo_url": {
+            "description": "The URL to a publicly accessible git repository containing the notebook",
+            "title": "Repo URL",
+            "type": "string"
+          },
+          "notebook_path": {
+            "description": "The path to the notebook, relative to the repository root, including the filename and extension",
+            "title": "Notebook path",
+            "type": "string"
+          }
+        },
+        "required": ["git_repo_url", "notebook_path"]
+      },
+      "uniqueItems": true
     }
   },
-  "required": [ "type", "dataset_id", "dataset_version", "name"]
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": ["archived", "retired"]
+          }
+        },
+        "required": ["status"]
+      },
+      "then": {
+        "anyOf": [
+          {"required": ["access_request_url"]},
+          {"required": ["access_request_contact"]}
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "withdrawn"}},
+        "required": ["status"]
+      },
+      "then": {"required": ["status_note"]}
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "superseded"}},
+        "required": ["status"]
+      },
+      "then": {"required": ["replacement"]}
+    }
+  ],
+  "required": [ "type", "dataset_id", "dataset_version", "metadata_sources"]
 }
-

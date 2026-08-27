@@ -1,6 +1,6 @@
 # PublicnEUro Data Processing Tools
 
-This directory contains three main utility modules for processing dataset metadata and files in the PublicnEUro data catalog.
+This directory contains utility modules for processing dataset metadata and files in the PublicnEUro data catalog.
 
 **Complete Workflow Overview:**
 
@@ -139,6 +139,27 @@ results = find_catalogue_set_file('PN*/V*', reorder_children=False)
 ```
 
 Child ordering follows BIDS conventions: `source` → `code` → `files` → `sub-*` (numeric) → `sub-*` (alpha) → `others`
+
+### status_update.py - Dataset Availability Status
+
+Updates the dataset record in a `.json` or `.jsonl` file. New imports default
+to `active`; explicit statuses are preserved.
+
+```bash
+python status_update.py DATASET.json active
+python status_update.py DATASET.json archived --contact archive@example.org
+python status_update.py DATASET.json retired --contact https://example.org/data-access
+python status_update.py DATASET.json withdrawn --reason "Withdrawn at the data controller's request"
+python status_update.py DATASET.json superseded --new "10.1234/current"
+```
+
+The accepted statuses are `active`, `archived`, `retired`, `withdrawn`, and
+`superseded`. The common spelling `superseeded` is accepted as an alias but is
+stored canonically as `superseded`. `--reason` is stored as the structured
+`status_note`; `--new` accepts a DOI or HTTP(S) URL and stores its normalized URL
+as `replacement`. The scientific `description` is not modified. Existing
+`download_url` values are preserved; the catalogue renderer controls whether
+the download action is shown.
 
 ## Command Line Usage
 
