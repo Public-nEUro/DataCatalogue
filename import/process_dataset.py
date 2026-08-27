@@ -37,6 +37,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from export_xlsx import export_xlsx_to_both
 from file_metadata_utils import process_file_metadata
 from find_catalogue_set_file import find_catalogue_set_file
+from status_update import ensure_default_status
 import json
 import re
 
@@ -104,6 +105,13 @@ def process_dataset(excel_file, file_list_source, source_name='Local_Processing'
         xml_file, jsonl_file = export_xlsx_to_both(excel_file)
         print(f"✅ Created: {xml_file}")
         print(f"✅ Created: {jsonl_file}")
+
+        # New datasets are active unless the source metadata explicitly says
+        # otherwise. setdefault semantics preserve any intentional status.
+        if ensure_default_status(jsonl_file):
+            print("   ✅ Dataset status set to active")
+        else:
+            print("   Dataset status already specified")
 
         # Append total data size to description in JSONL
         print("   Computing total data size...")
@@ -248,6 +256,13 @@ def process_dataset(excel_file, file_list_source, source_name='Local_Processing'
                 if not catalog_data.get('authors') and source_metadata.get('authors'):
                     print(f"   Fixing authors: null → (copied from JSONL)")
                     catalog_data['authors'] = source_metadata['authors']
+                    changed = True
+
+                # Preserve an explicit source status, defaulting new records to
+                # active if DataLad omitted the field during import.
+                if not catalog_data.get('status'):
+                    catalog_data['status'] = source_metadata.get('status', 'active')
+                    print(f"   Setting status: {catalog_data['status']}")
                     changed = True
 
                 if changed:
