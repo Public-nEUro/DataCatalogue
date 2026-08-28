@@ -102,6 +102,17 @@ const datasetView = () =>
                 }
               }
               disp_dataset["display_name"] = disp_dataset["short_name"];
+              // Dataset availability. Missing status is treated as active for
+              // backwards compatibility with existing catalogue records.
+              disp_dataset.status = dataset.status || "active";
+              disp_dataset.status_note = dataset.status_note || "";
+              disp_dataset.replacement = dataset.replacement || "";
+              disp_dataset.access_request_label = "Request access";
+              if (disp_dataset.status === "archived") {
+                disp_dataset.access_request_label = "Request retrieval";
+              } else if (disp_dataset.status === "retired") {
+                disp_dataset.access_request_label = "Contact data controller";
+              }
               // DOI
               if (!dataset.hasOwnProperty("doi") || !dataset["doi"]) {
                 disp_dataset["doi"] = "not available";
@@ -246,6 +257,16 @@ const datasetView = () =>
               dataset.hasOwnProperty("access_request_url") && dataset["access_request_url"] ) {
                 disp_dataset.show_access_request = dataset_options.include_access_request ?? true
               } else {
+                disp_dataset.show_access_request = false;
+              }
+              // Archived and retired records use the explicit retrieval/contact
+              // route rather than the normal dataset download route. Withdrawn
+              // records expose neither retrieval nor contact controls. A
+              // superseded version remains downloadable.
+              if (["archived", "retired", "withdrawn"].includes(disp_dataset.status)) {
+                disp_dataset.show_download = false;
+              }
+              if (disp_dataset.status === "withdrawn") {
                 disp_dataset.show_access_request = false;
               }
               // Create href mailto for request access contact

@@ -21,6 +21,25 @@
       "title": "Dataset version",
       "type": "string"
     },
+    "status": {
+      "description": "User-facing availability status. Active datasets are available through the normal retrieval route. Archived datasets are held in cold storage and require a retrieval request. For retired datasets, PublicnEUro retains the metadata record but no longer holds the data; users must contact the data controller. Withdrawn datasets retain their metadata record but provide no data access or contact action. Superseded datasets remain downloadable, although a newer version should normally be used.",
+      "title": "Status",
+      "type": "string",
+      "enum": ["active", "archived", "retired", "withdrawn", "superseded"],
+      "default": "active"
+    },
+    "status_note": {
+      "description": "A concise explanation of the current lifecycle status, such as why a dataset was withdrawn.",
+      "title": "Status note",
+      "type": "string",
+      "minLength": 1
+    },
+    "replacement": {
+      "description": "Persistent URL or DOI URL of the dataset or version that supersedes this record.",
+      "title": "Replacement",
+      "type": "string",
+      "format": "uri"
+    },
     "name":  {
       "description": "The long name of the dataset",
       "title": "Name",
@@ -331,6 +350,37 @@
       "uniqueItems": true
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": ["archived", "retired"]
+          }
+        },
+        "required": ["status"]
+      },
+      "then": {
+        "anyOf": [
+          {"required": ["access_request_url"]},
+          {"required": ["access_request_contact"]}
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "withdrawn"}},
+        "required": ["status"]
+      },
+      "then": {"required": ["status_note"]}
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "superseded"}},
+        "required": ["status"]
+      },
+      "then": {"required": ["replacement"]}
+    }
+  ],
   "required": [ "type", "dataset_id", "dataset_version", "metadata_sources"]
 }
-
