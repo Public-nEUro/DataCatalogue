@@ -1,2 +1,4 @@
 # Python cache files
 import/__pycache__/
+# Neurobagel run files
+import/neurobagel/run.txt
