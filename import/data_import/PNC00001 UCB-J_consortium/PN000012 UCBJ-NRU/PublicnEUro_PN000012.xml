@@ -45,7 +45,7 @@
                 <description language="en">The dataset contains 120 min dynamic scan starting with C11-UCBJ bolus along with T1w and T2w MRI data from people aged between 20 and 83 years old.</description>
                 <doi_data>
                     <doi>10.70883/NRUJ1547</doi>
-                    <resource>https://datacatalog.publicneuro.eu/manage/request-access/PN000012</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000012%20PET%20UCB-J%20in%20healthy%20adult%20participants%20across%20the%20life%20span/V1?tab=content</resource>
                 </doi_data>
             </dataset>
         </database>

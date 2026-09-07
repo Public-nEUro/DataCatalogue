@@ -383,7 +383,7 @@
     },
     "name": "PET UCB-J in healthy adult participants across the life span",
     "description": "The dataset contains 120 min dynamic scan starting with C11-UCBJ bolus along with T1w and T2w MRI data from people aged between 20 and 83 years old.",
-    "doi": "10.70883/NRUJ1547",
+    "doi": "https://doi.org/10.70883/NRUJ1547",
     "download_url": "/manage/request-access/PN000012",
     "keywords": [
         "dynamic",
