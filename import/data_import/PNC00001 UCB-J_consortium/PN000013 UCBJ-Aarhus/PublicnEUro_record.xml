@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2026080600000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000013-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,36 +13,70 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000013 Aarhus University (PACE) UCBJ cohort </subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Katrine</given_name>
                         <surname>B. Andersen</surname>
+                        <ORCID>https://orcid.org/0000-0003-0015-2170</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Per</given_name>
                         <surname>Borghammer</surname>
+                        <ORCID>https://orcid.org/0000-0001-6391-8052</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Aarhus University (PACE) UCBJ cohort  Data</title>
+                    <title>Aarhus University (PACE) UCBJ cohort </title>
+                    <subtitle>PN000013</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>08</month>
-                        <day>06</day>
-                        <year>2026</year>
+                        <month>03</month>
+                        <day>01</day>
+                        <year>2022</year>
                     </publication_date>
+                    <update_date>
+                        <month>03</month>
+                        <day>01</day>
+                        <year>2022</year>
+                    </update_date>
                 </database_date>
-                <description language="en">Multimodal neuroimaging dataset from the Aarhus University UCB-J project including T1-weighted MRI, [11C]UCB-J PET, and FDG PET. The dataset includes healthy controls (young and older) and patients with Parkinson’s disease spectrum disorders (PD, DLB, PDD), organized in BIDS format.</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000013</item_number>
+                </publisher_item>
+                <description language="en">Multimodal neuroimaging dataset from the Aarhus University UCB-J project including T1-weighted MRI, [11C]UCB-J PET, and FDG PET. The dataset includes healthy controls (young and older) and patients with Parkinson’s disease spectrum disorders (PD, DLB, PDD), organized in BIDS format. Keywords: Parkinson's disease, dementia with Lewy bodies, Parkinson's disease dementia, PET, [11C]UCB-J, FDG PET, MRI, T1-weighted MRI, synaptic density, glucose metabolism, healthy controls, aging; Participants: 63; Total size: 2.63 GB.</description>
+                <format>BIDS BIDS version 1.11.1; raw; data types: anat, MRI, pet</format>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>Healthy brain aging assessed with [18F]FDG and [11C]UCB-J PET</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1016/j.nucmedbio.2022.06.007</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/PPNJ4476</doi>
                     <resource>https://datacatalog.publicneuro.eu/dataset/PN000013%20Aarhus%20University%20%28PACE%29%20UCBJ%20cohort%20/V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>Healthy brain aging assessed with [18F]FDG and [11C]UCB-J PET</article_title>
+                        <author>B. Andersen; Allan K. Hansen; Karoline Knudsen; Per Borghammer;</author>
+                        <cYear>2022</cYear>
+                        <doi>10.1016/j.nucmedbio.2022.06.007</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

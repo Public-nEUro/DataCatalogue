@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2026060100000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000022-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,15 +13,21 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000022 Serotonergic brain architecture of early Alzheimers Disease.</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Steven</given_name>
                         <surname>Haugbøl</surname>
+                        <ORCID>https://orcid.org/0000-0001-9024-7936</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Lars</given_name>
@@ -30,23 +36,83 @@
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Gitte</given_name>
                         <surname>M. Knudsen</surname>
+                        <ORCID>https://orcid.org/0000-0003-1508-6866</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Serotonergic brain architecture of early Alzheimers Disease. Data</title>
+                    <title>Serotonergic brain architecture of early Alzheimers Disease.</title>
+                    <subtitle>PN000022</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>05</month>
-                        <day>18</day>
+                        <month>04</month>
+                        <day>10</day>
                         <year>2026</year>
                     </publication_date>
+                    <update_date>
+                        <month>04</month>
+                        <day>10</day>
+                        <year>2026</year>
+                    </update_date>
                 </database_date>
-                <description language="en">Twelve patients with AD (average Mini Mental State Examination [MMSE]: 24) and 11 healthy age-matched subjects underwent positron emission tomography</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000022</item_number>
+                </publisher_item>
+                <description language="en">Twelve patients with AD (average Mini Mental State Examination [MMSE]: 24) and 11 healthy age-matched subjects underwent positron emission tomography Keywords: Alzhrimers Disease, PET, serotonin; Participants: 21; Total size: 2.87 GB.</description>
+                <format>BIDS 1900-01-03 01:10:01; raw; data types: anat, pet</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">A. P. Møller and wife Chastine McKinney Møller Foundation</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Medical Research Fund of Copenhagen</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Ludvig and Sara Elsass Foundation</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Hørslev Foundation</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Director Jacob Madsen &amp; wife Olga Madsens Foundation</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Augustinus Foundation</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Beckett Foundation</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Foundation for Neurological Research</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Ivan Nielsen Foundation</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Villum Kann Rasmussen Foundation</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>5HT2A receptors in obsessive-compulsive disorder and Tourette syndrome. The International Journal of Neuropsychopharmacology</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1017/s1461145706006559</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/MRPF9876</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000022%20Serotonergic%20brain%20architecture%20of%20early%20Alzheimers%20Disease/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000022%20Serotonergic%20brain%20architecture%20of%20early%20Alzheimers%20Disease./V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>5HT2A receptors in obsessive-compulsive disorder and Tourette syndrome. The International Journal of Neuropsychopharmacology</article_title>
+                        <author>&quot;Steven Haugbøl&quot;,     &quot;Lars H. Pinborg&quot;,     &quot;Lisbeth Regeur&quot;,     &quot;Elsebet S. Hansen&quot;,     &quot;Tom G. Bolwig&quot;,     &quot;Finn Å. Nielsen&quot;,     &quot;Claus Svarer&quot;,     &quot;Lene T. Skovgaard&quot;,     &quot;Gitte M. Knudsen&quot;</author>
+                        <cYear>2006</cYear>
+                        <doi>10.1017/s1461145706006559</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

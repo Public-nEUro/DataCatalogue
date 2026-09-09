@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2026060100000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000018-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,40 +13,86 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000018 Gonadotrophin releasing hormone agonist (GnRHa) sex-hormone manipulation model of risk for depression</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Vibe</given_name>
                         <surname>G. Frokjaer</surname>
+                        <ORCID>https://orcid.org/0000-0002-9321-2365</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Anja</given_name>
                         <surname>Pinborg</surname>
+                        <ORCID>https://orcid.org/0000-0002-8340-104X</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Gitte</given_name>
                         <surname>M. Knudsen</surname>
+                        <ORCID>https://orcid.org/0000-0003-1508-6866</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Gonadotrophin releasing hormone agonist (GnRHa) sex-hormone manipulation model of risk for depression Data</title>
+                    <title>Gonadotrophin releasing hormone agonist (GnRHa) sex-hormone manipulation model of risk for depression</title>
+                    <subtitle>PN000018</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>05</month>
-                        <day>18</day>
+                        <month>04</month>
+                        <day>10</day>
                         <year>2026</year>
                     </publication_date>
+                    <update_date>
+                        <month>04</month>
+                        <day>10</day>
+                        <year>2026</year>
+                    </update_date>
                 </database_date>
-                <description language="en">63 healthy female volunteers participated in this randomized (1:1), placebo-controlled double blind study of neurobiological and psychometrical signatures of ovarian sex hormone suppression.</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000018</item_number>
+                </publisher_item>
+                <description language="en">63 healthy female volunteers participated in this randomized (1:1), placebo-controlled double blind study of neurobiological and psychometrical signatures of ovarian sex hormone suppression. Keywords: useful, for, searches; Participants: 63; Total size: 39.54 GB.</description>
+                <format>BIDS 1900-01-03 01:10:01; raw; data types: anat, pet</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Danish Council for Independent Research</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Lundbeck Foundation (Cimbi)</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Capital Region of Denmark, Foundation for Health Research</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>Role of Serotonin Transporter Changes in Depressive Responses to Sex-Steroid Hormone Manipulation: A Positron Emission Tomography Study.</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1016/j.biopsych.2015.04.015</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/MYCX5689</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000018%20Gonadotrophin%20releasing%20hormone%20agonist%20(GnRHa)%20sex-hormone%20manipulation%20model%20of%20risk%20for%20depression/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000018%20Gonadotrophin%20releasing%20hormone%20agonist%20%28GnRHa%29%20sex-hormone%20manipulation%20model%20of%20risk%20for%20depression/V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>Role of Serotonin Transporter Changes in Depressive Responses to Sex-Steroid Hormone Manipulation: A Positron Emission Tomography Study.</article_title>
+                        <author>&quot;Vibe Gedsoe Frokjaer&quot;,   &quot;Anja Pinborg&quot;,   &quot;Klaus Kähler Holst&quot;,   &quot;Agnete Overgaard&quot;,   &quot;Susanne Henningsson&quot;,   &quot;Maria Heede&quot;,   &quot;Elisabeth Clare Larsen&quot;,   &quot;Peter Steen Jensen&quot;,   &quot;Mikael Agn&quot;,   &quot;Anna Pors Nielsen&quot;,   &quot;Dea Siggaard Stenbæk&quot;,   &quot;Sophie da Cunha-Bang&quot;,   &quot;Szabolcs Lehel&quot;,   &quot;Hartwig Roman Siebner&quot;,   &quot;Jens Damsgaard Mikkelsen&quot;,   &quot;Claus Svarer&quot;,   &quot;Gitte Moos Knudsen&quot;</author>
+                        <cYear>2015</cYear>
+                        <doi>10.1016/j.biopsych.2015.04.015</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

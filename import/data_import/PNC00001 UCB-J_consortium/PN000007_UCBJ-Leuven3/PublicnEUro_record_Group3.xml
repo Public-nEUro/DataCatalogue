@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2025100400000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000007-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,9 +13,14 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000007 Leuven PET UCB-J dataset 3 in control participants </subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
@@ -30,6 +35,7 @@
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Greet</given_name>
                         <surname>Vanderlinden</surname>
+                        <ORCID>https://orcid.org/0000-0002-5673-4121</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Mathieu</given_name>
@@ -37,20 +43,81 @@
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Leuven PET UCB-J dataset 3 in control participants  Data</title>
+                    <title>Leuven PET UCB-J dataset 3 in control participants </title>
+                    <subtitle>PN000007</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>10</month>
-                        <day>04</day>
+                        <month>03</month>
+                        <day>24</day>
                         <year>2025</year>
                     </publication_date>
+                    <update_date>
+                        <month>03</month>
+                        <day>24</day>
+                        <year>2025</year>
+                    </update_date>
                 </database_date>
-                <description language="en">UCB-J in healthy volunteers: dynamic UCB-J PET baseline scans (60 - 90 min after injection), eASL, T1w and DWI</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000007</item_number>
+                </publisher_item>
+                <description language="en">UCB-J in healthy volunteers: dynamic UCB-J PET baseline scans (60 - 90 min after injection), eASL, T1w and DWI Keywords: UCBJ, PET, T1w, SV2A, 11C, dynamic, eASL, DWI; Participants: 40; Total size: 3.1 GB.</description>
+                <format>BIDS 1.7.0; raw; data types: anat, perf, dwi, pet</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">UZ Leuven</fr:assertion>
+                        <fr:assertion name="award_number">KOOR</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">FWO</fr:assertion>
+                        <fr:assertion name="award_number">G093218N</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">KU Leuven</fr:assertion>
+                        <fr:assertion name="award_number">C2-17-063</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>In vivo synaptic density loss is related to tau deposition in amnestic mild cognitive impairment</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1212/WNL.0000000000009818</rel:inter_work_relation>
+                    </rel:related_item>
+                    <rel:related_item>
+                        <rel:description>Synaptic density in healthy human aging is not influenced by age or sex: a 11C-UCB-J PET study</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1016/j.neuroimage.2021.117877</rel:inter_work_relation>
+                    </rel:related_item>
+                    <rel:related_item>
+                        <rel:description>Spatial decrease of synaptic density in amnestic mild cognitive impairment follows the tau build-up pattern</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1038/s41380-022-01672-x</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/GUMA1819</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000007%20Leuven%20PET%20UCB-J%20dataset%203%20in%20control%20participants/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000007%20Leuven%20PET%20UCB-J%20dataset%203%20in%20control%20participants%20/V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>In vivo synaptic density loss is related to tau deposition in amnestic mild cognitive impairment</article_title>
+                        <author>H., Ceccarini J., Michiels L., Koole M., Sunaert S., Lemmens R., Triau E., Emsell L.,Vandenbulcke M., Van Laere K.</author>
+                        <cYear>2020</cYear>
+                        <doi>10.1212/WNL.0000000000009818</doi>
+                    </citation>
+                    <citation key="publication-2" type="journal_article">
+                        <article_title>Synaptic density in healthy human aging is not influenced by age or sex: a 11C-UCB-J PET study</article_title>
+                        <author>L., Delva A., Van Aalst J., Ceccarini J., Vandenberghe W., Vandenbulcke M., Koole M., Lemmens R., Van Laere K.</author>
+                        <cYear>2021</cYear>
+                        <doi>10.1016/j.neuroimage.2021.117877</doi>
+                    </citation>
+                    <citation key="publication-3" type="journal_article">
+                        <article_title>Spatial decrease of synaptic density in amnestic mild cognitive impairment follows the tau build-up pattern</article_title>
+                        <author>G., Ceccarini J., Vande Casteele T., Michiels L., Lemmens R., Triau E., Serdons K., Tournoy J., Koole M., Vandenbulcke M., Van Laere K.</author>
+                        <cYear>2022</cYear>
+                        <doi>10.1038/s41380-022-01672-x</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

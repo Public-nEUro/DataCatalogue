@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2026060100000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000021-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,48 +13,93 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000021 Serotonine transporter imaging in seasonal affective disorder</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Brenda</given_name>
                         <surname>Mc Mahon</surname>
+                        <ORCID>https://orcid.org/0000-0001-6158-7800</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Sofie</given_name>
                         <surname>B. Andersen</surname>
+                        <ORCID>https://orcid.org/0009-0002-3465-2894</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Klaus</given_name>
                         <surname>K. Holst</surname>
+                        <ORCID>https://orcid.org/0000-0002-1364-6789</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Vibe</given_name>
                         <surname>G. Frokjaer</surname>
+                        <ORCID>https://orcid.org/0000-0002-9321-2365</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Gitte</given_name>
                         <surname>M. Knudsen</surname>
+                        <ORCID>https://orcid.org/0000-0003-1508-6866</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Serotonine transporter imaging in seasonal affective disorder Data</title>
+                    <title>Serotonine transporter imaging in seasonal affective disorder</title>
+                    <subtitle>PN000021</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>05</month>
-                        <day>18</day>
+                        <month>04</month>
+                        <day>10</day>
                         <year>2026</year>
                     </publication_date>
+                    <update_date>
+                        <month>04</month>
+                        <day>10</day>
+                        <year>2026</year>
+                    </update_date>
                 </database_date>
-                <description language="en">The dataset is a subset of (11)C-DASB positron emission tomography scans that were conducted to quantify cerebral serotonin transporter binding; 23 healthy controls with low seasonality scores and 17 patients diagnosed with seasonal affective disorder were scanned in both summer and winter to investigate differences in cerebral serotonin transporter binding across groups and across seasons.</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000021</item_number>
+                </publisher_item>
+                <description language="en">The dataset is a subset of (11)C-DASB positron emission tomography scans that were conducted to quantify cerebral serotonin transporter binding; 23 healthy controls with low seasonality scores and 17 patients diagnosed with seasonal affective disorder were scanned in both summer and winter to investigate differences in cerebral serotonin transporter binding across groups and across seasons. Keywords: SAD, serotonin, PET; Participants: 33; Total size: 13.36 GB.</description>
+                <format>BIDS 1900-01-04 01:10:01; raw; data types: anat, pet</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Lundbeck Foundation (Cimbi)</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Danish Council for Independent Research</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>Mc Mahon et al. Seasonal difference in brain serotonin transporter binding predicts symptom severity in patients with seasonal affective disorder</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1093/brain/aww043</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/FRBP6839</doi>
                     <resource>https://datacatalog.publicneuro.eu/dataset/PN000021%20Serotonine%20transporter%20imaging%20in%20seasonal%20affective%20disorder/V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>Mc Mahon et al. Seasonal difference in brain serotonin transporter binding predicts symptom severity in patients with seasonal affective disorder</article_title>
+                        <author>Mc Mahon&quot;,     &quot;Sofie B. Andersen&quot;,     &quot;Martin K. Madsen&quot;,     &quot;Liv V. Hjordt&quot;,     &quot;Ida Hageman&quot;,     &quot;Henrik Dam&quot;,     &quot;Claus Svarer&quot;,     &quot;Sofi da Cunha-Bang&quot;,     &quot;William Baare&quot;,     &quot;Jacob Madsen&quot;,     &quot;Lis Hasholt&quot;,     &quot;Klaus Holst&quot;,     &quot;Vibe G. Frokjaer&quot;,     &quot;Gitte M. Knudsen&quot;</author>
+                        <cYear>2016</cYear>
+                        <doi>10.1093/brain/aww043</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

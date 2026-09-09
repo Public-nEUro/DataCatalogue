@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2026060100000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000017-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,36 +13,133 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000017 Serotonine transporter data in healthy and obese participants.</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Gitte</given_name>
                         <surname>M. Knudsen</surname>
+                        <ORCID>https://orcid.org/0000-0003-1508-6866</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Vibe</given_name>
                         <surname>G. Frokjaer</surname>
+                        <ORCID>https://orcid.org/0000-0002-9321-2365</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Serotonine transporter data in healthy and obese participants. Data</title>
+                    <title>Serotonine transporter data in healthy and obese participants.</title>
+                    <subtitle>PN000017</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>05</month>
-                        <day>18</day>
+                        <month>04</month>
+                        <day>10</day>
                         <year>2026</year>
                     </publication_date>
+                    <update_date>
+                        <month>04</month>
+                        <day>10</day>
+                        <year>2026</year>
+                    </update_date>
                 </database_date>
-                <description language="en">This dataset is a combination of studies ran under the same ethic approval, combining data from healthy individuals and obese patients. </description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000017</item_number>
+                </publisher_item>
+                <description language="en">This dataset is a combination of studies ran under the same ethic approval, combining data from healthy individuals and obese patients. Keywords: DASB, PET, serotonin; Participants: 53; Total size: 12.26 GB.</description>
+                <format>BIDS 1900-01-05 01:10:01; raw; data types: anat, pet</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Lundbeck Foundation (Cimbi)</fr:assertion>
+                        <fr:assertion name="award_number">R90-A7722</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Danish Research Counci</fr:assertion>
+                        <fr:assertion name="award_number">09-063598</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Rigshospitalet</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>The Center for Integrated Molecular Brain Imaging (Cimbi) database</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1016/j.neuroimage.2015.04.025</rel:inter_work_relation>
+                    </rel:related_item>
+                    <rel:related_item>
+                        <rel:description>Decreased frontal serotonin2A receptor binding in antipsychotic-naive patients with first-episode schizophrenia</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1001/archgenpsychiatry.2009.176</rel:inter_work_relation>
+                    </rel:related_item>
+                    <rel:related_item>
+                        <rel:description>Obesity is associated with high serotonin 4 receptor availability in the brain reward circuitry</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1016/j.neuroimage.2012.03.050.</rel:inter_work_relation>
+                    </rel:related_item>
+                    <rel:related_item>
+                        <rel:description>Central 5-HT neurotransmission modulates weight loss following gastric bypass surgery in obese individuals</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1523/JNEUROSCI.3348-14.2015.</rel:inter_work_relation>
+                    </rel:related_item>
+                    <rel:related_item>
+                        <rel:description>A high-resolution in vivo atlas of the human brain's benzodiazepine binding site of GABAA receptors</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1016/j.neuroimage.2021.117878</rel:inter_work_relation>
+                    </rel:related_item>
+                    <rel:related_item>
+                        <rel:description>Design of Infusion Schemes for Neuroreceptor Imaging: Application to [(11)C]Flumazenil-PET Steady-State Study</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1155/2016/9132840.</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/GBWN3773</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000017%20Serotonine%20transporter%20data%20in%20healthy%20and%20obese%20participants/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000017%20Serotonine%20transporter%20data%20in%20healthy%20and%20obese%20participants./V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>The Center for Integrated Molecular Brain Imaging (Cimbi) database</article_title>
+                        <author>&quot;Gitte M. Knudsen&quot;,     &quot;Peter S. Jensen&quot;,     &quot;David Erritzoe&quot;,     &quot;William F.C. Baaré&quot;,     &quot;Anders Ettrup&quot;,     &quot;Patrick M. Fisher&quot;,     &quot;Nic Gillings&quot;,     &quot;Hanne D. Hansen&quot;,     &quot;Lars Kai Hansen&quot;,     &quot;Steen G. Hasselbalch&quot;,     &quot;Susanne Henningsson&quot;,     &quot;Matthias M. Herth&quot;,     &quot;Klaus K. Holst&quot;,     &quot;Pernille Iversen&quot;,     &quot;Lars V. Kessing&quot;,     &quot;Julian Macoveanu&quot;,     &quot;Kathrine Skak Madsen&quot;,     &quot;Erik L. Mortensen&quot;,     &quot;Finn Årup Nielsen&quot;,     &quot;Olaf B. Paulson&quot;,     &quot;Hartwig R. Siebner&quot;,     &quot;Dea S. Stenbæk&quot;,     &quot;Claus Svarer&quot;,     &quot;Terry L. Jernigan&quot;,     &quot;Stephen C. Strother&quot;,     &quot;Vibe G. Frokjaer&quot;</author>
+                        <cYear>2016</cYear>
+                        <doi>10.1016/j.neuroimage.2015.04.025</doi>
+                    </citation>
+                    <citation key="publication-2" type="journal_article">
+                        <article_title>Decreased frontal serotonin2A receptor binding in antipsychotic-naive patients with first-episode schizophrenia</article_title>
+                        <author>Hans Rasmussen , David Erritzoe, Rune Andersen, Bjorn H Ebdrup, Bodil Aggernaes, Bob Oranje, Jan Kalbitzer, Jacob Madsen, Lars H Pinborg, William Baaré, Claus Svarer, Henrik Lublin, Gitte M Knudsen, Birte Glenthoj</author>
+                        <cYear>2016</cYear>
+                        <doi>10.1001/archgenpsychiatry.2009.176</doi>
+                    </citation>
+                    <citation key="publication-3" type="journal_article">
+                        <article_title>Obesity is associated with high serotonin 4 receptor availability in the brain reward circuitry</article_title>
+                        <author>M E Haahr, P M Rasmussen, K Madsen, L Marner, C Ratner, N Gillings, W F C Baaré, G M Knudsen</author>
+                        <cYear>2012</cYear>
+                        <doi>10.1016/j.neuroimage.2012.03.050.</doi>
+                    </citation>
+                    <citation key="publication-4" type="journal_article">
+                        <article_title>Central 5-HT neurotransmission modulates weight loss following gastric bypass surgery in obese individuals</article_title>
+                        <author>E Haahr, D L Hansen, P M Fisher , C Svarer , D S Stenbæk , K Madsen , J Madsen , J J Holst, W F C Baaré , L Hojgaard  , T Almdal , G M Knudsen</author>
+                        <cYear>2015</cYear>
+                        <doi>10.1523/JNEUROSCI.3348-14.2015.</doi>
+                    </citation>
+                    <citation key="publication-5" type="journal_article">
+                        <article_title>A high-resolution in vivo atlas of the human brain's benzodiazepine binding site of GABAA receptors</article_title>
+                        <author>Martin Nørgaard,  Vincent Beliveau, Melanie Ganz ,  Claus Svarer , Lars H Pinborg,  Sune H Keller, Peter S Jensen, Douglas N Greve, Gitte M Knudsen</author>
+                        <cYear>2021</cYear>
+                        <doi>10.1016/j.neuroimage.2021.117878</doi>
+                    </citation>
+                    <citation key="publication-6" type="journal_article">
+                        <article_title>Design of Infusion Schemes for Neuroreceptor Imaging: Application to [(11)C]Flumazenil-PET Steady-State Study</article_title>
+                        <author>Ling Feng , Claus Svarer,  Karine Madsen,  Morten Ziebell, Agnete Dyssegaard , Anders Ettrup,  Hanne Demant Hansen , Szabolcs Lehel, Stig Yndgaard, Olaf Bjarne Paulson,  Gitte Moos Knudsen, Lars Hageman Pinborg</author>
+                        <cYear>2016</cYear>
+                        <doi>10.1155/2016/9132840.</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

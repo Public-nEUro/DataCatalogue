@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2026090709543400</timestamp>
+        <doi_batch_id>PublicnEUro-PN000012-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,40 +13,91 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000012 PET UCB-J in healthy adult participants across the life span</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Sophia</given_name>
                         <surname>Armand</surname>
+                        <ORCID>https://orcid.org/0000-0001-6368-3329</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Gitte</given_name>
                         <surname>Moos Knudsen</surname>
+                        <ORCID>https://orcid.org/0000-0003-1508-6866</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Annette</given_name>
                         <surname>Johansen</surname>
+                        <ORCID>https://orcid.org/0000-0003-0264-2368</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>PET UCB-J in healthy adult participants across the life span Data</title>
+                    <title>PET UCB-J in healthy adult participants across the life span</title>
+                    <subtitle>PN000012</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
                         <month>04</month>
-                        <day>13</day>
+                        <day>10</day>
                         <year>2026</year>
                     </publication_date>
+                    <update_date>
+                        <month>04</month>
+                        <day>10</day>
+                        <year>2026</year>
+                    </update_date>
                 </database_date>
-                <description language="en">The dataset contains 120 min dynamic scan starting with C11-UCBJ bolus along with T1w and T2w MRI data from people aged between 20 and 83 years old.</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000012</item_number>
+                </publisher_item>
+                <description language="en">The dataset contains 120 min dynamic scan starting with C11-UCBJ bolus along with T1w and T2w MRI data from people aged between 20 and 83 years old. Keywords: UCBJ, PET, T1w, T2w, SV2A, 11C, dynamic; Participants: 41.</description>
+                <format>BIDS 01:10:01; raw; data types: anat, pet</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Lundbeck Foundation</fr:assertion>
+                        <fr:assertion name="award_number">R281-2018-131</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>Effects of escitalopram on synaptic density in the healthy human brain: a randomized controlled trial</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1038/s41380-023-02285-8</rel:inter_work_relation>
+                    </rel:related_item>
+                    <rel:related_item>
+                        <rel:description>An In Vivo High-Resolution Human Brain Atlas of Synaptic Density</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1523/JNEUROSCI.1750-23.2024</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/NRUJ1547</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000012%20PET%20UCB-J%20in%20healthy%20adult%20participants%20across%20the%20life%20span/V1?tab=content</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000012%20PET%20UCB-J%20in%20healthy%20adult%20participants%20across%20the%20life%20span/V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>Effects of escitalopram on synaptic density in the healthy human brain: a randomized controlled trial</article_title>
+                        <author>Johansen, Sophia Armand, Pontus Plavén-Sigray, Arafat Nasser, Brice Ozenne, Ida N. Petersen, Sune H. Keller, Jacob Madsen, Vincent Beliveau, Kirsten Møller, Alexandra Vassilieva, Christelle Langley, Claus Svarer, Dea S. Stenbæk, Barbara J. Sahakian and Gitte M. Knudsen</author>
+                        <cYear>2023</cYear>
+                        <doi>10.1038/s41380-023-02285-8</doi>
+                    </citation>
+                    <citation key="publication-2" type="journal_article">
+                        <article_title>An In Vivo High-Resolution Human Brain Atlas of Synaptic Density</article_title>
+                        <author>Johansen, Vincent Beliveau, Emil Colliander, Nakul Ravi Raval, Vibeke Høyrup Dam, Nic Gillings, Susana Aznar, Claus Svarer, Pontus Plavén-Sigray and Gitte Moos Knudsen</author>
+                        <cYear>2024</cYear>
+                        <doi>10.1523/JNEUROSCI.1750-23.2024</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2025090800000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000009-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,15 +13,21 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000009 Markerless Prospective Motion Correction</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Kathrine</given_name>
                         <surname>Skak Madsen</surname>
+                        <ORCID>https://orcid.org/0000-0001-8884-5902</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Tim</given_name>
@@ -30,6 +36,7 @@
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Hannah</given_name>
                         <surname>Eichhorn</surname>
+                        <ORCID>https://orcid.org/0000-0001-6980-9703</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Puk</given_name>
@@ -38,18 +45,28 @@
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Melanie</given_name>
                         <surname>Ganz</surname>
+                        <ORCID>https://orcid.org/0000-0002-9120-8098</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Markerless Prospective Motion Correction Data</title>
+                    <title>Markerless Prospective Motion Correction</title>
+                    <subtitle>PN000009</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>09</month>
-                        <day>08</day>
+                        <month>02</month>
+                        <day>26</day>
                         <year>2025</year>
                     </publication_date>
+                    <update_date>
+                        <month>02</month>
+                        <day>26</day>
+                        <year>2025</year>
+                    </update_date>
                 </database_date>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000009</item_number>
+                </publisher_item>
                 <description language="en">Datasets with and without deliberate head movements for evaluating the performance of markerless prospective motion correction and selective reacquisition in a general clinical protocol for brain MRI  - Head motion is one of the most common sources of artefacts in brain MRI. In this study, we evaluate the performance of markerless prospective motion correction (PMC) and selective reacquisition in a complete clinical protocol for brain MRI, comparing acquisitions with and without instructed intentional head motion.
 MRI and head motion data were acquired between January and March 2021 from 22 healthy adults (16 females, 6 males) aged 19-36 (mean ± standard deviation: 23.5 ± 4.3) years, recruited for the Cimbi database (www.cimbi.dk). The recruitment was performed by advertisement for different research projects, with approval by the Ethics Committee of Copenhagen and Frederiksberg, Denmark (protocol number H-KF-2006-20). Written informed consent was obtained from each participant. 
 The MRI scan protocol consisted of six different 2D- and 3D-encoded sequences, which were completed by a different number of participants: 3D T1 MPR (n=22), 3D T2 dark fluid (FLAIR) (n=10), 2D T1 STIR (n=22), 2D T2 TSE (n=22), 2D T2* GRE (n=19) and 2D DWI (n=10). Note, the DWI data (ADC, TRACEW) is located under derivatives.
@@ -64,11 +81,38 @@ The scans with and without PMC were acquired in the following order:
 - Shake motion, PMC (+ selective reacquisition) - ONLY MPRAGE
 Note that _run-01 indicates the still scans, _run-02 indicates the nodding scans and _run-03 indicates the shaking scans. _rec-wore indicates a scan without reacquisition, _rec-wre indicates a scan with reacquisition.
 Nodding motion was chosen as the primary motion pattern based on results of a previous study (https://www.frontiersin.org/articles/10.3389/fradi.2021.789632/full) , where nodding rotation was found to be significantly larger than the rotational components around the other axes for awake children. Rigid-body head motion was measured with the optical tracking system Tracoline (TracInnovations, Ballerup, Denmark).
-More details regarding the acquisition protocol can be seen in our preprint https://psyarxiv.com/vzh4g.</description>
+More details regarding the acquisition protocol can be seen in our preprint https://psyarxiv.com/vzh4g. Keywords: MRI, motion; Total size: 1500.0 GB.</description>
+                <format>BIDS 1.1; raw; data types: anat</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Elsass foundation</fr:assertion>
+                        <fr:assertion name="award_number">18-3-0147</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Novo Nordisk and Novozymes Talent Program</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>Evaluating the performance of markerless prospective motion correction and selective reacquisition in a general clinical protocol for brain MRI</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.31234/osf.io/vzh4g</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/QHMG1117</doi>
                     <resource>https://datacatalog.publicneuro.eu/dataset/PN000009%20Markerless%20Prospective%20Motion%20Correction/V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>Evaluating the performance of markerless prospective motion correction and selective reacquisition in a general clinical protocol for brain MRI</article_title>
+                        <author>Hannah Eichhorn, Robert Frost, Asta Kongsgaard, Karen Kettless, Jakob Slipsager, Stefan Glimberg, Nitesh Shekhrajka, M. Dylan Tisdall, Paul Wighton, Lise Borgwardt, Alfred Peter Born, Vibeke Andrée Larsen, Kathrine Skak Madsen, André van der Kouwe, and Melanie Ganz</author>
+                        <cYear>2022</cYear>
+                        <doi>10.31234/osf.io/vzh4g</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

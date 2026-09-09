@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2025100400000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000010-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,40 +13,99 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000010 Leuven PET UCB-J dataset 5 in control participants </subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Koen</given_name>
                         <surname>Van Laere</surname>
+                        <ORCID>https://orcid.org/0000-0001-5200-7245</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Aline</given_name>
                         <surname>Delva</surname>
+                        <ORCID>https://orcid.org/0000-0001-8497-2314</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Wim</given_name>
                         <surname>Vandenberghe</surname>
+                        <ORCID>https://orcid.org/0000-0001-5464-7940</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Leuven PET UCB-J dataset 5 in control participants  Data</title>
+                    <title>Leuven PET UCB-J dataset 5 in control participants </title>
+                    <subtitle>PN000010</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>10</month>
-                        <day>04</day>
+                        <month>03</month>
+                        <day>24</day>
                         <year>2025</year>
                     </publication_date>
+                    <update_date>
+                        <month>03</month>
+                        <day>24</day>
+                        <year>2025</year>
+                    </update_date>
                 </database_date>
-                <description language="en">Test-retest in healthy volunteers: dynamic UCB-J PET baseline scan (60 - 100 min after injection), dynamic FDG PET baseline scan (30 - 50 min after injection), T1w</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000010</item_number>
+                </publisher_item>
+                <description language="en">Test-retest in healthy volunteers: dynamic UCB-J PET baseline scan (60 - 100 min after injection), dynamic FDG PET baseline scan (30 - 50 min after injection), T1w Keywords: UCBJ, FDG, PET, T1w, SV2A, 11C, dynamic; Participants: 15; Total size: 1.4 GB.</description>
+                <format>BIDS 1.7.0; raw; data types: anat, pet</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">UZ Leuven</fr:assertion>
+                        <fr:assertion name="award_number">KOOR</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">FWO</fr:assertion>
+                        <fr:assertion name="award_number">G 0932 18N</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">KU Leuven</fr:assertion>
+                        <fr:assertion name="award_number">C2-17-063</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>Longitudinal Imaging of Regional Brain Volumes, SV2A, and Glucose Metabolism In Huntington's Disease</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1002/mds.29501</rel:inter_work_relation>
+                    </rel:related_item>
+                    <rel:related_item>
+                        <rel:description>Synaptic Damage and Its Clinical Correlates in People With Early Huntington Disease: A PET Study</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1212/WNL.0000000000012969</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/WSYQ4663</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000010%20Leuven%20PET%20UCB-J%20dataset%205%20in%20control%20participants/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000010%20Leuven%20PET%20UCB-J%20dataset%205%20in%20control%20participants%20/V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>Longitudinal Imaging of Regional Brain Volumes, SV2A, and Glucose Metabolism In Huntington's Disease</article_title>
+                        <author>A., Van Laere K., Vandenberghe W.</author>
+                        <cYear>2023</cYear>
+                        <doi>10.1002/mds.29501</doi>
+                    </citation>
+                    <citation key="publication-2" type="journal_article">
+                        <article_title>Synaptic Damage and Its Clinical Correlates in People With Early Huntington Disease: A PET Study</article_title>
+                        <author>A., Michiels L., Koole M., Van Laere K., Vandenberghe W.</author>
+                        <cYear>2022</cYear>
+                        <doi>10.1212/WNL.0000000000012969</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

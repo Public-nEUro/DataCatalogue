@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2026082000000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000015-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,31 +13,41 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Christian</given_name>
                         <surname>Hinge</surname>
+                        <ORCID>https://orcid.org/0000-0003-3805-6520</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Frederikke</given_name>
                         <surname>Engel Høi-Hansen</surname>
+                        <ORCID>https://orcid.org/0009-0001-1827-4881</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Rasmus</given_name>
                         <surname>Hvass Hansen</surname>
+                        <ORCID>https://orcid.org/0000-0002-8310-7692</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Kirsten</given_name>
                         <surname>Korsholm</surname>
+                        <ORCID>https://orcid.org/0000-0003-0609-9753</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Helle</given_name>
                         <surname>Hjorth Johannesen</surname>
+                        <ORCID>https://orcid.org/0000-0001-9172-5004</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Elisabeth</given_name>
@@ -58,43 +68,63 @@
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Christina</given_name>
                         <surname>Mikkelsen</surname>
+                        <ORCID>https://orcid.org/0000-0002-2945-6197</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Cyril</given_name>
                         <surname>Pernet</surname>
+                        <ORCID>https://orcid.org/0000-0003-4010-4632</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Janna</given_name>
                         <surname>Nissen</surname>
+                        <ORCID>https://orcid.org/0000-0002-8891-8451</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Sisse</given_name>
                         <surname>Rye Ostrowski</surname>
+                        <ORCID>https://orcid.org/0000-0001-5288-3851</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Barbara</given_name>
                         <surname>Malene Fischer</surname>
+                        <ORCID>https://orcid.org/0000-0002-6065-3375</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Claes</given_name>
                         <surname>Nøhr Ladefoged</surname>
+                        <ORCID>https://orcid.org/0000-0002-3583-4190</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Flemming</given_name>
                         <surname>Littrup Andersen</surname>
+                        <ORCID>https://orcid.org/0000-0003-2821-1849</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>multimodal total-body dynamic 18F-FDG PET-CT-MRI Data</title>
+                    <title>multimodal total-body dynamic 18F-FDG PET-CT-MRI</title>
+                    <subtitle>PN000015</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>08</month>
-                        <day>20</day>
-                        <year>2026</year>
+                        <month>10</month>
+                        <day>30</day>
+                        <year>2025</year>
                     </publication_date>
+                    <update_date>
+                        <month>10</month>
+                        <day>30</day>
+                        <year>2025</year>
+                    </update_date>
                 </database_date>
-                <description language="en">70min 18F-FDG dynamic nifti files and corresponding resampled CT, MRI, and segmentations for 80 age and sex stratified healthy controls of the hedyPET cohort.</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000015</item_number>
+                </publisher_item>
+                <description language="en">70min 18F-FDG dynamic nifti files and corresponding resampled CT, MRI, and segmentations for 80 age and sex stratified healthy controls of the hedyPET cohort. Keywords: PET, CT, MRI, LAFOV, Whole-Body, 18F-FDG, Control, Dynamic Topogram; Participants: 80; Total size: 212.17 GB.</description>
+                <format>BIDS 1.10; derivatives; data types: anat, pet, ct</format>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/UYAG3430</doi>
                     <resource>https://datacatalog.publicneuro.eu/dataset/PN000015%20multimodal%20total-body%20dynamic%2018F-FDG%20PET-CT-MRI/V1</resource>

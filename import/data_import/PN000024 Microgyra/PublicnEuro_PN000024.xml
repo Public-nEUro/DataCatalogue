@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2026061800000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000024-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,15 +13,21 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000024 A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Llucia</given_name>
                         <surname>Coll</surname>
+                        <ORCID>https://orcid.org/0000-0003-2224-1246</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Abdullah</given_name>
@@ -38,28 +44,50 @@
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Lars</given_name>
                         <surname>Hageman Pinborg</surname>
+                        <ORCID>https://orcid.org/0000-0001-9024-7936</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Gitte</given_name>
                         <surname>Moos Knudsen</surname>
+                        <ORCID>https://orcid.org/0000-0003-1508-6866</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Melanie</given_name>
                         <surname>Ganz</surname>
+                        <ORCID>https://orcid.org/0000-0002-9120-8098</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy Data</title>
+                    <title>A clinical brain MRI dataset of polymicrogyria in patients suspected of epilepsy</title>
+                    <subtitle>PN000024</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
                         <month>06</month>
-                        <day>18</day>
+                        <day>17</day>
                         <year>2026</year>
                     </publication_date>
+                    <update_date>
+                        <month>06</month>
+                        <day>17</day>
+                        <year>2026</year>
+                    </update_date>
                 </database_date>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000024</item_number>
+                </publisher_item>
                 <description language="en">The PMG-BrainDrugs dataset is the first open polymicrogyria (PMG) dataset including patients across the full age range. Polymicrogyria is a malformation of cortical development characterised by abnormal cortical layering. The associated abnormalities are heterogeneous and can sometimes be difficult to detect.
-The dataset comprises 208 subjects, including 119 patients with radiologically confirmed PMG and 89 controls with negative findings. Each scanning session may include several anatomical imaging modalities (T1w, T2w, and T2* weighted, or FLAIR sequences). For 27 subjects, 2 or 3 time points are available. The release of this dataset includes minimally processed data (with only defacing applied) as well as manually segmented masks of PMG abnormalities. This dataset aims to bridge the gap between curated research datasets and the variability encountered in routine clinical practice. In doing so, it offers a valuable resource for developing and evaluating more robust and generalisable methods for the detection of polymicrogyria and related cortical malformations.</description>
+The dataset comprises 208 subjects, including 119 patients with radiologically confirmed PMG and 89 controls with negative findings. Each scanning session may include several anatomical imaging modalities (T1w, T2w, and T2* weighted, or FLAIR sequences). For 27 subjects, 2 or 3 time points are available. The release of this dataset includes minimally processed data (with only defacing applied) as well as manually segmented masks of PMG abnormalities. This dataset aims to bridge the gap between curated research datasets and the variability encountered in routine clinical practice. In doing so, it offers a valuable resource for developing and evaluating more robust and generalisable methods for the detection of polymicrogyria and related cortical malformations. Keywords: polymicrogyria, MRI, BIDS, clinical acquisition, epilepsy; Participants: 208; Total size: 38.45 GB.</description>
+                <format>BIDS 1.9.0; raw; data types: anat, derivatives</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Lundbeck Foundation</fr:assertion>
+                        <fr:assertion name="award_number">R279–2018–1145</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/GBSQ9852</doi>
                     <resource>https://datacatalog.publicneuro.eu/dataset/PN000024%20A%20clinical%20brain%20MRI%20dataset%20of%20polymicrogyria%20in%20patients%20suspected%20of%20epilepsy/V1</resource>

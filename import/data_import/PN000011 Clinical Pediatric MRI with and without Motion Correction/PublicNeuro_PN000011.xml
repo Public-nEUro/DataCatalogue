@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2025090100000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000011-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,15 +13,21 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000011 A dataset of clinical pediatric brain MRI with and without motion correction</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Llucia</given_name>
                         <surname>Coll</surname>
+                        <ORCID>https://orcid.org/0000-0003-2224-1246</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Thurid</given_name>
@@ -30,23 +36,44 @@
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Kathrine</given_name>
                         <surname>Skak Madsen</surname>
+                        <ORCID>https://orcid.org/0000-0001-8884-5902</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Melanie</given_name>
                         <surname>Ganz</surname>
+                        <ORCID>https://orcid.org/0000-0002-9120-8098</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>A dataset of clinical pediatric brain MRI with and without motion correction Data</title>
+                    <title>A dataset of clinical pediatric brain MRI with and without motion correction</title>
+                    <subtitle>PN000011</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>09</month>
-                        <day>01</day>
+                        <month>07</month>
+                        <day>28</day>
                         <year>2025</year>
                     </publication_date>
+                    <update_date>
+                        <month>07</month>
+                        <day>28</day>
+                        <year>2025</year>
+                    </update_date>
                 </database_date>
-                <description language="en">Our dataset consists of pediatric patients recruited from the Copenhagen Capital Region.  Participants eligible for inclusion were children aged 4 to 11 years, referred for an elective, scheduled clinical cerebral MRI scan under GA. Children were excluded if they presented with an unstable medical condition or any contraindications compromising the safety of MRI—such as metal implants. Additional exclusion criteria included lack of fluency in Danish, significant visual or auditory impairments, or major physical or developmental challenges likely to interfere with participation in the experimental protocol. The number and type of images available for each patient vary but include a full cerebral clinical MRI protocol (see Supplementary Table \ref{tab:protocols} for full description of the different MRI protocols). The data is structured according to the Brain Imaging Data Structure (BIDS) format \cite{Gorgolewski2016TheExperiments}, an open standard designed to facilitate MRI data sharing. The image data is published\footnote{Available at } on the platform PublicnEUro (\url{https://publicneuro.eu/}), a GDPR-compliant data-sharing site where access is granted only under a data usage agreement.</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000011</item_number>
+                </publisher_item>
+                <description language="en">Our dataset consists of pediatric patients recruited from the Copenhagen Capital Region.  Participants eligible for inclusion were children aged 4 to 11 years, referred for an elective, scheduled clinical cerebral MRI scan under GA. Children were excluded if they presented with an unstable medical condition or any contraindications compromising the safety of MRI—such as metal implants. Additional exclusion criteria included lack of fluency in Danish, significant visual or auditory impairments, or major physical or developmental challenges likely to interfere with participation in the experimental protocol. The number and type of images available for each patient vary but include a full cerebral clinical MRI protocol (see Supplementary Table \ref{tab:protocols} for full description of the different MRI protocols). The data is structured according to the Brain Imaging Data Structure (BIDS) format \cite{Gorgolewski2016TheExperiments}, an open standard designed to facilitate MRI data sharing. The image data is published\footnote{Available at } on the platform PublicnEUro (\url{https://publicneuro.eu/}), a GDPR-compliant data-sharing site where access is granted only under a data usage agreement. Keywords: The primary advantage of this dataset is the publication of clinically acquired MRI data with and without motion correction. Together with the image data, motion curves, expert image quality scores by a radiographer as well as automatic image quality scores based on reference-free image quality metrics are shared.; Participants: 47; Total size: 4.2 GB.</description>
+                <format>BIDS 1.9.0; raw; data types: anat</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Elsass foundation</fr:assertion>
+                        <fr:assertion name="award_number">18-3-0147</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/VMIF5895</doi>
                     <resource>https://datacatalog.publicneuro.eu/dataset/PN000011%20A%20dataset%20of%20clinical%20pediatric%20brain%20MRI%20with%20and%20without%20motion%20correction/V1</resource>

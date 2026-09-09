@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2025100400000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000005-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,40 +13,81 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000005 Leuven PET UCB-J dataset 1 in control participants </subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>Koen</given_name>
                         <surname>Van Laere</surname>
+                        <ORCID>https://orcid.org/0000-0001-5200-7245</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Michel</given_name>
                         <surname>Koole</surname>
+                        <ORCID>https://orcid.org/0000-0001-5862-640X</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Jan</given_name>
                         <surname>De Hoon</surname>
+                        <ORCID>https://orcid.org/0000-0002-5215-9836</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Leuven PET UCB-J dataset 1 in control participants  Data</title>
+                    <title>Leuven PET UCB-J dataset 1 in control participants </title>
+                    <subtitle>PN000005</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>10</month>
-                        <day>04</day>
+                        <month>03</month>
+                        <day>24</day>
                         <year>2025</year>
                     </publication_date>
+                    <update_date>
+                        <month>03</month>
+                        <day>24</day>
+                        <year>2025</year>
+                    </update_date>
                 </database_date>
-                <description language="en">UCB-J in healthy volunteers: dynamic PET baseline scan (0-90 min), T1w and eASL</description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000005</item_number>
+                </publisher_item>
+                <description language="en">UCB-J in healthy volunteers: dynamic PET baseline scan (0-90 min), T1w and eASL Keywords: UCBJ, PET, T1w, eASL, SV2A, 11C, dynamic; Participants: 12; Total size: 1.1 GB.</description>
+                <format>BIDS 1.7.0; raw; data types: anat, perf, pet</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Leuven Research and Development</fr:assertion>
+                        <fr:assertion name="award_number">Protocol UP0036</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>Padsevonil randomized Phase IIa trial in treatment-resistant focal epilepsy: a translational approach</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1093/braincomms/fcaa183</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/BKWA8149</doi>
-                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000005%20Leuven%20PET%20UCB-J%20dataset%201%20in%20control%20participants/V1</resource>
+                    <resource>https://datacatalog.publicneuro.eu/dataset/PN000005%20Leuven%20PET%20UCB-J%20dataset%201%20in%20control%20participants%20/V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>Padsevonil randomized Phase IIa trial in treatment-resistant focal epilepsy: a translational approach</article_title>
+                        <author>P., Hannestad J., Brandt C., DeBruyn S., Germani M., Lacroix B., Majoie M., Otoul C., Sciberras D., Steinhoff B.J., Van Larere K., Van Paesschen W., Webster E., Kaminski R.M., Werhahn K.J., Toledo M.</author>
+                        <cYear>2020</cYear>
+                        <doi>10.1093/braincomms/fcaa183</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

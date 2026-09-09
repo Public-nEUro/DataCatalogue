@@ -112,6 +112,18 @@ class CrossrefExportTests(unittest.TestCase):
         self.assertEqual(dataset.findtext('cr:database_date/cr:update_date/cr:year', namespaces=NS),
                          '2026')
 
+    def test_encodes_a_mononym_as_the_required_surname(self):
+        self.metadata['authors'] = [{'givenName': 'Charlie', 'familyName': ''}]
+        person = self.export().find('.//cr:person_name', NS)
+        self.assertIsNone(person.find('cr:given_name', NS))
+        self.assertEqual(person.findtext('cr:surname', namespaces=NS), 'Charlie')
+
+    def test_ignores_a_non_doi_publication_identifier(self):
+        self.metadata['publications'][0]['doi'] = 'none'
+        dataset = self.export().find('.//cr:dataset', NS)
+        self.assertIsNone(dataset.find('rel:program', NS))
+        self.assertIsNone(dataset.find('cr:citation_list', NS))
+
 
 if __name__ == '__main__':
     unittest.main()

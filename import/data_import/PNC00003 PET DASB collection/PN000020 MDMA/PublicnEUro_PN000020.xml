@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.3.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd" version="5.3.0">
+<doi_batch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.crossref.org/schema/5.5.0" xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" xmlns:fr="http://www.crossref.org/fundref.xsd" xmlns:rel="http://www.crossref.org/relations.xsd" xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd" version="5.5.0">
     <head>
-        <doi_batch_id>Neurobiology Research Unit</doi_batch_id>
-        <timestamp>2026060100000000</timestamp>
+        <doi_batch_id>PublicnEUro-PN000020-V1</doi_batch_id>
+        <timestamp>2026090900000000</timestamp>
         <depositor>
             <depositor_name>PublicNeuro</depositor_name>
             <email_address>publicneuro@nru.dk</email_address>
@@ -13,40 +13,86 @@
         <database>
             <database_metadata language="en">
                 <titles>
-                    <title>PublicNeuro Datasets</title>
-                    <subtitle>PN000020 Serotonine transporter imaging in MDMA or hallucinogenic drug users and non using controls</subtitle>
+                    <title>PublicnEUro</title>
+                    <subtitle>A GDPR-compliant repository and catalogue for human brain-imaging datasets</subtitle>
                 </titles>
+                <description language="en">Controlled-access and open human brain-imaging datasets curated by PublicnEUro.</description>
+                <publisher>
+                    <publisher_name>Neurobiology Research Unit, Rigshospitalet</publisher_name>
+                    <publisher_place>Copenhagen, Denmark</publisher_place>
+                </publisher>
             </database_metadata>
             <dataset dataset_type="record">
                 <contributors>
                     <person_name sequence="first" contributor_role="author">
                         <given_name>David</given_name>
                         <surname>Erritzoe</surname>
+                        <ORCID>https://orcid.org/0000-0002-7022-6211</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Vibe</given_name>
                         <surname>G. Frokjaer</surname>
+                        <ORCID>https://orcid.org/0000-0002-9321-2365</ORCID>
                     </person_name>
                     <person_name sequence="additional" contributor_role="author">
                         <given_name>Klaus</given_name>
                         <surname>K. Holst</surname>
+                        <ORCID>https://orcid.org/0000-0002-1364-6789</ORCID>
                     </person_name>
                 </contributors>
                 <titles>
-                    <title>Serotonine transporter imaging in MDMA or hallucinogenic drug users and non using controls Data</title>
+                    <title>Serotonine transporter imaging in MDMA or hallucinogenic drug users and non using controls</title>
+                    <subtitle>PN000020</subtitle>
                 </titles>
                 <database_date>
                     <publication_date>
-                        <month>05</month>
-                        <day>18</day>
+                        <month>04</month>
+                        <day>10</day>
                         <year>2026</year>
                     </publication_date>
+                    <update_date>
+                        <month>04</month>
+                        <day>10</day>
+                        <year>2026</year>
+                    </update_date>
                 </database_date>
-                <description language="en">24 adult users of MDMA or hallucinogenic drugs and 21 nonusing controls were scanned with [11C]DASB PET. </description>
+                <publisher_item>
+                    <item_number item_number_type="PublicnEUro">PN000020</item_number>
+                </publisher_item>
+                <description language="en">24 adult users of MDMA or hallucinogenic drugs and 21 nonusing controls were scanned with [11C]DASB PET. Keywords: PET, MDMA, serotonin; Participants: 46; Total size: 5.58 GB.</description>
+                <format>BIDS 1900-01-03 01:10:01; raw; data types: anat, pet</format>
+                <fr:program name="fundref">
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Sawmill owner Jeppe Juhl and Wife Ovita Juhls Foundation</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">The Danish Medical Research Council, H:S (Copenhagen Hospital Cooperation) Research Council</fr:assertion>
+                    </fr:assertion>
+                    <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">Rigshospitalet, The Lundbeck Foundation,</fr:assertion>
+                    </fr:assertion>
+                </fr:program>
+                <rel:program name="relations">
+                    <rel:related_item>
+                        <rel:description>In Vivo Imaging of Cerebral Serotonin Transporter and Serotonin2A Receptor Binding in 3,4-Methylenedioxymethamphetamine (MDMA or “Ecstasy”) and Hallucinogen Users</rel:description>
+                        <rel:inter_work_relation relationship-type="isDataBasisFor" identifier-type="doi">10.1001/archgenpsychiatry.2011.56</rel:inter_work_relation>
+                    </rel:related_item>
+                </rel:program>
+                <version_info>
+                    <version>V1</version>
+                </version_info>
                 <doi_data>
                     <doi>10.70883/ZKCF9211</doi>
                     <resource>https://datacatalog.publicneuro.eu/dataset/PN000020%20Serotonine%20transporter%20imaging%20in%20MDMA%20or%20hallucinogenic%20drug%20users%20and%20non%20using%20controls/V1</resource>
                 </doi_data>
+                <citation_list>
+                    <citation key="publication-1" type="journal_article">
+                        <article_title>In Vivo Imaging of Cerebral Serotonin Transporter and Serotonin2A Receptor Binding in 3,4-Methylenedioxymethamphetamine (MDMA or “Ecstasy”) and Hallucinogen Users</article_title>
+                        <author>&quot;David Erritzoe MD PhD&quot;,     &quot;Vibe G. Frokjaer MD PhD&quot;,     &quot;Klaus K. Holst MSc&quot;,     &quot;Maria Christoffersen&quot;,     &quot;Sys S. Johansen PhD&quot;,     &quot;Claus Svarer PhD&quot;,     &quot;Jacob Madsen PhD&quot;,     &quot;Peter M. Rasmussen MSc&quot;,     &quot;Thomas Ramsøy PhD&quot;,     &quot;Terry L. Jernigan PhD&quot;,     &quot;Gitte M. Knudsen MD DMSc&quot;</author>
+                        <cYear>2011</cYear>
+                        <doi>10.1001/archgenpsychiatry.2011.56</doi>
+                    </citation>
+                </citation_list>
             </dataset>
         </database>
     </body>

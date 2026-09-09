@@ -1034,7 +1034,7 @@ def _crossref_doi(doi_value):
         doi,
         flags=re.IGNORECASE,
     )
-    return doi
+    return doi if re.fullmatch(r'10\.\d{4,9}/\S+', doi) else ""
 
 
 def _metadata_values(metadata, key):
@@ -1090,16 +1090,18 @@ def _add_crossref_contributors(dataset, authors):
         return
     contributors = ET.SubElement(dataset, 'contributors')
     for index, author in enumerate(authors):
+        given_name = str(author.get('givenName', '')).strip()
+        family_name = str(author.get('familyName', '')).strip()
         person = ET.SubElement(
             contributors,
             'person_name',
             sequence='first' if index == 0 else 'additional',
             contributor_role='author',
         )
-        if author.get('givenName'):
-            ET.SubElement(person, 'given_name').text = str(author['givenName'])
-        if author.get('familyName'):
-            ET.SubElement(person, 'surname').text = str(author['familyName'])
+        if given_name and family_name:
+            ET.SubElement(person, 'given_name').text = given_name
+        # Crossref requires surname. For a mononym, encode the sole name there.
+        ET.SubElement(person, 'surname').text = family_name or given_name
         if author.get('orcid'):
             orcid = str(author['orcid']).strip().rstrip('/').split('/')[-1]
             ET.SubElement(person, 'ORCID').text = f"https://orcid.org/{orcid}"
