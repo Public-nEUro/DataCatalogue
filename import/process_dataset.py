@@ -100,9 +100,13 @@ def process_dataset(excel_file, file_list_source, source_name='Local_Processing'
     print(f"File list source: {file_list_source}")
     
     try:
+        # Compute size before export so Crossref receives it as well as the catalogue.
+        print("   Computing total data size...")
+        data_size = _compute_data_size(file_list_source)
+
         # Step 1: Convert Excel metadata
         print("\n📊 Step 1: Converting Excel metadata to XML/JSONL...")
-        xml_file, jsonl_file = export_xlsx_to_both(excel_file)
+        xml_file, jsonl_file = export_xlsx_to_both(excel_file, data_size=data_size)
         print(f"✅ Created: {xml_file}")
         print(f"✅ Created: {jsonl_file}")
 
@@ -114,8 +118,6 @@ def process_dataset(excel_file, file_list_source, source_name='Local_Processing'
             print("   Dataset status already specified")
 
         # Append total data size to description in JSONL
-        print("   Computing total data size...")
-        data_size = _compute_data_size(file_list_source)
         if data_size:
             print(f"   Total data size: {data_size}")
             with open(jsonl_file, 'r', encoding='utf-8') as fh:

@@ -545,20 +545,31 @@ def parse_excel_metadata(input_file):
             full_name = str(i['# Metadata record for PublicnEUro']).strip()
             if full_name and full_name != 'nan':
                 name_parts = full_name.split(" ")
-                authors.append({
+                author = {
                     'givenName': name_parts[0] if len(name_parts) > 0 else '',
                     'familyName': " ".join(name_parts[1:]) if len(name_parts) > 1 else ''
-                })
+                }
+                author_email = i.get('Unnamed: 1', '')
+                author_orcid = i.get('Unnamed: 2', '')
+                if not pd.isna(author_email) and str(author_email).strip():
+                    author['email'] = str(author_email).strip()
+                if not pd.isna(author_orcid) and str(author_orcid).strip():
+                    author['orcid'] = str(author_orcid).strip()
+                authors.append(author)
 
     # Extract funding information
     funding = list()
     if "funding" in aux_dict:
         for i in aux_dict["funding"][2:]:
             if not pd.isna(i.get('# Metadata record for PublicnEUro')):
-                funding.append({
+                funding_entry = {
                     'name': i['# Metadata record for PublicnEUro'],
                     'identifier': i.get('Unnamed: 1', '')
-                })
+                }
+                funding_url = i.get('Unnamed: 2', '')
+                if not pd.isna(funding_url) and str(funding_url).strip():
+                    funding_entry['url'] = str(funding_url).strip()
+                funding.append(funding_entry)
 
     # Extract publications
     publication = list()
@@ -1011,7 +1022,147 @@ def dict2xml_element(tag, value):
         element.text = str(value)
     return element
 
-def export_xlsx_to_xml(excel_file_path, output_xml_path=None, skip_validation=False):
+def _crossref_doi(doi_value):
+    """Return a bare DOI suitable for Crossref elements."""
+    if doi_value is None:
+        return ""
+    doi = str(doi_value).strip()
+    doi = re.sub(r'^doi:\s*', '', doi, flags=re.IGNORECASE)
+    doi = re.sub(
+        r'^(?:(?:https?):/{1,2})?(?:dx\.)?doi\.org/',
+        '',
+        doi,
+        flags=re.IGNORECASE,
+    )
+    return doi
+
+
+def _metadata_values(metadata, key):
+    """Return values from the Dataset Metadata display block as strings."""
+    content = metadata.get('detailed_metadata', {}).get('content', {})
+    value = content.get(key, [])
+    if value is None:
+        return []
+    if not isinstance(value, list):
+        value = [value]
+    return [str(item).strip() for item in value if str(item).strip()]
+
+
+def _append_crossref_date(parent, tag, value):
+    """Append a Crossref date when *value* can be parsed."""
+    if value is None or value == '':
+        return False
+    try:
+        date = pd.to_datetime(value)
+    except (TypeError, ValueError):
+        return False
+
+    date_element = ET.SubElement(parent, tag)
+    ET.SubElement(date_element, 'month').text = date.strftime('%m')
+    ET.SubElement(date_element, 'day').text = date.strftime('%d')
+    ET.SubElement(date_element, 'year').text = date.strftime('%Y')
+    return True
+
+
+def _crossref_description(metadata, data_size=None):
+    """Build a narrative for metadata Crossref cannot model directly."""
+    description = str(metadata.get('description', '')).strip()
+    additions = []
+
+    keywords = metadata.get('keywords', [])
+    if keywords and 'keywords:' not in description.lower():
+        additions.append(f"Keywords: {', '.join(str(value) for value in keywords)}")
+
+    participant_values = metadata.get('participants', {}).get('content', {}).get('total_number', [])
+    if participant_values and 'participants:' not in description.lower():
+        additions.append(f"Participants: {participant_values[0]}")
+
+    if data_size and 'total size:' not in description.lower():
+        additions.append(f"Total size: {data_size}")
+
+    if additions:
+        description = f"{description.rstrip()} {'; '.join(additions)}."
+    return description
+
+
+def _add_crossref_contributors(dataset, authors):
+    if not authors:
+        return
+    contributors = ET.SubElement(dataset, 'contributors')
+    for index, author in enumerate(authors):
+        person = ET.SubElement(
+            contributors,
+            'person_name',
+            sequence='first' if index == 0 else 'additional',
+            contributor_role='author',
+        )
+        if author.get('givenName'):
+            ET.SubElement(person, 'given_name').text = str(author['givenName'])
+        if author.get('familyName'):
+            ET.SubElement(person, 'surname').text = str(author['familyName'])
+        if author.get('orcid'):
+            orcid = str(author['orcid']).strip().rstrip('/').split('/')[-1]
+            ET.SubElement(person, 'ORCID').text = f"https://orcid.org/{orcid}"
+
+
+def _add_crossref_funding(dataset, funding):
+    valid_funding = [entry for entry in funding if entry.get('name')]
+    if not valid_funding:
+        return
+    program = ET.SubElement(dataset, 'fr:program', name='fundref')
+    for entry in valid_funding:
+        group = ET.SubElement(program, 'fr:assertion', name='fundgroup')
+        ET.SubElement(group, 'fr:assertion', name='funder_name').text = str(entry['name']).strip()
+        identifier = entry.get('identifier')
+        if identifier is not None and not pd.isna(identifier) and str(identifier).strip():
+            ET.SubElement(group, 'fr:assertion', name='award_number').text = str(identifier).strip()
+
+
+def _add_crossref_relations(dataset, publications):
+    related = [publication for publication in publications if _crossref_doi(publication.get('doi'))]
+    if not related:
+        return
+    program = ET.SubElement(dataset, 'rel:program', name='relations')
+    for publication in related:
+        item = ET.SubElement(program, 'rel:related_item')
+        if publication.get('title'):
+            ET.SubElement(item, 'rel:description').text = str(publication['title']).strip()
+        relation = ET.SubElement(
+            item,
+            'rel:inter_work_relation',
+            {'relationship-type': 'isDataBasisFor', 'identifier-type': 'doi'},
+        )
+        relation.text = _crossref_doi(publication['doi'])
+
+
+def _add_crossref_citations(dataset, publications):
+    citations = [publication for publication in publications if _crossref_doi(publication.get('doi'))]
+    if not citations:
+        return
+    citation_list = ET.SubElement(dataset, 'citation_list')
+    for index, publication in enumerate(citations, start=1):
+        citation = ET.SubElement(citation_list, 'citation', key=f"publication-{index}", type='journal_article')
+        if publication.get('title'):
+            ET.SubElement(citation, 'article_title').text = str(publication['title']).strip()
+        authors = publication.get('authors', [])
+        if authors:
+            first_author = authors[0]
+            author_name = first_author.get('familyName') or first_author.get('givenName')
+            if author_name:
+                ET.SubElement(citation, 'author').text = str(author_name).strip()
+        year = str(publication.get('datePublished', '')).strip()
+        year_match = re.search(r'\b(1[4-9]\d{2}|20\d{2}|21\d{2}|2200)\b', year)
+        if year_match:
+            ET.SubElement(citation, 'cYear').text = year_match.group(1)
+        ET.SubElement(citation, 'doi').text = _crossref_doi(publication['doi'])
+
+
+def export_xlsx_to_xml(
+    excel_file_path,
+    output_xml_path=None,
+    skip_validation=False,
+    data_size=None,
+):
     """
     Convert Excel metadata file to XML format for CrossRef submission.
     
@@ -1019,6 +1170,8 @@ def export_xlsx_to_xml(excel_file_path, output_xml_path=None, skip_validation=Fa
         excel_file_path (str): Path to the Excel file containing metadata
         output_xml_path (str): Optional output path for XML file. If not provided,
                               will use the same name as Excel file with .xml extension
+        data_size (str): Optional human-readable total size, supplied by the full
+                         processing pipeline (for example, ``"4.20 GB"``)
     
     Returns:
         str: Path to the generated XML file
@@ -1044,112 +1197,96 @@ def export_xlsx_to_xml(excel_file_path, output_xml_path=None, skip_validation=Fa
             error_msg += f"\nPlease fix these issues in '{excel_file_path}' and try again."
             raise ValueError(error_msg)
     
-    # Get XML template
-    xml_dict = get_xml_template()
-    
     # Determine output file path
     if output_xml_path is None:
         base_name = os.path.splitext(excel_file_path)[0]
         output_xml_path = f"{base_name}.xml"
     
-    # Create XML structure
+    # Create a Crossref 5.5.0 database/dataset deposit in schema order.
     root = ET.Element('doi_batch', 
                       **{
                           'xmlns:xsi': "http://www.w3.org/2001/XMLSchema-instance",
-                          'xsi:schemaLocation': "http://www.crossref.org/schema/5.3.0 https://www.crossref.org/schemas/crossref5.3.0.xsd",
-                          'xmlns': "http://www.crossref.org/schema/5.3.0",
+                          'xsi:schemaLocation': "http://www.crossref.org/schema/5.5.0 https://www.crossref.org/schemas/crossref5.5.0.xsd",
+                          'xmlns': "http://www.crossref.org/schema/5.5.0",
                           'xmlns:jats': "http://www.ncbi.nlm.nih.gov/JATS1",
                           'xmlns:fr': "http://www.crossref.org/fundref.xsd",
+                          'xmlns:rel': "http://www.crossref.org/relations.xsd",
                           'xmlns:ai': "http://www.crossref.org/AccessIndicators.xsd",
                           'xmlns:mml': "http://www.w3.org/1998/Math/MathML",
-                          'version': "5.3.0"
+                          'version': "5.5.0"
                       })
-    
-    # Add head element
-    head_element = dict2xml_element('head', xml_dict['head'])
-    root.append(head_element)
-    
-    # Add body element
-    body_element = dict2xml_element('body', xml_dict['body'])
-    root.append(body_element)
-    
-    # Update timestamp
+
     now = datetime.now()
     timestamp = now.strftime("%Y%m%d") + "00000000"
-    
-    for head in root.iter("head"):
-        timestamp_elem = head.find(".//timestamp")
-        if timestamp_elem is not None:
-            timestamp_elem.text = timestamp
-    
-    # Update database metadata
-    for database in root.iter('database'):
-        for database_metadata in database.iter('database_metadata'):
-            for titles in database_metadata.iter("titles"):
-                subtitle_elem = titles.find(".//subtitle")
-                if subtitle_elem is not None:
-                    subtitle_elem.text = metadata["subtitle"]
-        
-        # Update dataset information
-        for dataset in database.iter('dataset'):
-            # Update DOI
-            for doi_data in dataset.iter("doi_data"):
-                doi_elem = doi_data.find(".//doi")
-                if doi_elem is not None:
-                    doi_elem.text = metadata["doi_without_prefix"]
-                
-                resource_elem = doi_data.find(".//resource")
-                if resource_elem is not None:
-                    encoded_name = quote(metadata["name"], safe='')
-                    resource_elem.text = f"https://datacatalog.publicneuro.eu/dataset/{encoded_name}/{metadata['dataset_version']}"
-            
-            # Update description
-            desc_elem = dataset.find('.//description')
-            if desc_elem is not None:
-                desc_elem.text = metadata['description']
-            
-            # Update title
-            for titles in dataset.iter("titles"):
-                title_elem = titles.find(".//title")
-                if title_elem is not None:
-                    title_elem.text = metadata["title"] + " Data"
-            
-            # Update publication date
-            for database_date in dataset.iter("database_date"):
-                for publication_date in database_date.iter("publication_date"):
-                    month_elem = publication_date.find(".//month")
-                    day_elem = publication_date.find(".//day")
-                    year_elem = publication_date.find(".//year")
-                    
-                    if month_elem is not None:
-                        month_elem.text = now.strftime("%m")
-                    if day_elem is not None:
-                        day_elem.text = now.strftime("%d")
-                    if year_elem is not None:
-                        year_elem.text = now.strftime("%Y")
-            
-            # Add contributors/authors
-            contributors_elem = dataset.find('.//contributors')
-            if contributors_elem is not None:
-                # Clear existing contributors
-                contributors_elem.clear()
-                
-                first = True
-                for author in metadata['authors']:
-                    seq = "first" if first else "additional"
-                    first = False
-                    
-                    person_name_elem = ET.Element('person_name', 
-                                                sequence=seq, 
-                                                contributor_role="author")
-                    
-                    given_name_elem = ET.SubElement(person_name_elem, 'given_name')
-                    given_name_elem.text = author['givenName']
-                    
-                    surname_elem = ET.SubElement(person_name_elem, 'surname')
-                    surname_elem.text = author['familyName']
-                    
-                    contributors_elem.append(person_name_elem)
+
+    head = ET.SubElement(root, 'head')
+    ET.SubElement(head, 'doi_batch_id').text = f"PublicnEUro-{metadata['id']}-{metadata['dataset_version']}"
+    ET.SubElement(head, 'timestamp').text = timestamp
+    depositor = ET.SubElement(head, 'depositor')
+    ET.SubElement(depositor, 'depositor_name').text = 'PublicNeuro'
+    ET.SubElement(depositor, 'email_address').text = 'publicneuro@nru.dk'
+    ET.SubElement(head, 'registrant').text = 'Neurobiology Research Unit, Rigshospitalet, Denmark'
+
+    body = ET.SubElement(root, 'body')
+    database = ET.SubElement(body, 'database')
+    database_metadata = ET.SubElement(database, 'database_metadata', language='en')
+    database_titles = ET.SubElement(database_metadata, 'titles')
+    ET.SubElement(database_titles, 'title').text = 'PublicnEUro'
+    ET.SubElement(database_titles, 'subtitle').text = (
+        'A GDPR-compliant repository and catalogue for human brain-imaging datasets'
+    )
+    ET.SubElement(database_metadata, 'description', language='en').text = (
+        'Controlled-access and open human brain-imaging datasets curated by PublicnEUro.'
+    )
+    publisher = ET.SubElement(database_metadata, 'publisher')
+    ET.SubElement(publisher, 'publisher_name').text = 'Neurobiology Research Unit, Rigshospitalet'
+    ET.SubElement(publisher, 'publisher_place').text = 'Copenhagen, Denmark'
+
+    dataset = ET.SubElement(database, 'dataset', dataset_type='record')
+    _add_crossref_contributors(dataset, metadata.get('authors', []))
+
+    titles = ET.SubElement(dataset, 'titles')
+    ET.SubElement(titles, 'title').text = metadata['title']
+    ET.SubElement(titles, 'subtitle').text = metadata['id']
+
+    database_date = ET.SubElement(dataset, 'database_date')
+    _append_crossref_date(database_date, 'creation_date', metadata.get('dateCreated'))
+    publication_value = metadata.get('dateCreated') or metadata.get('dateModified') or now
+    _append_crossref_date(database_date, 'publication_date', publication_value)
+    _append_crossref_date(database_date, 'update_date', metadata.get('dateModified'))
+
+    publisher_item = ET.SubElement(dataset, 'publisher_item')
+    ET.SubElement(publisher_item, 'item_number', item_number_type='PublicnEUro').text = metadata['id']
+
+    ET.SubElement(dataset, 'description', language='en').text = _crossref_description(metadata, data_size)
+
+    bids_version = _metadata_values(metadata, 'bids_version')
+    bids_dataset_type = _metadata_values(metadata, 'bids_datasettype')
+    bids_data_types = _metadata_values(metadata, 'bids_datatypes')
+    format_parts = []
+    if bids_version:
+        format_parts.append(f"BIDS {', '.join(bids_version)}")
+    if bids_dataset_type:
+        format_parts.append(', '.join(bids_dataset_type))
+    if bids_data_types:
+        format_parts.append(f"data types: {', '.join(bids_data_types)}")
+    if format_parts:
+        ET.SubElement(dataset, 'format').text = '; '.join(format_parts)[:130]
+
+    _add_crossref_funding(dataset, metadata.get('funding', []))
+    _add_crossref_relations(dataset, metadata.get('publications', []))
+
+    version_info = ET.SubElement(dataset, 'version_info')
+    ET.SubElement(version_info, 'version').text = metadata['dataset_version']
+
+    doi_data = ET.SubElement(dataset, 'doi_data')
+    ET.SubElement(doi_data, 'doi').text = metadata['doi_without_prefix']
+    encoded_name = quote(metadata['name'], safe='')
+    ET.SubElement(doi_data, 'resource').text = (
+        f"https://datacatalog.publicneuro.eu/dataset/{encoded_name}/{metadata['dataset_version']}"
+    )
+
+    _add_crossref_citations(dataset, metadata.get('publications', []))
     
     # Clean up namespace prefixes in element tags
     for el in root.iter():
@@ -1249,7 +1386,12 @@ def export_xlsx_to_jsonl(excel_file_path, output_jsonl_path=None, skip_validatio
     print(f"\n\t [X] JSONL file has been saved in '{output_jsonl_path}'")
     return output_jsonl_path
 
-def export_xlsx_to_both(excel_file_path, output_xml_path=None, output_jsonl_path=None):
+def export_xlsx_to_both(
+    excel_file_path,
+    output_xml_path=None,
+    output_jsonl_path=None,
+    data_size=None,
+):
     """
     Convert Excel metadata file to both XML and JSONL formats.
     
@@ -1257,6 +1399,7 @@ def export_xlsx_to_both(excel_file_path, output_xml_path=None, output_jsonl_path
         excel_file_path (str): Path to the Excel file containing metadata
         output_xml_path (str): Optional output path for XML file
         output_jsonl_path (str): Optional output path for JSONL file
+        data_size (str): Optional human-readable total dataset size for Crossref
     
     Returns:
         tuple: (xml_file_path, jsonl_file_path)
@@ -1281,7 +1424,12 @@ def export_xlsx_to_both(excel_file_path, output_xml_path=None, output_jsonl_path
         print(f"Converting '{excel_file_path}' anyway...\n")
     
     # If validation passes, proceed with both exports
-    xml_file = export_xlsx_to_xml(excel_file_path, output_xml_path, skip_validation=True)
+    xml_file = export_xlsx_to_xml(
+        excel_file_path,
+        output_xml_path,
+        skip_validation=True,
+        data_size=data_size,
+    )
     jsonl_file = export_xlsx_to_jsonl(excel_file_path, output_jsonl_path, skip_validation=True)
     
     print(f"\n\t [X] Both files generated successfully:")

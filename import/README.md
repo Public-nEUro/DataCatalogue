@@ -53,7 +53,14 @@ results = find_catalogue_set_file("PN000011*/V1", reorder_children=True)
 
 ### 🔧 export_xlsx.py - Excel to XML/JSONL Converter
 
-Converts Excel metadata files to XML (CrossRef) and JSONL (web catalog) formats.
+Converts Excel metadata files to Crossref 5.5.0 XML and JSONL (web catalog)
+formats. The XML includes dataset authors and ORCIDs, lifecycle dates,
+PublicnEUro identifiers, BIDS format/data types, funding and award numbers,
+typed DOI relationships and citations for related publications, dataset
+version, DOI, and landing page. Crossref has no dedicated dataset-level fields
+for keywords, participant count, or total size, so these are appended to the
+dataset description. The complete processing pipeline supplies the computed
+size to the XML export automatically.
 
 **Key Functions:**
 
