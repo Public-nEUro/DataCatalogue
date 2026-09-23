@@ -275,7 +275,7 @@
               <span v-else>
                 <b-form v-if="subdatasets.length > 3">
                   <b-row>
-                    <b-col md="7">
+                    <b-col md="6">
                       <b-input-group>
                       <b-button-group>
                         <b-button pill variant="outline-dark" @click="sortByName">
@@ -292,7 +292,7 @@
                       <b-form-input id="input-1" type="search" placeholder="Filter by dataset or author name" required v-model="search_text" ref="text_search_input"></b-form-input>
                     </b-input-group>
                     </b-col>
-                    <b-col md="5">
+                    <b-col md="4">
                       <b-input-group>
                         <b-form-tags v-model="search_tags" :tag-validator="validator" no-outer-focus class="border-0 p-0">
                           <template v-slot="{ tags, inputAttrs, inputHandlers, tagVariant, addTag, removeTag}">
@@ -324,7 +324,26 @@
                         </template>
                       </b-input-group>
                     </b-col>
-                  </b-row>
+                                      <b-col md="2" class="mt-2 mt-md-0">
+                      <a
+                        href="https://query.neurobagel.org/?node=PublicnEUro"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-outline-dark d-flex align-items-center justify-content-center w-100"
+                        style="min-height: 38px; font-size: 0.82rem;"
+                        aria-label="Search PublicnEUro datasets via Neurobagel"
+                      >
+                        <img
+                          src="https://raw.githubusercontent.com/neurobagel/documentation/main/docs/imgs/logo/neurobagel_favicon.png"
+                          alt=""
+                          width="18"
+                          height="18"
+                          class="mr-1"
+                        >
+                        <span>Search via Neurobagel</span>
+                      </a>
+                    </b-col>
+</b-row>
                 </b-form>
                 <br>
                 <b-card v-for="ds in sortedSubdatasets" border-variant="dark" header-bg-variant="transparent" no-body class="mb-2 pt-1">
