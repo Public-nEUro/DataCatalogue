@@ -1,0 +1,1 @@
+{"type": "directory", "dataset_id": "PN000001 OpenNeuroPET Phantoms", "dataset_version": "V2", "children": [{"type": "directory", "name": "pet", "path": "sub-SiemensBiographOneNRU7/pet", "dataset_id": "PN000001 OpenNeuroPET Phantoms", "dataset_version": "V2"}], "path": "sub-SiemensBiographOneNRU7", "name": "sub-SiemensBiographOneNRU7"}

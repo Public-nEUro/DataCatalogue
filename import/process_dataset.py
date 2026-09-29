@@ -1,0 +1,390 @@
+#!/usr/bin/env python3
+"""
+Complete dataset processing pipeline CLI
+
+This script provides a command-line interface for the complete PublicnEUro dataset
+processing workflow, from Excel metadata to catalog integration.
+
+Usage Examples:
+    # Process dataset using full path to Excel file and data directory
+    python process_dataset.py /openneuropet/DataCatalogue/import/data_import/PNC00002 hedit/PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI/PublicnEUro_PN000016.xlsx dpn002/raw/PN000016/source
+    
+    # Process with pre-generated file list in same directory as Excel
+    python process_dataset.py /openneuropet/DataCatalogue/import/data_import/PNC00002 hedit/PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI/PublicnEUro_PN000016.xlsx /openneuropet/DataCatalogue/import/data_import/PNC00002 hedit/PN000016 multimodal total-body source data 18F-FDG PET-CT-MRI/allfiles.jsonl
+    
+    # Process with custom source and agent names
+    python process_dataset.py data_import/PNC00002\ hedy/PN000015\ multimodal\ total-body\ dynamic\ 18F-FDG\ PET-CT-MRI/PublicnEUro_PN000015.xlsx /path/to/data/ --source PublicnEUro --agent "Cyril Pernet"
+    
+    # Python API usage
+    from process_dataset import process_dataset
+    result = process_dataset(
+        excel_file='data_import/PNC00002 hedy/PN000015 multimodal total-body dynamic 18F-FDG PET-CT-MRI/PublicnEUro_PN000015.xlsx',
+        file_list_source='/path/to/dataset/',  # or 'data_import/.../allfiles.jsonl'
+        source_name='PublicnEUro',
+        agent_name='Cyril Pernet'
+    )
+"""
+
+import argparse
+import sys
+import os
+import subprocess
+from pathlib import Path
+
+# Add current directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from export_xlsx import export_xlsx_to_both
+from file_metadata_utils import process_file_metadata
+from find_catalogue_set_file import find_catalogue_set_file
+from status_update import ensure_default_status
+import json
+import re
+
+
+def _compute_data_size(file_list_source):
+    """
+    Return total dataset size as a human-readable string (e.g. '12.34 GB').
+
+    - If file_list_source is a directory: walk it and sum file sizes.
+    - If file_list_source is a JSONL file: sum 'contentbytesize' across all lines.
+    Returns None on failure.
+    """
+    try:
+        p = Path(file_list_source)
+        if p.is_dir():
+            total = sum(f.stat().st_size for f in p.rglob('*') if f.is_file())
+        elif p.is_file():
+            total = 0
+            with open(p, 'r', encoding='utf-8') as fh:
+                for line in fh:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        total += int(json.loads(line).get('contentbytesize', 0) or 0)
+                    except (json.JSONDecodeError, ValueError):
+                        pass
+        else:
+            return None
+        for unit in ('B', 'KB', 'MB', 'GB', 'TB'):
+            if total < 1024.0 or unit == 'TB':
+                return f"{total:.2f} {unit}"
+            total /= 1024.0
+    except Exception as e:
+        print(f"   ⚠️  Could not compute data size: {e}")
+        return None
+
+
+def process_dataset(excel_file, file_list_source, source_name='Local_Processing', agent_name='Pipeline'):
+    """
+    Process complete dataset from Excel to catalog with datalad import
+    
+    Args:
+        excel_file (str): Path to Excel metadata file
+        file_list_source (str): Path to dataset directory or file list JSONL
+        source_name (str): Name of the processing source
+        agent_name (str): Name of the processing agent
+        
+    Returns:
+        dict: Processing results with file paths and found datasets
+        
+    Workflow:
+        1. Convert Excel metadata to XML/JSONL
+        2. Generate file catalog from data directory or file list
+        3. Validate and import dataset into datalad catalog
+        4. Find and optionally reorder dataset children (auto-detects pattern from JSONL)
+    """
+    print(f"Starting dataset processing pipeline...")
+    print(f"Excel file: {excel_file}")
+    print(f"File list source: {file_list_source}")
+    
+    try:
+        # Step 1: Convert Excel metadata
+        print("\n📊 Step 1: Converting Excel metadata to XML/JSONL...")
+        xml_file, jsonl_file = export_xlsx_to_both(excel_file)
+        print(f"✅ Created: {xml_file}")
+        print(f"✅ Created: {jsonl_file}")
+
+        # New datasets are active unless the source metadata explicitly says
+        # otherwise. setdefault semantics preserve any intentional status.
+        if ensure_default_status(jsonl_file):
+            print("   ✅ Dataset status set to active")
+        else:
+            print("   Dataset status already specified")
+
+        # Append total data size to description in JSONL
+        print("   Computing total data size...")
+        data_size = _compute_data_size(file_list_source)
+        if data_size:
+            print(f"   Total data size: {data_size}")
+            with open(jsonl_file, 'r', encoding='utf-8') as fh:
+                lines = fh.readlines()
+            first = json.loads(lines[0])
+            existing_desc = first.get('description') or ''
+            if f"(total size: {data_size})" not in existing_desc:
+                first['description'] = (existing_desc.rstrip() + f" (total size: {data_size})").lstrip()
+                lines[0] = json.dumps(first, ensure_ascii=False) + '\n'
+                with open(jsonl_file, 'w', encoding='utf-8') as fh:
+                    fh.writelines(lines)
+                print(f"   ✅ Description updated with total size")
+        else:
+            print("   ⚠️  Could not determine data size; description unchanged")
+
+        # Step 2: Generate file catalog
+        print("\n📁 Step 2: Generating file catalog...")
+        catalog_file = process_file_metadata(
+            dataset_jsonl=jsonl_file,
+            file_list_source=file_list_source,
+            source_name=source_name,
+            agent_name=agent_name
+        )
+        print(f"✅ Created catalog: {catalog_file}")
+        
+        # Step 2.5: Extract dataset pattern from generated JSONL
+        print("\n🔍 Extracting dataset pattern from JSONL...")
+        with open(jsonl_file, 'r') as f:
+            dataset_metadata = json.loads(f.readline())
+        
+        # Extract PN ID from dataset_id field (e.g., "PN000015 A multimodal..." -> "PN000015")
+        dataset_id = dataset_metadata.get('dataset_id', '')
+        pn_match = re.match(r'(PN[C]?\d+)', dataset_id)
+        pn_id = pn_match.group(1) if pn_match else 'PN*'
+        
+        # Extract version (e.g., "V1")
+        dataset_version = dataset_metadata.get('dataset_version', 'V1')
+        
+        # Build pattern (e.g., "PN000015*/V1")
+        dataset_pattern = f"{pn_id}*/{dataset_version}"
+        print(f"   Auto-detected pattern: {dataset_pattern}")
+        
+        # Step 3: Import dataset into datalad catalog
+        print("\n📥 Step 3: Importing dataset into datalad catalog...")
+        import subprocess
+        
+        # First validate the dataset
+        validate_cmd = ['datalad', 'catalog-validate', '--metadata', catalog_file]
+        print(f"   Validating: {' '.join(validate_cmd)}")
+        validate_result = subprocess.run(validate_cmd, capture_output=True, text=True)
+        
+        if validate_result.returncode != 0:
+            print(f"⚠️  Validation warning: {validate_result.stderr}")
+            print("   Continuing with import...")
+        else:
+            print("✅ Validation successful")
+        
+        # Determine catalog root (parent of import directory)
+        import_dir = os.path.dirname(os.path.abspath(__file__))
+        catalog_root = os.path.dirname(import_dir)  # Go up from import/ to DataCatalogue/
+        parent_dir = os.path.dirname(catalog_root)  # Go up to the directory containing DataCatalogue/
+        catalog_name = os.path.basename(catalog_root)  # Should be 'DataCatalogue'
+        
+        # Make catalog_file absolute for datalad command
+        abs_catalog_file = os.path.abspath(catalog_file)
+        
+        # Then import to catalog (run from parent directory)
+        import_cmd = ['datalad', 'catalog-add', '--catalog', catalog_name, '--metadata', abs_catalog_file]
+        print(f"   Importing: {' '.join(import_cmd)}")
+        print(f"   Working directory: {parent_dir}")
+        import_result = subprocess.run(import_cmd, capture_output=True, text=True, cwd=parent_dir)
+        
+        if import_result.returncode != 0:
+            print(f"❌ Import failed: {import_result.stderr}")
+            raise Exception(f"Failed to import dataset to catalog: {import_result.stderr}")
+        else:
+            print("✅ Dataset imported to catalog")
+
+        # Update dateModified and source_time in super catalog JSON
+        import time as _time
+        super_json_path = os.path.join(catalog_root, "metadata", "super", "V1", "355",
+                                       "4256011838d7409cec8e38a065589.json")
+        try:
+            now_ts = _time.time()
+            now_str = _time.strftime("%Y-%m-%d %H:%M:%S", _time.localtime(now_ts))
+            with open(super_json_path, 'r', encoding='utf-8') as f:
+                super_data = json.load(f)
+            super_data['dateModified'] = now_str
+            for src in super_data.get('metadata_sources', {}).get('sources', []):
+                src['source_time'] = now_ts
+            with open(super_json_path, 'w', encoding='utf-8') as f:
+                json.dump(super_data, f, indent=4, ensure_ascii=False)
+            print(f"✅ Updated super catalog dates: dateModified={now_str}, source_time={now_ts:.0f}")
+        except Exception as e:
+            print(f"⚠️  Could not update super catalog dates: {e}")
+
+        # Step 4: Verify in catalog and reorder children
+        print("\n🔍 Step 4: Finding dataset in catalog and reordering children...")
+        results = find_catalogue_set_file(dataset_pattern, reorder_children=True)
+        found_datasets = list(results.keys()) if results else []
+        
+        if found_datasets:
+            print(f"✅ Found {len(found_datasets)} dataset(s): {found_datasets}")
+        else:
+            print("⚠️  No datasets found matching pattern")
+
+        # Step 5: Patch catalog JSON fields (download_url, description, authors)
+        print("\n🔧 Step 5: Patching catalog JSON fields...")
+        with open(jsonl_file, 'r') as f:
+            source_metadata = json.loads(f.readline())
+
+        for key, info in results.items():
+            # info['path'] is relative to catalog_root (set during find_catalogue_set_file)
+            catalog_json_path = os.path.join(catalog_root, info['path'])
+            try:
+                with open(catalog_json_path, 'r', encoding='utf-8') as f:
+                    catalog_data = json.load(f)
+
+                changed = False
+
+                # Fix download_url: should be /manage/request-access/{pnid}
+                cat_dataset_id = str(catalog_data.get('dataset_id', '')).strip()
+                pnid_match = re.match(r'(PN[C]?\d+)', cat_dataset_id)
+                if pnid_match:
+                    correct_url = f"/manage/request-access/{pnid_match.group(1)}"
+                    if catalog_data.get('download_url') != correct_url:
+                        print(f"   Fixing download_url: {catalog_data.get('download_url')} → {correct_url}")
+                        catalog_data['download_url'] = correct_url
+                        changed = True
+
+                # Fix description if null/missing
+                if not catalog_data.get('description') and source_metadata.get('description'):
+                    print(f"   Fixing description: null → (copied from JSONL)")
+                    catalog_data['description'] = source_metadata['description']
+                    changed = True
+
+                # Fix authors if null/missing
+                if not catalog_data.get('authors') and source_metadata.get('authors'):
+                    print(f"   Fixing authors: null → (copied from JSONL)")
+                    catalog_data['authors'] = source_metadata['authors']
+                    changed = True
+
+                # Preserve an explicit source status, defaulting new records to
+                # active if DataLad omitted the field during import.
+                if not catalog_data.get('status'):
+                    catalog_data['status'] = source_metadata.get('status', 'active')
+                    print(f"   Setting status: {catalog_data['status']}")
+                    changed = True
+
+                for lifecycle_field in ('status_note', 'replacement'):
+                    if source_metadata.get(lifecycle_field) and (
+                        catalog_data.get(lifecycle_field) != source_metadata[lifecycle_field]
+                    ):
+                        catalog_data[lifecycle_field] = source_metadata[lifecycle_field]
+                        print(f"   Setting {lifecycle_field}: {catalog_data[lifecycle_field]}")
+                        changed = True
+
+                if changed:
+                    with open(catalog_json_path, 'w', encoding='utf-8') as f:
+                        json.dump(catalog_data, f, indent=4, ensure_ascii=False)
+                    print(f"✅ Patched: {os.path.basename(catalog_json_path)}")
+                else:
+                    print(f"   No changes needed: {os.path.basename(catalog_json_path)}")
+
+            except Exception as e:
+                print(f"⚠️  Could not patch {catalog_json_path}: {e}")
+
+        # Step 6: Write dataset_file.txt next to the Excel file
+        print("\n📝 Step 6: Writing dataset_file.txt...")
+        excel_dir = os.path.dirname(os.path.abspath(excel_file))
+        txt_path = os.path.join(excel_dir, 'dataset_file.txt')
+        written = False
+        for key, info in results.items():
+            rel_path = info.get('relative_path', '')
+            if rel_path:
+                # Normalize to forward slashes
+                rel_path = rel_path.replace(os.sep, '/')
+                with open(txt_path, 'w', encoding='utf-8') as f:
+                    f.write(rel_path + '\n')
+                print(f"✅ Written: {txt_path}")
+                print(f"   → {rel_path}")
+                written = True
+                break
+        if not written:
+            print("⚠️  No dataset found to write to dataset_file.txt")
+
+        result = {
+            'xml': xml_file,
+            'jsonl': jsonl_file,
+            'catalog': catalog_file,
+            'found': found_datasets
+        }
+        
+        print(f"\n🎉 Processing complete!")
+        return result
+        
+    except Exception as e:
+        print(f"\n❌ Error during processing: {str(e)}")
+        raise
+
+
+def main():
+    """Main CLI entry point"""
+    parser = argparse.ArgumentParser(
+        description='Complete PublicnEUro dataset processing pipeline: Excel → XML/JSONL → File catalog → Datalad import → Catalog integration',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s data.xlsx /path/to/data
+  %(prog)s metadata.xlsx ./file_list.jsonl --source MySource --agent MyAgent
+  
+Workflow:
+  1. Convert Excel metadata to XML/JSONL formats
+  2. Generate file catalog from data directory or file list
+  3. Auto-detect dataset pattern from generated JSONL (PN ID + version)
+  4. Validate and import dataset into datalad catalog
+  5. Find dataset in catalog and reorder children
+        """
+    )
+    
+    parser.add_argument('excel_file', 
+                       help='Path to Excel metadata file')
+    parser.add_argument('file_list_source', 
+                       help='Path to dataset directory or file list JSONL')
+    parser.add_argument('--source', 
+                       default='Local_Processing',
+                       help='Name of the processing source (default: Local_Processing)')
+    parser.add_argument('--agent', 
+                       default='Pipeline',
+                       help='Name of the processing agent (default: Pipeline)')
+    parser.add_argument('--verbose', '-v', 
+                       action='store_true',
+                       help='Enable verbose output')
+    
+    args = parser.parse_args()
+    
+    # Validate input files/directories
+    if not os.path.exists(args.excel_file):
+        print(f"❌ Excel file not found: {args.excel_file}")
+        sys.exit(1)
+        
+    if not os.path.exists(args.file_list_source):
+        print(f"❌ File list source not found: {args.file_list_source}")
+        sys.exit(1)
+    
+    try:
+        result = process_dataset(
+            excel_file=args.excel_file,
+            file_list_source=args.file_list_source,
+            source_name=args.source,
+            agent_name=args.agent
+        )
+        
+        if args.verbose:
+            print(f"\nDetailed results: {result}")
+            
+        print(f"\n📋 Summary:")
+        print(f"   XML file: {result['xml']}")
+        print(f"   JSONL file: {result['jsonl']}")
+        print(f"   Catalog file: {result['catalog']}")
+        print(f"   Found datasets: {len(result['found'])}")
+        
+    except KeyboardInterrupt:
+        print("\n\n⚠️  Process interrupted by user")
+        sys.exit(1)
+    except Exception as e:
+        print(f"\n❌ Pipeline failed: {str(e)}")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

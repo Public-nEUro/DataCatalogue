@@ -1,0 +1,1 @@
+{"type": "directory", "dataset_id": "PN000004 Closed Loop Sleep Motor Memory", "dataset_version": "V1", "children": [{"type": "directory", "name": "func", "path": "sub-17/ses-postnight/func", "dataset_id": "PN000004 Closed Loop Sleep Motor Memory", "dataset_version": "V1"}], "path": "sub-17/ses-postnight", "name": "ses-postnight"}

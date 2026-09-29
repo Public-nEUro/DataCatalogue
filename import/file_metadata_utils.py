@@ -1,0 +1,586 @@
+#!/usr/bin/env python3
+"""
+File listing and metadata processing utilities for PublicnEUro datasets.
+
+This module combines the functionality of get_files.py and listjl2filetype.py
+into importable functions that can process dataset files and generate comprehensive
+metadata catalogs.
+
+Usage Examples:
+    # Process complete dataset metadata with directory scanning
+    from file_metadata_utils import process_file_metadata
+    output_file = process_file_metadata(
+        dataset_jsonl='dataset.jsonl',
+        file_list_source='/path/to/data/directory',  # Directory to scan
+        source_name='PublicnEUro',
+        agent_name='Cyril Pernet'
+    )
+    
+    # Process with existing file list JSONL
+    output_file = process_file_metadata(
+        dataset_jsonl='dataset.jsonl',
+        file_list_source='file_list.jsonl',  # Pre-generated file list
+        source_name='PublicnEUro',
+        agent_name='Cyril Pernet'
+    )
+        
+    # Scan directory and get file information
+    from file_metadata_utils import get_file_info
+    file_list = get_file_info('/path/to/dataset/directory')
+    # Returns: [{'path': 'sub-01/anat/sub-01_T1w.nii.gz', 'contentbytesize': 12345}, ...]
+    
+    # Scan directory and save to JSONL file
+    get_file_info('/path/to/dataset/directory', save_to_file=True, output_file='my_files.jsonl')
+
+Related Tools:
+    For reordering dataset children according to BIDS conventions, use find_catalogue_set_file.py:
+    
+    # Reorder children in a specific catalog JSON file
+    from find_catalogue_set_file import reorder_dataset_children
+    reorder_dataset_children('/path/to/dataset.json')
+    
+    # Find datasets and auto-reorder their children
+    from find_catalogue_set_file import find_catalogue_set_file
+    results = find_catalogue_set_file("PN*/V*", reorder_children=True)
+    
+    # Manual sorting of children list
+    from find_catalogue_set_file import sort_children
+    sorted_children = sort_children(dataset['children'])
+    
+    # Sort sourcedata directory in a dataset
+    from file_metadata_utils import sort_sourcedata_directory
+    sort_sourcedata_directory("PN000016*/V1")
+    
+    Child ordering rules: source dirs → code dirs → files → sub-* (numeric) → sub-* (alpha) → others
+    
+Key Functions:
+    - get_file_info(directory_path, save_to_file=False, output_file="file_list.jsonl"): 
+        Scan directory recursively for BIDS-compliant files and return file information
+        Supports .nii, .json, .tsv, .log, neuroimaging formats, and BIDS standard files
+        
+    - process_file_metadata(dataset_jsonl, file_list_source, source_name, agent_name):
+        Generate comprehensive metadata catalog combining dataset info with file listings
+        file_list_source can be: directory path, JSONL file path, or list of file dictionaries
+        
+    - sort_sourcedata_directory(dataset_pattern):
+        Find and sort sourcedata directory children in a catalog dataset
+        Sorts sub-* directories (numeric first) and files within each sub-* alphabetically
+"""
+
+import os
+import json
+import re
+from typing import List, Dict, Union
+
+
+def get_file_info(directory_path: str, save_to_file: bool = False, output_file: str = "file_list.jsonl") -> List[Dict]:
+    """
+    Walk through a directory structure and return BIDS-compliant file information.
+    
+    This function recursively scans a directory for files that comply with BIDS
+    (Brain Imaging Data Structure) standards and neuroimaging formats commonly
+    used in neuroscience datasets.
+    
+    Args:
+        directory_path (str): The path to the directory to scan recursively
+        save_to_file (bool): Whether to save the results to a JSONL file (default: False)
+        output_file (str): Name of the output file if save_to_file is True (default: "file_list.jsonl")
+        
+    Returns:
+        List[Dict]: List of dictionaries with file information, each containing:
+            - 'path': Relative path from directory_path
+            - 'contentbytesize': File size in bytes
+            
+    Included File Types:
+        - BIDS standard: .json, .tsv, .tsv.gz, .nii, .nii.gz
+        - Neuroimaging: .edf, .vhdr, .vmrk, .eeg, .set, .fdt, .bdf
+        - Additional: .zip, .log, .pcd, .tsa, .tst, .tsm, .tsp, .wfb .ptd .IMA .dcm
+        - BIDS text files: README, CHANGES, LICENSE, CITATION (no extension)
+        
+    Excluded:
+        - 'code' directories (completely skipped)
+        - Non-BIDS files: .txt, .md, .yml, .py, etc.
+        
+    Special Handling:
+        - Directories within 'sourcedata' are included with total size
+        - Path separators normalized to forward slashes for cross-platform compatibility
+        
+    Example:
+        >>> files = get_file_info('/data/study01')
+        >>> print(files[0])
+        {'path': 'sub-01/anat/sub-01_T1w.nii.gz', 'contentbytesize': 8234567}
+        
+        >>> get_file_info('/data/study01', save_to_file=True, output_file='study_files.jsonl')
+        # Creates study_files.jsonl with one JSON object per line
+        
+    Note:
+        This function is designed for BIDS-compliant datasets and may not be
+        suitable for general file system scanning due to its specific filtering rules.
+    """
+    file_info = []
+    
+    for root, dirs, files in os.walk(directory_path):
+        # Exclude 'code' directory completely
+        if "code" in dirs:
+            dirs.remove("code")
+
+        # Process directories
+        for directory in dirs:
+            full_path = os.path.join(root, os.path.normpath(directory))
+            # Only include directories within 'sourcedata'
+            if root.endswith("sourcedata"):
+                size = sum(os.path.getsize(os.path.join(dirpath, filename)) 
+                          for dirpath, _, filenames in os.walk(full_path) for filename in filenames)
+                # Use sourcedata as the parent directory name
+                dirname = os.path.join("sourcedata", os.path.normpath(directory)).replace("\\", "/")
+                file_info.append({"path": dirname, "contentbytesize": size})
+                
+        # Process files
+        for file in files:
+            full_path = os.path.join(root, file)
+            
+            # Check if file should be included
+            should_include = False
+            
+            # Include files with BIDS-standard extensions + neuroimaging formats
+            if file.endswith(('.json', '.edf', '.vhdr', '.vmrk', '.eeg', '.set', '.fdt', '.bdf', 
+                             '.nii', '.nii.gz', '.zip', '.tsv', '.tsv.gz', '.pcd', '.tsa', 
+                             '.tst', '.tsm', '.tsp', '.wfb', '.log','.h5','.ptd', '.IMA', '.dcm')):
+                should_include = True
+            
+            # Include BIDS-standard plain text files (no extension) 
+            # as per BIDS specification: https://bids-specification.readthedocs.io/
+            elif file in ('README', 'CHANGES', 'LICENSE', 'CITATION'):
+                should_include = True
+            
+            if should_include:
+                size = os.path.getsize(full_path)
+                filename = os.path.relpath(full_path, directory_path).replace("\\", "/")  # Normalize to forward slashes
+                file_info.append({"path": filename, "contentbytesize": size})
+    
+    if save_to_file:
+        # Use the output_file parameter as-is if it's an absolute path, otherwise join with cwd
+        if os.path.isabs(output_file):
+            output_path = output_file
+        else:
+            output_path = os.path.join(os.getcwd(), output_file)
+        
+        # Calculate total size in GB
+        total_size_gb = _calculate_total_size_gb(file_info)
+        
+        with open(output_path, "w") as f:
+            # Write total size as first line (special metadata line)
+            size_metadata = {"_total_size_gb": total_size_gb}
+            json.dump(size_metadata, f)
+            f.write("\n")
+            
+            # Write file info
+            for item in file_info:
+                json.dump(item, f)
+                f.write("\n")  # Add newline after each JSON object
+    
+    return file_info
+
+
+def _calculate_total_size_gb(file_info_list: List[Dict]) -> float:
+    """
+    Calculate total size in GB from a list of file info dictionaries.
+    
+    Args:
+        file_info_list: List of dictionaries containing 'contentbytesize' key
+        
+    Returns:
+        Total size in gigabytes (GB), rounded to 2 decimal places
+    """
+    total_bytes = sum(file_info.get('contentbytesize', 0) for file_info in file_info_list)
+    total_gb = total_bytes / (1024 ** 3)  # Convert bytes to GB
+    return round(total_gb, 2)
+
+
+def process_file_metadata(dataset_jsonl: str, 
+                         file_list_source: Union[str, List[Dict]], 
+                         source_name: str, 
+                         agent_name: str,
+                         output_file: str = None) -> str:
+    """
+    Process dataset metadata and file listings into a comprehensive catalog.
+    
+    Args:
+        dataset_jsonl: Path to the dataset JSONL file (from export_xlsx.py)
+        file_list_source: Either:
+            - Path to a directory to scan for files
+            - Path to a file_list.jsonl file
+            - List of file info dictionaries
+        source_name: Name of the data source
+        agent_name: Name of the processing agent
+        output_file: Optional custom output filename
+        
+    Returns:
+        Path to the generated output file
+        
+    Raises:
+        FileNotFoundError: If dataset_jsonl file doesn't exist
+        ValueError: If file_list_source is invalid
+    """
+    # 1 - Get dataset info
+    if not os.path.exists(dataset_jsonl):
+        raise FileNotFoundError(f'Dataset JSONL file {dataset_jsonl} not found')
+
+    with open(dataset_jsonl, 'r') as f:
+        dataset_info = json.loads(f.read())
+
+    # Clean up dataset_id and dataset_version (remove trailing spaces)
+    if 'dataset_id' in dataset_info:
+        dataset_info['dataset_id'] = dataset_info['dataset_id'].strip()
+    if 'dataset_version' in dataset_info:
+        dataset_info['dataset_version'] = dataset_info['dataset_version'].strip()
+
+    # Fix download_url - generate proper format based on dataset_id
+    # Extract PNID from dataset_id (e.g., "PN000014" from "PN000014 multimodal...")
+    if 'dataset_id' in dataset_info and dataset_info['dataset_id']:
+        import re
+        dataset_id = str(dataset_info['dataset_id']).strip()
+        # Extract the PNID (PN followed by digits, e.g., PN000014 or PNC00002)
+        pnid_match = re.match(r'(PN[C]?\d+)', dataset_id)
+        if pnid_match:
+            pnid = pnid_match.group(1)
+            # Always set download_url to the correct format
+            dataset_info['download_url'] = f"https://datacatalog.publicneuro.eu/manage/request-access/{pnid}"
+
+    # Add metadata sources if not already present
+    if 'metadata_sources' not in dataset_info:
+        dataset_info['metadata_sources'] = {
+            'sources': {
+                'source_name': source_name,
+                'source_version': dataset_info.get('dataset_version', ''),
+                'agent_name': agent_name
+            }
+        }
+
+    # 2 - Get file list first (we need it to build hasPart)
+    file_info_list = []
+    total_size_gb = None  # Will be set if reading from file with size metadata
+    
+    if isinstance(file_list_source, list):
+        # Direct list of file info dictionaries
+        file_info_list = file_list_source
+    elif isinstance(file_list_source, str):
+        if os.path.isdir(file_list_source):
+            # Directory path - scan it
+            file_info_list = get_file_info(file_list_source, save_to_file=False)
+        elif os.path.isfile(file_list_source):
+            # File path - read the JSONL file
+            with open(file_list_source, 'r') as f:
+                lines = f.readlines()
+                for line in lines:
+                    if line.strip():
+                        item = json.loads(line.strip())
+                        # Check if this is the size metadata line (first line)
+                        if '_total_size_gb' in item:
+                            total_size_gb = item['_total_size_gb']
+                        else:
+                            file_info_list.append(item)
+        else:
+            raise ValueError(f"File list source not found: {file_list_source}")
+    else:
+        raise ValueError(f"Invalid file_list_source type: {type(file_list_source)}")
+
+    # Calculate total size if not already provided from file
+    if total_size_gb is None:
+        total_size_gb = _calculate_total_size_gb(file_info_list)
+    
+    # Append total size to description
+    if 'description' in dataset_info and dataset_info['description']:
+        dataset_info['description'] = f"{dataset_info['description']} (total size: {total_size_gb}GB)"
+    
+    # Note: hasPart field is not needed - children will be added as separate JSONL entries
+
+    # Determine output filename
+    if output_file is None:
+        # Build filename from dataset name, sanitizing characters that are unsafe in filenames
+        # (e.g. "PET/CT/MRI" would create spurious subdirectories without this)
+        raw_name = dataset_info.get('name', '').replace(' ', '')
+        safe_name = re.sub(r'[/\\:*?"<>|]', '-', raw_name).rstrip('.')
+        if safe_name:
+            filename = f"{safe_name}.jsonl"
+        else:
+            # Fallback: use the same stem as the input JSONL (i.e. the Excel filename)
+            filename = os.path.basename(dataset_jsonl) if isinstance(dataset_jsonl, str) else 'output.jsonl'
+        # If input JSONL has a directory path, save output in same directory
+        if isinstance(dataset_jsonl, str) and os.path.dirname(dataset_jsonl):
+            output_file = os.path.join(os.path.dirname(dataset_jsonl), filename)
+        else:
+            output_file = filename
+    
+    # Write dataset info (without hasPart field)
+    _write_jsonl_line(output_file, dataset_info, mode='w')
+
+    # 3 - Process each file and append to output
+    clean_dataset_id = dataset_info.get('dataset_id', dataset_info.get('id', '')).strip()
+    clean_dataset_version = dataset_info.get('dataset_version', '').strip()
+    
+    for file_info_dict in file_info_list:
+        if 'path' in file_info_dict and 'contentbytesize' in file_info_dict:
+            item = {
+                'type': 'file',
+                'dataset_id': clean_dataset_id,
+                'dataset_version': clean_dataset_version,
+                'path': file_info_dict['path'].replace("\\", "/"),  # Normalize path separators
+                'contentbytesize': float(file_info_dict['contentbytesize']),
+                'isPartOf': clean_dataset_id,  # Add isPartOf relationship
+                'metadata_sources': {
+                    'sources': {
+                        'source_name': source_name,
+                        'source_version': clean_dataset_version,
+                        'agent_name': agent_name
+                    }
+                }
+            }
+            
+            # Fix metadata sources structure (recent addition)
+            for k, v in item['metadata_sources'].items():
+                item['metadata_sources'][k] = [v]
+            
+            _write_jsonl_line(output_file, item, mode='a')
+        else:
+            print(f"Warning: Invalid file info format: {file_info_dict}")
+
+    # 4 - Fix known metadata sources issues
+    _fix_metadata_sources(output_file)
+    
+    return output_file
+
+
+def _write_jsonl_line(filename: str, json_obj: Dict, mode: str = 'a'):
+    """
+    Write a JSON object as a line to a JSONL file.
+    
+    Args:
+        filename: Output filename
+        json_obj: Dictionary to write as JSON
+        mode: File mode ('w' for write, 'a' for append)
+    """
+    json_str = json.dumps(json_obj, ensure_ascii=False)
+    # Fix double slashes and other unwanted stuff
+    json_str = re.sub(r'\\\\', '/', json_str)  # Ensure forward slashes
+    json_str = re.sub(r'//', '/', json_str)    # Ensure forward slashes
+
+    with open(filename, mode) as f:
+        f.write(json_str + '\n')
+
+
+def _fix_metadata_sources(filename: str):
+    """
+    Fix known issues with metadata_sources formatting in JSONL files.
+    
+    Args:
+        filename: Path to the JSONL file to fix
+    """
+    lines = []
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+
+    updated_lines = []
+    for line in lines:
+        if line.strip() == "":
+            continue
+        
+        if '"metadata_sources":{"sources":' not in line:
+            updated_lines.append(line)
+            continue
+
+        parts = re.split(r'"metadata_sources":\{"sources":', line)
+        if len(parts) < 2:
+            updated_lines.append(line)
+            continue
+        
+        part1 = parts[0]
+        part2 = '"metadata_sources":{"sources":['  # Add the square bracket
+        part3 = parts[1]
+        part3 = part3.rstrip('}').rstrip() + '}]}}'  # Rebuild ending adding square bracket
+        updated_lines.append(part1 + part2 + part3)
+
+    # Rewrite the file
+    with open(filename, 'w') as f:
+        f.writelines(updated_lines)
+
+
+def sort_sourcedata_directory(dataset_pattern: str, verbose: bool = True) -> dict:
+    """
+    Find and sort sourcedata directory children in a catalog dataset.
+    
+    This function:
+    1. Finds the dataset matching the pattern
+    2. Locates the sourcedata directory JSON (type=directory, name=sourcedata)
+    3. Sorts its children according to BIDS conventions:
+       - sub-* directories sorted numerically (sub-000, sub-001, ...)
+       - Files within each sub-* directory sorted alphabetically
+       - Other items sorted alphabetically
+    
+    Args:
+        dataset_pattern (str): Pattern to find dataset (e.g., 'PN000016*/V1')
+        verbose (bool): Whether to print progress messages (default: True)
+        
+    Returns:
+        dict: Statistics about the sorting operation with keys:
+            - 'sorted': Number of children sorted
+            - 'total': Total number of children
+            - 'sub_directories': Number of sub-* directories
+            - 'sourcedata_path': Path to the sourcedata JSON file
+            
+    Raises:
+        FileNotFoundError: If dataset or sourcedata directory not found
+        ValueError: If dataset has no sourcedata directory child
+        
+    Example:
+        from file_metadata_utils import sort_sourcedata_directory
+        
+        # Sort sourcedata in PN000016 dataset
+        stats = sort_sourcedata_directory("PN000016*/V1")
+        print(f"Sorted {stats['sub_directories']} sub-* directories")
+    """
+    # Import here to avoid circular dependency
+    from find_catalogue_set_file import find_catalogue_set_file, sort_children
+    import hashlib
+    
+    if verbose:
+        print(f"🔍 Searching for dataset matching pattern: {dataset_pattern}")
+    
+    # Find the dataset
+    results = find_catalogue_set_file(dataset_pattern, reorder_children=False, verbose=verbose)
+    
+    if not results:
+        raise FileNotFoundError(f"No dataset found matching pattern: {dataset_pattern}")
+    
+    # Get dataset info
+    dataset_key = list(results.keys())[0]
+    dataset_info = results[dataset_key]
+    dataset_path = dataset_info['path']
+    
+    # Make path absolute if relative
+    if not os.path.isabs(dataset_path):
+        catalog_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        dataset_path = os.path.join(catalog_root, dataset_path)
+    
+    if verbose:
+        print(f"✅ Found dataset: {dataset_key}")
+        print(f"   Path: {dataset_path}")
+    
+    # Load dataset JSON
+    with open(dataset_path, 'r') as f:
+        dataset = json.load(f)
+    
+    # Look for sourcedata child
+    children = dataset.get('children', [])
+    sourcedata_found = False
+    
+    for child in children:
+        if child.get('name') == 'sourcedata' and child.get('type') == 'directory':
+            sourcedata_found = True
+            break
+    
+    if not sourcedata_found:
+        raise ValueError("No sourcedata directory found in dataset children")
+    
+    if verbose:
+        print("📂 Searching for sourcedata directory JSON...")
+    
+    # Get the dataset version directory
+    dataset_version_dir = os.path.dirname(os.path.dirname(dataset_path))
+    
+    # Search for sourcedata directory JSON
+    sourcedata_json_path = None
+    for root, dirs, files in os.walk(dataset_version_dir):
+        for file in files:
+            if not file.endswith('.json'):
+                continue
+            file_path = os.path.join(root, file)
+            try:
+                with open(file_path, 'r') as f:
+                    data = json.load(f)
+                if (data.get('type') == 'directory' and 
+                    data.get('name') == 'sourcedata'):
+                    sourcedata_json_path = file_path
+                    break
+            except (json.JSONDecodeError, IOError):
+                continue
+        if sourcedata_json_path:
+            break
+    
+    if not sourcedata_json_path:
+        raise FileNotFoundError("sourcedata directory JSON not found")
+    
+    if verbose:
+        print(f"✅ Found sourcedata JSON: {sourcedata_json_path}")
+        print(f"\n📝 Loading sourcedata JSON...")
+    
+    # Load sourcedata JSON
+    with open(sourcedata_json_path, 'r') as f:
+        sourcedata = json.load(f)
+    
+    # Get children
+    children = sourcedata.get('children', [])
+    original_count = len(children)
+    
+    if verbose:
+        print(f"   Found {original_count} children")
+    
+    if original_count == 0:
+        if verbose:
+            print("⚠️  No children to sort")
+        return {'sorted': 0, 'total': 0, 'sub_directories': 0, 'sourcedata_path': sourcedata_json_path}
+    
+    # Sort children
+    if verbose:
+        print(f"\n🔄 Sorting children...")
+    sorted_children = sort_children(children, parent_name='sourcedata')
+    
+    # Update sourcedata JSON
+    sourcedata['children'] = sorted_children
+    
+    # Write back
+    if verbose:
+        print(f"💾 Writing sorted JSON back to file...")
+    with open(sourcedata_json_path, 'w') as f:
+        json.dump(sourcedata, f, indent=2)
+    
+    if verbose:
+        print(f"✅ Successfully sorted {original_count} children")
+    
+    # Count sub-* directories
+    sub_count = sum(1 for child in sorted_children if child.get('name', '').startswith('sub-'))
+    
+    if verbose:
+        print(f"\n🎉 Sorting complete!")
+        print(f"   Total children sorted: {original_count}")
+        print(f"   Sub-* directories: {sub_count}")
+    
+    return {
+        'sorted': original_count,
+        'total': original_count,
+        'sub_directories': sub_count,
+        'sourcedata_path': sourcedata_json_path
+    }
+
+
+# Convenience aliases for backward compatibility
+def listjl2filetype(dataset_jsonl: str, list_jsonl: str, source_name: str, agent_name: str) -> str:
+    """
+    Legacy function name - calls process_file_metadata with file list JSONL.
+    
+    Args:
+        dataset_jsonl: Path to dataset JSONL file
+        list_jsonl: Path to file list JSONL file  
+        source_name: Name of the data source
+        agent_name: Name of the processing agent
+        
+    Returns:
+        Path to the generated output file
+    """
+    return process_file_metadata(dataset_jsonl, list_jsonl, source_name, agent_name)
+
+
+if __name__ == "__main__":
+    # Example usage
+    print("File metadata processing utilities")
+    print("Import this module to use get_file_info() and process_file_metadata()")
