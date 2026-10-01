@@ -1,6 +1,6 @@
 ## The Catalog: https://datacatalog.publicneuro.eu/dataset/super/V1
 
-This is a browsable data catalog for the [PublicnEUro](https://publicneuro.eu/) repository. It is generated from metadata using [`datalad-catalog`](https://github.com/datalad/datalad-catalog/). It is a self-contained and static [VueJS](https://vuejs.org/)-based site that can be viewed in any modern internet browser.
+This is a browsable data catalog for the [PublicnEUro](https://publicneuro.eu/) repository. It is generated from metadata using [`datalad-catalog`](https://github.com/datalad/datalad-catalog/). It is a self-contained, static [Vue.js](https://vuejs.org/)-based site that can be viewed in any modern web browser. The PublicnEUro-level information about all datasets is hosted in a [separate repository](https://github.com/Public-nEUro/PublicnEUro-metadata) with its own metadata.
 
 ## Content
 
