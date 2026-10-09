@@ -45,3 +45,9 @@ Please log any feedback or problems you encounter with regards to the functionin
 
 Contributions to this open source project are welcome! Please refer to the [contributor guidelines](http://docs.datalad.org/projects/catalog/en/latest/contributing.html) for more information.
 
+
+## Project-specific catalogue pages
+
+The [Your Project example](https://datacatalog.publicneuro.eu/dataset/super/yourproject) shows how one public-facing project page can group related datasets. Its two sample records are explicitly fictional and contain no participant data, DOI, or access route. The main [V1 catalogue](https://datacatalog.publicneuro.eu/dataset/super/V1?tab=datasets) remains the complete listing.
+
+For a real project, create a collection record and list the existing published PN dataset IDs and versions in its `subdatasets` and `children` arrays. Each card then opens the same version-specific dataset record used by the main catalogue; the dataset's DOI, DUA or licence, status, and download/request route remain authoritative there. See [the project collection template guide](docs/project-collections.md) for the JSON layout and publication steps.
