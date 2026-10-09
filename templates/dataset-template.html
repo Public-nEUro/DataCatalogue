@@ -16,12 +16,15 @@
             {{displayData.display_name}}
           </div>
         </b-card-title>
+        <b-alert v-if="selectedDataset.is_example === true" show variant="warning">
+          <strong>Illustrative example.</strong> This page is fictional. No participant data, DOI, or access route is associated with it.
+        </b-alert>
         <!-- DATASET AUTHORS -->
         <b-card-sub-title class="mb-2">
           <span v-for="(author, index) in selectedDataset.authors"><span v-if="author.givenName">{{author.givenName}} {{author.familyName}}</span><span v-else>{{author.name}}</span><span v-if="index != selectedDataset.authors.length - 1">, </span></span>
         </b-card-sub-title>
         <!-- DATASET VERSION ETC -->
-        <b-card-text>
+        <b-card-text v-if="selectedDataset.is_example !== true">
           <strong>Version:</strong> {{selectedDataset.dataset_version.substring(0,7)}}&nbsp;
           <strong>Last updated:</strong> <span v-if="displayData.last_updated">{{displayData.last_updated}}&nbsp;</span>
           <span v-else><em>unknown</em></span>&nbsp;

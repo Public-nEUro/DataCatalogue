@@ -1,0 +1,8 @@
+{
+  "dataset_options": {
+    "default_tab": "datasets",
+    "include_cite": false,
+    "include_metadata_export": false,
+    "include_access_request": false
+  }
+}

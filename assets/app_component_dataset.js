@@ -269,6 +269,13 @@ const datasetView = () =>
               if (disp_dataset.status === "withdrawn") {
                 disp_dataset.show_access_request = false;
               }
+              // Illustrative records must never offer citation, export, or access controls.
+              if (dataset.is_example === true) {
+                disp_dataset.show_cite = false;
+                disp_dataset.show_export = false;
+                disp_dataset.show_download = false;
+                disp_dataset.show_access_request = false;
+              }
               // Create href mailto for request access contact
               if (
                 dataset.hasOwnProperty("access_request_contact") &&
@@ -367,7 +374,8 @@ const datasetView = () =>
                 obj[key] = this.getRichData(key, dataset, disp_dataset)
               }
 
-              scripttag.textContent = JSON.stringify(pruneObject(obj));
+              // Fictional examples are not real datasets for machine indexing.
+              scripttag.textContent = dataset.is_example === true ? "" : JSON.stringify(pruneObject(obj));
 
               dataset_id_path = getFilePath(this.selectedDataset.dataset_id)
               fetch(dataset_id_path, {cache: "no-cache"})

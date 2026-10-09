@@ -1,0 +1,14 @@
+{
+  "type": "dataset",
+  "dataset_id": "example-yourproject-eeg",
+  "dataset_version": "V1",
+  "is_example": true,
+  "name": "Example: longitudinal EEG and fMRI",
+  "description": "Fictional follow-up dataset showing how related acquisitions can be presented as a separate, citable release within the same project. A real record would describe the visit schedule, EEG tasks and recordings, functional MRI runs, links between visits, BIDS metadata, and any derived measures. The project page could then connect this release to the baseline structural MRI dataset without merging their distinct access conditions.\n\nIts public description could help a prospective user judge scientific relevance before applying for access. Dataset-specific permissions, a Data User Agreement or open licence, a persistent DOI, and the actual retrieval route would belong to the published PN version record. This example contains no recordings, participants, DOI, or access mechanism.",
+  "keywords": ["Example dataset", "EEG", "fMRI", "Longitudinal", "BIDS"],
+  "metadata_sources": {
+    "sources": [{"source_name": "PublicnEUro example", "source_version": "1", "agent_name": "PublicnEUro", "source_time": 1791504000}]
+  },
+  "children": [],
+  "subdatasets": []
+}
