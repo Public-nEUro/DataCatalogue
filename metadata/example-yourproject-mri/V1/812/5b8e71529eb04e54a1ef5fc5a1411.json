@@ -1,0 +1,14 @@
+{
+  "type": "dataset",
+  "dataset_id": "example-yourproject-mri",
+  "dataset_version": "V1",
+  "is_example": true,
+  "name": "Example: baseline structural MRI",
+  "description": "Fictional dataset showing how a project might describe a baseline structural MRI collection from several sites. A real record would explain the recruitment criteria, acquisition protocols, available T1-weighted and diffusion imaging, quality-control procedures, BIDS organization, and the meaning of its participant-level variables.\n\nThe public metadata could summarize participant groups and imaging modalities without exposing individual records. If these data required controlled access, the dataset page would identify the data controller, Data User Agreement, eligibility rules, and access route. On publication, the real dataset version would receive its own PN identifier and DOI for citation. This example contains no scans, participants, DOI, or access mechanism.",
+  "keywords": ["Example dataset", "MRI", "Structural imaging", "BIDS"],
+  "metadata_sources": {
+    "sources": [{"source_name": "PublicnEUro example", "source_version": "1", "agent_name": "PublicnEUro", "source_time": 1791504000}]
+  },
+  "children": [],
+  "subdatasets": []
+}

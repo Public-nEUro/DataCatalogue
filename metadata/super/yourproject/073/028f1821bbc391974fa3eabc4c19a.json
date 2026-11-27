@@ -1,0 +1,20 @@
+{
+  "type": "dataset",
+  "dataset_id": "super",
+  "dataset_version": "yourproject",
+  "is_example": true,
+  "name": "Your project: brain health across time (example)",
+  "description": "This fictional project shows how a research team can present several related datasets through one public-facing page. The project description can explain the scientific questions, participating sites, data types, collection timeline, and governance shared across the studies.\n\nThe two example records below illustrate a structural MRI baseline dataset and a longitudinal EEG and functional MRI follow-up dataset. Each can have its own methods, participant summary, access conditions, version, and citation. These records are examples only: no participant data are hosted and no access requests or DOIs exist for them.\n\nFor a real project, this page should link to the published PN dataset versions already held in PublicnEUro. Those version-specific records remain in the full catalogue at https://datacatalog.publicneuro.eu/dataset/super/V1?tab=datasets and are the authoritative pages for discovery, access, and citation. The project page is an additional way to navigate the collection, not a replacement for individual dataset records.",
+  "keywords": ["Example project", "Brain imaging", "Project collection"],
+  "metadata_sources": {
+    "sources": [{"source_name": "PublicnEUro example", "source_version": "1", "agent_name": "PublicnEUro", "source_time": 1791504000}]
+  },
+  "children": [
+    {"type": "dataset", "name": "Example: baseline structural MRI", "dataset_id": "example-yourproject-mri", "dataset_version": "V1"},
+    {"type": "dataset", "name": "Example: longitudinal EEG and fMRI", "dataset_id": "example-yourproject-eeg", "dataset_version": "V1"}
+  ],
+  "subdatasets": [
+    {"dataset_id": "example-yourproject-mri", "dataset_version": "V1", "dataset_path": "example-yourproject-mri", "dirs_from_path": ["Example: baseline structural MRI"]},
+    {"dataset_id": "example-yourproject-eeg", "dataset_version": "V1", "dataset_path": "example-yourproject-eeg", "dirs_from_path": ["Example: longitudinal EEG and fMRI"]}
+  ]
+}
