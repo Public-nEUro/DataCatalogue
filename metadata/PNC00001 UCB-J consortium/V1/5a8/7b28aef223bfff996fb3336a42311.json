@@ -40,6 +40,8 @@
             "dataset_version": "V1"
         },
         {
+            "type": "dataset",
+            "name": "PN000013 Aarhus University (PACE) UCBJ cohort",
             "dataset_id": "PN000013 Aarhus University (PACE) UCBJ cohort",
             "dataset_version": "V1",
             "dataset_path": "PN000013 Aarhus University (PACE) UCBJ cohort",
